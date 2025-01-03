@@ -1,7 +1,7 @@
 library(tidyverse)
 
-inat <- read_csv("population_data/data/iNaturalist_Dec102024.csv")
-lab <- read_csv("population_data/data/lab_obs.csv")
+inat <- read_csv("data/iNaturalist_Dec102024.csv")
+lab <- read_csv("data/lab_obs.csv")
 
 inat <- inat %>% filter(is.na(geoprivacy)) %>% drop_na(latitude)
 
@@ -32,8 +32,8 @@ all_obs$manual_id <- all_obs$manual_id + 40000
 
 records <- rbind(inat_small,lab_small)
 
-write_csv(all_obs,"population_data/data/inaturalist_locations.csv")
-write_csv(records,"population_data/data/inaturalist_observations.csv")
+write_csv(all_obs,"data/inaturalist_locations.csv")
+write_csv(records,"data/inaturalist_observations.csv")
 
 
 
