@@ -12,6 +12,8 @@ The population data comes from several sources collected by forest managers, lab
 
 # Habitat and Weather Features
 
+We use several markers of habitat and weather quality to analyze the effects on population range, including biomass, forest composition, and landscape type. Biomass for the contiguous United States can be downloaded from [here](https://data.fs.usda.gov/geodata/rastergateway/biomass/), biomass for Canada can be downloaded from [here](https://open.canada.ca/data/en/dataset/698dc612-5059-43ee-84f3-49756e6d5ad6). The script `biomass.R` in the `landscape` directory shows how average and maximum biomass within a 3 kilometer radius around each location. We have provided an example file `range_locations_example.csv` in the `data` directory to use for analyses because the entire dataset takes a long time to extract the data.  For the Canadian biomass dataset, the data product is not masked by forest cover. We used the same methods and data to mask the biomass data as the authors of the dataset did. The forest cover dataset can be downloaded [here](https://storage.googleapis.com/earthenginepartners-hansen/GFC-2023-v1.11/download.html). 
+
 # Model fitting and comparison
 
 # Making projections under climate change
