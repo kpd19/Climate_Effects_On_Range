@@ -7,9 +7,9 @@ library(geosphere)
 
 `%ni%` <- Negate(`%in%`)
 
-us_biomass <- raster("conus_forest_biomass_mg_per_ha.img")
-canada_biomass <- raster("kNN_Structure_Biomass_TotalLiveAboveGround_v1.tif")
-latlong <- read_csv("landscape/data/range_locations_example.csv")
+us_biomass <- raster("data/conus_forest_biomass_mg_per_ha.img")
+canada_biomass <- raster("data/kNN_Structure_Biomass_TotalLiveAboveGround_v1.tif")
+latlong <- read_csv("data/range_locations_example.csv")
 
 latlong %>% count(source)
 
@@ -47,11 +47,6 @@ biomass_us <- biomass_us %>% mutate(mean_biomass = ifelse(is.nan(mean_biomass), 
                       max_biomass = ifelse(max_biomass == -Inf, NA,max_biomass))
 
 biomass_us <- merge(biomass_us,ll_info_us, all = TRUE)
-
-biomass_us %>% ggplot() + aes(x = lon, y = lat, color = mean_biomass) + geom_point() + theme_classic(base_size = 15) + 
-  scale_color_viridis_c()
-
-write_csv(biomass_us, "landscape/data/biomass_us_sites.csv")
 
 us_notna <- biomass_us %>% drop_na(mean_biomass) %>% filter(lat >= 48) %>% pull(manual_id)
 
@@ -207,7 +202,7 @@ biomass_all %>% ggplot() + aes(x = lon,y = lat, color = mean_biomass) + geom_poi
   theme_classic() +
   scale_color_viridis_c(option = 'turbo')
 
-write_csv(biomass_all,"landscape/data/biomass_all_sites.csv")
+write_csv(biomass_all,"data/biomass_all_sites.csv")
 
 ##############
 ##############
