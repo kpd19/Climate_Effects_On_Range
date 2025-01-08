@@ -198,6 +198,8 @@ biomass_us <- biomass_us %>% filter(manual_id %ni% in_both)
 
 biomass_all <- rbind(biomass_ca,biomass_us)
 
+biomass_all <- biomass_all %>% mutate(max_biomass = ifelse(is.infinite(max_biomass),0,max_biomass))
+
 biomass_all %>% ggplot() + aes(x = lon,y = lat, color = mean_biomass) + geom_point() + 
   theme_classic() +
   scale_color_viridis_c(option = 'turbo')
