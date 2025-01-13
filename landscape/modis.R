@@ -1,12 +1,10 @@
+library(sp)
 library(raster)
 library(tidyverse)
-library(sp)
-library(sf)
-library(terra)
 
 `%ni%` <- Negate(`%in%`)
 
-latlong <- read_csv("data/range_locations.csv")
+latlong <- read_csv("data/range_locations_example.csv")
 
 modis <- raster("data/NA_NALCMS_landcover_2010v2_250m.tif")
 modis_ids_vals <- read_csv("data/modis_ids.csv")
@@ -46,8 +44,8 @@ non_habitat <- latlong %>% filter(source != 'Synthetic data',
 
 non_habitat2 <- merge(non_habitat,latlong) %>% arrange(classification)
 
-write_csv(non_habitat2, "data/modis_problems.csv")
-non_habitat2 <- read_csv("data/modis_problems_edit.csv")
+write_csv(non_habitat2, "data/modis_problems_example.csv")
+non_habitat2 <- read_csv("data/modis_problems_example_edit.csv")
 
 non_habitat_keep <- non_habitat2 %>% filter(keep == TRUE)
 non_habitat_drop <-  non_habitat2 %>% filter(keep == FALSE)
@@ -90,7 +88,7 @@ latlong1 <- latlong1 %>% mutate(drop = ifelse(manual_id %in% non_habitat_drop$ma
 latlong1 %>% filter(source != 'Synthetic data', drop == FALSE) %>%
   ggplot() + aes(x = lon, y = lat, color = classification)+ geom_point() + theme_classic() 
 
-write_csv(latlong1, "data/modis_classifications.csv")
+write_csv(latlong1, "data/modis_classifications_example.csv")
 
 a.time <- Sys.time()
 modis_id = raster::extract(modis,sites_modis_transformed, buffer = 5000)
@@ -105,7 +103,6 @@ modis_id_long <- merge(modis_id_long,modis_ids_vals)
 modis_id_long <- merge(modis_id_long,ll_info_modis)
 
 head(modis_id_long)
-
 
 modis_summary <- modis_id_long %>% mutate(n = 1) %>% 
   group_by(lat,lon,manual_id) %>% mutate(total = sum(n)) %>% 
@@ -122,18 +119,22 @@ test <- merge(modis_summary_wide,latlong)
 
 test_off <- test %>% filter(is.na(`Temperate or sub-polar needleleaf forest`),source != "Synthetic data") %>% select(lat,lon,manual_id,near_needle,classification)
 
-write_csv(test_off, "data/modis_problems_5k.csv")
+write_csv(test_off, "data/modis_problems_5k_example.csv")
 
-test_off2 <- read_csv("data/modis_problems_5k_edit.csv")
+# there are no issues in the sample file
 
-trap_fine <- test_off2 %>% filter(keep == TRUE) %>% pull(manual_id)
-
-modis_summary_wide <- modis_summary_wide %>% mutate(near_needle = ifelse(manual_id %in% trap_fine,1,near_needle))
+if (length(test_off$lat) >0){
+  test_off2 <- read_csv("data/modis_problems_5k_example_edit.csv")
+  
+  trap_fine <- test_off2 %>% filter(keep == TRUE) %>% pull(manual_id)
+  
+  modis_summary_wide <- modis_summary_wide %>% mutate(near_needle = ifelse(manual_id %in% trap_fine,1,near_needle))
+}
 
 modis_summary_wide %>% drop_na(`Temperate or sub-polar needleleaf forest`) %>%
   ggplot() + aes(x = lon,y = lat, color = `Temperate or sub-polar needleleaf forest`) +
   geom_point() + theme_classic(base_size = 15) +
   scale_color_viridis_c()
 
-write_csv(modis_summary_wide,'data/modis_5k_nearneedle.csv') 
+write_csv(modis_summary_wide,'data/modis_5k_nearneedle_example.csv') 
 
