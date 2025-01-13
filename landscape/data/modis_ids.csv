@@ -1,0 +1,21 @@
+﻿modis_id,classification,short
+1,Temperate or sub-polar needleleaf forest,needleleaf
+2,Sub-polar taiga needleleaf forest,taiga
+3,Tropical or sub-tropical broadleaf evergreen forest,tropical_evergreen
+4,Tropical or sub-tropical broadleaf deciduous forest,tropical_deciduous
+5,Temperate or sub-polar broadleaf deciduous forest,temperature_deciduous
+6,Mixed Forest,mixed
+7,Tropical or sub-tropical shrubland,tropical_shrub
+8,Temperate or sub-polar shrubland,temperature_shrub
+9,Tropical or sub-tropical grassland,tropical_grass
+10,Temperate or sub-polar grassland ,temperature_grass
+11,Sub-polar or polar shrubland-lichen-moss,shrub_lichen
+12,Sub-polar or polar grassland-lichen-moss,grass_lichen
+13,Sub-polar or polar barren-lichen-moss,barren_lichen
+14,Wetland,wetland
+15,Cropland,cropland
+16,Barren Lands,barren
+17,Urban and Built-up,urban
+18,Water,water
+19,Snow and Ice,snow
+0,No data,no_data
