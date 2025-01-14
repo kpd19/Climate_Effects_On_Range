@@ -16,6 +16,9 @@ We use several markers of habitat and weather quality to analyze the effects on 
 
 The next feature of habitat quality uses the land cover classification dataset from the North American Land Change Monitoring System (download [here](http://www.cec.org/north-american-environmental-atlas/land-cover-2010-modis-250m/)), to characterize the landscape at each site. The script `modis.R` in the `landscape` directory collects the land cover classification at each site, as well as the percent of each land cover class within 5 kilometers. During the first step, we identify locations in our population dataset that are not suitable for use in our random forest model, the majority of which are in residential or cropland areas. We exclude these locations because the biomass and forest composition datasets are not reliable in these areas. To further identify Douglas-fir tussock moth habitat, we also generate a feature `near_needle` which is 1 if the location is within 5km of a needleleaf forest class, and 0 if not within 5km. 
 
+The script `forest.R` in the `landscape` directory uses rasters on forest composition to aggregate percent of each tree species within 3 kilometers of each location. The data for the continental United States can be found [here](https://data.fs.usda.gov/geodata/rastergateway/forest_type/). Detailes for the data for Canada can be found [here](https://gee-community-catalog.org/projects/ca_species/), which is accessed through Google Earth Engine. You must first create a Google Earth Engine [project](https://code.earthengine.google.com/register) before you can access the data. The example code used in Google Earth Engine can be found as `Earth_Engine_CA_TREE_example.txt`, although it must be executed in Google Earth Engine. The example script and output of forest composition can be found in `data`.
+
+
 # Model fitting and comparison
 
 # Making projections under climate change
