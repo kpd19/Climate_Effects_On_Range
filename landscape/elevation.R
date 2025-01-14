@@ -23,8 +23,6 @@ for(j in 1:bins){
     temp$lon <- loc_data2$lon[i]
     elev <- rbind(elev,temp)
     
-    if (i %% 100 == 0)
-      print(paste0("Finishing",i))
   }
   
   elev <- elev %>% rename(elev2 = srtm3) %>% mutate(elev2 = ifelse(elev2 <= -1000, NA,elev2))
