@@ -1,0 +1,143 @@
+﻿number,nothing1,nothing2,nothing3,nothing4,nothing5,nothing6,nothing7,nothing8,nothing9,nothing10,name
+101,Jack,pine,,,,,,,,,Jack pine        
+102,Red,pine,,,,,,,,,Red pine        
+103,Eastern,white,pine,,,,,,,,Eastern white pine       
+104,Eastern,White,pine,/,Eastern,hemlock,,,,,Eastern White pine / Eastern hemlock    
+105,Eastern,hemlock,,,,,,,,,Eastern hemlock        
+121,Balsam,fir,,,,,,,,,Balsam fir        
+122,White,spruce,,,,,,,,,White spruce        
+123,Red,spruce,,,,,,,,,Red spruce        
+124,Red,spruce,/,balsam,fir,,,,,,Red spruce / balsam fir     
+125,Black,spruce,,,,,,,,,Black spruce        
+126,Tamarack,,,,,,,,,,Tamarack         
+127,Northern,white-cedar,,,,,,,,,Northern white-cedar        
+141,Longleaf,pine,,,,,,,,,Longleaf pine        
+142,Slash,pine,,,,,,,,,Slash pine        
+161,Loblolly,pine,,,,,,,,,Loblolly pine        
+162,Shortleaf,pine,,,,,,,,,Shortleaf pine        
+163,Virginia,pine,,,,,,,,,Virginia pine        
+164,Sand,pine,,,,,,,,,Sand pine        
+165,Table-mountain,pine,,,,,,,,,Table-mountain pine        
+166,Pond,pine,,,,,,,,,Pond pine        
+167,Pitch,pine,,,,,,,,,Pitch pine        
+168,Spruce,pine,,,,,,,,,Spruce pine        
+181,Eastern,redcedar,,,,,,,,,Eastern redcedar        
+182,Rocky,Mountain,juniper,,,,,,,,Rocky Mountain juniper       
+183,Western,juniper,,,,,,,,,Western juniper        
+184,Juniper,woodland,,,,,,,,,Juniper woodland        
+185,Pinyon,juniper,woodland,,,,,,,,Pinyon juniper woodland       
+201,Douglas-fir,,,,,,,,,,Douglas-fir         
+202,Port-Orford-cedar,,,,,,,,,,Port-Orford-cedar         
+221,Ponderosa,pine,,,,,,,,,Ponderosa pine        
+222,Incense,cedar,,,,,,,,,Incense cedar        
+223,Jeffrey,pine,/,Coulter,pine,/,bigcone,Douglas-fir,,,Jeffrey pine / Coulter pine / bigcone Douglas-fir  
+224,Sugar,pine,,,,,,,,,Sugar pine        
+241,Western,white,pine,,,,,,,,Western white pine       
+261,White,fir,,,,,,,,,White fir        
+262,Red,fir,,,,,,,,,Red fir        
+263,Noble,fir,,,,,,,,,Noble fir        
+264,Pacific,silver,fir,,,,,,,,Pacific silver fir       
+265,Engelmann,spruce,,,,,,,,,Engelmann spruce        
+266,Engelmann,spruce,/,subalpine,fir,,,,,,Engelmann spruce / subalpine fir     
+267,Grand,fir,,,,,,,,,Grand fir        
+268,Subalpine,fir,,,,,,,,,Subalpine fir        
+269,Blue,spruce,,,,,,,,,Blue spruce        
+270,Mountain,hemlock,,,,,,,,,Mountain hemlock        
+271,Alaska-yellow-cedar,,,,,,,,,,Alaska-yellow-cedar         
+281,Lodgepole,pine,,,,,,,,,Lodgepole pine        
+301,Western,hemlock,,,,,,,,,Western hemlock        
+304,Western,redcedar,,,,,,,,,Western redcedar        
+305,Sitka,spruce,,,,,,,,,Sitka spruce        
+321,Western,larch,,,,,,,,,Western larch        
+341,Redwood,,,,,,,,,,Redwood         
+342,Giant,sequoia,,,,,,,,,Giant sequoia        
+361,Knobcone,pine,,,,,,,,,Knobcone pine        
+362,Southwest,white,pine,,,,,,,,Southwest white pine       
+363,Bishop,pine,,,,,,,,,Bishop pine        
+364,Monterey,pine,,,,,,,,,Monterey pine        
+365,Foxtail,pine,/,bristlecone,pine,,,,,,Foxtail pine / bristlecone pine     
+366,Limber,pine,,,,,,,,,Limber pine        
+367,Whitebark,pine,,,,,,,,,Whitebark pine        
+368,Misc.,western,softwoods,,,,,,,,Misc. western softwoods       
+371,California,mixed,conifer,,,,,,,,California mixed conifer       
+381,Scotch,pine,,,,,,,,,Scotch pine        
+382,Australian,pine,,,,,,,,,Australian pine        
+383,Other,exotic,softwoods,,,,,,,,Other exotic softwoods       
+384,Norway,Spruce,,,,,,,,,Norway Spruce        
+385,Introduced,larch,,,,,,,,,Introduced larch        
+401,Eastern,white,pine,/,N.,red,oak,/,white,ash,Eastern white pine / N. red oak / white ash
+402,Eastern,redcedar,/,hardwood,,,,,,,Eastern redcedar / hardwood      
+403,Longleaf,pine,/,oak,,,,,,,Longleaf pine / oak      
+404,Shortleaf,pine,/,oak,,,,,,,Shortleaf pine / oak      
+405,Virginia,pine,/,southern,red,oak,,,,,Virginia pine / southern red oak    
+406,Loblolly,pine,/,hardwood,,,,,,,Loblolly pine / hardwood      
+407,Slash,pine,/,hardwood,,,,,,,Slash pine / hardwood      
+409,Other,pine,/,hardwood,,,,,,,Other pine / hardwood      
+501,Post,oak,/,blackjack,oak,,,,,,Post oak / blackjack oak     
+502,Chestnut,oak,,,,,,,,,Chestnut oak        
+503,White,oak,/,red,oak,/,hickory,,,,White oak / red oak / hickory   
+504,White,oak,,,,,,,,,White oak        
+505,Northern,red,oak,,,,,,,,Northern red oak       
+506,Yellow-poplar,/,white,oak,/,N.,red,oak,,,Yellow-poplar / white oak / N. red oak  
+507,Sassafras,/,persimmon,,,,,,,,Sassafras / persimmon       
+508,Sweetgum,/,yellow-poplar,,,,,,,,Sweetgum / yellow-poplar       
+509,Bur,oak,,,,,,,,,Bur oak        
+510,Scarlet,oak,,,,,,,,,Scarlet oak        
+511,Yellow-poplar,,,,,,,,,,Yellow-poplar         
+512,Black,walnut,,,,,,,,,Black walnut        
+513,Black,locust,,,,,,,,,Black locust        
+514,Southern,scrub,oak,,,,,,,,Southern scrub oak       
+515,Chestnut,oak,/,black,oak,/,scarlet,oak,,,Chestnut oak / black oak / scarlet oak  
+519,Red,maple,/,oak,,,,,,,Red maple / oak      
+520,Mixed,upland,hardwoods,,,,,,,,Mixed upland hardwoods       
+601,Swamp,chestnut,oak,/,cherrybark,oak,,,,,Swamp chestnut oak / cherrybark oak    
+602,Sweetgum,/,Nuttall,oak,/,willow,oak,,,,Sweetgum / Nuttall oak / willow oak   
+605,Overcup,oak,/,water,hickory,,,,,,Overcup oak / water hickory     
+606,Atlantic,white-cedar,,,,,,,,,Atlantic white-cedar        
+607,Baldcypress,/,water,tupelo,,,,,,,Baldcypress / water tupelo      
+608,Sweetbay,/,swamp,tupelo,/,red,maple,,,,Sweetbay / swamp tupelo / red maple   
+701,Black,ash,/,American,elm,/,red,maple,,,Black ash / American elm / red maple  
+702,River,birch,/,sycamore,,,,,,,River birch / sycamore      
+703,Cottonwood,,,,,,,,,,Cottonwood         
+704,Willow,,,,,,,,,,Willow         
+705,Sycamore,/,pecan,/,American,elm,,,,,Sycamore / pecan / American elm    
+706,Sugarberry,/,hackberry,/,elm,/,green,ash,,,Sugarberry / hackberry / elm / green ash  
+707,Silver,maple,/,American,elm,,,,,,Silver maple / American elm     
+708,Red,maple,/,lowland,,,,,,,Red maple / lowland      
+709,Cottonwood,/,willow,,,,,,,,Cottonwood / willow       
+722,Oregon,ash,,,,,,,,,Oregon ash        
+801,Sugar,maple,/,beech,/,yellow,birch,,,,Sugar maple / beech / yellow birch   
+802,Black,cherry,,,,,,,,,Black cherry        
+803,Cherry,/,ash,/,yellow-poplar,,,,,,Cherry / ash / yellow-poplar     
+805,Hard,maple,/,basswood,,,,,,,Hard maple / basswood      
+807,Elm,/,ash,/,locust,,,,,,Elm / ash / locust     
+809,Red,maple,/,upland,,,,,,,Red maple / upland      
+901,Aspen,,,,,,,,,,Aspen         
+902,Paper,birch,,,,,,,,,Paper birch        
+904,Balsam,poplar,,,,,,,,,Balsam poplar        
+911,Red,alder,,,,,,,,,Red alder        
+912,Bigleaf,maple,,,,,,,,,Bigleaf maple        
+921,Gray,pine,,,,,,,,,Gray pine        
+922,California,black,oak,,,,,,,,California black oak       
+923,Oregon,white,oak,,,,,,,,Oregon white oak       
+924,Blue,oak,,,,,,,,,Blue oak        
+925,Deciduous,oak,woodland,,,,,,,,Deciduous oak woodland       
+926,Evergreen,oak,woodland,,,,,,,,Evergreen oak woodland       
+931,Coast,live,oak,,,,,,,,Coast live oak       
+932,Canyon,live,oak,/,interior,live,oak,,,,Canyon live oak / interior live oak   
+941,Tanoak,,,,,,,,,,Tanoak         
+942,Califonia,laurel,,,,,,,,,Califonia laurel        
+943,Giant,chinkapin,,,,,,,,,Giant chinkapin        
+951,Pacific,madrone,,,,,,,,,Pacific madrone        
+952,Mesquite,Woodland,,,,,,,,,Mesquite Woodland        
+953,Cercocarpus,woodland,,,,,,,,,Cercocarpus woodland        
+954,Intermountain,maple,woodland,,,,,,,,Intermountain maple woodland       
+955,Misc.,western,hardwood,woodlands,,,,,,,Misc. western hardwood woodlands      
+981,Sabal,palm,,,,,,,,,Sabal palm        
+982,Mangrove,,,,,,,,,,Mangrove         
+989,Other,tropical,,,,,,,,,Other tropical        
+991,Paulownia,,,,,,,,,,Paulownia         
+992,Melaluca,,,,,,,,,,Melaluca         
+993,Eucalyptus,,,,,,,,,,Eucalyptus         
+995,Other,exotic,hardwoods,,,,,,,,Other exotic hardwoods       
+,,,,,,,,,,,         
