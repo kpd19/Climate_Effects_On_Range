@@ -4,7 +4,7 @@ library(tidyverse)
 
 `%ni%` <- Negate(`%in%`)
 
-latlong <- read_csv("data/range_locations_example.csv")
+latlong <- read_csv("data/range_locations.csv")
 
 modis <- raster("data/NA_NALCMS_landcover_2010v2_250m.tif")
 modis_ids_vals <- read_csv("data/modis_ids.csv")
@@ -42,15 +42,7 @@ latlong %>% #filter(type == 'site') %>%
 non_habitat <- latlong %>% filter(source != 'Synthetic data',
                                   classification %in% c("Water",'Urban and Built-up','Cropland','Barren Lands','Wetland','No data'))
 
-non_habitat2 <- merge(non_habitat,latlong) %>% arrange(classification)
-
-write_csv(non_habitat2, "data/modis_problems_example.csv")
-non_habitat2 <- read_csv("data/modis_problems_example_edit.csv")
-
-non_habitat_keep <- non_habitat2 %>% filter(keep == TRUE)
-non_habitat_drop <-  non_habitat2 %>% filter(keep == FALSE)
-
-sites_keep <- sites_modis_transformed[sites_modis_transformed$manual_id %in% non_habitat_keep$manual_id,]
+sites_keep <- sites_modis_transformed[sites_modis_transformed$manual_id %in% non_habitat$manual_id,]
 
 keep_modis <- raster::extract(modis,sites_keep, buffer = 2000)
 
@@ -71,11 +63,9 @@ for(i in 1:length(sites_keep$manual_id)){
 modis_updates <- keep_modis_df %>% mutate(modis_id =ifelse(modis_id ==0,NA,modis_id)) %>% 
   group_by(manual_id) %>% summarize(modis_id = min(modis_id,na.rm=TRUE))
 
-modis_updates <- merge(modis_updates,modis_ids_vals) %>% mutate(type = 'site')
+modis_updates <- merge(modis_updates,modis_ids_vals)
 
 modis_updates %>% count(classification)
-
-non_habitat_drop %>% count(reason)
 
 latlong1 <- latlong %>% filter(manual_id %ni% sites_keep$manual_id)
 
@@ -85,7 +75,7 @@ modis_fix <- merge(modis_fix,modis_updates)
 latlong1 <- rbind(latlong1,modis_fix)
 
 latlong1 <- latlong1 %>% mutate(drop = ifelse(manual_id %in% non_habitat_drop$manual_id,TRUE,FALSE))
-latlong1 %>% filter(source != 'Synthetic data', drop == FALSE) %>%
+latlong1 %>% filter(source != 'Synthetic data') %>%
   ggplot() + aes(x = lon, y = lat, color = classification)+ geom_point() + theme_classic() 
 
 write_csv(latlong1, "data/modis_classifications_example.csv")
@@ -115,7 +105,7 @@ modis_summary_wide <- modis_summary %>% select(lat,lon,manual_id,classification,
 
 modis_summary_wide <- modis_summary_wide %>% mutate(near_needle = ifelse(is.na(`Temperate or sub-polar needleleaf forest`) == TRUE, FALSE,TRUE))
 
-test <- merge(modis_summary_wide,latlong)
+test <- merge(modis_summary_wide,latlong1)
 
 test_off <- test %>% filter(is.na(`Temperate or sub-polar needleleaf forest`),source != "Synthetic data") %>% select(lat,lon,manual_id,near_needle,classification)
 
