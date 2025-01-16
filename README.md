@@ -20,6 +20,8 @@ The script `forest.R` in the `landscape` directory uses rasters on forest compos
 
 The `elevation.R` script in the `landscape` directory uses the `geonames` package to aggregate the elevation at each location. You must first create an account [here](https://www.geonames.org/login), and then enter your account where it says "your_username". Even the example data, which only includes 1000 locations, takes a long time to run and occasionally crashed because it collects each elevation individually. To ameliorate this, the script loops through subsets of the dataset before aggregating them all at the end. The example output on the example data is included in data as `elevation_example.R`. 
 
+The script `combine_features.R` aggregates the biomass, land cover class, forest composition, and elevation features. The example output for the subset of example locations is in the `data` directory as `all_habitat_features.csv.
+
 # Weather Features
 
 
