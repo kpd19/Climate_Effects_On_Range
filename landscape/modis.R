@@ -4,10 +4,11 @@ library(tidyverse)
 
 `%ni%` <- Negate(`%in%`)
 
-latlong <- read_csv("data/range_locations.csv")
+latlong <- read_csv("data/range_locations_example.csv")
 
 modis <- raster("data/NA_NALCMS_landcover_2010v2_250m.tif")
 modis_ids_vals <- read_csv("data/modis_ids.csv")
+
 
 ##############
 ##############
@@ -69,12 +70,11 @@ modis_updates %>% count(classification)
 
 latlong1 <- latlong %>% filter(manual_id %ni% sites_keep$manual_id)
 
-modis_fix <- latlong %>% filter(manual_id %in% sites_keep$manual_id) %>% select(-modis_id) %>% select(-classification)
+modis_fix <- latlong %>% filter(manual_id %in% sites_keep$manual_id) %>% select(lat,lon,source,manual_id)
 modis_fix <- merge(modis_fix,modis_updates)
 
 latlong1 <- rbind(latlong1,modis_fix)
 
-latlong1 <- latlong1 %>% mutate(drop = ifelse(manual_id %in% non_habitat_drop$manual_id,TRUE,FALSE))
 latlong1 %>% filter(source != 'Synthetic data') %>%
   ggplot() + aes(x = lon, y = lat, color = classification)+ geom_point() + theme_classic() 
 
@@ -126,5 +126,6 @@ modis_summary_wide %>% drop_na(`Temperate or sub-polar needleleaf forest`) %>%
   geom_point() + theme_classic(base_size = 15) +
   scale_color_viridis_c()
 
-write_csv(modis_summary_wide,'data/modis_5k_nearneedle_example.csv') 
+modis_summary_wide <- merge(latlong1,modis_summary_wide)
 
+write_csv(modis_summary_wide,'data/modis_5k_nearneedle_example.csv') 
