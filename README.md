@@ -24,7 +24,16 @@ The script `combine_features.R` aggregates the biomass, land cover class, forest
 
 # Weather Features
 
+The historical weather data from used in our analyses comes from ECMWF Reanalysis v5 (ERA5), which has data from 1940- present day. The weather data can be accessed from the Climate Data store via their API. Details for getting an account and downloading the data can be found in the script `Download_ERA_5_CDS.ipynb` in the `weather` directory. The script is written to be executed in a [Google Colab](https://colab.research.google.com/) environment. The historical weather reanalysis data downloaded includeds hourly temperature, humidity, and precipitation from 1940-2023. The data is cleaned in the scripts in the `weather` directory. The data is then resampled from daily to the following weather summary statistics:
 
+* Average monthly mean temperature
+* Average monthly relative humidity
+* Monthly total precipitation
+* Annual total precipitation
+* Date of predicted hatch, based on the literature using the sum of degree days above 5.6&deg;C.
+* Summed degree days for the 70 days after the predicted hatch date
+
+The climate change projections come from the [NASA Earth Exchange Global Daily Downscaled Projections](https://www.nccs.nasa.gov/services/data-collections/land-based-products/nex-gddp-cmip6) (NEX-GDDP-CMIP6). The data is then downsampled from hourly to daily timescales using the `CMIP6_data_cleaning.ipynb` and the same summary statistics as the historical data are calculated. 
 
 # Model fitting and comparison
 
