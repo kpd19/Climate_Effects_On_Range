@@ -4,7 +4,7 @@ This library contains code used in the manuscript titled Climate Effects of Rang
 
 # Requirements and Setup
 
-The code was built using R version 4.3.2 and Python version 3.10.12.  R can be downloaded [here](https://www.r-project.org). Python can be operated using the Jupyter Notebook package in Visual Studio Code Editor, which can be downloaded [here](https://code.visualstudio.com/download). The code requires several packages that are not part of the base R installations. After installing R, navigate to the main repository directory and run the installation.R script to install necessary packages. After installing Python, run the installation.ipynb script to install necessary packages. 
+The code was built using R version 4.3.2 and Python version 3.10.12. R can be downloaded [here](https://www.r-project.org). Python can be installed via Anaconda [here](https://docs.anaconda.com/anaconda/install/), and can be operated using the Jupyter Notebook Extension in Visual Studio Code Editor, which can be downloaded [here](https://code.visualstudio.com/download). The code requires several packages that are not part of the base R installations. After installing R, navigate to the main repository directory and run the installation.R script to install necessary packages. The Python packages used in this research are `numpy`, `xarray`, `pandas`, `datetime`, `flox`, `glob`, and `os`. 
 
 # Aggregating spatio-temporal Douglas-fir tussock moth population data 
 
