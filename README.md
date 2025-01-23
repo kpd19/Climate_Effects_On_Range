@@ -39,5 +39,7 @@ The climate change projections come from the [NASA Earth Exchange Global Daily D
 
 # Model fitting and comparison
 
+The script `presence_absence.R` combines the population dataset and synthetic dataset with the habitat features. The population data is split into two categories based on the year the observation occurred, the early time period is from 1990-2005 and the late time period is from 2006-2023. The script uses the population data to categorize each of the synthetic data (pseudo-absence) points based on the distance to the nearest grid cell that has a Douglas-fir tussock moth population for the two time periods, `in` if the synthetic data is in the same grid cell as a population, `near-1` if it is the nearest neighbor to a grid cell with a popualation, `near-2` if it is 2 grid cells away, `near-3` if it is 3 grid cells away, and `out` if it is more than 3 grid cells away. Using the example data points, the graphs in the   `figures` directory, `early_coordinates_example.pdf` and `late_coordinates_example.pdf`, demonstrate this. The data is then split into two datasets for each time period, with the population records as *presences* and the synthetic data as *absences*. 
+
 # Making projections under climate change
 
