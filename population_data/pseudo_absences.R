@@ -6,6 +6,8 @@ lons <- seq(-128,-104,0.25)
 ll_grid <- data.frame(expand.grid(lats,lons))
 colnames(ll_grid) <- c("lat_coord","lon_coord")
 
+ll_grid <- merge(ll_grid, data.frame(plt = 1:5))
+
 ll_grid$n <- 0
 
 ll_grid <- ll_grid %>% mutate(n = ifelse(lat_coord < 48 & lon_coord < -124.5 ,-1,n))
