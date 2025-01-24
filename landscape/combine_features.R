@@ -2,7 +2,27 @@ library(tidyverse)
 
 `%ni%` <- Negate(`%in%`)
 
-setwd("/Users/katherinedixon/Documents/StuffINeed/_Research/Climate_Range/landscape")
+find_nas <- function(dataset){
+  
+  probs <- c()
+  for(i in 1:dim(dataset)[2]){
+    
+    test <- sum(is.na(dataset[,i]))
+    test2 <- sum(is.logical(dataset[,i]))
+    
+    test3 <- sum(test,test2)
+    
+    if (test3 > 0){
+      probs <- c(probs,colnames(dataset)[i])
+    }
+  }
+  
+  if (length(probs)>0){
+    print(paste0("List of problems: ", paste(probs,collapse = ', ')))
+  } else{
+    print("No problems in dataset found")
+  }
+}
 
 forest <- read_csv("data/forest_composition_example.csv")
 biomass <- read_csv("data/biomass_all_sites_example.csv")
@@ -65,5 +85,7 @@ all_wide2 %>% ggplot() + aes(x = lon,y = lat, color = Abies) + geom_point() + th
   scale_color_viridis_c(option = 'mako')
 
 ll4 <- merge(ll3,all_wide2)
+
+find_nas(ll4)
 
 write_csv(ll4,"data/all_habitat_features_example.csv")
