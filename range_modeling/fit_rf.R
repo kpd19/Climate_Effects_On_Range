@@ -11,32 +11,9 @@ library(pdp)
 
 setwd("/Users/katherinedixon/Documents/StuffINeed/_Research/Climate_Range/range_modeling/")
 
+source("rf_functions.R")
+
 set.seed <- 11
-
-`%ni%` <- Negate(`%in%`)
-
-find_nas <- function(dataset){
-  
-  probs <- c()
-  for(i in 1:dim(dataset)[2]){
-    
-    test <- sum(is.na(dataset[,i]))
-    test2 <- sum(is.logical(dataset[,i]))
-  
-    test3 <- sum(test,test2)
-    
-    if (test3 > 0){
-      probs <- c(probs,colnames(dataset)[i])
-    }
-  }
-  
-  if (length(probs)>0){
-    print(paste0("List of problems: ", probs))
-  } else{
-    print("No problems in dataset found")
-  }
-}
-
 
 canada_data = gadm(country="CAN", level = 1, path = tempdir())
 bc_data = canada_data[canada_data$NAME_1 == "British Columbia", ]
@@ -88,6 +65,14 @@ test_all_lag0 %>% mutate(n = 1) %>% group_by(source) %>% count(n)
 
 colnames(train_lag0)[c(12:66,68:78)][colnames(test_all_lag0)[c(12:66,68:78)] %ni% var_names_long$variables]
 
+
+new_data <- test_all_lag0 %>% filter(track_late %in% c('in','near-1'), dataset == 'testing')
+
+train_new <- rbind(train_lag0, new_data)
+
+train_new %>% ggplot() + aes(x = lon, y = lat, color = present) + geom_point() + 
+  theme_classic() + facet_wrap(~dataset)
+
 ################
 
 keep_col <- colnames(train_lag0)[c(9,12:66,68:78)]
@@ -99,6 +84,14 @@ find_nas(rf_train_lag0)
 
 pa_rf_lag0 <- randomForest(x = rf_train_lag0[-1],
                            y = rf_train_lag0$present,
+                           ntree = 2000, keep.forest = TRUE, 
+                           importance = TRUE)
+
+rf_train_new <- train_new %>% select(keep_col)  %>% mutate(present = ifelse(present == 1, 'present','absent')) %>% 
+  mutate(present = factor(present, levels = c('present','absent')))
+
+pa_rf_lag0_new <- randomForest(x = rf_train_new[-1],
+                           y = rf_train_new$present,
                            ntree = 2000, keep.forest = TRUE, 
                            importance = TRUE)
 
@@ -116,24 +109,10 @@ rf_all <- rfl0
 
 rf_all_thresh <- merge(rf_all, data.frame(thresh = seq(0.0,1.0,0.025)))
 
-roc <- rf_all_thresh %>% filter(dataset =='testing') %>% mutate(present_name = ifelse(present == 1, 'present','absent'),
-                                                             pred_name = ifelse(PA_pred >=thresh,'present','absent')) %>%
-  group_by(present_name,lag,thresh) %>% count(pred_name) %>% 
-  group_by(present_name,lag,thresh) %>% mutate(tot = sum(n), 
-                                               p = n/tot) %>% 
-  mutate(type = case_when(present_name == 'absent' & pred_name == 'absent' ~'true_negative', 
-                          present_name == 'absent' & pred_name == 'present' ~'false_positive', 
-                          present_name == 'present' & pred_name == 'absent' ~'false_negative', 
-                          present_name == 'present' & pred_name == 'present' ~'true_positive')) %>%  
-  ungroup() %>% 
-  select(lag,thresh,p,type) %>% pivot_wider(names_from = 'type', values_from = 'p') %>% 
-  mutate(TPR = true_positive/(true_positive + false_negative),
-         FPR = false_positive/(false_positive + true_negative))
-
-maximized <- roc %>% mutate(diff = abs(TPR-FPR)) %>% group_by(lag) %>% filter(diff == max(diff,na.rm=TRUE)) %>% arrange(desc(diff))
+roc1 <- get_roc(rfl0[rfl0$dataset == 'testing',])
 
 pdf("_plots/_rfpa4/roc_curve.pdf",height = 5, width = 7)
-roc %>% 
+roc1 %>% 
   ggplot() + aes(x = FPR, y = TPR, color = as.factor(lag)) + 
   geom_point(size = 1)+ geom_line(size = 1) + theme_classic(base_size = 15) + 
   xlab("False Positive Rate") + ylab("True Positive Rate") +
@@ -141,7 +120,7 @@ roc %>%
   geom_abline(intercept =0, slope = 1, linetype = 'dashed', color = 'grey55') +
   scale_color_brewer('Time Lag', palette = "Dark2") +
   ggtitle("Reciever operating characteristic (ROC)") +
-  geom_point(data = maximized, aes(x = FPR,y = TPR), color = 'black', size = 2)
+  geom_point(data = roc1[roc1$maximized == 1,], aes(x = FPR,y = TPR, shape = maximized), color = 'black', size = 2)
 dev.off()
 
 # auc_df <- c()
@@ -316,7 +295,7 @@ var_imp_all %>% mutate(lag_name = paste0('lag = ',lag)) %>%
   mutate(lag_name = factor(lag_name, levels = c('lag = 0','lag = 5','lag = 10','lag = 15','lag = 20','lag = 30','lag = 40'))) %>% 
   group_by(lag) %>% 
   arrange(MeanDecreaseGini) %>% filter(MeanDecreaseGini>0) %>% 
-  ggplot(aes(x=reorder(name, MeanDecreaseGini), y=MeanDecreaseGini, color = type, fill = type)) + 
+  ggplot(aes(x=reorder(name, MeanDecreaseGini), y=MeanDecreaseGini, color = category, fill = category)) + 
   geom_bar(stat='identity') + 
   coord_flip() + 
   ylab('Mean Decrease in Gini Index') + xlab("Variables") +
@@ -401,119 +380,65 @@ plt_diff <- diff_pres + geom_sf(data = state_data, aes(geometry = geometry), col
   theme(plot.title = element_text(hjust = 0.5))+ 
   theme(legend.position = 'top')
 
+m <- pa_rf_lag0
+x <- rf_train_lag0
+xname <- "min_tp"
 
-imp_vars <- var_imp_all %>% filter(lag == 0) %>% arrange(desc(MeanDecreaseGini)) %>% head(20) %>% pull(variables)
+test2 <- get_conf_int(pa_rf_lag0, rf_train_lag0,"preferred_pres","pasta")
 
-imp_vars_df2 <- var_imp_all %>% filter(lag == 0) %>% arrange(desc(MeanDecreaseGini)) %>% head(20)
-
-temp <- partial(pa_rf_lag0, pred.var = imp_vars[1])
-colnames(temp) <- c("value",'yhat')
-temp$param <- imp_vars[1]
-
-temp %>% ggplot() + aes(x = value, y = yhat) + geom_point() + theme_classic()
-
-all_pds <- rbind(all_pds,temp)
-print(i)
+imp_vars <- var_imp_all %>% filter(lag == 0) %>% arrange(desc(MeanDecreaseGini)) %>% head(20)
 
 all_pds <- c()
-for(i in 1:length(imp_vars)){
-  temp <- partial(pa_rf_lag20, pred.var = imp_vars[i])
-  colnames(temp) <- c("value",'yhat')
-  temp$param <- imp_vars[i]
+for(i in 1:length(imp_vars$variables)){
+  
+  temp <- get_conf_int(pa_rf_lag0, rf_train_lag0,imp_vars$variables[i],imp_vars$type[i])
+  temp$param <- imp_vars$variables[i]
   
   all_pds <- rbind(all_pds,temp)
   print(i)
 }
 
-#write_csv(all_pds,"/Volumes/My Book/Synchrony/presence/_rfmod2/partial_dependence.csv")
-all_pds <- read_csv("/Volumes/My Book/Synchrony/presence/_rfmod2/partial_dependence.csv")
+write_csv(all_pds,"output/partial_dependence_lag0.csv")
+
+
+all_pds %>% ggplot() + geom_ribbon(aes(x = value, ymin = lb3, ymax = ub3), linetype = 'dashed',
+                                   fill = 'skyblue1', linetype = 'dashed', color = 'grey55', alpha = 0.5) +
+  geom_line(aes(x = value, y = ub3), linetype = 'dashed') +
+  geom_line(aes(x = value, y = yhat), color = 'navyblue',size = 1.5) +
+  theme_classic() +
+  facet_wrap(~param, scales = 'free_x')
 
 all_rugs <- c()
-for(i in 1:length(imp_vars)){
+for(i in 1:length(imp_vars$variables)){
   
-  temp_vals <- train_lag20 %>% pull(imp_vars[i])
+  temp_vals <- train_lag0 %>% pull(imp_vars$variables[i])
   
   probs <- data.frame(q = seq(0,1,0.1), value = as.numeric(quantile(temp_vals, prob = seq(0,1,0.1))))
-  probs$param <- imp_vars[i]
+  probs$param <- imp_vars$variables[i]
   
   all_rugs <- rbind(all_rugs,probs)
   print(i)
 }
 
-all_rugs <- merge(all_rugs,var_names_long,by.x = c('param'),by.y = c('variables'))
-all_rugs <- all_rugs %>% mutate(name = factor(name, levels = imp_vars_df2$name)) 
+all_rugs2 <- merge(all_rugs,var_names_long,by.x = c('param'),by.y = c('variables'))
+all_rugs2 <- all_rugs2 %>% mutate(name = factor(name, levels = imp_vars$name)) 
 
-all_pds2 <- merge(all_pds,variable_class, by.x = c('param'),by.y = c('variables'))
-all_pds2 <- merge(all_pds2,var_names_long, by.x = c('param','type'),by.y = c('variables','type'))
+all_pds2 <- merge(all_pds,var_names_long, by.x = c('param'),by.y = c('variables'))
 all_pds2 <- all_pds2 %>% mutate(name = factor(name, levels = imp_vars_df2$name)) 
 
 #pdf("_plots/_rfpa4/partial_dependence_pa.pdf", height = 10, width = 16)
-all_pds2 %>% filter(param %ni% c('near_needle','preferred_pres')) %>%
-  ggplot() + aes(x = value, y = yhat, color = type) + geom_line(size = 1.5) + theme_classic(base_size = 15) + 
+all_pds2 %>% 
+  ggplot() + geom_ribbon(aes(x = value, ymin = lb3, ymax = ub3), linetype = 'dashed',
+                         fill = 'skyblue1', linetype = 'dashed', color = 'grey55', alpha = 0.5) +
+  geom_line(aes(x = value, y = ub3), linetype = 'dashed') +
+  geom_line(aes(x = value, y = yhat), color = 'navyblue',size = 1.5) +
+  theme_classic(base_size = 15) + 
   facet_wrap(~name, scales = 'free_x',nrow = 3) + 
   ylab("Partial dependence") + 
-  geom_segment(data = all_rugs[all_rugs$param %ni% c('near_needle','preferred_pres'),],
-               aes(x = value, y = -1.3, yend = -1.1), color = 'black') +
+  geom_segment(data = all_rugs2,
+               aes(x = value, y = -0.1, yend = 0), color = 'black') +
   scale_color_brewer("", palette = "Set1")+
-  theme(legend.position = 'top')
+  theme(legend.position = 'top') 
 #dev.off()
 
-partial(pa_rf_lag0, pred.var = c("min_tp","max_tp"))
 
-m <- pa_rf_lag0
-x <- rf_train_lag0
-xname <- "min_tp"
-lci <- 0.25
-uci <- 0.75
-delta <- TRUE
-
-pd <- partial(pa_rf_lag0, pred.var = xname)
-colnames(pd) <- c("value",'yhat')
-pd$param <- xname
-
-conf.int <-(uci-lci)*100
-temp <- pd$value
-y.hat.mean <- vector()
-y.hat.lb <- vector()
-y.hat.ub <- vector()
-y <- stats::predict(m, x, type = 'prob')
-for (i in 1:length(temp)){
-  xtemp <- x
-  xtemp[, xname] <- temp[i]
-  y.hat <- stats::predict(m, xtemp, type = 'prob')
-  if (delta == TRUE){ y.hat <- y.hat - y }
-  y.hat.mean[i] <- stats::weighted.mean(y.hat)
-  y.hat.lb[i] <- stats::quantile(y.hat, lci)
-  y.hat.ub[i] <- stats::quantile(y.hat, uci)
-}
-m.ci <- as.data.frame(cbind(temp, y.hat.mean, y.hat.lb, y.hat.ub))
-colnames(m.ci) <- c('value','yhat2','lower','upper')
-
-pd2 <- merge(m.ci,pd)
-
-pd2 %>% ggplot() + geom_line(aes(x = value, y = upper), linetype = 'dashed') + 
-  geom_line(aes(x = value, y = lower), linetype = 'dashed') +
-  geom_line(aes(x = value, y = yhat), color = 'blue', size = 2)
-
-multiclass_logit <- function(x, which.class = 1L) {
-  if (is.data.frame(x)) {
-    x <- data.matrix(x)
-  }
-  stopifnot(is.matrix(x))  # x should be a nclass by n probability matrix
-  eps <- .Machine$double.eps
-  log(ifelse(x[, which.class] > 0, x[, which.class], eps)) -
-    rowMeans(log(ifelse(x > 0, x, eps)))
-}
-
-a <- multiclass_logit(y, which.class = 'present')
-
-plot(x$min_tp,a)
-
-get_probs.RandomForest <- function(object, newdata, which.class, logit, ...) {
-  pr <- stats::predict(object, newdata = newdata, type = "prob", ...)
-  if (isTRUE(logit)) {
-    multiclass_logit(do.call(rbind, pr), which.class = which.class)
-  } else {
-    do.call(rbind, pr)[, which.class]
-  }
-}
