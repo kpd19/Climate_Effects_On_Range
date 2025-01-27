@@ -1,0 +1,69 @@
+variables,name,category,type
+Abies,% Abies,tree genera,numeric
+Acer,% Acer,tree genera,numeric
+Alnus,% Alnus,tree genera,numeric
+Arbutus,% Arbutus,tree genera,numeric
+Barren Lands,% Barren Lands,land cover type,numeric
+Betula,% Betula,tree genera,numeric
+Callitropsis,% Callitropsis,tree genera,numeric
+Celtis,% Celtis,tree genera,numeric
+Cercocarpus,% Cercocarpus,tree genera,numeric
+Chamaecyparis,% Chamaecyparis,tree genera,numeric
+Chrysolepis,% Chrysolepis,tree genera,numeric
+classification,land cover type,land cover type,categorical
+Cropland,% Cropland,land cover type,numeric
+elev2,Elevation,geographic,numeric
+Fraxinus,% Fraxinus,tree genera,numeric
+gdd_season,Season DD- avg,climatic variable,numeric
+Hesperocyparis,% Hesperocyparis,tree genera,numeric
+Juniperus,% Juniperus,tree genera,numeric
+Larix,% Larix,tree genera,numeric
+max_biomass,Max biomass,biomass,numeric
+max_rh,Max Mean %RH- avg,climatic variable,numeric
+max_t2m,Max Mean Temp- avg,climatic variable,numeric
+max_tp,Max Monthly Precip- avg,climatic variable,numeric
+mean_biomass,Mean biomass,biomass,numeric
+min_rh,Min Mean %RH- avg,climatic variable,numeric
+min_t2m,Min Mean Temp- avg,climatic variable,numeric
+min_tp,Min Monthly Precip- avg,climatic variable,numeric
+Mixed Forest,% Mixed Forest,land cover type,numeric
+near_needle,Near needleleaf forest,land cover type,categorical
+No data,% No data,land cover type,numeric
+Notholithocarpus,% Notholithocarpus,tree genera,numeric
+Picea,% Picea,tree genera,numeric
+Pinus,% Pinus,tree genera,numeric
+Populus,% Populus,tree genera,numeric
+preferred,% Preferred host trees,tree genera,numeric
+preferred_pres,Preferred genera present,tree genera,categorical
+Prosopis,% Prosopis,tree genera,numeric
+Pseudotsuga,% Pseudotsuga,tree genera,numeric
+Quercus,% Quercus,tree genera,numeric
+Robinia,% Robinia,tree genera,numeric
+Sequoiadendron,% Sequoiadendron,tree genera,numeric
+Snow and Ice,% Snow and Ice,land cover type,numeric
+Sub-polar or polar barren-lichen-moss,Barren-lichen-moss,land cover type,numeric
+Sub-polar or polar grassland-lichen-moss,Grassland-lichen-moss,land cover type,numeric
+Sub-polar or polar shrubland-lichen-moss,Shrubland-lichen-moss,land cover type,numeric
+Sub-polar taiga needleleaf forest,% Taiga needleleaf forest,land cover type,numeric
+sum_tp,Annual Precip- avg,climatic variable,numeric
+Temperate or sub-polar broadleaf deciduous forest,% Broadleaf deciduous forest,land cover type,numeric
+Temperate or sub-polar grassland,% Temperate grassland,land cover type,numeric
+Temperate or sub-polar needleleaf forest,% Temperate  needleleaf forest,land cover type,numeric
+Temperate or sub-polar shrubland,% Temperate shrubland,land cover type,numeric
+Thuja,% Thuja,tree genera,numeric
+Tropical or sub-tropical broadleaf evergreen forest,% Broadleaf evergreen forest,land cover type,numeric
+Tropical or sub-tropical grassland,% Tropical grassland,land cover type,numeric
+Tropical or sub-tropical shrubland,% Tropical shrubland,land cover type,numeric
+Tsuga,% Tsuga,tree genera,numeric
+Ulmus,% Ulmus,tree genera,numeric
+Umbellularia,% Umbellularia,tree genera,numeric
+Urban and Built-up,% Urban and Built-up,land cover type,numeric
+Water,% Water,land cover type,numeric
+Wetland,% Wetland,land cover type,numeric
+Gymnospermae,% Gymnosperms,tree genera,numeric
+Angiosperms,% Angiosperms,tree genera,numeric
+trees,Forest present,tree genera,categorical
+julian,Day of year predicted hatch,climatic variable,numeric
+Eucalyptus,% Eucalyptus,,numeric
+Carya,% Carya,,numeric
+Salix,% Salix,,numeric
