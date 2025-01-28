@@ -57,7 +57,7 @@ get_roc <- function(df){
   maximized <- roc %>% mutate(diff = abs(TPR-FPR)) %>% group_by(lag) %>%
     filter(diff == max(diff,na.rm=TRUE)) %>% arrange(desc(diff)) %>% pull(thresh)
   
-  roc$maximized <- NA
+  roc$maximized <- 0
   roc[roc$thresh == maximized,]$maximized <- 1
   
   return(roc)
@@ -76,160 +76,74 @@ roc %>%
   geom_point(data = maximized, aes(x = FPR,y = TPR), color = 'black', size = 2)
 dev.off()
 
-# auc_df <- c()
-# for (i in c(0,5,10,15,20,30,40)){
-#   dat <- roc %>% filter(lag == i) %>% arrange(FPR)
-#   
-#   auc_val <- auc(dat$FPR, dat$TPR, from = 0, to = 1, type = 'spline')
-#   
-#   temp <- data.frame(auc = auc_val, lag = i)
-#   auc_df <- rbind(auc_df,temp)
-#   
-# }
 
-auc_df <- c()
-for (i in c(0)){
-  ci_val <- ci.auc(rf_all[rf_all$dataset =='testing' & rf_all$lag == i,]$present, rf_all[rf_all$dataset =='testing'& rf_all$lag == i,]$PA_pred)
-  auc_val <- auc(rf_all[rf_all$dataset =='testing'& rf_all$lag == i,]$present, rf_all[rf_all$dataset =='testing' & rf_all$lag == i,]$PA_pred)
+get_stats <- function(df, thresh, lag){
+  ci_val <- ci.auc(df$present, df$PA_pred)
+  auc_val <- auc(df$present, df$PA_pred)
   
-  temp <- data.frame(auc = as.numeric(auc_val),ci_0.025 = as.numeric(ci_val)[1],ci_0.975 = as.numeric(ci_val)[3], lag = i)
-  auc_df <- rbind(auc_df,temp)
+  auc_df <- data.frame(metric = "AUC", estimate = as.numeric(auc_val),
+                       ci1 = as.numeric(ci_val)[1],ci2 = as.numeric(ci_val)[3], b1 = NA, b2 = NA)
+
+  scores <- df %>% mutate(pred_class = ifelse(PA_pred >= thresh,'present','absent'),
+                              present_name = ifelse(present == 1, 'present','absent')) %>% 
+    group_by(present_name) %>% count(pred_class) %>% 
+    mutate(type = case_when(present_name == 'absent' & pred_class == 'absent' ~'true_negative', 
+                            present_name == 'absent' & pred_class == 'present' ~'false_positive', 
+                            present_name == 'present' & pred_class == 'absent' ~'false_negative', 
+                            present_name == 'present' & pred_class == 'present' ~'true_positive')) %>% ungroup() %>% 
+    mutate(tot = sum(n)) %>% 
+    select(tot,n,type) %>% pivot_wider(names_from = 'type', values_from = 'n')
   
-}
-
-thresh_df <- maximized %>% select(lag,thresh)
-
-rf_all <- merge(rf_all,thresh_df)
-
-#write_csv(rf_all,"/Volumes/My Book/Synchrony/presence/_rfmod2/predicted_presence_all_lags_pref4.csv")
-#rf_all <- read_csv("/Volumes/My Book/Synchrony/presence/_rfmod2/predicted_presence_all_lags_pref4.csv")
-
-#pdf("_plots/_rfpa4/confusion_matrix.pdf",height = 8, width = 10)
-rf_all %>% filter(dataset =='testing') %>% mutate(present_name = ifelse(present == 1, 'present','absent'),
-                                                  pred_name = ifelse(PA_pred >=thresh,'present','absent')) %>%
-  group_by(present_name,lag) %>% count(pred_name) %>% 
-  group_by(present_name,lag) %>% mutate(tot = sum(n)) %>%  
-  ggplot() + aes(x = present_name, y = pred_name, fill = n/tot, color = n/tot) + 
-  geom_tile() + theme_classic(base_size = 15) + 
-  geom_text(aes(x = present_name, y = pred_name, label = n), color = 'grey75', size = 10) +
-  scale_color_viridis_c(option = 'viridis') +
-  scale_fill_viridis_c(option = 'viridis') +
-  xlab("Data") + ylab("Prediction") +
-  theme(legend.position = 'none') +
-  facet_wrap(~lag)
-#dev.off()
-
-scores <- rf_all %>% mutate(pred_class = ifelse(PA_pred >= thresh,'present','absent'),
-                            present_name = ifelse(present == 1, 'present','absent')) %>% 
-  group_by(lag,dataset,present_name) %>% count(pred_class) %>% filter(dataset == 'testing') %>% 
-  mutate(type = case_when(present_name == 'absent' & pred_class == 'absent' ~'true_negative', 
-                          present_name == 'absent' & pred_class == 'present' ~'false_positive', 
-                          present_name == 'present' & pred_class == 'absent' ~'false_negative', 
-                          present_name == 'present' & pred_class == 'present' ~'true_positive')) %>% group_by(lag) %>% 
-  mutate(tot = sum(n)) %>% 
-  select(lag,tot,n,type) %>% pivot_wider(names_from = 'type', values_from = 'n')
-
-accuracy <- scores %>% summarize(acc = (true_positive + true_negative)/(tot))
-
-recall_beta <- c()
-precision_beta <- c()
-acc_beta <- c()
-for (i in c(0)){
-  lag_vals <- rf_all %>% filter(dataset == 'testing', lag == i) %>% drop_na(present) %>% mutate(pred_num = ifelse(PA_pred >= thresh,1,0)) %>%  
+  lag_vals <- df %>% drop_na(present) %>% mutate(pred_num = ifelse(PA_pred >= thresh,1,0)) %>%  
     mutate(type = case_when(present == 0 & pred_num == 0 ~'true_negative', 
                             present == 0 & pred_num == 1 ~'false_positive', 
                             present == 1 & pred_num == 0 ~'false_negative', 
                             present == 1 & pred_num == 1 ~'true_positive'))
-  
+    
   success_type <- lag_vals %>% count(type) %>% pivot_wider(names_from = c('type'), values_from = c('n'))
   
   beta_precision <- qbeta(p = c(0.025,0.975),shape1 = (success_type$true_positive + 1), shape2 = (success_type$false_positive + 1))
   beta_recall <- qbeta(p = c(0.025,0.975),shape1 = (success_type$true_positive + 1), shape2 = (success_type$false_negative + 1))
   beta_acc <- qbeta(p = c(0.025,0.975),shape1 = (success_type$true_positive + success_type$true_negative+ 1), shape2 = (success_type$false_positive + success_type$false_negative + 1))
   
-  recall_temp <- data.frame(lag = i, b1 = beta_recall[1],b2 = beta_recall[2])
-  precision_temp <- data.frame(lag = i, b1 = beta_precision[1],b2 = beta_precision[2])
-  beta_temp <- data.frame(b1 = beta_acc[1],b2 = beta_acc[2])
+  recall_beta <- data.frame(b1 = beta_recall[1],b2 = beta_recall[2])
+  precision_beta <- data.frame(b1 = beta_precision[1],b2 = beta_precision[2])
+  acc_beta <- data.frame(b1 = beta_acc[1],b2 = beta_acc[2])
   
-  recall_beta <- rbind(recall_beta,recall_temp)
-  precision_beta <- rbind(precision_beta,precision_temp)
-  acc_beta <- rbind(acc_beta,beta_temp)
+  recall_df <- scores %>% summarize(recall = true_positive/(true_positive + false_negative),
+                                    tot = (true_positive + false_negative)) %>% 
+    mutate(ci1 = recall - (1.96*sqrt(recall*(1-recall)/tot)),
+           ci2 = recall + (1.96*sqrt(recall*(1-recall)/tot)))
   
-}
+  precision_df <- scores %>% summarize(precision = true_positive/(true_positive + false_positive),
+                                       tot = (true_positive + false_positive)) %>% 
+    mutate(ci1 = precision - (1.96*sqrt(precision*(1-precision)/tot)),
+           ci2 = precision + (1.96*sqrt(precision*(1-precision)/tot)))
+  
+  accuracy_df <- scores %>% mutate(acc = (true_positive + true_negative)/(tot)) %>% 
+    mutate(ci1 = acc - (1.96*sqrt(acc*(1-acc)/tot)),
+           ci2 = acc + (1.96*sqrt(acc*(1-acc)/tot))) %>% 
+    select(acc,ci1,ci2)
 
-recall_df <- scores %>% summarize(recall = true_positive/(true_positive + false_negative),
-                                  tot = (true_positive + false_negative)) %>% 
-  mutate(ci1 = recall - (1.96*sqrt(recall*(1-recall)/tot)),
-         ci2 = recall + (1.96*sqrt(recall*(1-recall)/tot)))
+  precision_all <- merge(precision_df,precision_beta)
+  recall_all <- merge(recall_df,recall_beta)
+  acc_all <- merge(accuracy_df,acc_beta)
+  
+  precision_all <- precision_all %>% select(precision,b1,b2,ci1,ci2) %>% rename(estimate = precision) %>% 
+    mutate(metric = "precision")
+  recall_all <- recall_all %>% select(recall,b1,b2,ci1,ci2) %>% rename(estimate = recall) %>% 
+    mutate(metric = "recall")
+  acc_all <- acc_all %>% select(acc,b1,b2,ci1,ci2)%>% rename(estimate = acc) %>% 
+    mutate(metric = "accuracy")
+  
+  all_metrics <- rbind(auc_df,recall_all, acc_all, precision_all)
+  all_metrics$thresh <- thresh
+  all_metrics$lag <- lag
+  
+  return(list(all_metrics,scores))
+  
+  }
 
-precision_df <- scores %>% summarize(precision = true_positive/(true_positive + false_positive),
-                                     tot = (true_positive + false_positive)) %>% 
-  mutate(ci1 = precision - (1.96*sqrt(precision*(1-precision)/tot)),
-         ci2 = precision + (1.96*sqrt(precision*(1-precision)/tot)))
-
-accuracy_df <- scores %>% summarize(acc = (true_positive + true_negative)/(true_positive + true_negative + false_positive + false_negative),
-                                    tot = (true_positive + true_negative + false_positive + false_negative)) %>% 
-  mutate(ci1 = acc - (1.96*sqrt(acc*(1-acc)/tot)),
-         ci2 = acc + (1.96*sqrt(acc*(1-acc)/tot)))
-
-recall_plt <- recall_df %>% ggplot() + aes(x = as.factor(lag), y = recall) + geom_point() + theme_classic(base_size = 15) +
-  geom_errorbar(aes(ymin = ci1, ymax = ci2)) + 
-  xlab("Weather lag (years)") + ylab("Recall")
-precision_plt <- precision_df %>% ggplot() + aes(x = as.factor(lag), y = precision) + geom_point() + theme_classic(base_size = 15) +
-  geom_errorbar(aes(ymin = ci1, ymax = ci2)) + 
-  xlab("Weather lag (years)") + ylab("Precision")
-acc_plt <- accuracy_df %>% ggplot() + aes(x = as.factor(lag), y = acc) + geom_point() + theme_classic(base_size = 15) +
-  geom_errorbar(aes(ymin = ci1, ymax = ci2)) + 
-  xlab("Weather lag (years)") + ylab("Accuracy")
-auc_plt <- auc_df %>% ggplot() + aes(x = as.factor(lag), y = auc) + geom_point() + theme_classic(base_size = 15) +
-  geom_errorbar(aes(ymin = ci_0.025, ymax = ci_0.975)) + 
-  xlab("Weather lag (years)") + ylab("AUC-ROC")
-
-#pdf("_plots/_rfpa4/performance_metrics.pdf",height = 6, width = 8)
-grid.arrange(auc_plt,acc_plt,recall_plt,precision_plt)
-#dev.off()
-
-precision_all <- merge(precision_beta,precision_df)
-recall_all <- merge(recall_beta,recall_df)
-
-accuracy_df <- scores %>% mutate(acc = (true_positive + true_negative)/(tot)) %>% 
-  mutate(ci1 = acc - (1.96*sqrt(acc*(1-acc)/tot)),
-         ci2 = acc + (1.96*sqrt(acc*(1-acc)/tot))) %>% 
-  select(lag,acc,ci1,ci2)
-
-precision_all <- precision_all %>% select(lag,precision,b1,b2,ci1,ci2)
-recall_all <- recall_all %>% select(lag,recall,b1,b2,ci1,ci2)
-
-all_metrics <- merge(auc_df,accuracy)
-all_metrics <- merge(all_metrics,recall_df)
-all_metrics <- merge(all_metrics,precision_df)
-all_metrics <- merge(all_metrics,thresh_df)
-
-all_metrics <- all_metrics %>% arrange(lag)
-
-write_csv(all_metrics,"/Volumes/My Book/Synchrony/presence/_rfmod2/model_metrics.csv")
-all_metrics <- read_csv("/Volumes/My Book/Synchrony/presence/_rfmod2/model_metrics.csv")
-
-
-accuracy %>% arrange(desc(acc))
-recall_df %>% arrange(desc(recall))
-precision_df %>% arrange(desc(precision))
-
-rf_all %>% mutate(pred_class = ifelse(PA_pred >= thresh,'present','absent'),
-                  present_name = ifelse(present == 1, 'present','absent'),
-                  synth = ifelse(source %in% c("Synthetic data","Synthetic"),'synthetic','population')) %>% 
-  group_by(lag,dataset,present_name,synth) %>% count(pred_class) %>% filter(dataset == 'testing') %>% 
-  mutate(type = case_when(present_name == 'absent' & pred_class == 'absent' ~'true_negative', 
-                          present_name == 'absent' & pred_class == 'present' ~'false_positive', 
-                          present_name == 'present' & pred_class == 'absent' ~'false_negative', 
-                          present_name == 'present' & pred_class == 'present' ~'true_positive')) %>% group_by(lag,synth) %>% 
-  mutate(tot = sum(n)) %>% 
-  select(lag,tot,n,type) %>% pivot_wider(names_from = 'type', values_from = 'n') %>% filter(lag == 0)
-
-
-rf_all %>% filter(lag == 0, source %ni% c("Synthetic data","Synthetic",'Pheromone trapping'),
-                  dataset == 'test', present == 0, PA_pred >= thresh) %>% 
-  ggplot() + aes(x = lon_coord, y = lat_coord) + geom_tile() + theme_classic(base_size = 15)
 
 var_imp_lag0 <- data.frame(importance(pa_rf_lag0))
 var_imp_lag0$variables <- rownames(var_imp_lag0)
@@ -367,3 +281,4 @@ get_conf_int <- function(m, x, xname, type){
   return(m.ci)
   
 }
+
