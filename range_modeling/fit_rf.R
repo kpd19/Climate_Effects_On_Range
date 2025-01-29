@@ -95,8 +95,7 @@ pa_rf_lag0_new <- randomForest(x = rf_train_new[-1],
                            ntree = 2000, keep.forest = TRUE, 
                            importance = TRUE)
 
-#save(pa_rf_lag0, pa_rf_lag5, pa_rf_lag10,pa_rf_lag15,pa_rf_lag20,pa_rf_lag30,pa_rf_lag40, file = '_data/trained_rf_models_pref4.RData')
-#load(file = '_data/trained_rf_models_pref4.RData')
+save(pa_rf_lag0, pa_rf_lag0_new, file = 'output/rf_models1.RData')
 
 test_all_lag0_rf <- test_all_lag0 %>% 
   select(keep_col,lat,lon,lat_coord,lon_coord,dataset,period,source,manual_id) %>% drop_na()
@@ -104,14 +103,9 @@ test_all_lag0_rf <- test_all_lag0 %>%
 test_all_lag0_rf$PA_pred <- predict(object=pa_rf_lag0, newdata=test_all_lag0_rf, type = 'prob')[,1]
 
 rfl0 <- test_all_lag0_rf %>% select(lat,lon,lat_coord,lon_coord,period,present,PA_pred,dataset,source,manual_id) %>% mutate(lag = 0)
-
-rf_all <- rfl0
-
-rf_all_thresh <- merge(rf_all, data.frame(thresh = seq(0.0,1.0,0.025)))
-
 roc1 <- get_roc(rfl0[rfl0$dataset == 'testing',])
 
-pdf("_plots/_rfpa4/roc_curve.pdf",height = 5, width = 7)
+pdf("figures/roc_curve.pdf",height = 5, width = 7)
 roc1 %>% 
   ggplot() + aes(x = FPR, y = TPR, color = as.factor(lag)) + 
   geom_point(size = 1)+ geom_line(size = 1) + theme_classic(base_size = 15) + 
@@ -120,163 +114,33 @@ roc1 %>%
   geom_abline(intercept =0, slope = 1, linetype = 'dashed', color = 'grey55') +
   scale_color_brewer('Time Lag', palette = "Dark2") +
   ggtitle("Reciever operating characteristic (ROC)") +
-  geom_point(data = roc1[roc1$maximized == 1,], aes(x = FPR,y = TPR, shape = maximized), color = 'black', size = 2)
+  geom_point(data = roc1[roc1$maximized == 1,], aes(x = FPR,y = TPR), color = 'black', size = 2)
 dev.off()
 
-# auc_df <- c()
-# for (i in c(0,5,10,15,20,30,40)){
-#   dat <- roc %>% filter(lag == i) %>% arrange(FPR)
-#   
-#   auc_val <- auc(dat$FPR, dat$TPR, from = 0, to = 1, type = 'spline')
-#   
-#   temp <- data.frame(auc = auc_val, lag = i)
-#   auc_df <- rbind(auc_df,temp)
-#   
-# }
+test_all_lag0_all <- test_all_lag0 %>% 
+  select(keep_col,lat,lon,lat_coord,lon_coord,dataset,period,source,manual_id) %>% drop_na()
 
-auc_df <- c()
-for (i in c(0)){
-  ci_val <- ci.auc(rf_all[rf_all$dataset =='testing' & rf_all$lag == i,]$present, rf_all[rf_all$dataset =='testing'& rf_all$lag == i,]$PA_pred)
-  auc_val <- auc(rf_all[rf_all$dataset =='testing'& rf_all$lag == i,]$present, rf_all[rf_all$dataset =='testing' & rf_all$lag == i,]$PA_pred)
-  
-  temp <- data.frame(auc = as.numeric(auc_val),ci_0.025 = as.numeric(ci_val)[1],ci_0.975 = as.numeric(ci_val)[3], lag = i)
-  auc_df <- rbind(auc_df,temp)
-  
-}
+test_all_lag0_all$PA_pred <- predict(object=pa_rf_lag0_new, newdata=test_all_lag0_all, type = 'prob')[,1]
 
-thresh_df <- maximized %>% select(lag,thresh)
+rfl_ol <- test_all_lag0_all %>% select(lat,lon,lat_coord,lon_coord,period,present,PA_pred,dataset,source,manual_id) %>% mutate(lag = 0)
+roc2 <- get_roc(rfl_ol)
 
-rf_all <- merge(rf_all,thresh_df)
-
-#write_csv(rf_all,"/Volumes/My Book/Synchrony/presence/_rfmod2/predicted_presence_all_lags_pref4.csv")
-#rf_all <- read_csv("/Volumes/My Book/Synchrony/presence/_rfmod2/predicted_presence_all_lags_pref4.csv")
-
-#pdf("_plots/_rfpa4/confusion_matrix.pdf",height = 8, width = 10)
-rf_all %>% filter(dataset =='testing') %>% mutate(present_name = ifelse(present == 1, 'present','absent'),
-                                               pred_name = ifelse(PA_pred >=thresh,'present','absent')) %>%
-  group_by(present_name,lag) %>% count(pred_name) %>% 
-  group_by(present_name,lag) %>% mutate(tot = sum(n)) %>%  
-  ggplot() + aes(x = present_name, y = pred_name, fill = n/tot, color = n/tot) + 
-  geom_tile() + theme_classic(base_size = 15) + 
-  geom_text(aes(x = present_name, y = pred_name, label = n), color = 'grey75', size = 10) +
-  scale_color_viridis_c(option = 'viridis') +
-  scale_fill_viridis_c(option = 'viridis') +
-  xlab("Data") + ylab("Prediction") +
-  theme(legend.position = 'none') +
-  facet_wrap(~lag)
-#dev.off()
-
-scores <- rf_all %>% mutate(pred_class = ifelse(PA_pred >= thresh,'present','absent'),
-                            present_name = ifelse(present == 1, 'present','absent')) %>% 
-  group_by(lag,dataset,present_name) %>% count(pred_class) %>% filter(dataset == 'testing') %>% 
-  mutate(type = case_when(present_name == 'absent' & pred_class == 'absent' ~'true_negative', 
-                          present_name == 'absent' & pred_class == 'present' ~'false_positive', 
-                          present_name == 'present' & pred_class == 'absent' ~'false_negative', 
-                          present_name == 'present' & pred_class == 'present' ~'true_positive')) %>% group_by(lag) %>% 
-  mutate(tot = sum(n)) %>% 
-  select(lag,tot,n,type) %>% pivot_wider(names_from = 'type', values_from = 'n')
-
-accuracy <- scores %>% summarize(acc = (true_positive + true_negative)/(tot))
-
-recall_beta <- c()
-precision_beta <- c()
-acc_beta <- c()
-for (i in c(0)){
-  lag_vals <- rf_all %>% filter(dataset == 'testing', lag == i) %>% drop_na(present) %>% mutate(pred_num = ifelse(PA_pred >= thresh,1,0)) %>%  
-    mutate(type = case_when(present == 0 & pred_num == 0 ~'true_negative', 
-                            present == 0 & pred_num == 1 ~'false_positive', 
-                            present == 1 & pred_num == 0 ~'false_negative', 
-                            present == 1 & pred_num == 1 ~'true_positive'))
-  
-  success_type <- lag_vals %>% count(type) %>% pivot_wider(names_from = c('type'), values_from = c('n'))
-  
-  beta_precision <- qbeta(p = c(0.025,0.975),shape1 = (success_type$true_positive + 1), shape2 = (success_type$false_positive + 1))
-  beta_recall <- qbeta(p = c(0.025,0.975),shape1 = (success_type$true_positive + 1), shape2 = (success_type$false_negative + 1))
-  beta_acc <- qbeta(p = c(0.025,0.975),shape1 = (success_type$true_positive + success_type$true_negative+ 1), shape2 = (success_type$false_positive + success_type$false_negative + 1))
-  
-  recall_temp <- data.frame(lag = i, b1 = beta_recall[1],b2 = beta_recall[2])
-  precision_temp <- data.frame(lag = i, b1 = beta_precision[1],b2 = beta_precision[2])
-  beta_temp <- data.frame(b1 = beta_acc[1],b2 = beta_acc[2])
-  
-  recall_beta <- rbind(recall_beta,recall_temp)
-  precision_beta <- rbind(precision_beta,precision_temp)
-  acc_beta <- rbind(acc_beta,beta_temp)
-  
-}
-
-recall_df <- scores %>% summarize(recall = true_positive/(true_positive + false_negative),
-                                  tot = (true_positive + false_negative)) %>% 
-  mutate(ci1 = recall - (1.96*sqrt(recall*(1-recall)/tot)),
-         ci2 = recall + (1.96*sqrt(recall*(1-recall)/tot)))
-
-precision_df <- scores %>% summarize(precision = true_positive/(true_positive + false_positive),
-                                     tot = (true_positive + false_positive)) %>% 
-  mutate(ci1 = precision - (1.96*sqrt(precision*(1-precision)/tot)),
-         ci2 = precision + (1.96*sqrt(precision*(1-precision)/tot)))
-
-accuracy_df <- scores %>% summarize(acc = (true_positive + true_negative)/(true_positive + true_negative + false_positive + false_negative),
-                                     tot = (true_positive + true_negative + false_positive + false_negative)) %>% 
-  mutate(ci1 = acc - (1.96*sqrt(acc*(1-acc)/tot)),
-         ci2 = acc + (1.96*sqrt(acc*(1-acc)/tot)))
-
-recall_plt <- recall_df %>% ggplot() + aes(x = as.factor(lag), y = recall) + geom_point() + theme_classic(base_size = 15) +
-  geom_errorbar(aes(ymin = ci1, ymax = ci2)) + 
-  xlab("Weather lag (years)") + ylab("Recall")
-precision_plt <- precision_df %>% ggplot() + aes(x = as.factor(lag), y = precision) + geom_point() + theme_classic(base_size = 15) +
-  geom_errorbar(aes(ymin = ci1, ymax = ci2)) + 
-  xlab("Weather lag (years)") + ylab("Precision")
-acc_plt <- accuracy_df %>% ggplot() + aes(x = as.factor(lag), y = acc) + geom_point() + theme_classic(base_size = 15) +
-  geom_errorbar(aes(ymin = ci1, ymax = ci2)) + 
-  xlab("Weather lag (years)") + ylab("Accuracy")
-auc_plt <- auc_df %>% ggplot() + aes(x = as.factor(lag), y = auc) + geom_point() + theme_classic(base_size = 15) +
-  geom_errorbar(aes(ymin = ci_0.025, ymax = ci_0.975)) + 
-  xlab("Weather lag (years)") + ylab("AUC-ROC")
-
-#pdf("_plots/_rfpa4/performance_metrics.pdf",height = 6, width = 8)
-grid.arrange(auc_plt,acc_plt,recall_plt,precision_plt)
-#dev.off()
-
-precision_all <- merge(precision_beta,precision_df)
-recall_all <- merge(recall_beta,recall_df)
-
-accuracy_df <- scores %>% mutate(acc = (true_positive + true_negative)/(tot)) %>% 
-  mutate(ci1 = acc - (1.96*sqrt(acc*(1-acc)/tot)),
-         ci2 = acc + (1.96*sqrt(acc*(1-acc)/tot))) %>% 
-  select(lag,acc,ci1,ci2)
-
-precision_all <- precision_all %>% select(lag,precision,b1,b2,ci1,ci2)
-recall_all <- recall_all %>% select(lag,recall,b1,b2,ci1,ci2)
-
-all_metrics <- merge(auc_df,accuracy)
-all_metrics <- merge(all_metrics,recall_df)
-all_metrics <- merge(all_metrics,precision_df)
-all_metrics <- merge(all_metrics,thresh_df)
-
-all_metrics <- all_metrics %>% arrange(lag)
-
-write_csv(all_metrics,"/Volumes/My Book/Synchrony/presence/_rfmod2/model_metrics.csv")
-all_metrics <- read_csv("/Volumes/My Book/Synchrony/presence/_rfmod2/model_metrics.csv")
+pdf("_plots/_rfpa4/roc_curve.pdf",height = 5, width = 7)
+roc2 %>% 
+  ggplot() + aes(x = FPR, y = TPR, color = as.factor(lag)) + 
+  geom_point(size = 1)+ geom_line(size = 1) + theme_classic(base_size = 15) + 
+  xlab("False Positive Rate") + ylab("True Positive Rate") +
+  coord_cartesian(xlim = c(0,.65), ylim = c(0,1)) +
+  geom_abline(intercept =0, slope = 1, linetype = 'dashed', color = 'grey55') +
+  scale_color_brewer('Time Lag', palette = "Dark2") +
+  ggtitle("Reciever operating characteristic (ROC)") +
+  geom_point(data = roc2[roc2$thresh == 0.225,], aes(x = FPR,y = TPR), color = 'black', size = 2)
+dev.off()
 
 
-accuracy %>% arrange(desc(acc))
-recall_df %>% arrange(desc(recall))
-precision_df %>% arrange(desc(precision))
+get_stats(rfl0[rfl0$dataset == 'testing',], thresh = 0.225, lag = 0)
 
-rf_all %>% mutate(pred_class = ifelse(PA_pred >= thresh,'present','absent'),
-                  present_name = ifelse(present == 1, 'present','absent'),
-                  synth = ifelse(source %in% c("Synthetic data","Synthetic"),'synthetic','population')) %>% 
-  group_by(lag,dataset,present_name,synth) %>% count(pred_class) %>% filter(dataset == 'testing') %>% 
-  mutate(type = case_when(present_name == 'absent' & pred_class == 'absent' ~'true_negative', 
-                          present_name == 'absent' & pred_class == 'present' ~'false_positive', 
-                          present_name == 'present' & pred_class == 'absent' ~'false_negative', 
-                          present_name == 'present' & pred_class == 'present' ~'true_positive')) %>% group_by(lag,synth) %>% 
-  mutate(tot = sum(n)) %>% 
-  select(lag,tot,n,type) %>% pivot_wider(names_from = 'type', values_from = 'n') %>% filter(lag == 0)
-
-
-rf_all %>% filter(lag == 0, source %ni% c("Synthetic data","Synthetic",'Pheromone trapping'),
-                  dataset == 'test', present == 0, PA_pred >= thresh) %>% 
-  ggplot() + aes(x = lon_coord, y = lat_coord) + geom_tile() + theme_classic(base_size = 15)
+get_stats(rfl_ol[rfl_ol$dataset == 'testing',], thresh = 0.225, lag = 0)
 
 var_imp_lag0 <- data.frame(importance(pa_rf_lag0))
 var_imp_lag0$variables <- rownames(var_imp_lag0)
@@ -286,12 +150,16 @@ var_imp_all <- rbind(var_imp_lag0)
 
 var_imp_all <- merge(var_names_long,var_imp_all)
 
-#write_csv(var_imp_all,"/Volumes/My Book/Synchrony/presence/_rfmod2/variable_importance3.csv")
-#write_csv(var_names1,"/Volumes/My Book/Synchrony/presence/_rfmod2/var_names_pa.csv")
-#var_imp_all <- read_csv("/Volumes/My Book/Synchrony/presence/_rfmod2/variable_importance3.csv")
+var_imp_new <- data.frame(importance(pa_rf_lag0_new))
+var_imp_new$variables <- rownames(var_imp_new)
+var_imp_new <- var_imp_new %>% mutate(lag = 0)
 
-pdf("_plots/_rfpa4/variable_importance_gini.pdf",height = 10, width = 15)
-var_imp_all %>% mutate(lag_name = paste0('lag = ',lag)) %>% 
+var_imp_new <- merge(var_names_long,var_imp_new)
+
+write_csv(var_imp_all,"output/variable_importance.csv")
+
+pdf("figures/variable_importance.pdf",height = 10, width = 15)
+plt1 <- var_imp_all %>% mutate(lag_name = paste0('lag = ',lag)) %>% 
   mutate(lag_name = factor(lag_name, levels = c('lag = 0','lag = 5','lag = 10','lag = 15','lag = 20','lag = 30','lag = 40'))) %>% 
   group_by(lag) %>% 
   arrange(MeanDecreaseGini) %>% filter(MeanDecreaseGini>0) %>% 
@@ -307,6 +175,26 @@ var_imp_all %>% mutate(lag_name = paste0('lag = ',lag)) %>%
   scale_color_brewer("", palette = "Set1")+
   scale_fill_brewer("", palette = "Set1") +
   theme(legend.position = 'top')
+
+plt2 <- var_imp_new %>% mutate(lag_name = paste0('lag = ',lag)) %>% 
+  mutate(lag_name = factor(lag_name, levels = c('lag = 0','lag = 5','lag = 10','lag = 15','lag = 20','lag = 30','lag = 40'))) %>% 
+  group_by(lag) %>% 
+  arrange(MeanDecreaseGini) %>% filter(MeanDecreaseGini>0) %>% 
+  ggplot(aes(x=reorder(name, MeanDecreaseGini), y=MeanDecreaseGini, color = category, fill = category)) + 
+  geom_bar(stat='identity') + 
+  coord_flip() + 
+  ylab('Mean Decrease in Gini Index') + xlab("Variables") +
+  theme_minimal(base_size = 15) + 
+  theme(axis.text = element_text(size = 10), 
+        axis.title = element_text(size = 15), 
+        plot.title = element_text(size = 20)) + 
+  facet_grid(~lag_name) +
+  scale_color_brewer("", palette = "Set1")+
+  scale_fill_brewer("", palette = "Set1") +
+  theme(legend.position = 'top')
+
+
+grid.arrange(plt1,plt2, nrow = 1)
 
 var_imp_all %>% mutate(lag_name = paste0('lag = ',lag)) %>% 
   mutate(lag_name = factor(lag_name, levels = c('lag = 0','lag = 5','lag = 10','lag = 15','lag = 20','lag = 30','lag = 40'))) %>% 
@@ -331,8 +219,6 @@ zero_vars <- var_imp_all %>% mutate(lag_name = paste0('lag = ',lag)) %>%
   group_by(lag) %>% 
   arrange(MeanDecreaseGini) %>% filter(MeanDecreaseGini==0) %>% pull(variables)
 
-unique(zero_vars)
-
 mean_lags <- rf_all %>% mutate(PA_group = ifelse(PA_pred >= thresh,1,0),
                                synth = ifelse(source %in% c("Synthetic data","Synthetic"),'synthetic','population')) %>%
   filter(dataset == 'testing') %>% group_by(lon_coord,lat_coord,lag,synth) %>%
@@ -349,6 +235,8 @@ mean_lags <- rf_all %>% mutate(PA_group = ifelse(PA_pred >= thresh,1,0),
 mean_lags <- mean_lags %>% mutate(change = ifelse(change == 'False positive' & synth == 'synthetic', 'False positive- no traps', change),
                                   change = ifelse(change == 'False positive' & synth == 'population', 'False positive- traps', change))
 
+mean_lags %>% ungroup() %>% count(change)
+
 tn_col = 'grey5'
 tp_col = '#1E88E5'
 fn_col = 'red'
@@ -363,15 +251,6 @@ diff_pres <- ggplot() + geom_tile(data = mean_lags[mean_lags$lag == 0,],
                                    'False negative' = fn_col, 'False positive- traps' = fp1_col, 'False positive- no traps' = fp2_col))+ 
   xlab("Longitude") + ylab("Latitude") 
 
-# diff_pres <- ggplot() + geom_tile(data = mean_lags,
-#                                   aes(x = lon_coord, y = lat_coord, color = as.factor(change), fill = as.factor(change))) + #theme_classic(base_size = 15) + 
-#   scale_color_manual("", values = c('True negative' = tn_col, 'True positive' = tp_col,
-#                                     'False negative' = fn_col, 'False positive' = fp_col)) +
-#   scale_fill_manual("", values = c('True negative' = tn_col, 'True positive' = tp_col,
-#                                    'False negative' = fn_col, 'False positive' = fp_col))+ 
-#   xlab("Longitude") + ylab("Latitude") +
-#   facet_wrap(~lag)
-
 plt_diff <- diff_pres + geom_sf(data = state_data, aes(geometry = geometry), color = "grey55", fill = NA, size = 1) +
   geom_sf(data = bc_data, aes(geometry = geometry), color = "grey55", fill = NA, size = 1) +
   theme_classic(base_size = 15) +
@@ -380,11 +259,9 @@ plt_diff <- diff_pres + geom_sf(data = state_data, aes(geometry = geometry), col
   theme(plot.title = element_text(hjust = 0.5))+ 
   theme(legend.position = 'top')
 
-m <- pa_rf_lag0
-x <- rf_train_lag0
-xname <- "min_tp"
-
-test2 <- get_conf_int(pa_rf_lag0, rf_train_lag0,"preferred_pres","pasta")
+pdf("figures/testing_data_proj.pdf")
+plt_diff
+dev.off()
 
 imp_vars <- var_imp_all %>% filter(lag == 0) %>% arrange(desc(MeanDecreaseGini)) %>% head(20)
 
@@ -399,14 +276,6 @@ for(i in 1:length(imp_vars$variables)){
 }
 
 write_csv(all_pds,"output/partial_dependence_lag0.csv")
-
-
-all_pds %>% ggplot() + geom_ribbon(aes(x = value, ymin = lb3, ymax = ub3), linetype = 'dashed',
-                                   fill = 'skyblue1', linetype = 'dashed', color = 'grey55', alpha = 0.5) +
-  geom_line(aes(x = value, y = ub3), linetype = 'dashed') +
-  geom_line(aes(x = value, y = yhat), color = 'navyblue',size = 1.5) +
-  theme_classic() +
-  facet_wrap(~param, scales = 'free_x')
 
 all_rugs <- c()
 for(i in 1:length(imp_vars$variables)){
@@ -426,6 +295,8 @@ all_rugs2 <- all_rugs2 %>% mutate(name = factor(name, levels = imp_vars$name))
 all_pds2 <- merge(all_pds,var_names_long, by.x = c('param'),by.y = c('variables'))
 all_pds2 <- all_pds2 %>% mutate(name = factor(name, levels = imp_vars_df2$name)) 
 
+all_pds2$training <- '1990-2005'
+
 #pdf("_plots/_rfpa4/partial_dependence_pa.pdf", height = 10, width = 16)
 all_pds2 %>% 
   ggplot() + geom_ribbon(aes(x = value, ymin = lb3, ymax = ub3), linetype = 'dashed',
@@ -441,4 +312,69 @@ all_pds2 %>%
   theme(legend.position = 'top') 
 #dev.off()
 
+imp_vars <- var_imp_all %>% filter(lag == 0) %>% arrange(desc(MeanDecreaseGini)) %>% head(20)
+
+a.time <- Sys.time()
+all_pds_new <- c()
+for(i in 1:length(imp_vars$variables)){
+  
+  temp <- get_conf_int(pa_rf_lag0_new, rf_train_new,imp_vars$variables[i],imp_vars$type[i])
+  temp$param <- imp_vars$variables[i]
+  
+  all_pds_new <- rbind(all_pds_new,temp)
+  b.time <- Sys.time()
+  c.time <- b.time - a.time
+  print(paste0("Finished ", i, " in: ", c.time))
+  
+}
+
+write_csv(all_pds_new,"output/partial_dependence_new.csv")
+
+all_rugs_new <- c()
+for(i in 1:length(imp_vars$variables)){
+  
+  temp_vals <- rf_train_new %>% pull(imp_vars$variables[i])
+  
+  probs <- data.frame(q = seq(0,1,0.1), value = as.numeric(quantile(temp_vals, prob = seq(0,1,0.1))))
+  probs$param <- imp_vars$variables[i]
+  
+  all_rugs_new <- rbind(all_rugs_new,probs)
+  print(i)
+}
+
+all_rugs_new2 <- merge(all_rugs_new,var_names_long,by.x = c('param'),by.y = c('variables'))
+all_rugs_new2 <- all_rugs_new2 %>% mutate(name = factor(name, levels = imp_vars$name)) 
+
+all_pds_new2 <- merge(all_pds_new,var_names_long, by.x = c('param'),by.y = c('variables'))
+all_pds_new2 <- all_pds_new2 %>% mutate(name = factor(name, levels = imp_vars_df2$name)) 
+all_pds_new2$training <- '1990-2023'
+
+pd_combo <- rbind(all_pds2,all_pds_new2)
+
+var1 <- var_imp_all %>% filter(variables %in% all_pds2$param) %>% arrange(desc(MeanDecreaseGini)) %>% head(20) %>% 
+  mutate(imp1 = 1:20)%>% select(variables,name,imp1)
+
+var2 <- var_imp_new %>% filter(variables %in% all_pds_new2$param) %>% arrange(desc(MeanDecreaseGini)) %>% head(20) %>% 
+  mutate(imp2 = 1:20) %>% select(variables,name,imp2)
+
+var3 <- merge(var1,var2)
+var3 <- var3 %>% mutate(avg_imp = (imp1 + imp2)/2) %>% arrange(avg_imp)
+
+pd_combo <- merge(pd_combo,var3)
+pd_combo$name <- factor(pd_combo$name, levels = var3$name)
+
+pdf("figures/partial_dependence_comp.pdf",height = 10, width = 15)
+pd_combo %>% 
+  ggplot() +
+  geom_line(aes(x = value, y = yhat, color = training),size = 1.5) +
+  theme_classic(base_size = 15) + 
+  facet_wrap(~name, scales = 'free_x',nrow = 4) + 
+  ylab("Partial dependence") +
+  scale_color_brewer("", palette = "Set1")+
+  theme(legend.position = 'top') +
+  geom_text(aes(x = -Inf, y = -Inf, label = imp1), color = 'red', size = 3, hjust = -1, vjust = -1) +
+  geom_text(aes(x = -Inf, y = -Inf, label = imp2), color = 'blue', size = 3, hjust = -1, vjust = -2.5)
+dev.off()
+
+write_csv(pd_combo,"output/partial_dependence_new.csv")
 
