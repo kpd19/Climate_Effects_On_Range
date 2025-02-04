@@ -43,3 +43,10 @@ The script `presence_absence.R` combines the population dataset and synthetic da
 
 # Making projections under climate change
 
+To make projections under climate change, we used a ensemble of 9 models from the Coupled Model Intercomparison Project Phase 6 (CMIP6) , 3 from each grouping of IPCC fifth assesment report's Equilibrium Climate Sensitivity (ECS), which is the expected long-term warming after a doubling of atmospheric CO2 concentrations. The IPCC has deemed those in the range 1.5-4.6 C as the "likely" sensitivity range, meaning there is a 66% chance the true value falls in that range. 
+
+* Low sensitivity (1.5-3 ECS) CAMS-CSM1, NorESM2-MM, MIROC-ES2L f2
+* Medium sensitivity (3-4.5) GFDL-ESM4, CMCC-CM2-SR5, KACE-1-0-G
+* High sensitivity (4.5-6) CESM2-WACCM, HadGEM3-GC31-MM-f3, CANESM5 p1
+
+
