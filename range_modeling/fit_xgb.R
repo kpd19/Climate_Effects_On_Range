@@ -4,7 +4,7 @@ library(gridExtra)
 #library(mgcv)
 library(geodata)
 library(sf)
-library(randomForest)
+library(xgboost)
 library(MESS)
 library(pROC)
 library(pdp)
@@ -50,7 +50,7 @@ test_all <- rbind(training_dataset,testing_dataset)
 
 test_all <- test_all %>% mutate_at(c('mean_biomass','max_biomass'), ~replace_na(.,0)) %>% 
   drop_na(elev2) %>% mutate(preferred = Abies + Pseudotsuga) %>% mutate(preferred_pres = ifelse(preferred >0,1,0)) %>% 
-  select(-c(modis_id,short,Gymnospermae, Angiosperms))
+  select(-c(short,Gymnospermae, Angiosperms, classification))
 
 test_all %>% drop_na(elev2) %>% ggplot() + aes(x = lon_coord, y = lat_coord, color = mean_biomass, fill = mean_biomass) + 
   geom_tile() + theme_classic(base_size = 15)
@@ -65,7 +65,6 @@ test_all_lag0 %>% mutate(n = 1) %>% group_by(source) %>% count(n)
 
 colnames(train_lag0)[c(12:66,68:78)][colnames(test_all_lag0)[c(12:66,68:78)] %ni% var_names_long$variables]
 
-
 new_data <- test_all_lag0 %>% filter(track_late %in% c('in','near-1'), dataset == 'testing')
 
 train_new <- rbind(train_lag0, new_data)
@@ -77,32 +76,37 @@ train_new %>% ggplot() + aes(x = lon, y = lat, color = present) + geom_point() +
 
 keep_col <- colnames(train_lag0)[c(9,12:66,68:78)]
 
-rf_train_lag0 <- train_lag0 %>% select(keep_col)  %>% mutate(present = ifelse(present == 1, 'present','absent')) %>% 
-  mutate(present = factor(present, levels = c('present','absent')))
+rf_train_lag0 <- train_lag0 %>% select(keep_col)  #%>% mutate(present = ifelse(present == 1, 'present','absent')) %>% 
+  #mutate(present = factor(present, levels = c('present','absent')))
 
 find_nas(rf_train_lag0)
 
-pa_rf_lag0 <- randomForest(x = rf_train_lag0[-1],
-                           y = rf_train_lag0$present,
-                           ntree = 2000, keep.forest = TRUE, 
-                           importance = TRUE)
+max_depth = 8
+eta = 0.3
+nrounds = 20
 
-rf_train_new <- train_new %>% select(keep_col)  %>% mutate(present = ifelse(present == 1, 'present','absent')) %>% 
-  mutate(present = factor(present, levels = c('present','absent')))
+pa_xgb_lag0 <-  xgboost(data = as.matrix(rf_train_lag0[-1]),
+                        label = rf_train_lag0$present,
+                        max.depth = max_depth, eta = eta, nrounds = nrounds,
+                        objective = "binary:logistic")
 
-pa_rf_lag0_new <- randomForest(x = rf_train_new[-1],
-                           y = rf_train_new$present,
-                           ntree = 2000, keep.forest = TRUE, 
-                           importance = TRUE)
+rf_train_new <- train_new %>% select(keep_col)  #%>% mutate(present = ifelse(present == 1, 'present','absent')) %>% 
+  #mutate(present = factor(present, levels = c('present','absent')))
 
-save(pa_rf_lag0, pa_rf_lag0_new, file = 'output/rf_models1.RData')
+pa_xgb_lag0_new <- xgboost(data = as.matrix(rf_train_new[-1]),
+                          label = rf_train_new$present,
+                          max.depth = max_depth, eta = eta, nrounds = nrounds,
+                          objective = "binary:logistic")
 
-test_all_lag0_rf <- test_all_lag0 %>% 
+save(pa_xgb_lag0, pa_xgb_lag0_new, file = 'output/xgb_models1.RData')
+
+test_all_lag0_xgb <- test_all_lag0 %>% 
   select(keep_col,lat,lon,lat_coord,lon_coord,dataset,period,source,manual_id) %>% drop_na()
 
-test_all_lag0_rf$PA_pred <- predict(object=pa_rf_lag0, newdata=test_all_lag0_rf, type = 'prob')[,1]
+test_all_lag0_xgb$PA_pred <- predict(object=pa_xgb_lag0, newdata=as.matrix(test_all_lag0_xgb[keep_col][-1]))
 
-rfl0 <- test_all_lag0_rf %>% select(lat,lon,lat_coord,lon_coord,period,present,PA_pred,dataset,source,manual_id) %>% mutate(lag = 0)
+
+rfl0 <- test_all_lag0_xgb %>% select(lat,lon,lat_coord,lon_coord,period,present,PA_pred,dataset,source,manual_id) %>% mutate(lag = 0)
 roc1 <- get_roc(rfl0[rfl0$dataset == 'testing',])
 
 pdf("figures/roc_curve.pdf",height = 5, width = 7)
@@ -119,8 +123,7 @@ dev.off()
 
 test_all_lag0_all <- test_all_lag0 %>% 
   select(keep_col,lat,lon,lat_coord,lon_coord,dataset,period,source,manual_id) %>% drop_na()
-
-test_all_lag0_all$PA_pred <- predict(object=pa_rf_lag0_new, newdata=test_all_lag0_all, type = 'prob')[,1]
+test_all_lag0_all$PA_pred <- predict(object=pa_xgb_lag0_new, newdata=as.matrix(test_all_lag0_all[keep_col][-1]))
 
 rfl_ol <- test_all_lag0_all %>% select(lat,lon,lat_coord,lon_coord,period,present,PA_pred,dataset,source,manual_id) %>% mutate(lag = 0)
 roc2 <- get_roc(rfl_ol)
@@ -138,32 +141,30 @@ roc2 %>%
 dev.off()
 
 
-get_stats(rfl0[rfl0$dataset == 'testing',], thresh = 0.225, lag = 0)
+get_stats(rfl0[rfl0$dataset == 'testing',], thresh = roc1[roc1$maximized == 1,]$thresh, lag = 0)
 
-get_stats(rfl_ol[rfl_ol$dataset == 'testing',], thresh = 0.225, lag = 0)
+get_stats(rfl_ol[rfl_ol$dataset == 'testing',], thresh = roc1[roc1$maximized == 1,]$thresh, lag = 0)
 
-var_imp_lag0 <- data.frame(importance(pa_rf_lag0))
-var_imp_lag0$variables <- rownames(var_imp_lag0)
-var_imp_lag0 <- var_imp_lag0 %>% mutate(lag = 0)
+var_imp_xgb <- data.frame(xgb.importance(feature_names = keep_col[-1], model = pa_xgb_lag0))
+var_imp_xgb <- var_imp_xgb %>% rename(variables = Feature) %>% mutate(lag = 0)
 
-var_imp_all <- rbind(var_imp_lag0)
+var_imp_all <- rbind(var_imp_xgb)
 
 var_imp_all <- merge(var_names_long,var_imp_all)
 
-var_imp_new <- data.frame(importance(pa_rf_lag0_new))
-var_imp_new$variables <- rownames(var_imp_new)
-var_imp_new <- var_imp_new %>% mutate(lag = 0)
+var_xgb_new <- data.frame(xgb.importance(feature_names = keep_col[-1], model = pa_xgb_lag0_new))
+var_xgb_new <- var_xgb_new %>% rename(variables = Feature) %>% mutate(lag = 0)
 
-var_imp_new <- merge(var_names_long,var_imp_new)
+var_xgb_new <- merge(var_names_long,var_xgb_new)
 
 write_csv(var_imp_all,"output/variable_importance.csv")
 
-pdf("figures/variable_importance.pdf",height = 10, width = 15)
+pdf("figures/variable_importance_xgb.pdf",height = 10, width = 15)
 plt1 <- var_imp_all %>% mutate(lag_name = paste0('lag = ',lag)) %>% 
   mutate(lag_name = factor(lag_name, levels = c('lag = 0','lag = 5','lag = 10','lag = 15','lag = 20','lag = 30','lag = 40'))) %>% 
   group_by(lag) %>% 
-  arrange(MeanDecreaseGini) %>% filter(MeanDecreaseGini>0) %>% 
-  ggplot(aes(x=reorder(name, MeanDecreaseGini), y=MeanDecreaseGini, color = category, fill = category)) + 
+  arrange(Gain) %>% filter(Gain>0) %>% 
+  ggplot(aes(x=reorder(name, Gain), y=Gain, color = category, fill = category)) + 
   geom_bar(stat='identity') + 
   coord_flip() + 
   ylab('Mean Decrease in Gini Index') + xlab("Variables") +
@@ -175,51 +176,11 @@ plt1 <- var_imp_all %>% mutate(lag_name = paste0('lag = ',lag)) %>%
   scale_color_brewer("", palette = "Set1")+
   scale_fill_brewer("", palette = "Set1") +
   theme(legend.position = 'top')
-
-plt2 <- var_imp_new %>% mutate(lag_name = paste0('lag = ',lag)) %>% 
-  mutate(lag_name = factor(lag_name, levels = c('lag = 0','lag = 5','lag = 10','lag = 15','lag = 20','lag = 30','lag = 40'))) %>% 
-  group_by(lag) %>% 
-  arrange(MeanDecreaseGini) %>% filter(MeanDecreaseGini>0) %>% 
-  ggplot(aes(x=reorder(name, MeanDecreaseGini), y=MeanDecreaseGini, color = category, fill = category)) + 
-  geom_bar(stat='identity') + 
-  coord_flip() + 
-  ylab('Mean Decrease in Gini Index') + xlab("Variables") +
-  theme_minimal(base_size = 15) + 
-  theme(axis.text = element_text(size = 10), 
-        axis.title = element_text(size = 15), 
-        plot.title = element_text(size = 20)) + 
-  facet_grid(~lag_name) +
-  scale_color_brewer("", palette = "Set1")+
-  scale_fill_brewer("", palette = "Set1") +
-  theme(legend.position = 'top')
-
 
 grid.arrange(plt1,plt2, nrow = 1)
 
-var_imp_all %>% mutate(lag_name = paste0('lag = ',lag)) %>% 
-  mutate(lag_name = factor(lag_name, levels = c('lag = 0','lag = 5','lag = 10','lag = 15','lag = 20','lag = 30','lag = 40'))) %>% 
-  group_by(lag) %>% 
-  arrange(MeanDecreaseAccuracy) %>% filter(MeanDecreaseAccuracy>0) %>% 
-  ggplot(aes(x=reorder(name, MeanDecreaseAccuracy), y=MeanDecreaseAccuracy, color = type, fill = type)) + 
-  geom_bar(stat='identity') + 
-  coord_flip() + 
-  ylab('Mean Decrease in Accuracy') + xlab("Variables") +
-  theme_minimal(base_size = 15) + 
-  theme(axis.text = element_text(size = 10), 
-        axis.title = element_text(size = 15), 
-        plot.title = element_text(size = 20)) + 
-  facet_grid(~lag_name) +
-  scale_color_brewer("", palette = "Set1")+
-  scale_fill_brewer("", palette = "Set1") +
-  theme(legend.position = 'top')
 dev.off()
-
-zero_vars <- var_imp_all %>% mutate(lag_name = paste0('lag = ',lag)) %>% 
-  mutate(lag_name = factor(lag_name, levels = c('lag = 0','lag = 5','lag = 10','lag = 15','lag = 20','lag = 30','lag = 40'))) %>% 
-  group_by(lag) %>% 
-  arrange(MeanDecreaseGini) %>% filter(MeanDecreaseGini==0) %>% pull(variables)
-
-mean_lags <- rf_all %>% mutate(PA_group = ifelse(PA_pred >= thresh,1,0),
+mean_lags <- rfl0 %>% mutate(PA_group = ifelse(PA_pred >= roc1[roc1$maximized == 1,]$thresh,1,0),
                                synth = ifelse(source %in% c("Synthetic data","Synthetic"),'synthetic','population')) %>%
   filter(dataset == 'testing') %>% group_by(lon_coord,lat_coord,lag,synth) %>%
   summarize(mean_pred = mean(PA_group),
@@ -259,23 +220,23 @@ plt_diff <- diff_pres + geom_sf(data = state_data, aes(geometry = geometry), col
   theme(plot.title = element_text(hjust = 0.5))+ 
   theme(legend.position = 'top')
 
-pdf("figures/testing_data_proj.pdf")
+pdf("figures/testing_data_proj_xgb.pdf")
 plt_diff
 dev.off()
 
-imp_vars <- var_imp_all %>% filter(lag == 0) %>% arrange(desc(MeanDecreaseGini)) %>% head(20)
+imp_vars <- var_imp_all %>% filter(lag == 0) %>% arrange(desc(Gain)) %>% head(20)
 
 all_pds <- c()
 for(i in 1:length(imp_vars$variables)){
-  
-  temp <- get_conf_int(pa_xgb_lag0, rf_train_lag0,imp_vars$variables[i],imp_vars$type[i])
+
+  temp <- get_conf_int(pa_xgb_lag0, as.matrix(rf_train_lag0[-1]),imp_vars$variables[i],imp_vars$type[i], "xgb")
   temp$param <- imp_vars$variables[i]
   
   all_pds <- rbind(all_pds,temp)
   print(i)
 }
 
-write_csv(all_pds,"output/partial_dependence_lag0.csv")
+write_csv(all_pds,"output/partial_dependence_lag0_xgb.csv")
 
 all_rugs <- c()
 for(i in 1:length(imp_vars$variables)){
@@ -293,7 +254,7 @@ all_rugs2 <- merge(all_rugs,var_names_long,by.x = c('param'),by.y = c('variables
 all_rugs2 <- all_rugs2 %>% mutate(name = factor(name, levels = imp_vars$name)) 
 
 all_pds2 <- merge(all_pds,var_names_long, by.x = c('param'),by.y = c('variables'))
-all_pds2 <- all_pds2 %>% mutate(name = factor(name, levels = imp_vars_df2$name)) 
+all_pds2 <- all_pds2 %>% mutate(name = factor(name, levels = imp_vars$name)) 
 
 all_pds2$training <- '1990-2005'
 
@@ -312,13 +273,11 @@ all_pds2 %>%
   theme(legend.position = 'top') 
 #dev.off()
 
-imp_vars <- var_imp_all %>% filter(lag == 0) %>% arrange(desc(MeanDecreaseGini)) %>% head(20)
-
 a.time <- Sys.time()
 all_pds_new <- c()
 for(i in 1:length(imp_vars$variables)){
   
-  temp <- get_conf_int(pa_rf_lag0_new, rf_train_new,imp_vars$variables[i],imp_vars$type[i])
+  temp <- get_conf_int(pa_xgb_lag0_new, as.matrix(rf_train_new[-1]),imp_vars$variables[i],imp_vars$type[i], "xgb")
   temp$param <- imp_vars$variables[i]
   
   all_pds_new <- rbind(all_pds_new,temp)
@@ -328,7 +287,7 @@ for(i in 1:length(imp_vars$variables)){
   
 }
 
-write_csv(all_pds_new,"output/partial_dependence_new.csv")
+write_csv(all_pds_new,"output/partial_dependence_new_xgb.csv")
 
 all_rugs_new <- c()
 for(i in 1:length(imp_vars$variables)){
@@ -346,15 +305,15 @@ all_rugs_new2 <- merge(all_rugs_new,var_names_long,by.x = c('param'),by.y = c('v
 all_rugs_new2 <- all_rugs_new2 %>% mutate(name = factor(name, levels = imp_vars$name)) 
 
 all_pds_new2 <- merge(all_pds_new,var_names_long, by.x = c('param'),by.y = c('variables'))
-all_pds_new2 <- all_pds_new2 %>% mutate(name = factor(name, levels = imp_vars_df2$name)) 
+all_pds_new2 <- all_pds_new2 %>% mutate(name = factor(name, levels = imp_vars$name)) 
 all_pds_new2$training <- '1990-2023'
 
 pd_combo <- rbind(all_pds2,all_pds_new2)
 
-var1 <- var_imp_all %>% filter(variables %in% all_pds2$param) %>% arrange(desc(MeanDecreaseGini)) %>% head(20) %>% 
+var1 <- var_imp_all %>% filter(variables %in% all_pds2$param) %>% arrange(desc(Gain)) %>% head(20) %>% 
   mutate(imp1 = 1:20)%>% select(variables,name,imp1)
 
-var2 <- var_imp_new %>% filter(variables %in% all_pds_new2$param) %>% arrange(desc(MeanDecreaseGini)) %>% head(20) %>% 
+var2 <- var_xgb_new %>% filter(variables %in% all_pds_new2$param) %>% arrange(desc(Gain)) %>% head(20) %>% 
   mutate(imp2 = 1:20) %>% select(variables,name,imp2)
 
 var3 <- merge(var1,var2)
@@ -368,7 +327,7 @@ pd_combo %>%
   ggplot() +
   geom_line(aes(x = value, y = yhat, color = training),size = 1.5) +
   theme_classic(base_size = 15) + 
-  facet_wrap(~name, scales = 'free_x',nrow = 4) + 
+  facet_wrap(~name, scales = 'free',nrow = 4) + 
   ylab("Partial dependence") +
   scale_color_brewer("", palette = "Set1")+
   theme(legend.position = 'top') +
@@ -376,5 +335,5 @@ pd_combo %>%
   geom_text(aes(x = -Inf, y = -Inf, label = imp2), color = 'blue', size = 3, hjust = -1, vjust = -2.5)
 dev.off()
 
-write_csv(pd_combo,"output/partial_dependence_new.csv")
+write_csv(pd_combo,"output/partial_dependence_xgb.csv")
 
