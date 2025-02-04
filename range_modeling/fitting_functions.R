@@ -125,7 +125,7 @@ get_stats <- function(df, thresh, lag){
   
   }
 
-get_conf_int <- function(m, x, xname, type){
+get_conf_int <- function(m, x, xname, type, mod){
   
   if (type == 'numeric'){
     pvals <- seq(min(x[,xname]), max(x[,xname]),length.out = 51)
@@ -143,7 +143,15 @@ get_conf_int <- function(m, x, xname, type){
   for (i in 1:length(pvals)){
     xtemp <- x
     xtemp[, xname] <- pvals[i]
-    y.hat <- stats::predict(m, xtemp, type = 'prob')[,1]
+    
+    if(mod == "rf"){
+      y.hat <- stats::predict(m, xtemp, type = 'prob')[,1]
+    } else if (mod == "xgb"){
+      y.hat <- stats::predict(m, xtemp, type = 'prob')
+    } else {
+      y.hat <- NA
+    }
+    
     y.hat.mean[i] <- stats::weighted.mean(y.hat)
     y.hat.lb1[i] <- stats::quantile(y.hat, 0.025)
     y.hat.lb2[i] <- stats::quantile(y.hat, 0.1)
@@ -159,4 +167,5 @@ get_conf_int <- function(m, x, xname, type){
   return(m.ci)
   
 }
+
 
