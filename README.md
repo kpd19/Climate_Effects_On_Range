@@ -37,16 +37,16 @@ The historical weather data from used in our analyses comes from [ECMWF Reanalys
 
 The climate change projections come from the [NASA Earth Exchange Global Daily Downscaled Projections](https://www.nccs.nasa.gov/services/data-collections/land-based-products/nex-gddp-cmip6) (NEX-GDDP-CMIP6). The data are provided on a 0.25&deg; latitude x 0.25&deg; longitude array, but the center points are shifted by 0.125 degrees compared to the historical weather data, so we use bilinear interpolation to resample the grids to the same coordinates as the historical weather data. The data is then downsampled from hourly to daily timescales using the `CMIP6_data_cleaning.ipynb` and the same summary statistics as the historical data are calculated.  
 
+To make projections under climate change, we used a ensemble of 9 models from the Coupled Model Intercomparison Project Phase 6 (CMIP6) , 3 from each grouping of IPCC fifth assesment report's Equilibrium Climate Sensitivity (ECS), which is the expected long-term warming after a doubling of atmospheric CO2 concentrations. The IPCC has deemed those in the range 1.5-4.6 C as the "likely" sensitivity range, meaning there is a 66% chance the true value falls in that range. 
+
+* Low sensitivity (1.5-3&deg;C) CAMS-CSM1, NorESM2-MM, MIROC-ES2L f2
+* Medium sensitivity (3-4.5&deg;C) GFDL-ESM4, CMCC-CM2-SR5, KACE-1-0-G
+* High sensitivity (4.5-6&deg;C) CESM2-WACCM, HadGEM3-GC31-MM-f3, CANESM5 p1
+
 # Model fitting and comparison
 
 The script `presence_absence.R` combines the population dataset and synthetic dataset with the habitat features. The population data is split into two categories based on the year the observation occurred, the early time period is from 1990-2005 and the late time period is from 2006-2023. The script uses the population data to categorize each of the synthetic data (pseudo-absence) points based on the distance to the nearest grid cell that has a Douglas-fir tussock moth population for the two time periods, `in` if the synthetic data is in the same grid cell as a population, `near-1` if it is the nearest neighbor to a grid cell with a popualation, `near-2` if it is 2 grid cells away, `near-3` if it is 3 grid cells away, and `out` if it is more than 3 grid cells away. Using the example data points, the graphs in the   `figures` directory, `early_coordinates_example.pdf` and `late_coordinates_example.pdf`, demonstrate this. The data is then split into two datasets for each time period, with the population records as *presences* and the synthetic data as *absences*. 
 
 # Making projections under climate change
-
-To make projections under climate change, we used a ensemble of 9 models from the Coupled Model Intercomparison Project Phase 6 (CMIP6) , 3 from each grouping of IPCC fifth assesment report's Equilibrium Climate Sensitivity (ECS), which is the expected long-term warming after a doubling of atmospheric CO2 concentrations. The IPCC has deemed those in the range 1.5-4.6 C as the "likely" sensitivity range, meaning there is a 66% chance the true value falls in that range. 
-
-* Low sensitivity (1.5-3 ECS) CAMS-CSM1, NorESM2-MM, MIROC-ES2L f2
-* Medium sensitivity (3-4.5) GFDL-ESM4, CMCC-CM2-SR5, KACE-1-0-G
-* High sensitivity (4.5-6) CESM2-WACCM, HadGEM3-GC31-MM-f3, CANESM5 p1
 
 
