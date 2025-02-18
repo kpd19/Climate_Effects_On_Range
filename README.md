@@ -2,17 +2,17 @@
 
 This library contains code used in the manuscript titled Climate Effects of Range of the Douglas-fir Tussock Moth. This paper uses field and citizen science collected data to explore the effects of habitat and weather features on the range of populations of the Douglas-fir tussock moth. The model and analysis are implemented in R and Python. 
 
-# Requirements and Setup
+## Requirements and Setup
 
 The code was built using R version 4.3.2 and Python version 3.10.12. R can be downloaded [here](https://www.r-project.org). Python can be installed via Anaconda [here](https://docs.anaconda.com/anaconda/install/), and can be operated using the Jupyter Notebook Extension in Visual Studio Code Editor, which can be downloaded [here](https://code.visualstudio.com/download). The code requires several packages that are not part of the base R installations. After installing R, navigate to the main repository directory and run the installation.R script to install necessary packages. The Python packages used in this research are `numpy`, `xarray`, `pandas`, `datetime`, `flox`, `glob`, and `os`. 
 
-# Aggregating spatio-temporal Douglas-fir tussock moth population data 
+## Aggregating spatio-temporal Douglas-fir tussock moth population data 
 
 The population data comes from several sources collected by forest managers, lab collections, and citizen science projects. The `inaturalist.R` script in the `population_data` directory aggregates the citizen science data from iNaturalist as well as lab collections collected by past and present members of the Dwyer Lab at the University of Chicago. The `defoliation.R` script in the directory aggreates the defoliation data, which was downloaded from the [Annual Insect & Disease Detection Survey Database](https://www.fs.usda.gov/science-technology/data-tools-products/fhp-mapping-reporting/detection-surveys). To deal with defoliation polygons varying in size, we spatially aggregating defoliation polygons within the same year. Next, for polygons greater than or equal to 9 square kilometers, we split each polygon into sub-polygons with an average size of 3 square kilometers. Finally, we took the centroid of each polygon to use in our analyses. 
 
 We used synthetic data as *pseudo-absences* in our model, which are generated in `pseudo_absences.R`. We used the 0.25&deg; latitude x 0.25&deg; longitude grids from the weather data (described below) to randomly sample 5 population points in each grid square. The randomly sampled psuedo-absence data and population records are aggreaged in `combine_sources.R`. 
 
-# Habitat features
+## Habitat features
 
 We use several markers of habitat and weather quality to analyze the effects on population range, including biomass, forest composition, and landscape type. Biomass for the contiguous United States can be downloaded from [here](https://data.fs.usda.gov/geodata/rastergateway/biomass/), biomass for Canada can be downloaded from [here](https://open.canada.ca/data/en/dataset/698dc612-5059-43ee-84f3-49756e6d5ad6). The script `biomass.R` in the `landscape` directory shows how average and maximum biomass within a 3 kilometer radius around each location. We have provided an example file `range_locations_example.csv` in the `data` directory to use for analyses because the entire dataset takes a long time to extract the data.  For the Canadian biomass dataset, the data product is not masked by forest cover, so we used the same data to mask the Canadian biomass output. The forest cover dataset can be downloaded [here](https://storage.googleapis.com/earthenginepartners-hansen/GFC-2023-v1.11/download.html). The Canadian dataset also records the biomass as t/ha, whereas the United States dataset is Mg/ha, so the Canadian dataset is converted to Mg/ha. An example of the output is in the `data` directory as `biomass_all_sites_example.R`.
 
@@ -24,7 +24,7 @@ The `elevation.R` script in the `landscape` directory uses the `geonames` packag
 
 The script `combine_features.R` aggregates the biomass, land cover class, forest composition, and elevation features. The example output for the subset of example locations is in the `data` directory as `all_habitat_features.csv.
 
-# Weather Features
+## Historical Weather Features
 
 The historical weather data from used in our analyses comes from [ECMWF Reanalysis v5](https://www.ecmwf.int/en/forecasts/dataset/ecmwf-reanalysis-v5) (ERA5), which has data from 1940- present day on a 0.25&deg; latitude x 0.25&deg; longitude. The weather data can be accessed from the Climate Data store via their API. Details for getting an account and downloading the data can be found in the script `Download_ERA_5_CDS.ipynb` in the `weather` directory. The script is written to be executed in a [Google Colab](https://colab.research.google.com/) environment. The historical weather reanalysis data downloaded includeds hourly temperature, humidity, and precipitation from 1940-2023. The data is cleaned in the scripts in the `weather` directory. The data is then resampled from daily to the following weather summary statistics:
 
@@ -35,7 +35,9 @@ The historical weather data from used in our analyses comes from [ECMWF Reanalys
 * Date of predicted hatch, based on the literature using the sum of degree days above 5.6&deg;C.
 * Summed degree days for the 70 days after the predicted hatch date
 
-The climate change projections come from the [NASA Earth Exchange Global Daily Downscaled Projections](https://www.nccs.nasa.gov/services/data-collections/land-based-products/nex-gddp-cmip6) (NEX-GDDP-CMIP6). The data are provided on a 0.25&deg; latitude x 0.25&deg; longitude array, but the center points are shifted by 0.125 degrees compared to the historical weather data, so we use bilinear interpolation to resample the grids to the same coordinates as the historical weather data. The data is then downsampled from hourly to daily timescales using the `CMIP6_data_cleaning.ipynb` and the same summary statistics as the historical data are calculated.  
+## CMIP6 Climate Projections
+
+The climate change projections come from the [NASA Earth Exchange Global Daily Downscaled Projections](https://www.nccs.nasa.gov/services/data-collections/land-based-products/nex-gddp-cmip6) (NEX-GDDP-CMIP6). The data are provided on a 0.25&deg; latitude x 0.25&deg; longitude array, but the center points are shifted by 0.125 degrees compared to the historical weather data, so we use bilinear interpolation to resample the grids to the same coordinates as the historical weather data. The data is then downsampled from hourly to daily timescales using the `CMIP6_data_cleaning.ipynb` and the same summary statistics as the historical data are calculated. The weather variables are aggregated in the `CC_data_simple.R` script.
 
 To make projections under climate change, we used a ensemble of 10 models from the Coupled Model Intercomparison Project Phase 6 (CMIP6), characterized by the IPCC fifth assesment report's Equilibrium Climate Sensitivity (ECS), which is the expected long-term warming after a doubling of atmospheric CO2 concentrations. The IPCC has deemed those in the range 1.5-4.6 C as the "likely" sensitivity range, meaning there is a 66% chance the true value falls in that range. We included 3 models from the high and low sensitivity groups, and 4 from the medium sensitivity group:
 
