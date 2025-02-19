@@ -2,10 +2,10 @@ library(tidyverse)
 library(gridExtra)
 library(lubridate)
 
-models <- c("ACCESS-ESM1-5","CanESM5-p1","CMCC-CM2-SR5","CNRM-ESM2-f2","GFDL-ESM4","HadGEM3-CG31-MM-f3","INM-CM5-0","KACE-1-0-G","MIROC-ES2L-f2","NorESM2-MM")
+models <- c("ACCESS-ESM1-5","CanESM5-p1","CMCC-CM2-SR5","CNRM-ESM2-f2","GFDL-ESM4","HadGEM3-CG31-MM","INM-CM5-0","KACE-1-0-G","MIROC-ES2L-f2","NorESM2-MM")
 years <- c(2030,2050,2070,2090)
 
-clim_id <- 3
+clim_id <- 10
 
 avg_dfs <- c()
 simple_mod_df <- c()
@@ -38,9 +38,9 @@ for(i in 1:length(years)){
   all_means <- all_means %>% mutate(tas_mean = tas_mean - 273.15,
                                     tmin_mean = tmin_mean - 273.15,
                                     tmax_mean = tmax_mean - 273.15,
-                                    sum_pr = sum_pr*86.4) %>% select(-`...1`) %>% mutate(lon = lon - 360)
+                                    sum_pr = sum_pr*86.4) %>% dplyr::select(-`...1`) %>% mutate(lon = lon - 360)
 
-  gdd_season <- gdd_all %>% select(lat,lon,year,julian,gdd_season) %>% mutate(lon = lon -360)
+  gdd_season <- gdd_all %>% dplyr::select(lat,lon,year,julian,gdd_season) %>% mutate(lon = lon -360)
 
   all_means_tm <- all_means #%>% mutate(year = ifelse(month %in% c("October","November",'December'),year +1,year))
 
@@ -74,7 +74,7 @@ for(i in 1:length(years)){
 
 length(unique(means_df$year))
 
-write_csv(means_df, paste0("/Volumes/My Book/Synchrony/presence/annual_stats_",models[clim_id],".csv"))
+write_csv(means_df, paste0("/Volumes/My Book/Synchrony/cc_downsampled/annual_stats_",models[clim_id],".csv"))
 write_csv(simple_mod_df,paste0('/Volumes/My Book/Synchrony/cc_downsampled/simple_avg_',models[clim_id], ".csv"))
 write_csv(avg_dfs, paste0("/Volumes/My Book/Synchrony/cc_downsampled/annual_summary_",models[clim_id],".csv"))
 
