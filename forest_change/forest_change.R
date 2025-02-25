@@ -4,8 +4,6 @@ library(sp)
 
 `%ni%` <- Negate(`%in%`)
 
-setwd("/Users/katherinedixon/Documents/StuffINeed/_Research/Climate_Range/forest_change/")
-
 tree_files <- read_csv("data/file_info.csv")
 latlong <- read_csv("../landscape/data/all_habitat_features.csv")
 
@@ -54,5 +52,5 @@ for(i in 1:length(tree_files$filename)){
   
 }
 
-write_csv(forest_presence,"forest_climate_change.csv")
+write_csv(forest_presence,"data/forest_climate_change.csv")
 
