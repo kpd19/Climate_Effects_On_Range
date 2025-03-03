@@ -62,18 +62,7 @@ for (j in 1:length(models)){
                                                                         min_tp = min(sum_pr))
     
     
-    simple_mod <- merge(simple_mod,gdd_season)
-    
-    simple_mod <- simple_mod %>% group_by(lat,lon) %>%
-      summarize(sum_tp_all = mean(sum_tp),
-                min_t2m_all = mean(min_t2m),
-                max_t2m_all = mean(max_t2m),
-                min_rh_all = mean(min_rh),
-                max_rh_all = mean(max_rh),
-                min_tp_all = mean(min_tp),
-                max_tp_all = mean(max_tp),
-                gdd_season_all = mean(gdd_season)) %>% mutate(period = paste0(year1,'-',year2))
-    
+    simple_mod <- merge(simple_mod,gdd_season)   
     
     simple_mod_df <- rbind(simple_mod_df,simple_mod)
     means_df <- rbind(means_df,all_means)
