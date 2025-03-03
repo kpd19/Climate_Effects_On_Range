@@ -37,12 +37,12 @@ The historical weather data from used in our analyses comes from [ECMWF Reanalys
 
 ## CMIP6 Climate Projections
 
-The climate change projections come from the [NASA Earth Exchange Global Daily Downscaled Projections](https://www.nccs.nasa.gov/services/data-collections/land-based-products/nex-gddp-cmip6) (NEX-GDDP-CMIP6). The data are provided on a 0.25&deg; latitude x 0.25&deg; longitude array, but the center points are shifted by 0.125 degrees compared to the historical weather data, so we use bilinear interpolation to resample the grids to the same coordinates as the historical weather data. The data is then downsampled from hourly to daily timescales using the `CMIP6_data_cleaning.ipynb` and the same summary statistics as the historical data are calculated. The weather variables are aggregated in the `CC_data_simple.R` script.
+The climate change projections come from the [NASA Earth Exchange Global Daily Downscaled Projections](https://www.nccs.nasa.gov/services/data-collections/land-based-products/nex-gddp-cmip6) (NEX-GDDP-CMIP6). The data are provided on a 0.25&deg; latitude x 0.25&deg; longitude array, but the center points are shifted by 0.125 degrees compared to the historical weather data, so we use bilinear interpolation to resample the grids to the same coordinates as the historical weather data. The data is then downsampled from hourly to daily timescales using the `CMIP6_data_cleaning.ipynb` for projections 2030-2100 and the same summary statistics as the historical data are calculated. The weather variables are calculated for each model and time period in the `CC_data_simple.R` script and then aggregated in the `CC_data_agg.R` script. The annual trends in total precipitation, mean temperature, and mean relative humidity are also aggregated and plotted in the `CC_data_agg.R` script. The .pdf of this summary is in the `figures` directory. 
 
 To make projections under climate change, we used a ensemble of 10 models from the Coupled Model Intercomparison Project Phase 6 (CMIP6), characterized by the IPCC fifth assesment report's Equilibrium Climate Sensitivity (ECS), which is the expected long-term warming after a doubling of atmospheric CO2 concentrations. The IPCC has deemed those in the range 1.5-4.6 C as the "likely" sensitivity range, meaning there is a 66% chance the true value falls in that range. We included 3 models from the high and low sensitivity groups, and 4 from the medium sensitivity group:
 
 * Low sensitivity (1.5-3&deg;C) INM-CM5-0, NorESM2-MM, MIROC-ES2L f2
-* Medium sensitivity (3-4.5&deg;C) GFDL-ESM4, CMCC-CM2-SR5, KACE-1-0-G, ACCESS-ESM1-5
+* Medium sensitivity (3-4.5&deg;C) GFDL-ESM4, EC-Earth3-Veg-LR, KACE-1-0-G, ACCESS-ESM1-5
 * High sensitivity (4.5-6&deg;C) CNRM-ESM2-1 f2, HadGEM3-GC31-MM-f3, CANESM5 p1
 
 # Model fitting and comparison
