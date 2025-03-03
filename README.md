@@ -53,6 +53,6 @@ The script `presence_absence.R` combines the population dataset and synthetic da
 
 # Making projections under forest composition change
 
-To incorporate the potential changes in forest composition, we downloaded 2050 and 2100 range projections under the Hadley A1F1 Climate Scenario for species in the genera *Abies* and *Pseudotsuga* from the ForeCASTS project, available [here](https://www.geobabble.org/ForeCASTS/atlas.html). The script `forest_change.R` iteratively loops through each species and time period to extract the presence and absence within 3km of each location in our dataset. Each file takes approximately 10 minutes to run. 
+To incorporate the potential changes in forest composition, we downloaded 2050 and 2100 range projections under the Hadley A1F1 Climate Scenario for species in the genera *Abies* and *Pseudotsuga* from the ForeCASTS project, available [here](https://www.geobabble.org/ForeCASTS/atlas.html). The script `forest_change.R` iteratively loops through each species and time period to extract the presence and absence within 3km of each location in our dataset. Each file takes approximately 10 minutes to run. The `range_expansion` script creates a dataset with the presences and absences for historical range, projections for 2050 and projections for 2100 and plots the current range, expansion, and contrations. An example of this map is in the `figures` directory for *Pseudotusga menziesii* (Douglas-fir). 
 
 
