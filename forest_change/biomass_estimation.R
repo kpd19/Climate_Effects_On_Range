@@ -1,6 +1,7 @@
 library(tidyverse)
 library(geodata)
 library(geosphere)
+library(gridExtra)
 
 `%ni%` <- Negate(`%in%`)
 
@@ -173,5 +174,15 @@ dim(forest_2100_wide)
 dim(forest_2050_wide)
 
 write_csv(forest_current_wide,"data/forest_composition_2005_biomass.csv")
-write_csv(forest_2100_wide,"data/forest_composition_2050_biomass.csv")
+write_csv(forest_2050_wide,"data/forest_composition_2050_biomass.csv")
 write_csv(forest_2100_wide,"data/forest_composition_2100_biomass.csv")
+
+latlong2 <- latlong %>% select(colnames(latlong)[1:30]) %>% select(-c(mean_biomass,max_biomass))
+
+forest_current_all <- merge(latlong2,forest_current_wide)
+forest_2050_all <- merge(latlong2,forest_2050_wide)
+forest_2100_all <- merge(latlong2,forest_2100_wide)
+
+write_csv(forest_current_wide,"data/all_habitat_features_present.csv")
+write_csv(forest_2050_wide,"data/all_habitat_features_2050.csv")
+write_csv(forest_2100_wide,"data/all_habitat_features_2100.csv")
