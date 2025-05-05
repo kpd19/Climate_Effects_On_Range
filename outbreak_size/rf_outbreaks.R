@@ -9,7 +9,7 @@ library(randomForest)
 rsq <- function(actual,predicted) 1 - (sum((actual-predicted)^2)/sum((actual-mean(actual))^2))
 
 stats <- read_csv("outbreak_size/data/clustn_outbreak_size_features.csv")
-var_names <- read_csv('range_modeling/data/var_names_pa.csv')
+var_names <- read_csv('outbreak_size/data/var_names_ob.csv')
 
 # ob_cutoff <- 25
 # small_max = 55
@@ -134,7 +134,7 @@ for(i in 1:length(imp_vars$variables)){
   print(i)
 }
 
-write_csv(all_pds,"outbreak_size/output/partial_dependence.csv")
+write_csv(all_pds,"outbreak_size/data/partial_dependence.csv")
 
 all_rugs <- c()
 for(i in 1:length(imp_vars$variables)){
