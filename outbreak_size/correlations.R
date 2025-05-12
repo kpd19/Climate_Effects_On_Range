@@ -11,7 +11,6 @@ library(pals)
 
 locations <- read_csv("outbreak_size/data/north_america_trap_locations_051225.csv")
 remove <- read_csv('outbreak_size/data/plots_to_remove.csv')
-corr_df <- read_csv('outbreak_size/data/trap_correlations.csv')
 trap_data <- read_csv("outbreak_size/data/north_america_trap_data_051225.csv")
 
 remove_ids <- remove %>% pull(manual_id)
