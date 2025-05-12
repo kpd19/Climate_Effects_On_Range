@@ -45,14 +45,16 @@ To make projections under climate change, we used a ensemble of 10 models from t
 * Medium sensitivity (3-4.5&deg;C) GFDL-ESM4, EC-Earth3-Veg-LR, KACE-1-0-G, ACCESS-ESM1-5
 * High sensitivity (4.5-6&deg;C) CNRM-ESM2-1 f2, HadGEM3-GC31-MM-f3, CANESM5 p1
 
-# Model fitting and comparison
+## Model fitting and comparison
 
 The script `presence_absence.R` combines the population dataset and synthetic dataset with the habitat features. The population data is split into two categories based on the year the observation occurred, the early time period is from 1990-2005 and the late time period is from 2006-2023. The script uses the population data to categorize each of the synthetic data (pseudo-absence) points based on the distance to the nearest grid cell that has a Douglas-fir tussock moth population for the two time periods, `in` if the synthetic data is in the same grid cell as a population, `near-1` if it is the nearest neighbor to a grid cell with a popualation, `near-2` if it is 2 grid cells away, `near-3` if it is 3 grid cells away, and `out` if it is more than 3 grid cells away. Using the example data points, the graphs in the   `figures` directory, `early_coordinates_example.pdf` and `late_coordinates_example.pdf`, demonstrate this. The data is then split into two datasets for each time period, with the population records as *presences* and the synthetic data as *absences*. 
 
-# Making projections under climate change
+## Making projections under climate change
 
-# Making projections under forest composition change
+## Making projections under forest composition change
 
 To incorporate the potential changes in forest composition, we downloaded 2050 and 2100 range projections under the Hadley A1F1 Climate Scenario for species in the genera *Abies* and *Pseudotsuga* from the ForeCASTS project, available [here](https://www.geobabble.org/ForeCASTS/atlas.html). The script `forest_change.R` iteratively loops through each species and time period to extract the presence and absence within 3km of each location in our dataset. Each file takes approximately 10 minutes to run. The `range_expansion` script creates a dataset with the presences and absences for historical range, projections for 2050 and projections for 2100 and plots the current range, expansion, and contrations. An example of this map is in the `figures` directory for *Pseudotusga menziesii* (Douglas-fir). The script also creates a range change map for all host tree species combined. Because the projections include changes in forest composition with no modeled biomass, there are populations that have host trees in the future with no current non-zero biomass estimates. For these populations, we used the average biomass from the 10 closests populations with host trees present in the historical datasets, which is computed in `biomass_estimation.R`. 
+
+## Outbreak size
 
 
