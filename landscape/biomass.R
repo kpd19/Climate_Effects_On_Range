@@ -7,8 +7,8 @@ library(gridExtra)
 
 `%ni%` <- Negate(`%in%`)
 
-us_biomass <- raster("/Volumes/My Book/Forest/conus_forest_biomass/conus_forest_biomass_mg_per_ha.img")
-canada_biomass <- raster("/Volumes/My Book/Forest/nfi_kNN2011/kNN_Structure_Biomass_TotalLiveAboveGround_v1.tif")
+us_biomass <- raster("landscape/data/conus_forest_biomass_mg_per_ha.img")
+canada_biomass <- raster("landscape/data/kNN_Structure_Biomass_TotalLiveAboveGround_v1.tif")
 latlong <- read_csv("population_data/data/range_locations_example.csv")
 
 latlong <- latlong %>% dplyr::select(manual_id,lat,lon) #%>% mutate(source = "Synthetic data")
@@ -125,9 +125,9 @@ corners <- data.frame(grid = c(1:9),
                       lat_top = c(60,60,60,50,50,50,40,40,40),
                       lon_left = c(130,120,110,130,120,110,130,120,110))
 corners <- corners %>%
-  mutate(cover_file = paste0("/Volumes/My Book/Forest/Hansen/Hansen_GFC-2023-v1.11_treecover2000_",lat_top,"N_",lon_left,"W.tif"),
-         loss_file = paste0("/Volumes/My Book/Forest/Hansen/Hansen_GFC-2023-v1.11_lossyear_",lat_top,"N_",lon_left,"W.tif"),
-         gain_file = paste0("/Volumes/My Book/Forest/Hansen/Hansen_GFC-2023-v1.11_gain_",lat_top,"N_",lon_left,"W.tif"))
+  mutate(cover_file = paste0("landscape/data/Hansen_GFC-2023-v1.11_treecover2000_",lat_top,"N_",lon_left,"W.tif"),
+         loss_file = paste0("landscape/data/Hansen_GFC-2023-v1.11_lossyear_",lat_top,"N_",lon_left,"W.tif"),
+         gain_file = paste0("landscape/data/Hansen_GFC-2023-v1.11_gain_",lat_top,"N_",lon_left,"W.tif"))
 
 biomass_coords <- biomass_coords %>% mutate(grid = case_when(lat <= 60 & lat >50 & lon >= -130 & lon <=-120 ~ 1,
                                             lat <= 60 & lat >50 & lon >= -120 & lon <=-110 ~ 2,
@@ -211,52 +211,3 @@ biomass_all %>% ggplot() + aes(x = lon,y = lat, color = mean_biomass) + geom_poi
   scale_color_viridis_c(option = 'turbo')
 
 write_csv(biomass_all,"landscape/data/biomass_all_sites_example.csv")
-
-##############
-##############
-##############
-##############
-
-
-# sp_biomass_us_long <- sp_biomass_us %>% set_names(seq_along(.)) %>% enframe %>% unnest(cols = c('value'))
-# 
-# sp_biomass_us_long$cellnumber <- sp_biomass_us_long[,2]$value[,1]
-# sp_biomass_us_long$biomass <- sp_biomass_us_long[,2]$value[,2]
-# 
-# coords <- unique(sp_biomass_us_long$cellnumber)
-# 
-# xy_vals <- data.frame(xyFromCell(us_biomass,coords))
-# xy_vals$cell <- coords
-# xy_vals <- xy_vals %>% drop_na(x)
-# coordinates(xy_vals) <- ~x+y
-# proj4string(xy_vals)  <- CRS("+proj=aea +lat_0=23 +lon_0=-96 +lat_1=29.5 +lat_2=45.5 +x_0=0 +y_0=0 +datum=NAD27 +units=m +no_defs")
-# 
-# xy_vals2 <- spTransform(xy_vals, CRS("+proj=longlat +ellps=WGS84 +datum=WGS84")) # this is what google is)
-# 
-# xy_vals2 <- data.frame(xy_vals2)
-# colnames(xy_vals2) <- c('cellnumber','lon','lat','optional')
-# 
-# sp_biomass_us_long <- sp_biomass_us_long %>% select(name,cellnumber,biomass)
-# 
-# xy_vals2 <- merge(xy_vals2,sp_biomass_us_long)
-# 
-# xy_vals2 %>% filter(biomass >0) %>% ggplot() + aes(x = lon, y = lat, color = biomass) + geom_point(alpha = 0.5, shape = 19, size = 1) + theme_classic() +
-#   #coord_cartesian(xlim = c(-121,-120.5),ylim = c(50.5,51)) +
-#   scale_color_viridis_c(option = 'turbo')
-# 
-# xy_vals2 <- xy_vals2 %>% rename(df_id = name) %>% rename(lat_id = lat, lon_id = lon)
-# 
-# xy_vals2 <- merge(xy_vals2,ll_info_us)
-# 
-# write_csv(xy_vals2,"landscape/data/biomass_test.csv")
-# 
-# 
-# summary_us <- xy_vals2 %>% group_by(df_id,lat,lon) %>% summarize(mean_biomass = mean(biomass,na.rm=TRUE),
-#                                                                  max_biomass = max(biomass),na.rm=TRUE)
-# 
-# 
-# summary_us %>% 
-#   ggplot() + aes(x = lon, y = lat, color = mean_biomass) + geom_point(alpha = 1, shape = 19, size = 1) +
-#   theme_classic() +
-#   #coord_cartesian(xlim = c(-121,-120.5),ylim = c(50.5,51)) +
-#   scale_color_viridis_c(option = 'turbo')
