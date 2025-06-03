@@ -1,20 +1,19 @@
 library(raster)
 library(tidyverse)
-library(sp)
-library(sf)
+#library(sp)
+#library(sf)
 library(gridExtra)
-library(geosphere)
+#library(geosphere)
 
 `%ni%` <- Negate(`%in%`)
 
-us_biomass <- raster("data/conus_forest_biomass_mg_per_ha.img")
-canada_biomass <- raster("data/kNN_Structure_Biomass_TotalLiveAboveGround_v1.tif")
-latlong <- read_csv("data/range_locations_example.csv")
+us_biomass <- raster("/Volumes/My Book/Forest/conus_forest_biomass/conus_forest_biomass_mg_per_ha.img")
+canada_biomass <- raster("/Volumes/My Book/Forest/nfi_kNN2011/kNN_Structure_Biomass_TotalLiveAboveGround_v1.tif")
+latlong <- read_csv("population_data/data/range_locations_example.csv")
 
-latlong %>% count(source)
+latlong <- latlong %>% dplyr::select(manual_id,lat,lon) #%>% mutate(source = "Synthetic data")
 
-latlong %>% ggplot() + aes(x = lon,y = lat, color = source) + geom_point() + theme_classic(base_size = 15) +
-  facet_wrap(~source)
+latlong %>% ggplot() + aes(x = lon,y = lat) + geom_point() + theme_classic(base_size = 15)
 
 ####################
 ####################
@@ -47,6 +46,9 @@ biomass_us <- biomass_us %>% mutate(mean_biomass = ifelse(is.nan(mean_biomass), 
                       max_biomass = ifelse(max_biomass == -Inf, NA,max_biomass))
 
 biomass_us <- merge(biomass_us,ll_info_us, all = TRUE)
+
+biomass_us %>% ggplot() + aes(x = lon, y = lat, color = mean_biomass) + geom_point() + theme_classic(base_size = 15) + 
+  scale_color_viridis_c()
 
 us_notna <- biomass_us %>% drop_na(mean_biomass) %>% filter(lat >= 48) %>% pull(manual_id)
 
@@ -85,6 +87,7 @@ coords <- unique(sp_biomass_ca_long$cellnumber)
 
 xy_vals <- data.frame(xyFromCell(canada_biomass,coords))
 xy_vals$cell <- coords
+xy_vals <- xy_vals %>% drop_na(x)
 coordinates(xy_vals) <- ~x+y
 proj4string(xy_vals)  <- CRS("+proj=lcc +lat_0=49 +lon_0=-95 +lat_1=49 +lat_2=77 +x_0=0 +y_0=0 +a=6378137 +rf=298.257221999999 +units=m +no_defs")
 
@@ -122,9 +125,9 @@ corners <- data.frame(grid = c(1:9),
                       lat_top = c(60,60,60,50,50,50,40,40,40),
                       lon_left = c(130,120,110,130,120,110,130,120,110))
 corners <- corners %>%
-  mutate(cover_file = paste0("Hansen_GFC-2023-v1.11_treecover2000_",lat_top,"N_",lon_left,"W.tif"),
-         loss_file = paste0("Hansen_GFC-2023-v1.11_lossyear_",lat_top,"N_",lon_left,"W.tif"),
-         gain_file = paste0("Hansen_GFC-2023-v1.11_gain_",lat_top,"N_",lon_left,"W.tif"))
+  mutate(cover_file = paste0("/Volumes/My Book/Forest/Hansen/Hansen_GFC-2023-v1.11_treecover2000_",lat_top,"N_",lon_left,"W.tif"),
+         loss_file = paste0("/Volumes/My Book/Forest/Hansen/Hansen_GFC-2023-v1.11_lossyear_",lat_top,"N_",lon_left,"W.tif"),
+         gain_file = paste0("/Volumes/My Book/Forest/Hansen/Hansen_GFC-2023-v1.11_gain_",lat_top,"N_",lon_left,"W.tif"))
 
 biomass_coords <- biomass_coords %>% mutate(grid = case_when(lat <= 60 & lat >50 & lon >= -130 & lon <=-120 ~ 1,
                                             lat <= 60 & lat >50 & lon >= -120 & lon <=-110 ~ 2,
@@ -167,15 +170,18 @@ for(i in 1:length(grid_need$grid)){
 
 biomass_small2 <- merge(biomass_small,cover_df)
 
+biomass_small2 %>% filter(loss == 0) %>% ggplot()+ aes(x = lon, y = lat, color = biomass) + geom_point() + theme_classic() +
+  scale_color_viridis_c(option = 'turbo')
+
 biomass_small2 <- biomass_small2 %>% mutate(biomass2 = ifelse(cover <= 25,NA,biomass)) %>% 
-  mutate(biomass2 = ifelse(loss <= 11,NA,biomass2))
+  mutate(biomass2 = ifelse(loss >0 & loss <= 11,NA,biomass2))
 
 summary_biomass <- biomass_small2 %>% group_by(df_id,lat_site,lon_site) %>% 
   summarize(mean_biomass = mean(biomass2,na.rm=TRUE),
             max_biomass = max(biomass2,na.rm=TRUE),
             mean_cover = mean(cover))
 
-summary_biomass %>% 
+summary_biomass %>% drop_na(mean_biomass) %>% 
   ggplot() + aes(x = lon_site, y = lat_site,color = mean_biomass) + geom_point() + theme_classic(base_size = 15) +
   scale_color_viridis_c(option = 'turbo')
 
@@ -204,7 +210,7 @@ biomass_all %>% ggplot() + aes(x = lon,y = lat, color = mean_biomass) + geom_poi
   theme_classic() +
   scale_color_viridis_c(option = 'turbo')
 
-write_csv(biomass_all,"data/biomass_all_sites.csv")
+write_csv(biomass_all,"landscape/data/biomass_all_sites_example.csv")
 
 ##############
 ##############
