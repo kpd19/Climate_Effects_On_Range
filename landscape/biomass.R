@@ -7,12 +7,9 @@ library(gridExtra)
 
 `%ni%` <- Negate(`%in%`)
 
-us_biomass <- raster("/Volumes/My Book/Forest/conus_forest_biomass/conus_forest_biomass_mg_per_ha.img")
-canada_biomass <- raster("/Volumes/My Book/Forest/nfi_kNN2011/kNN_Structure_Biomass_TotalLiveAboveGround_v1.tif")
+us_biomass <- raster("landscape/data/conus_forest_biomass_mg_per_ha.img")
+canada_biomass <- raster("landscape/data/nfi_kNN2011/kNN_Structure_Biomass_TotalLiveAboveGround_v1.tif")
 latlong <- read_csv("population_data/data/range_locations_example.csv")
-#latlong <- read_csv("landscape/data/all_habitat_features.csv")
-
-#latlong <- latlong %>% mutate(elev2 = ifelse(manual_id %in% c(50315,50223),0, elev2))
 
 latlong <- latlong %>% dplyr::select(manual_id,lat,lon) 
 
@@ -200,10 +197,6 @@ summary_biomass <- summary_biomass %>% mutate(mean_biomass = ifelse(is.na(mean_b
 
 biomass_ca <- merge(ll_info_ca,summary_biomass)
 
-write_csv(biomass_ca,'landscape/data/biomass_ca_temp.csv')
-biomass_ca <- read_csv('landscape/data/biomass_ca_temp.csv')
-
-
 ##############
 ##############
 ##############
@@ -335,14 +328,7 @@ biomass_small_us2 %>% drop_na(mean_biomass) %>% ungroup() %>%
   ggplot() + aes(x = mean_biomass) + geom_density() + theme_classic() + 
   geom_density(aes(x = mean_biomass2), color = 'red')
 
-grid.arrange(plt1,plt2)
-
-
 biomass_us2 <- merge(ll_info_us,biomass_small_us2)
-
-write_csv(biomass_us2,'landscape/data/biomass_us_cover_temp.csv')
-biomass_us2 <- read_csv('landscape/data/biomass_us_cover_temp.csv')
-
 
 ##############
 ##############
@@ -368,4 +354,4 @@ biomass_all %>% ggplot() + aes(x = lon,y = lat, color = mean_cover) + geom_point
   theme_classic() +
   scale_color_viridis_c(option = 'turbo')
 
-write_csv(biomass_all,"landscape/data/biomass_all_sites.csv")
+write_csv(biomass_all,"landscape/data/biomass_all_sites_example.csv")
