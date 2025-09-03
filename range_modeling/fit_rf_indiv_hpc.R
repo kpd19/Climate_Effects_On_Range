@@ -25,8 +25,8 @@ source("fitting_functions.R")
 testing_dataset <- read_csv('data/testing_dataset_2011-2024_yrs.csv', guess_max = Inf)
 training_dataset <- read_csv('data/training_dataset_1985-2010_yrs.csv', guess_max = Inf)
 
-forest_current <- read_csv("data/forest_species_pa.csv")
-habitat_features <- read_csv("data/all_habitat_features.csv")
+forest_current <- read_csv("../landscape/data/forest_species_pa.csv")
+habitat_features <- read_csv("../landscape/data/all_habitat_features.csv")
 
 forest_current <- forest_current %>% select(-c(manual_id,source)) %>%
   rename(Abies_pres = sum_Abies,
@@ -86,21 +86,21 @@ test_all <- test_all %>% mutate_at(c('mean_biomass','max_biomass'), ~replace_na(
 
 test_all[test_all$near_needle == 0 & test_all$host_trees == 1,]$near_needle <- 1
 
-# avg5_weather <- ann_weather_stats %>% rename(lon = longitude, lat = latitude) %>%
-#   group_by(lat,lon) %>% arrange(year) %>%
-#   mutate(min_t2m_r = rollmean(min_t2m, k = 5, na.pad = TRUE, align = 'right'),
-#          max_t2m_r = rollmean(max_t2m, k = 5, na.pad = TRUE, align = 'right'),
-#          min_rh_r = rollmean(min_rh, k = 5, na.pad = TRUE, align = 'right'),
-#          max_rh_r = rollmean(max_rh, k = 5, na.pad = TRUE, align = 'right'),
-#          min_tp_r = rollmean(min_tp, k = 5, na.pad = TRUE, align = 'right'),
-#          max_tp_r = rollmean(max_tp, k = 5, na.pad = TRUE, align = 'right'),
-#          julian_r = rollapply(julian, width = 5, FUN = mean, na.rm=TRUE, fill = NA, align = 'right'),
-#          sum_tp_r = rollmean(sum_tp, k = 5, na.pad = TRUE,align = 'right'),
-#          gdd_season_r = rollapply(gdd_season, width = 5, FUN = mean, na.rm=TRUE, fill = NA, align = 'right'),
-#          coldest_r = rollmean(coldest, k = 5, na.pad = TRUE, align = 'right')) %>%
-#   select(lat,lon,year,min_t2m_r,max_t2m_r,min_rh_r, max_rh_r, min_tp_r, max_tp_r, sum_tp_r, julian_r,gdd_season_r,coldest_r) %>%
-#   rename(min_t2m = min_t2m_r, max_t2m = max_t2m_r,min_rh = min_rh_r, max_rh = max_rh_r,
-#          min_tp = min_tp_r, max_tp = max_tp_r, sum_tp = sum_tp_r, julian = julian_r, gdd_season = gdd_season_r,coldest = coldest_r)
+avg5_weather <- ann_weather_stats %>% rename(lon = longitude, lat = latitude) %>%
+  group_by(lat,lon) %>% arrange(year) %>%
+  mutate(min_t2m_r = rollmean(min_t2m, k = 5, na.pad = TRUE, align = 'right'),
+         max_t2m_r = rollmean(max_t2m, k = 5, na.pad = TRUE, align = 'right'),
+         min_rh_r = rollmean(min_rh, k = 5, na.pad = TRUE, align = 'right'),
+         max_rh_r = rollmean(max_rh, k = 5, na.pad = TRUE, align = 'right'),
+         min_tp_r = rollmean(min_tp, k = 5, na.pad = TRUE, align = 'right'),
+         max_tp_r = rollmean(max_tp, k = 5, na.pad = TRUE, align = 'right'),
+         julian_r = rollapply(julian, width = 5, FUN = mean, na.rm=TRUE, fill = NA, align = 'right'),
+         sum_tp_r = rollmean(sum_tp, k = 5, na.pad = TRUE,align = 'right'),
+         gdd_season_r = rollapply(gdd_season, width = 5, FUN = mean, na.rm=TRUE, fill = NA, align = 'right'),
+        coldest_r = rollmean(coldest, k = 5, na.pad = TRUE, align = 'right')) %>%
+  select(lat,lon,year,min_t2m_r,max_t2m_r,min_rh_r, max_rh_r, min_tp_r, max_tp_r, sum_tp_r, julian_r,gdd_season_r,coldest_r) %>%
+  rename(min_t2m = min_t2m_r, max_t2m = max_t2m_r,min_rh = min_rh_r, max_rh = max_rh_r,
+         min_tp = min_tp_r, max_tp = max_tp_r, sum_tp = sum_tp_r, julian = julian_r, gdd_season = gdd_season_r,coldest = coldest_r)
 
 lag_temp <- 15
 lag_rh <- 15
@@ -115,11 +115,6 @@ rh_vars <- ann_weather_stats %>% select(lat,lon,year,min_rh,max_rh) %>%
 
 lagged_weather <- merge(temp_vars,pr_vars)
 lagged_weather <- merge(lagged_weather, rh_vars)
-
-# lag only temperature, only precipitation, only relative humidity
-# lag 2/3
-# different lags
-# split the weather data apart and remerge it
 
 test_all_lag0 <- merge(test_all,lagged_weather, by.x = c('lat_coord','lon_coord','year'), by.y = c('lat','lon','year'))
 
@@ -140,20 +135,19 @@ rf_train_lag0 <- train_lag0 %>% select('present',c(keep_col))  %>%
   mutate(present = ifelse(present == 1, 'present','absent')) %>%
   mutate(present = factor(present, levels = c('present','absent'))) %>% drop_na(julian)
 
-# rf_model <- foreach(ntree = rep(num_trees_per_worker,num_workers), .combine = combine,
-#                    .packages = "randomForest") %dopar% {
-#                      randomForest(x = rf_train_lag0[-1],
-#                                   y = rf_train_lag0$present,
-#                                   ntree = ntree, keep.forest = TRUE,
-#                                   importance = TRUE, mtry = sqrt(ncol(rf_train_lag0[-1])))
-#                    }
+rf_model <- foreach(ntree = rep(num_trees_per_worker,num_workers), .combine = combine,
+                   .packages = "randomForest") %dopar% {
+                     randomForest(x = rf_train_lag0[-1],
+                                  y = rf_train_lag0$present,
+                                  ntree = ntree, keep.forest = TRUE,
+                                  importance = TRUE, mtry = sqrt(ncol(rf_train_lag0[-1])))
+                   }
 
 paste0("Finished fitting rf in ", round(difftime(Sys.time(), t0, units = 'mins'),2), " minutes")
-#save(rf_model, file = paste0('rf_output/rf_models1_lag', lag_temp,lag_pr,lag_rh, '.RData'))
 
-load('rf_output/rf_models1_lag15.RData')
-
+save(rf_model, file = paste0('rf_output/rf_models1_lag', lag_temp,lag_pr,lag_rh, '.RData'))
 paste0("Finished saving rf in ", round(difftime(Sys.time(), t0, units = 'mins'),2), " minutes")
+
 test_all_lag0_rf <- test_all_lag0 %>%
   select(keep_col,present,lat,lon,lat_coord,lon_coord,dataset,period,source,manual_id) %>% drop_na()
 
@@ -183,10 +177,10 @@ stats2 <- stats2 %>%  mutate(lag_pr = lag_pr,
                              lag_rh = lag_rh, 
                              lag_temp = lag_temp)
 
-write_csv(stats1, paste0("rf_output/stats_lag",lag_temp,lag_pr,lag_rh,"_2.csv"))
-write_csv(stats2, paste0("rf_output/nums_lag",lag_temp,lag_pr,lag_rh,"_2.csv"))
-write_csv(rocl0, paste0("rf_output/roc_lag",lag_temp,lag_pr,lag_rh,"_2.csv"))
-write_csv(rfl0, paste0("rf_output/predictions_lag",lag_temp,lag_pr,lag_rh,"_2.csv"))
+write_csv(stats1, paste0("output/stats_lag",lag_temp,lag_pr,lag_rh,"_2.csv"))
+write_csv(stats2, paste0("output/nums_lag",lag_temp,lag_pr,lag_rh,"_2.csv"))
+write_csv(rocl0, paste0("output/roc_lag",lag_temp,lag_pr,lag_rh,"_2.csv"))
+write_csv(rfl0, paste0("output/predictions_lag",lag_temp,lag_pr,lag_rh,"_2.csv"))
 
 var_imp_all <- data.frame(importance(rf_model))
 var_imp_all$variables <- rownames(var_imp_all)
@@ -198,21 +192,7 @@ imp_vars <- var_imp_all %>% filter(MeanDecreaseGini >0) %>% arrange(desc(MeanDec
 all_pds <- foreach(i = 1:15, .combine = 'rbind') %dopar% 
   get_conf_int(rf_model, rf_train_lag0,imp_vars$variables[i],imp_vars$type[i], mod = 'rf')
 
-# a.time <- Sys.time()
-# all_pds <- c()
-# for(i in 1:length(imp_vars$variables)){
-#   
-#   temp <- get_conf_int(rf_model, rf_train_lag0,imp_vars$variables[i],imp_vars$type[i], mod = 'rf')
-#   temp$param <- imp_vars$variables[i]
-#   
-#   all_pds <- rbind(all_pds,temp)
-#   print(i)
-#   b.time <- Sys.time()
-#   c.time <- b.time - a.time
-#   print(paste0("Finished ", i, " in: ", c.time))
-# }
-
-write_csv(all_pds, paste0("rf_output/partial_dependence_lag",lag_temp,lag_pr,lag_rh,"_2.csv"))
+write_csv(all_pds, paste0("output/partial_dependence_lag",lag_temp,lag_pr,lag_rh,"_2.csv"))
 
 closeCluster(cl)
 mpi.quit()
