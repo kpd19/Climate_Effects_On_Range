@@ -72,11 +72,11 @@ training_dataset <- training_dataset %>%
 testing_dataset2 <- merge(testing_dataset, habitat_features2, all.x = TRUE)
 training_dataset2 <- merge(training_dataset, habitat_features2, all.x = TRUE)
 
-ann_weather_stats <- read_csv("data/avg5_weather.csv")
+ann_weather_stats <- read_csv("../climate/data/all_annual_1940-2024_2.csv")
 
 print("Finished reading in weather")
 
-#ann_weather_stats <- ann_weather_stats %>% rename(year = year_tm)
+ann_weather_stats <- ann_weather_stats %>% rename(year = year_tm)
 
 test_all <- rbind(training_dataset2,testing_dataset2)
 
