@@ -1,4 +1,5 @@
 library(tidyverse)
+library(gridExtra)
 
 `%ni%` <- Negate(`%in%`)
 
@@ -17,13 +18,21 @@ habitat_coords <- habitat_features %>% mutate(lat_coord = round(lat/0.25)*0.25,
 population_records %>% ggplot() + aes(x = lon,y = lat, color = source) + 
   geom_point() + facet_wrap(~year)
 
-population_records %>% filter(year >=1990) %>% mutate(period = ifelse(year <= 2005,"1990-2005","2006-2023")) %>% 
+plt1 <- population_records %>% filter(year >=1985) %>% mutate(period = ifelse(year <= 2010,"1985-2010","2011-2024")) %>% 
   group_by(lat_coord,lon_coord,period) %>% count(lat) %>% 
   ggplot() + aes(x = lon_coord,y = lat_coord, color = period) + geom_tile(color = 'black') + 
   theme_classic(base_size = 15) + 
   facet_wrap(~period)
 
-present_early_pop <- population_records %>% filter(year >= 1990, year <= 2005) %>% filter(manual_id %ni% c(50445,50381,50223))
+plt2 <- population_records %>% filter(year >=1990) %>% mutate(period = ifelse(year <= 2005,"1985-2010","2011-2024")) %>% 
+  group_by(lat_coord,lon_coord,period) %>% count(lat) %>% 
+  ggplot() + aes(x = lon_coord,y = lat_coord, color = period) + geom_tile(color = 'black') + 
+  theme_classic(base_size = 15) + 
+  facet_wrap(~period)
+
+grid.arrange(plt1,plt2)
+
+present_early_pop <- population_records %>% filter(year >= 1985, year <= 2010) %>% filter(manual_id %ni% c(50445,50381,50223))
 
 uni_early <- present_early_pop %>% mutate(n = 1) %>% group_by(lat_coord,lon_coord) %>% count()
 
@@ -82,8 +91,8 @@ coords_early %>%
   scale_fill_brewer(palette = 'Set1')
 dev.off()
 
-present_late_pop <- population_records %>% filter(year >= 2006) %>% filter(manual_id %ni% c(50445,50381,50223))
-present_late_pop2 <- population_records %>% filter(year >= 2006, source == "Defoliation surveys") %>%
+present_late_pop <- population_records %>% filter(year >= 2011) %>% filter(manual_id %ni% c(50445,50381,50223))
+present_late_pop2 <- population_records %>% filter(year >= 2011, source == "Defoliation surveys") %>%
   filter(manual_id == 50223)
 present_late_pop <- rbind(present_late_pop, present_late_pop2)
 
@@ -153,9 +162,13 @@ synthetic_locations <- synthetic_locations %>% filter(source == "Synthetic data"
 present_early_pop2 <- present_early_pop %>% mutate(present = 1, track_early = 'in')
 
 synthetic_early <- synthetic_locations %>% filter(track_early != 'in')
+
+prob_years_early <- present_early_pop %>% count(year) %>% 
+  mutate(sum_n = sum(n)) %>% mutate(p = n/sum_n)
+
 synthetic_early <- synthetic_early %>%
-  mutate(year = sample(1990:2005,length(synthetic_early$lat), replace = TRUE)) %>% 
-  select(-track_late)
+  mutate(year = sample(x = prob_years_early$year, size = length(synthetic_early$lat), replace = TRUE, prob = prob_years_early$p)) %>% 
+  select(-track_late) %>% mutate(count = 0)
 
 early_dataset_yrs <- rbind(present_early_pop2,synthetic_early)
 
@@ -165,19 +178,31 @@ early_dataset_yrs %>% filter(source == "Synthetic data") %>%
   theme_classic() + 
   facet_wrap(~year)
 
-early_dataset_yrs %>% filter(track_early %in% c("in",'near-1')) %>% 
+early_dataset_yrs %>% filter(track_early %in% c("in",'near-1','near-2','near-3')) %>% 
   ggplot() + aes(x = lon,y = lat, color = source) + geom_point() +
   theme_classic(base_size = 15) + 
   facet_wrap(~track_early)
 
 early_dataset_yrs %>% ungroup() %>% count(track_early)
 
+early_dataset_yrs %>% group_by(present) %>% count(year) %>% 
+  mutate(sum_n = sum(n)) %>% 
+  ggplot() + aes(x = year, y = n/sum_n, group = present, color = as.factor(present), fill = as.factor(present)) +
+  geom_bar(stat = 'identity', position = 'dodge') +
+  theme_classic() + ylab("Proportion of dataset") +
+  scale_color_brewer("Present", palette = "Set2") +
+  scale_fill_brewer("Present", palette = "Set2")
+
 present_late_pop2 <- present_late_pop %>% mutate(present = 1, track_late = 'in')
 
 synthetic_late <- synthetic_locations %>% filter(track_late != 'in')
+
+prob_years_late <- present_late_pop %>% count(year) %>% 
+  mutate(sum_n = sum(n)) %>% mutate(p = n/sum_n)
+
 synthetic_late <- synthetic_late %>%
-  mutate(year = sample(2006:2024,length(synthetic_late$lat), replace = TRUE)) %>% 
-  select(-track_early)
+  mutate(year = sample(x = prob_years_late$year, size = length(synthetic_late$lat), replace = TRUE, prob = prob_years_late$p)) %>% 
+  select(-track_early) %>% mutate(count = 0)
 
 late_dataset_yrs <- rbind(present_late_pop2,synthetic_late)
 
@@ -187,9 +212,15 @@ late_dataset_yrs %>% filter(source == "Synthetic data") %>%
   theme_classic() + 
   facet_wrap(~year)
 
+late_dataset_yrs %>% group_by(present) %>% count(year) %>% 
+  mutate(sum_n = sum(n)) %>% 
+  ggplot() + aes(x = year, y = n/sum_n, group = present, color = as.factor(present), fill = as.factor(present)) +
+  geom_bar(stat = 'identity', position = 'dodge') +
+  theme_classic() + ylab("Proportion of dataset") +
+  scale_color_brewer("Present", palette = "Set2") +
+  scale_fill_brewer("Present", palette = "Set2")
 
-
-write_csv(early_dataset_yrs,'data/training_dataset_1990-2005_yrs.csv')
-write_csv(late_dataset_yrs,'data/testing_dataset_2006-2024_yrs.csv')
+write_csv(early_dataset_yrs,'data/training_dataset_1985-2010_yrs.csv')
+write_csv(late_dataset_yrs,'data/testing_dataset_2011-2024_yrs.csv')
 
 
