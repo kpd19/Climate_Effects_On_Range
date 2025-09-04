@@ -3,8 +3,6 @@ library(gridExtra)
 
 `%ni%` <- Negate(`%in%`)
 
-setwd("/Users/katherinedixon/Documents/StuffINeed/_Research/Climate_Range/range_modeling/")
-
 population_records <- read_csv("../population_data/data/population_records_1947-2024.csv")
 
 locations <- read_csv("../population_data/data/range_locations_1947_2024.csv")
