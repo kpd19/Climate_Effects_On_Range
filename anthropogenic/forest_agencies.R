@@ -79,6 +79,55 @@ ll_canada_distances <- merge(ll_canada,ll_canada_dist)
 
 write_csv(ll_canada_distances,'data/ll_canada_distances_1.csv')
 
+
+#################
+#################
+#################
+#################
+#################
+
+ll_can_dist_fed <- ll_canada_distances %>% filter(level == 'federal') %>% group_by(lat,lon,manual_id) %>% filter(dist_km == min(dist_km))
+
+write_csv(ll_can_dist_fed,'data/ll_can_distances_fed.csv')
+
+pdf("figures/can_fed_dist.pdf",height = 2, width = 6)
+ll_can_dist_fed %>% 
+  ggplot() + geom_point(aes(x = lon,y = lat, color = dist_km)) +
+  theme_classic() +
+  scale_color_viridis_c("Distance (km)", option = 'turbo') +
+  xlab("Longitude") + ylab("Latitude") +
+  geom_sf(data = canada_data, aes(geometry =geometry), fill = NA, color = 'grey85', size = 1.2) +
+  coord_sf(ylim = c(49,54), xlim = c(-128,-104))
+dev.off()  
+
+#################
+#################
+#################
+#################
+#################
+
+
+ll_can_dist_state <- ll_canada_distances %>% filter(level == 'state') %>% group_by(lat,lon,manual_id) %>% filter(dist_km == min(dist_km))
+
+write_csv(ll_can_dist_state,'data/ll_can_distances_state.csv')
+
+pdf("figures/can_state_dist.pdf",height = 2, width = 6)
+ll_can_dist_state %>% 
+  ggplot() + geom_point(aes(x = lon,y = lat, color = dist_km)) +
+  theme_classic() +
+  scale_color_viridis_c("Distance (km)", option = 'turbo') +
+  xlab("Longitude") + ylab("Latitude") +
+  geom_sf(data = canada_data, aes(geometry =geometry), fill = NA, color = 'grey85', size = 1.2) +
+  coord_sf(ylim = c(49,54), xlim = c(-128,-104))
+dev.off()  
+
+#################
+#################
+#################
+#################
+#################
+
+
 agency_usa_fed <- agency_usa %>% filter(level == 'federal') %>% rename(agency_state = state) %>% 
   select(-c(address,country,level))
 
@@ -114,10 +163,9 @@ ll_usa_dist_fed %>%
   theme_classic() +
   scale_color_viridis_c("Distance (km)", option = 'turbo') +
   xlab("Longitude") + ylab("Latitude") +
-  geom_sf(data = us_data, aes(geometry =geometry), fill = NA, color = 'grey55') +
+  geom_sf(data = us_data, aes(geometry =geometry), fill = NA, color = 'grey85', size = 1.2) +
   coord_sf()
 dev.off()  
-
 
 ###################
 ###################
