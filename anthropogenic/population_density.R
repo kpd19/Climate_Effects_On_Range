@@ -12,7 +12,7 @@ crop_extent = extent(-130,-100,30,55)
 
 pop_density_na <- crop(pop_density,crop_extent)
 
-plot(pop_density_na)
+plot(pop_density_na) 
 
 ll_info <- latlong %>% dplyr::select(lat,lon,manual_id,source,elev2)
 ll_info$df_id <- 1:length(ll_info$lat)

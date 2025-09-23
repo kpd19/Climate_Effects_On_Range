@@ -119,8 +119,49 @@ ll_usa_dist_fed %>%
 dev.off()  
 
 
+###################
+###################
+###################
 
-ll_usa_dist %>% filter(a_id %in% usa_fed_ids) %>% group_by(lat,lon,manual_id) %>% 
-  filter(dist_km == min(dist_km))
+agency_usa_state <- agency_usa %>% filter(level == 'state') %>% rename(agency_state = state) %>% 
+  select(-c(address,country,level)) 
 
-ll_usa_dist2 <- merge(ll_usa_dist,agency_usa2, by.x = c('a_id'), by.y = c('a_id'))
+uni_states <- unique(agency_usa_state$agency_state)
+
+ll_usa_dist_state <- c()
+for(s in 1:length(uni_states)){
+  
+  agency_state <- agency_usa_state %>% filter(agency_state == uni_states[s])
+  ll_state <- ll_usa %>% filter(state == uni_states[s])
+  
+  distance_state <- distm(cbind(ll_state$lon, ll_state$lat), cbind(agency_state$longitude, agency_state$latitude))
+  
+  min_dist_state <- apply(distance_state,1,which.min)
+  
+  for(i in 1:length(ll_state$lat)){
+    
+    temp <- ll_state[i,]
+    temp2 <- agency_state[min_dist_state[i],]
+    
+    temp$dist_km = distance_state[i, min_dist_state[i]]/1000
+    
+    temp <- cbind(temp,temp2)
+    
+    ll_usa_dist_state <- rbind(ll_usa_dist_state,temp)
+    
+  }
+  print(paste0("Finishing ", uni_states[s]))
+}
+
+# missing texas, nebraska, north and south dakota
+write_csv(ll_usa_dist_state,'data/ll_usa_distances_state.csv')
+
+pdf("figures/us_state_dist.pdf",height = 6, width = 6)
+ll_usa_dist_state %>% 
+  ggplot() + geom_point(aes(x = lon,y = lat, color = dist_km)) +
+  theme_classic() +
+  scale_color_viridis_c("Distance (km)", option = 'turbo') +
+  xlab("Longitude") + ylab("Latitude") +
+  geom_sf(data = us_data, aes(geometry =geometry), fill = NA, color = 'grey85', size = 1.2) +
+  coord_sf()
+dev.off()  
