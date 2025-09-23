@@ -1,0 +1,157 @@
+agency,address,latitude,longitude,state,level
+ARCHES    ,"2282 SW Resource Blvd, Moab, UT 84532",38.538205,-109.510264,Utah,federal
+AZTEC RUINS    ,"725 Ruins Road, Aztec, NM 87410",36.83588,-108.000308,New Mexico,federal
+BADLANDS    ,"25216 Ben Reifel Road, Interior, SD 57750",43.719551,-101.93969,South Dakota,federal
+BANDELIER    ,"15 Entrance Road Los Alamos, NM 87544-9508",35.778745,-106.27002,New Mexico,federal
+BENTS OLD FORT      ,"35110 Hwy 194 East La Junta, CO 81050-9523",38.046022,-103.431259,Colorado,federal
+BIG HOLE    ,"16425 MT-43, Wisdom, MT 59761",45.636791,-113.649261,Montana,federal
+"BIGHORN CANYON    
+","7458 5 Avenue B Ft. Smith, MT 59035",45.312069,-107.936818,Montana,federal
+BLACK CANYON OF THE GUNNISON    ,"102 Elk Creek Gunnison, CO 81230",38.46701,-107.165863,Colorado,federal
+BRYCE CANYON    ,"640201 Bryce Canyon, UT 84764",37.673164,-112.156652,Utah,federal
+CABRILLO    ,"1800 Cabrillo Memorial Drive San Diego, CA 92106-3601",32.701496,-117.249078,California,federal
+CANYON DE CHELLY    ,"P.O. Box 588 Chinle, AZ 86503",36.095818,-109.593139,Arizona,federal
+CANYONLANDS    ,"2282 SW Resource Blvd, Moab, UT 84532",38.538205,-109.510264,Utah,federal
+CAPITOL REEF    ,"HC 70, Box 15, Torrey, UT  84775-9602",38.300894,-111.403153,Utah,federal
+CAPULIN VOLCANO    ,"P.O. Box 40, Des Moines, NM  88418",36.761853,-103.835666,New Mexico,federal
+CARLSBAD CAVERNS    ,"3225 National Parks Hwy, Carlsbad, NM  88220   ",32.384134,-104.223388,New Mexico,federal
+CASA GRANDE RUINS    ,"1100 West Ruins Drive, Coolidge, AZ  85128",32.994784,-111.53676,Arizona,federal
+CASTLE MOUNTAIN,"2701 Barstow Road, Barstow, CA 92311 ",34.871319,-117.020309,California,federal
+CEDAR BREAKS    ,"2390 W. Hwy 56, #11, Cedar City, UT  84720",37.684556,-113.0944,Utah,federal
+CESAR E. CHAVEZ,"29700 Woodford Tehachapi Road, Keene CA 93531 ",35.228259,-118.562638,California,federal
+CHANNEL ISLANDS    ,"1901 Spinnaker Drive, Ventura, CA  93001",34.246685,-119.266531,California,federal
+CHACO CULTURE    ,"P.O. Box 220, Nageezi, NM  87037",36.267798,-107.760688,New Mexico,federal
+CHIRICAHUA    ,"12856 East Rhyolite Creek Road, Willcox, AZ  85643-9737",32.009402,-109.36598,Arizona,federal
+CITY OF ROCKS NATIONAL RESERVE,"P.O. Box 169, Almo, ID  83312",42.096354,-113.633193,Idaho,federal
+COLORADO    ,"National Park Service, Fruita,CO  81521-0001",39.154644,-108.712616,Colorado,federal
+CORONADO    ,"4101 E. Montezuma Canyon Rd, Hereford, AZ  85615",31.346251,-110.253136,Arizona,federal
+CRATER LAKE    ,"P.O. Box 7, Crater Lake, OR  97604",42.328156,-122.86262,Oregon,federal
+CRATERS OF THE MOON    ,"P.O. Box 29, Arco, ID  83213",43.588538,-113.25352,Idaho,federal
+CURECANTI    ,"102 Elk Creek, Gunnison, CO  81230",38.467006,-107.165858,Colorado,federal
+DEATH VALLEY    ,"P.O. Box 579, Death Valley, CA  92328",36.45711,-116.866174,California,federal
+DEVILS TOWER    ,"P.O. Box 10, Devils Tower, WY 82714-0010",44.580806,-104.706528,Wyoming,federal
+DINOSAUR    ,"4545 E. Highway 40, Dinosaur, CO  81610-9724",40.243631,-108.972582,Colorado,federal
+DEVILS POSTPILE    ,"P.O. Box 3999, Mammoth Lakes, CA  93546-3999",37.642167,-118.950165,California,federal
+EL MALPAIS    ,"123 E. Roosevelt Avenue, Grants, NM  87020",35.161109,-107.83843,New Mexico,federal
+EL MORRO    ,"HC 61  Box 43 , Ramah, NM  87321-9603",35.251254,-108.497708,New Mexico,federal
+EUGENE O'NEILL      ,"P O Box 280, Danville, CA  94526",37.835434,-121.981075,California,federal
+FLORISSANT FOSSIL BEDS    ,"P.O. Box 185, 15807 Teller County 1, Florissant, CO  80816-0185",38.78555,-105.204145,Colorado,federal
+FORT BOWIE      ,"3203 S. Old Fort Bowie Road, Bowie, AZ  85605",32.158448,-109.419831,Arizona,federal
+FORT LARAMIE      ,"965 Gray Rocks Road, Fort Laramie, WY  82212",42.199285,-104.566906,Wyoming,federal
+FORT POINT      ,"c/o Golden Gate NRA, Fort Mason Building 201, San Francisco, CA  94123",37.805579,-122.42811,California,federal
+FORT UNION    ,"P.O. Box 127, Watrous, NM  87753",35.792506,-104.982163,New Mexico,federal
+FOVA unit: McLoughlin House,"713 Centre Street, Oregon City, OR 97045",45.357327,-122.605761,Oregon,federal
+FOSSIL BUTTE    ,"P.O. Box 592, Kemmerer, WY 83101-0592",41.804776,-110.56631,Wyoming,federal
+GILA CLIFF DWELLINGS    ,"26 Jim Bradford Trail, Mimbres NM, 88049.",32.834449,-107.958528,New Mexico,federal
+GLACIER    ,"P.O. Box 128, West Glacier, MT  59936-0128",48.386138,-114.032014,Montana,federal
+GLEN CANYON    ,"P.O. Box 1507, Page, AZ  86040-1507",36.91632,-111.46105,Arizona,federal
+GOLDEN GATE    ,"Fort Mason Building 201, San  Francisco, CA 94123-0022",37.805579,-122.42811,California,federal
+GOLDEN SPIKE      ,"P.O. Box 897, Brigham City, UT 84302",41.512213,-112.021982,Utah,federal
+GRAND CANYON    ,"P.O. Box 129, Grand Canyon, AZ  86023",35.957992,-112.13402,Arizona,federal
+GRAND CANYON PARASHANT,"345 E Riverside Dr, St. George UT 84790",37.082758,-113.576916,Utah,federal
+GRAND TETON    ,"P.O. Drawer 170, Moose, WY  83012-0170",43.790383,-111.030838,Wyoming,federal
+GRANT-KOHRS RANCH      ,"266 Warren Lane, Deer Lodge, MT  59722",46.407765,-112.736429,Montana,federal
+GREAT BASIN    ,"100 Great Basin NP, Baker, NV  89311",39.017745,-114.169297,Nevada,federal
+GREAT SAND DUNES    ,"11500 Hwy. 150, Mosca, CO  81146-9798",37.742179,-105.507064,Colorado,federal
+HAGERMAN FOSSIL BEDS    ,"P.O. Box 570, Hagerman, ID  83332",42.811819,-114.901368,Idaho,federal
+HOHOKAM PIMA    ,"1100 W. Ruins Drive, Coolidge, AZ  85128",32.994784,-111.53676,Arizona,federal
+HOVENWEEP    ,"McElmo Route, Cortez, CO  81321",37.338031,-108.601966,Colorado,federal
+HUBBELL TRADING POST      ,"P.O. Box 150, Ganado, AZ  86505",35.710459,-109.542192,Arizona,federal
+JOHN DAY FOSSIL BEDS    ,"32651 Highway 19, Kimberly, OR  97848-9701",44.7532,-119.636557,Oregon,federal
+"JOHN D. ROCKEFELLER, JR., ","P.O. Drawer 170, Moose, WY  83012-0170",43.790383,-111.030838,Wyoming,federal
+JOHN MUIR      ,"4202 Alhambra Avenue, Martinez, CA  94553",37.992186,-122.130989,California,federal
+JOSHUA TREE    ,"74485 National Park Drive, Twentynine Palms, CA  92277",34.128615,-116.03765,California,federal
+JUAN BAUTISTA DE ANZA,"440 Civic Center Plaza, Suite 300, Richmond, CA 94804",37.936802,-122.34289,California,federal
+KINGS CANYON    ,"47050 Generals Hwy, Three Rivers, CA  93271-9651",36.491544,-118.825638,California,federal
+KLONDIKE GOLD RUSH - Seattle,"319 Second Avenue South, Seattle, WA  98104",47.599392,-122.33199,Washington,federal
+LAKE CHELAN  ,"810 State Route 20, Sedro-Woolley, WA  98284-1239",48.511272,-122.226966,Washington,federal
+LAKE MEAD    ,"601 Nevada Highway, Boulder City, NV  89005",35.976208,-114.838268,Nevada,federal
+LAKE ROOSEVELT    ,"1008 Crest Drive, Coulee Dam, WA  99116-1259",47.968986,-118.968168,Washington,federal
+LASSEN VOLCANIC    ,"P.O. Box 100, Mineral, CA  96063-0100",40.343926,-121.405756,California,federal
+LAVA BEDS    ,"PO Box 1240, Tulelake, CA 96134",41.888602,-121.380148,California,federal
+LEWIS AND CLARK  ,"92343 Fort Clatsop Road, Astoria, OR  97103",46.136156,-123.881623,Oregon,federal
+LITTLE BIGHORN      ,"P.O. Box 39, Crow Agency, MT  59022-0039",45.60482,-107.45636,Montana,federal
+MANHATTAN PROJECT,"IMRO, 12795 W. Alameda Parkway, PO BOX 25287 - Suite 130 K Denver, CO 80225-0287",39.700811,-105.142584,Colorado,federal
+MANZANAR      ,"P.O. Box 426,Independence, CA  93526-0426",36.838157,-118.215773,California,federal
+MESA VERDE    ,"P.O. Box 8, Mesa Verde National Park, CO  81330-0008",37.205557,-108.488696,Colorado,federal
+MINUTEMAN MISSILE       ,"24545 Cottonwood Road, Philip, SD 57567 ",44.081631,-101.897926,South Dakota,federal
+MISSOURI NATIONAL RECREATIONAL RIVER,"508 E. 2nd Street, Yankton, SD 57078",42.869053,-97.384534,South Dakota,federal
+MOJAVE    ,"2701 Barstow Road, Barstow, CA  92311",34.871321,-117.020313,California,federal
+MONTEZUMA CASTLE    ,"P.O. Box 219, Camp Verde, AZ  86322",34.560761,-111.868138,Arizona,federal
+MOUNT RAINIER    ,"55210 238th Avenue E.. Ashford, WA  98304",46.757496,-122.121963,Washington,federal
+MOUNT RUSHMORE     ,"13000 Hwy 244 Bldg 31 Ste 1, Keystone SD",43.89814,-103.484507,South Dakota,federal
+MUIR WOODS    ,"1 Muir Woods Rd Mill Valley, CA  94941",37.893398,-122.572761,California,federal
+MINIDOKA     ,"1428 Hunt Road, Jerome, ID 83338",42.679117,-114.245656,Idaho,federal
+NATURAL BRIDGES    ,"HC 60, Box 1, Lake Powell, UT  84533-0101",37.46315,-110.405339,Utah,federal
+NAVAJO    ,"HC 71, Box 3, Tonalea, AZ  86044-9704",35.906307,-110.835825,Arizona,federal
+NEZ PERCE    ,"39063 US Hwy 95, Lapwai, ID 83540",46.448146,-116.825677,Idaho,federal
+NORTH CASCADES    ,"810 State Route 20, Sedro-Woolley, WA  98284",48.502832,-122.253067,Washington,federal
+OLYMPIC    ,"600 East Park Avenue, Port Angeles, WA  98362",48.101622,-123.433037,Washington,federal
+OREGON CAVES    ,"1900 Caves Highway, Cave Junction, OR  97523",42.147499,-123.617974,Oregon,federal
+ORGAN PIPE CACTUS    ,"10 Organ Pipe Dr., Ajo, AZ  85321-9626",31.95483,-112.8011,Arizona,federal
+PECOS    ,"P.O. Box 418, Pecos, NM  87552-0418",35.578143,-105.68249,New Mexico,federal
+PETRIFIED FOREST    ,"P.O. Box 2217, Petrified Forest, AZ  86028",35.065952,-109.781973,Arizona,federal
+PETROGLYPH    ,"6001 Unser Blvd. NW, Albuquerque, NM  87120",35.135177,-106.714069,New Mexico,federal
+PIPE SPRING    ,"HC 65, Box 5, Fredonia, AZ  86022",36.949631,-112.526364,Arizona,federal
+PINNACLES    ,"5000 Hwy 146, Paicines, CA  95043",36.488285,-121.15297,California,federal
+POINT REYES    ,"1 Bear Valley Road, Point Reyes Station, CA  94956",38.041937,-122.788756,California,federal
+PORT CHICAGO NAVAL MAGAZINE,"4202 Alhambra Ave. Martinez, CA 94553",37.992186,-122.130989,California,federal
+RAINBOW BRIDGE    ,"P.O. Box 1507, Page, AZ  86040-1507",36.91632,-111.46105,Arizona,federal
+REDWOOD,"1111 Second Street, Crescent City, CA  95531",41.752814,-124.194042,California,federal
+ROCKY MOUNTAIN    ,"1000 Highway 36, Estes Park, CO 80517-8397",40.3754,-105.506076,Colorado,federal
+ROSIE THE RIVETER/WWII HOME FRONT    ,"440 Civic Center Plaza Suite 300 Richmond, CA 94804
+",37.936802,-122.34289,California,federal
+ROSS LAKE  ,"810 State Route 20, Sedro-Woolley, WA  98284-1239",48.511272,-122.226966,Washington,federal
+SAGUARO    ,"3693 S. Old Spanish Trail, Tucson, AZ  85730-5601",32.150277,-110.734275,Arizona,federal
+SALINAS PUEBLO MISSIONS    ,"P.O. Box 517, Mountainair, NM  87036",34.512579,-106.256109,New Mexico,federal
+SAN FRANCISCO MARITIME    ,"2 Marina Drive, San Francisco, CA 94123",37.806955,-122.439245,California,federal
+SANTA MONICA MOUNTAINS    ,"401 West Hillcrest Drive, Thousand Oaks, CA  91360-4223",34.184987,-118.885563,California,federal
+SAN JUAN ISLAND   ,"P.O. Box 429, Friday Harbor, WA  98250",48.539546,-123.021645,Washington,federal
+SEQUOIA    ,"47050 Generals Hwy, Three Rivers, CA  93271-9700",36.491544,-118.825638,California,federal
+SAND CREEK MASSACRE,"PO Box 248, Eads, CO  81036",38.481983,-102.77572,Colorado,federal
+SUNSET CRATER VOLCANO    ,"6400 N. Hwy. 89, Flagstaff, AZ  86004",35.239002,-111.570691,Arizona,federal
+TIMPANOGOS CAVE    ,"RR 3, Box 200, American Fork, UT  84004",40.454466,-111.661897,Utah,federal
+TONTO    ,"26260 N Az Hwy 188 lot 2, Roosevelt, AZ  85545",33.73649,-111.215809,Arizona,federal
+TULE LAKE,"PO Box 1240, Tulelake, CA 96134",41.888602,-121.380148,California,federal
+TULE SPRINGS FOSSIL BEDS,"601 Nevada Way, Boulder City, NV 89005",35.976208,-114.838268,Nevada,federal
+TUMACACORI     ,"P.O. Box 8067, Tumacacori, AZ  85640",31.678655,-110.939636,Arizona,federal
+TUZIGOOT    ,"P.O. Box 219, Camp Verde, AZ  86322",34.560761,-111.868138,Arizona,federal
+VALLES CALDERA,"PO Box 359, Jemez Springs, NM 87025",35.995186,-106.92515,New Mexico,federal
+WALNUT CANYON    ,"6400 N. Hwy 89, Flagstaff, AZ  86004",35.239002,-111.570691,Arizona,federal
+WHISKEYTOWN ,"P.O. Box 188, Whiskeytown, CA  96095-0188",40.585108,-122.41231,California,federal
+WHITE SANDS    ,"P.O. Box 1086, Holloman AFB, NM  88330-1086",32.849984,-106.076795,New Mexico,federal
+WHITMAN MISSION      ,"328 Whitman Mission Road, Walla Walla, WA  99362",46.043277,-118.462567,Washington,federal
+WUPATKI    ," 6400 N. Hwy. 89, Flagstaff, AZ  86004",35.239002,-111.570691,Arizona,federal
+YELLOWSTONE    ,"P.O. Box 168, Yellowstone, WY 82190-0168",44.550787,-110.400112,Wyoming,federal
+YOSEMITE    ,"P.O. Box 577, Yosemite, CA  95389",37.644815,-119.716131,California,federal
+YUCCA HOUSE    ,"c/o Mesa Verde NP, Mesa Verde National Park, CO  81330-0008",37.205557,-108.488696,Colorado,federal
+ZION    ,"SR 9, Springdale, UT  84767-1099",37.160884,-113.020818,Utah,federal
+FORT UNION TRADING POST       ,"15550 Highway 1804, Williston, ND  58801-8680",47.999557,-104.040031,North Dakota,federal
+KNIFE RIVER  INDIAN VILLAGES       ,"564 County Road 37, Stanton, ND  58571-0009",47.331511,-101.385371,North Dakota,federal
+THEODORE ROOSEVELT     ,315 2nd Avenue Medora ND 58645,46.916054,-103.524233,North Dakota,federal
+JEWEL CAVE     ,"11149 U.S. Highway 16, Custer, SD  57730  ",43.740594,-103.747018,South Dakota,federal
+WIND CAVE     ,"26611 US Hwy 385, Hot Springs, SD  57747-9430",43.434685,-103.481056,South Dakota,federal
+AGATE FOSSIL BEDS     ,"301 River Road, Harrison, NE  69346-2743",42.687303,-103.883099,Nebraska,federal
+HOMESTEAD     ,"8523 West State Highway 4, Beatrice, NE  68310-6743",40.291865,-96.836112,Nebraska,federal
+NIOBRARA       ,"214 W. HWY 20, Valentine, NE  69201",42.868083,-100.553041,Nebraska,federal
+SCOTTS BLUFF     ,"P.O. Box 27, Gering, NE 69341-0027",41.770552,-103.558042,Nebraska,federal
+BROWN V. BOARD OF EDUCATION       ,"1515 SE Monroe Street, Topeka, KS  66612-1143",39.037979,-95.676462,Kansas,federal
+FORT LARNED       ,"1767 KS Hwy 156, Larned, KS  67550-9321",38.188109,-99.097317,Kansas,federal
+FORT SCOTT       ,"P.O. Box 918, Fort Scott, KS  66701",37.83141,-94.715892,Kansas,federal
+NICODEMUS       ,"304 Washington Ave, Nicodemus, KS 67625-3015",39.393462,-99.614939,Kansas,federal
+TALLGRASS PRAIRIE     ,"2480B Hwy 177, Strong City, KS 66869",38.434269,-96.557847,Kansas,federal
+CHICKASAW    ,"901 W 1st St, Sulphur, OK 73086-4822",34.506409,-96.968761,Oklahoma,federal
+WASHITA BATTLEFIELD       ,"18555 Hwy 47A, Suite A, Cheyenne, OK  73628",35.508848,-99.752573,Oklahoma,federal
+ALIBATES FLINT QUARRIES NATIONAL MONUMENT,"P.O. Box 1460, Fritch, TX  79036",35.641351,-101.600265,Texas,federal
+AMISTAD    ,"10477 U.S. Highway 90 West, Del Rio, TX 78840",29.466015,-100.988414,Texas,federal
+BIG BEND    ,"P.O. Box 129, Big Bend, TX  79834-0129",29.317303,-103.208806,Texas,federal
+BIG THICKET    ,"6044 FM 420, Kountze, TX  77625",30.458268,-94.387249,Texas,federal
+CHAMIZAL    ,"800 South San Marcial St, El Paso, TX  79905-4123",31.767794,-106.453891,Texas,federal
+FORT DAVIS      ,"101 Lt. Henry Flipper Dr, Fort Davis, TX  79734",30.565388,-103.877066,Texas,federal
+LAKE MEREDITH    ,"P.O. Box 1460, Fritch, TX  79036",35.641351,-101.600265,Texas,federal
+LYNDON B. JOHNSON    ,"P.O. Box 329, Johnson City, TX  78636",30.281138,-98.406011,Texas,federal
+PADRE ISLAND    ,"P.O. Box 181300, Corpus Christi, TX 78480",27.668495,-97.287313,Texas,federal
+PALO ALTO        ,"600 E. Harrison St, Brownsville, TX 78520",25.909361,-97.496626,Texas,federal
+RIO GRANDE      ,"P.O. Box 129, Big Bend, TX  79834-0129",29.317303,-103.208806,Texas,federal
+SAN ANTONIO MISSIONS   ,"2202 Roosevelt Ave., San Antonio, TX  78210-4919",29.381891,-98.482278,Texas,federal
+WACO MAMMOTH,"6220 Steinbeck Bend Drive, Waco, TX 76708",31.606218,-97.177592,Texas,federal
