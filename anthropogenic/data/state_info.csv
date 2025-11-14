@@ -1,454 +1,975 @@
 lat,lon,manual_id,state,source,elev2,country
-30.993,-115.495,50445,Ocean,iNaturalist,2444,Ocean
-31.044,-115.464,50381,Ocean,iNaturalist,2816,Ocean
+31.90465,-109.15589,378,Arizona,iNaturalist,1491,United States of America
+32.41563,-110.71723,273,Arizona,iNaturalist,2535,United States of America
+32.41698,-110.74084,330,Arizona,iNaturalist,2406,United States of America
+32.90423,-105.68401,82,New Mexico,iNaturalist,2479,United States of America
+32.90752,-105.81346,386,New Mexico,iNaturalist,2298,United States of America
+32.94241,-105.74915,409,New Mexico,iNaturalist,2650,United States of America
+32.94346,-105.74433,211,New Mexico,iNaturalist,2674,United States of America
+32.95131,-105.74132,469,New Mexico,iNaturalist,2670,United States of America
+32.97301,-105.72602,221,New Mexico,iNaturalist,2750,United States of America
+32.97334,-105.72634,219,New Mexico,iNaturalist,2744,United States of America
+33.94209,-109.49254,347,Arizona,iNaturalist,2860,United States of America
+34.06918,-109.55162,253,Arizona,iNaturalist,2831,United States of America
+34.08096,-116.88698,376,California,iNaturalist,1891,United States of America
+34.16448,-116.86082,281,California,iNaturalist,2108,United States of America
+34.16449,-116.86108,207,California,iNaturalist,2108,United States of America
+34.16462,-116.86075,275,California,iNaturalist,2096,United States of America
+34.16628,-106.02607,74,New Mexico,iNaturalist,1887,United States of America
+34.22829,-117.25428,310,California,iNaturalist,1608,United States of America
+34.23142,-117.26157,117,California,iNaturalist,1498,United States of America
+34.23496,-116.88274,198,California,iNaturalist,2142,United States of America
+34.23545,-117.21017,430,California,iNaturalist,1776,United States of America
+34.23577,-117.21013,267,California,iNaturalist,1776,United States of America
+34.23581,-117.2102,268,California,iNaturalist,1776,United States of America
+34.236,-117.21091,317,California,iNaturalist,1765,United States of America
+34.23831,-117.2095,172,California,iNaturalist,1764,United States of America
+34.36962,-111.00003,405,Arizona,iNaturalist,2411,United States of America
+34.44743,-111.15011,432,Arizona,iNaturalist,2316,United States of America
+34.46184,-111.17502,203,Arizona,iNaturalist,2271,United States of America
+34.61704,-106.41113,19,New Mexico,iNaturalist,2436,United States of America
+34.79073,-106.38198,315,New Mexico,iNaturalist,2316,United States of America
+34.79079,-106.38212,147,New Mexico,iNaturalist,2326,United States of America
+34.79084,-106.38207,164,New Mexico,iNaturalist,2316,United States of America
+34.79653,-106.37604,31,New Mexico,iNaturalist,2294,United States of America
+34.98666,-106.61313,313,New Mexico,iNaturalist,1618,United States of America
+35.08633,-106.58736,73,New Mexico,iNaturalist,1599,United States of America
+35.0867,-106.3988,66,New Mexico,iNaturalist,2008,United States of America
+35.08716,-106.40051,48,New Mexico,iNaturalist,2042,United States of America
+35.09102,-106.39246,217,New Mexico,iNaturalist,2017,United States of America
+35.09143,-106.39235,252,New Mexico,iNaturalist,2023,United States of America
+35.09349,-106.67387,377,New Mexico,iNaturalist,1508,United States of America
+35.11752,-106.39548,97,New Mexico,iNaturalist,2314,United States of America
+35.12598,-106.38599,77,New Mexico,iNaturalist,2171,United States of America
+35.12684,-106.3799,72,New Mexico,iNaturalist,2115,United States of America
+35.12862,-106.38394,70,New Mexico,iNaturalist,2157,United States of America
+35.15015,-106.2822,222,New Mexico,iNaturalist,2092,United States of America
+35.15048,-106.48465,280,New Mexico,iNaturalist,1881,United States of America
+35.15854,-106.50873,220,New Mexico,iNaturalist,1795,United States of America
+35.16385,-106.37778,212,New Mexico,iNaturalist,2234,United States of America
+35.16397,-106.31985,380,New Mexico,iNaturalist,2024,United States of America
+35.16588,-106.37898,68,New Mexico,iNaturalist,2252,United States of America
+35.1664,-106.35728,144,New Mexico,iNaturalist,2126,United States of America
+35.16711,-106.39373,102,New Mexico,iNaturalist,2418,United States of America
+35.1673,-106.39299,35,New Mexico,iNaturalist,2418,United States of America
+35.16761,-106.38193,67,New Mexico,iNaturalist,2269,United States of America
+35.16776,-106.3952,28,New Mexico,iNaturalist,2453,United States of America
+35.16892,-106.38154,113,New Mexico,iNaturalist,2275,United States of America
+35.16922,-106.38179,401,New Mexico,iNaturalist,2275,United States of America
+35.1695,-106.38458,167,New Mexico,iNaturalist,2306,United States of America
+35.16971,-106.38284,283,New Mexico,iNaturalist,2296,United States of America
+35.16975,-106.38458,53,New Mexico,iNaturalist,2298,United States of America
+35.16977,-106.38408,115,New Mexico,iNaturalist,2298,United States of America
+35.17008,-106.38027,65,New Mexico,iNaturalist,2329,United States of America
+35.17017,-106.38517,184,New Mexico,iNaturalist,2303,United States of America
+35.17473,-106.39512,125,New Mexico,iNaturalist,2479,United States of America
+35.17484,-106.37969,157,New Mexico,iNaturalist,2254,United States of America
+35.17902,-106.38997,61,New Mexico,iNaturalist,2436,United States of America
+35.1864,-106.41423,120,New Mexico,iNaturalist,2734,United States of America
+35.18771,-106.37844,293,New Mexico,iNaturalist,2350,United States of America
+35.19075,-106.40944,126,New Mexico,iNaturalist,2640,United States of America
+35.19115,-106.40886,231,New Mexico,iNaturalist,2640,United States of America
+35.19192,-106.41695,208,New Mexico,iNaturalist,2799,United States of America
+35.19209,-106.40431,248,New Mexico,iNaturalist,2562,United States of America
+35.19237,-106.40449,26,New Mexico,iNaturalist,2562,United States of America
+35.19242,-106.40449,107,New Mexico,iNaturalist,2562,United States of America
+35.19255,-106.40815,230,New Mexico,iNaturalist,2621,United States of America
+35.19258,-106.40444,249,New Mexico,iNaturalist,2562,United States of America
+35.19357,-106.40491,191,New Mexico,iNaturalist,2589,United States of America
+35.19364,-106.40467,180,New Mexico,iNaturalist,2589,United States of America
+35.19364,-106.40502,39,New Mexico,iNaturalist,2589,United States of America
+35.19402,-106.4048,143,New Mexico,iNaturalist,2593,United States of America
+35.19481,-106.40185,100,New Mexico,iNaturalist,2550,United States of America
+35.19546,-106.44276,27,New Mexico,iNaturalist,2726,United States of America
+35.19794,-106.4339,336,New Mexico,iNaturalist,3116,United States of America
+35.1981,-106.39863,160,New Mexico,iNaturalist,2678,United States of America
+35.19838,-106.39932,239,New Mexico,iNaturalist,2683,United States of America
+35.19852,-106.43562,297,New Mexico,iNaturalist,3132,United States of America
+35.19872,-106.43016,318,New Mexico,iNaturalist,3035,United States of America
+35.19884,-106.39968,173,New Mexico,iNaturalist,2681,United States of America
+35.20035,-106.43453,337,New Mexico,iNaturalist,3105,United States of America
+35.20052,-106.4342,349,New Mexico,iNaturalist,3097,United States of America
+35.203360000000004,-106.43958,142,New Mexico,iNaturalist,3163,United States of America
+35.20357,-106.43409,237,New Mexico,iNaturalist,3066,United States of America
+35.20449,-106.44067,296,New Mexico,iNaturalist,3167,United States of America
+35.20617,-106.43862,187,New Mexico,iNaturalist,3131,United States of America
+35.20719,-106.44824,289,New Mexico,iNaturalist,3154,United States of America
+35.21206,-106.46132,200,New Mexico,iNaturalist,2660,United States of America
+35.21346,-106.40637,513,New Mexico,iNaturalist,2639,United States of America
+35.21373,-106.40822,112,New Mexico,iNaturalist,2639,United States of America
+35.21392,-106.40811,103,New Mexico,iNaturalist,2643,United States of America
+35.21396,-106.40813,119,New Mexico,iNaturalist,2643,United States of America
+35.21455,-106.42235,185,New Mexico,iNaturalist,2803,United States of America
+35.2148,-106.4081,134,New Mexico,iNaturalist,2638,United States of America
+35.21632,-106.41608,397,New Mexico,iNaturalist,2700,United States of America
+35.21691,-106.4161,257,New Mexico,iNaturalist,2700,United States of America
+35.22647,-106.40938,81,New Mexico,iNaturalist,2449,United States of America
+35.22648,-106.4094,80,New Mexico,iNaturalist,2449,United States of America
+35.2338,-106.44593,240,New Mexico,iNaturalist,2976,United States of America
+35.23634,-106.43901,358,New Mexico,iNaturalist,2866,United States of America
+35.23698,-106.43773,359,New Mexico,iNaturalist,2841,United States of America
+35.24049,-111.59036,92,Arizona,iNaturalist,2454,United States of America
+35.5382,-105.93496,201,New Mexico,iNaturalist,2041,United States of America
+35.56761,-106.10684,406,New Mexico,iNaturalist,1847,United States of America
+35.56785,-106.10709,418,New Mexico,iNaturalist,1847,United States of America
+35.56794,-106.10721,394,New Mexico,iNaturalist,1845,United States of America
+35.62207,-105.84404,158,New Mexico,iNaturalist,2449,United States of America
+35.62921,-105.68232,127,New Mexico,iNaturalist,2203,United States of America
+35.63768,-105.5973,194,New Mexico,iNaturalist,2555,United States of America
+35.66727,-105.88174,236,New Mexico,iNaturalist,2584,United States of America
+35.66986,-105.94616,60,New Mexico,iNaturalist,2142,United States of America
+35.67299,-105.93661,192,New Mexico,iNaturalist,2165,United States of America
+35.67767,-105.94951,52,New Mexico,iNaturalist,2123,United States of America
+35.67997,-105.94166,124,New Mexico,iNaturalist,2136,United States of America
+35.68012,-105.9392,49,New Mexico,iNaturalist,2140,United States of America
+35.68345,-105.88131,428,New Mexico,iNaturalist,2346,United States of America
+35.68606,-105.93662,150,New Mexico,iNaturalist,2136,United States of America
+35.68639,-105.93629,69,New Mexico,iNaturalist,2139,United States of America
+35.68974,-105.53379,159,New Mexico,iNaturalist,2905,United States of America
+35.69181,-105.93932,214,New Mexico,iNaturalist,2136,United States of America
+35.69421,-105.91904,374,New Mexico,iNaturalist,2208,United States of America
+35.69432,-105.91896,373,New Mexico,iNaturalist,2208,United States of America
+35.70768,-105.68234,250,New Mexico,iNaturalist,2301,United States of America
+35.72571,-105.83738,87,New Mexico,iNaturalist,2570,United States of America
+35.72745,-105.83963,64,New Mexico,iNaturalist,2539,United States of America
+35.73056,-105.83792,338,New Mexico,iNaturalist,2586,United States of America
+35.73388,-105.86375,419,New Mexico,iNaturalist,2456,United States of America
+35.7361,-105.83291,94,New Mexico,iNaturalist,2669,United States of America
+35.73663,-118.55938,54,California,iNaturalist,1951,United States of America
+35.74431,-105.62716,382,New Mexico,iNaturalist,3010,United States of America
+35.75074,-105.83427,85,New Mexico,iNaturalist,2673,United States of America
+35.75272,-105.85777,46,New Mexico,iNaturalist,2430,United States of America
+35.75362,-105.83215,129,New Mexico,iNaturalist,2678,United States of America
+35.761,-105.83319,146,New Mexico,iNaturalist,2644,United States of America
+35.76209,-105.82268,213,New Mexico,iNaturalist,2888,United States of America
+35.76302,-105.83961,44,New Mexico,iNaturalist,2573,United States of America
+35.76965,-105.80911,422,New Mexico,iNaturalist,2967,United States of America
+35.77115,-105.81474,453,New Mexico,iNaturalist,2943,United States of America
+35.77714,-105.81013,309,New Mexico,iNaturalist,3051,United States of America
+35.77737,-105.81043,521,New Mexico,iNaturalist,3043,United States of America
+35.7869,-105.80875,342,New Mexico,iNaturalist,3119,United States of America
+35.78695,-105.80873,341,New Mexico,iNaturalist,3141,United States of America
+35.78769,-105.8661,181,New Mexico,iNaturalist,2495,United States of America
+35.78869,-105.84958,381,New Mexico,iNaturalist,2587,United States of America
+35.78976,-105.84014,101,New Mexico,iNaturalist,2728,United States of America
+35.79576,-105.8025,352,New Mexico,iNaturalist,3147,United States of America
+35.79719,-105.8031,360,New Mexico,iNaturalist,3162,United States of America
+35.79825,-105.83331,174,New Mexico,iNaturalist,2812,United States of America
+35.79892,-105.80254,435,New Mexico,iNaturalist,3200,United States of America
+35.80072,-105.80257,398,New Mexico,iNaturalist,3267,United States of America
+35.80249,-105.80295,434,New Mexico,iNaturalist,3305,United States of America
+35.80876,-105.78472,362,New Mexico,iNaturalist,3188,United States of America
+35.8093,-105.6586,265,New Mexico,iNaturalist,2510,United States of America
+35.81726,-106.53226,254,New Mexico,iNaturalist,2576,United States of America
+35.8494,-106.62956,333,New Mexico,iNaturalist,2252,United States of America
+35.86554,-106.68161,454,New Mexico,iNaturalist,2501,United States of America
+35.87293,-106.25027,96,New Mexico,iNaturalist,2023,United States of America
+35.8825,-106.72639,294,New Mexico,iNaturalist,2341,United States of America
+35.88292,-106.32455,71,New Mexico,iNaturalist,2238,United States of America
+35.88323,-106.29777,50,New Mexico,iNaturalist,2226,United States of America
+35.88336,-106.36725,171,New Mexico,iNaturalist,2641,United States of America
+35.88663,-106.30645,169,New Mexico,iNaturalist,2175,United States of America
+35.88918,-106.64917,139,New Mexico,iNaturalist,2383,United States of America
+35.89254,-106.62392,166,New Mexico,iNaturalist,2423,United States of America
+35.89702,-106.65314,215,New Mexico,iNaturalist,2431,United States of America
+35.9024,-106.27563,56,New Mexico,iNaturalist,2212,United States of America
+35.90437,-106.6664,78,New Mexico,iNaturalist,2683,United States of America
+35.90604,-106.30559,177,New Mexico,iNaturalist,2202,United States of America
+35.95366,-118.61877,512,California,iNaturalist,1962,United States of America
+35.98874,-106.62154,223,New Mexico,iNaturalist,2723,United States of America
+36.00648,-105.53317,247,New Mexico,iNaturalist,3781,United States of America
+36.12209,-118.54674,261,California,iNaturalist,2155,United States of America
+36.17797,-105.23377,264,New Mexico,iNaturalist,2355,United States of America
+36.18772,-106.84714,91,New Mexico,iNaturalist,2474,United States of America
+36.19334,-105.60184,227,New Mexico,iNaturalist,2553,United States of America
+36.2061,-118.68542,325,California,iNaturalist,1873,United States of America
+36.20621,-118.6854,326,California,iNaturalist,1883,United States of America
+36.21551,-105.59999,388,New Mexico,iNaturalist,2635,United States of America
+36.22053,-118.67825,323,California,iNaturalist,1970,United States of America
+36.25719,-115.64279,41,Nevada,iNaturalist,2296,United States of America
+36.29557,-105.57349,148,New Mexico,iNaturalist,2270,United States of America
+36.30833,-115.68449,36,Nevada,iNaturalist,2645,United States of America
+36.31821,-115.62814,21,Nevada,iNaturalist,2578,United States of America
+36.32199,-115.69279,449,Nevada,iNaturalist,2717,United States of America
+36.34643,-105.29943,242,New Mexico,iNaturalist,2684,United States of America
+36.34698,-105.29938,233,New Mexico,iNaturalist,2684,United States of America
+36.35003,-105.29006,210,New Mexico,iNaturalist,2672,United States of America
+36.3669,-105.29568,423,New Mexico,iNaturalist,2627,United States of America
+36.36975,-105.30979,279,New Mexico,iNaturalist,2708,United States of America
+36.3746,-105.49682,170,New Mexico,iNaturalist,2319,United States of America
+36.37755,-105.28429,271,New Mexico,iNaturalist,2584,United States of America
+36.40484,-105.03147,334,New Mexico,iNaturalist,2550,United States of America
+36.41085,-104.99175,33,New Mexico,iNaturalist,2449,United States of America
+36.42291,-105.3114,339,New Mexico,iNaturalist,2555,United States of America
+36.43636,-105.04301,335,New Mexico,iNaturalist,2456,United States of America
+36.4652,-118.66929,331,California,iNaturalist,2017,United States of America
+36.49765,-105.06597,345,New Mexico,iNaturalist,2481,United States of America
+36.50832,-105.1636,196,New Mexico,iNaturalist,2674,United States of America
+36.51852,-105.53654,30,New Mexico,iNaturalist,2504,United States of America
+36.52479,-105.17499,370,New Mexico,iNaturalist,2421,United States of America
+36.52702,-105.17734,152,New Mexico,iNaturalist,2403,United States of America
+36.53246,-105.53771,224,New Mexico,iNaturalist,2576,United States of America
+36.53511,-105.58071,481,New Mexico,iNaturalist,2268,United States of America
+36.53514,-105.58069,465,New Mexico,iNaturalist,2268,United States of America
+36.53637,-105.5815,458,New Mexico,iNaturalist,2285,United States of America
+36.53773,-105.1524,307,New Mexico,iNaturalist,2351,United States of America
+36.55331,-118.63151,43,California,iNaturalist,2108,United States of America
+36.55475,-105.25955,328,New Mexico,iNaturalist,2517,United States of America
+36.57126,-118.64554,493,California,iNaturalist,2330,United States of America
+36.5882,-118.23227,413,California,iNaturalist,2448,United States of America
+36.59111,-118.74778,357,California,iNaturalist,2225,United States of America
+36.59915,-118.73025,226,California,iNaturalist,2293,United States of America
+36.65772,-105.99572,486,New Mexico,iNaturalist,2553,United States of America
+36.702,-105.4661,199,New Mexico,iNaturalist,2529,United States of America
+36.71647,-118.96322,327,California,iNaturalist,1923,United States of America
+36.73538,-118.96558,354,California,iNaturalist,2004,United States of America
+36.73542,-118.96648,389,California,iNaturalist,2000,United States of America
+36.74757,-118.97184,355,California,iNaturalist,1972,United States of America
+37.47692,-119.63098,445,California,iNaturalist,1540,United States of America
+37.5706,-106.47276,204,Colorado,iNaturalist,2656,United States of America
+37.61189,-106.69887,132,Colorado,iNaturalist,2562,United States of America
+37.7003,-106.68609,165,Colorado,iNaturalist,2516,United States of America
+37.94365,-119.19884,475,California,iNaturalist,2346,United States of America
+37.95573,-104.85383,47,Colorado,iNaturalist,1825,United States of America
+38.07824,-105.56221,488,Colorado,iNaturalist,2756,United States of America
+38.27305,-120.31127,508,California,iNaturalist,1448,United States of America
+38.27513,-120.30651,262,California,iNaturalist,1448,United States of America
+38.27637,-120.31158,457,California,iNaturalist,1446,United States of America
+38.28152,-120.29656,466,California,iNaturalist,1491,United States of America
+38.3002,-120.27962,42,California,iNaturalist,1471,United States of America
+38.30193,-120.26565,302,California,iNaturalist,1545,United States of America
+38.6176,-122.67328,133,California,iNaturalist,173,United States of America
+38.73629,-104.831,34,Colorado,iNaturalist,1960,United States of America
+38.77069,-104.85226,37,Colorado,iNaturalist,2054,United States of America
+38.77161,-104.64924,193,Colorado,iNaturalist,1784,United States of America
+38.811,-104.90301,23,Colorado,iNaturalist,2174,United States of America
+38.8422,-104.91251,218,Colorado,iNaturalist,2178,United States of America
+38.85977,-104.87106,266,Colorado,iNaturalist,1889,United States of America
+38.8818,-120.40624,131,California,iNaturalist,1525,United States of America
+38.92081,-104.7375,156,Colorado,iNaturalist,2071,United States of America
+38.95019,-104.80254,86,Colorado,iNaturalist,1970,United States of America
+39.15697,-105.11156,340,Colorado,iNaturalist,2320,United States of America
+39.15852,-104.89505,183,Colorado,iNaturalist,2277,United States of America
+39.22761,-104.90022,190,Colorado,iNaturalist,2134,United States of America
+39.22769,-104.8992,301,Colorado,iNaturalist,2132,United States of America
+39.22771,-104.89995,151,Colorado,iNaturalist,2134,United States of America
+39.22778,-104.8996,179,Colorado,iNaturalist,2134,United States of America
+39.22785,-104.90019,141,Colorado,iNaturalist,2134,United States of America
+39.22801,-104.89934,241,Colorado,iNaturalist,2121,United States of America
+39.22822,-104.89913,299,Colorado,iNaturalist,2121,United States of America
+39.22823,-104.89892,225,Colorado,iNaturalist,2121,United States of America
+39.22827,-104.90109,137,Colorado,iNaturalist,2126,United States of America
+39.22836,-104.90092,288,Colorado,iNaturalist,2126,United States of America
+39.22841,-104.9021,105,Colorado,iNaturalist,2138,United States of America
+39.22849,-104.90229,104,Colorado,iNaturalist,2138,United States of America
+39.22894,-104.90058,258,Colorado,iNaturalist,2118,United States of America
+39.22908,-104.90295,145,Colorado,iNaturalist,2135,United States of America
+39.23103,-104.89375,149,Colorado,iNaturalist,2083,United States of America
+39.24747,-120.95145,116,California,iNaturalist,1097,United States of America
+39.25229,-105.11894,292,Colorado,iNaturalist,2653,United States of America
+39.25471,-105.22694,291,Colorado,iNaturalist,1965,United States of America
+39.26001,-105.10264,195,Colorado,iNaturalist,2947,United States of America
+39.26727,-105.10267,407,Colorado,iNaturalist,2784,United States of America
+39.27192,-105.10372,304,Colorado,iNaturalist,2710,United States of America
+39.30547,-105.26594,451,Colorado,iNaturalist,2463,United States of America
+39.32106,-105.37672,470,Colorado,iNaturalist,2448,United States of America
+39.33157,-105.2884,443,Colorado,iNaturalist,2359,United States of America
+39.34429,-104.75728,356,Colorado,iNaturalist,1952,United States of America
+39.35511,-105.22826,209,Colorado,iNaturalist,2266,United States of America
+39.38038,-104.58264,95,Colorado,iNaturalist,2012,United States of America
+39.38253,-104.87794,329,Colorado,iNaturalist,1915,United States of America
+39.40356,-105.38542,111,Colorado,iNaturalist,2237,United States of America
+39.40694,-105.49165,99,Colorado,iNaturalist,2392,United States of America
+39.42186,-105.41688,348,Colorado,iNaturalist,2485,United States of America
+39.42415,-123.20988,98,California,iNaturalist,481,United States of America
+39.46179,-105.25028,251,Colorado,iNaturalist,2432,United States of America
+39.46224,-105.23808,106,Colorado,iNaturalist,2318,United States of America
+39.50848,-105.18962,202,Colorado,iNaturalist,2220,United States of America
+39.51187,-105.29795,305,Colorado,iNaturalist,2529,United States of America
+39.51274,-105.45201,320,Colorado,iNaturalist,2791,United States of America
+39.58075,-105.24942,274,Colorado,iNaturalist,2320,United States of America
+39.63626,-105.32887,24,Colorado,iNaturalist,2206,United States of America
+39.69718,-105.724,189,Colorado,iNaturalist,2794,United States of America
+39.70061,-105.70669,303,Colorado,iNaturalist,2667,United States of America
+39.70356,-105.289,246,Colorado,iNaturalist,2449,United States of America
+39.70429,-105.29109,206,Colorado,iNaturalist,2441,United States of America
+39.76013,-105.68388,229,Colorado,iNaturalist,2621,United States of America
+39.76087,-105.68145,138,Colorado,iNaturalist,2631,United States of America
+39.76087,-105.68146,128,Colorado,iNaturalist,2631,United States of America
+39.76088,-105.68151,176,Colorado,iNaturalist,2631,United States of America
+39.76163,-105.68129,372,Colorado,iNaturalist,2642,United States of America
+39.94244,-105.29851,282,Colorado,iNaturalist,2110,United States of America
+39.96333,-105.33992,290,Colorado,iNaturalist,2266,United States of America
+39.98183,-105.30174,228,Colorado,iNaturalist,2457,United States of America
+39.98191,-105.29153,153,Colorado,iNaturalist,2119,United States of America
+39.98335,-105.31632,276,Colorado,iNaturalist,2329,United States of America
+39.98439,-105.29139,260,Colorado,iNaturalist,2079,United States of America
+39.98542,-105.29192,168,Colorado,iNaturalist,2014,United States of America
+39.99025,-105.29312,518,Colorado,iNaturalist,2119,United States of America
+39.99051,-105.29187,366,Colorado,iNaturalist,2001,United States of America
+39.99061,-105.30511,243,Colorado,iNaturalist,2129,United States of America
+39.99062,-105.29288,122,Colorado,iNaturalist,2038,United States of America
+39.99275,-105.29659,361,Colorado,iNaturalist,2016,United States of America
+39.99396,-105.10479,459,Colorado,iNaturalist,1617,United States of America
+39.99398,-105.10475,411,Colorado,iNaturalist,1617,United States of America
+39.994,-105.10474,235,Colorado,iNaturalist,1617,United States of America
+39.994,-105.10479,498,Colorado,iNaturalist,1617,United States of America
+39.99401,-105.10477,234,Colorado,iNaturalist,1617,United States of America
+40.00398,-105.29855,114,Colorado,iNaturalist,1991,United States of America
+40.01482,-105.3256,263,Colorado,iNaturalist,1763,United States of America
+40.0205,-105.33575,175,Colorado,iNaturalist,1935,United States of America
+40.02779,-105.2933,410,Colorado,iNaturalist,1699,United States of America
+40.03829,-105.37684,118,Colorado,iNaturalist,2140,United States of America
+40.04725,-105.28727,425,Colorado,iNaturalist,1704,United States of America
+40.04727,-105.28727,504,Colorado,iNaturalist,1704,United States of America
+40.04729,-105.28726,496,Colorado,iNaturalist,1704,United States of America
+40.04734,-105.28722,519,Colorado,iNaturalist,1704,United States of America
+40.05634,-105.32631,284,Colorado,iNaturalist,1900,United States of America
+40.05634,-105.32632,285,Colorado,iNaturalist,1900,United States of America
+40.06278,-105.314,346,Colorado,iNaturalist,1817,United States of America
+40.11522,-105.39384,324,Colorado,iNaturalist,2160,United States of America
+40.1382,-105.1396,351,Colorado,iNaturalist,1538,United States of America
+40.16876,-105.3732,399,Colorado,iNaturalist,2148,United States of America
+40.17141,-121.38582,109,California,iNaturalist,1673,United States of America
+40.1715,-121.38561,108,California,iNaturalist,1673,United States of America
+40.17528,-105.30313,40,Colorado,iNaturalist,2061,United States of America
+40.20309,-121.16891,51,California,iNaturalist,1429,United States of America
+40.28103,-121.08606,272,California,iNaturalist,1426,United States of America
+40.40563,-111.6075,391,Utah,iNaturalist,2131,United States of America
+40.52889,-121.56337,38,California,iNaturalist,1809,United States of America
+40.97378,-105.43503,426,Colorado,iNaturalist,2353,United States of America
+41.1496,-120.28354,404,California,iNaturalist,1886,United States of America
+41.25922,-106.41599,20,Wyoming,iNaturalist,2585,United States of America
+41.3157,-122.33254,300,California,iNaturalist,1076,United States of America
+41.33989,-122.07226,269,California,iNaturalist,1442,United States of America
+41.3941,-122.40814,295,California,iNaturalist,1181,United States of America
+41.49172,-115.97787,298,Nevada,iNaturalist,2554,United States of America
+41.54742,-122.08491,45,California,iNaturalist,1942,United States of America
+41.61634,-123.18255,232,California,iNaturalist,1500,United States of America
+41.63101,-123.17899,277,California,iNaturalist,1600,United States of America
+41.7913,-115.3887,244,Nevada,iNaturalist,2436,United States of America
+42.19083,-120.27433,433,Oregon,iNaturalist,1911,United States of America
+42.21864,-123.06741,84,Oregon,iNaturalist,484,United States of America
+42.23007,-122.39296,517,Oregon,iNaturalist,1395,United States of America
+42.28486,-122.99328,62,Oregon,iNaturalist,646,United States of America
+42.31231,-122.19827,316,Oregon,iNaturalist,1626,United States of America
+42.36737,-122.22176,456,Oregon,iNaturalist,1540,United States of America
+42.37018,-122.21321,121,Oregon,iNaturalist,1509,United States of America
+42.37193,-122.21171,369,Oregon,iNaturalist,1509,United States of America
+42.37793,-122.20958,392,Oregon,iNaturalist,1531,United States of America
+42.3781,-122.20878,385,Oregon,iNaturalist,1531,United States of America
+42.37913,-122.21332,332,Oregon,iNaturalist,1524,United States of America
+42.37935,-122.21191,154,Oregon,iNaturalist,1541,United States of America
+42.38689,-122.21655,375,Oregon,iNaturalist,1522,United States of America
+42.40122,-121.72923,311,Oregon,iNaturalist,1769,United States of America
+42.43289,-121.72407,319,Oregon,iNaturalist,1750,United States of America
+42.48374,-122.08397,414,Oregon,iNaturalist,1276,United States of America
+42.48375,-122.08404,390,Oregon,iNaturalist,1278,United States of America
+42.48376,-122.08398,387,Oregon,iNaturalist,1278,United States of America
+42.4838,-122.08401,421,Oregon,iNaturalist,1278,United States of America
+42.48383,-122.08399,408,Oregon,iNaturalist,1278,United States of America
+42.48398,-122.08395,468,Oregon,iNaturalist,1278,United States of America
+42.48403,-122.08371,420,Oregon,iNaturalist,1259,United States of America
+42.4917,-121.83898,286,Oregon,iNaturalist,1521,United States of America
+42.71727,-110.94146,197,Wyoming,iNaturalist,1886,United States of America
+42.80148,-122.06495,441,Oregon,iNaturalist,1469,United States of America
+42.80388,-122.07048,440,Oregon,iNaturalist,1484,United States of America
+42.91038,-122.44847,256,Oregon,iNaturalist,1039,United States of America
+43.3932,-111.99356,505,Idaho,iNaturalist,1440,United States of America
+43.60549,-116.05936,245,Idaho,iNaturalist,1788,United States of America
+43.66131,-114.38475,255,Idaho,iNaturalist,2273,United States of America
+43.76434,-110.74815,484,Wyoming,iNaturalist,2152,United States of America
+44.02484,-121.27778,516,Oregon,iNaturalist,1130,United States of America
+44.0535,-121.25753,57,Oregon,iNaturalist,1111,United States of America
+44.36703,-121.66809,25,Oregon,iNaturalist,1034,United States of America
+44.40692,-121.75705,79,Oregon,iNaturalist,1152,United States of America
+44.41174,-121.74606,140,Oregon,iNaturalist,1139,United States of America
+44.49541,-120.48596,364,Oregon,iNaturalist,1706,United States of America
+44.54634,-118.34099,476,Oregon,iNaturalist,1522,United States of America
+44.54636,-118.34094,480,Oregon,iNaturalist,1522,United States of America
+44.55262,-118.91221,510,Oregon,iNaturalist,1551,United States of America
+44.55718,-121.62235,155,Oregon,iNaturalist,859,United States of America
+44.55775,-121.62023,259,Oregon,iNaturalist,849,United States of America
+45.24714,-121.17974,438,Oregon,iNaturalist,340,United States of America
+45.27712,-121.45421,188,Oregon,iNaturalist,846,United States of America
+45.29418,-121.48523,400,Oregon,iNaturalist,961,United States of America
+45.3584,-121.41844,216,Oregon,iNaturalist,1194,United States of America
+45.3657,-121.36325,270,Oregon,iNaturalist,863,United States of America
+45.39646,-121.41631,93,Oregon,iNaturalist,1081,United States of America
+45.39995,-121.46257,238,Oregon,iNaturalist,1275,United States of America
+45.40433,-121.42256,308,Oregon,iNaturalist,1098,United States of America
+45.40664,-121.45544,344,Oregon,iNaturalist,1184,United States of America
+46.00059,-121.54884,182,Washington,iNaturalist,611,United States of America
+46.008,-121.56465,367,Washington,iNaturalist,602,United States of America
+46.73228,-122.9772,186,Washington,iNaturalist,54,United States of America
+46.91443,-122.27396,22,Washington,iNaturalist,245,United States of America
+47.16172,-122.26319,123,Washington,iNaturalist,140,United States of America
+47.20604,-120.98727,431,Washington,iNaturalist,665,United States of America
+47.48863,-122.16889,88,Washington,iNaturalist,113,United States of America
+47.57094,-122.10486,58,Washington,iNaturalist,42,United States of America
+47.64713,-122.5765,59,Washington,iNaturalist,42,United States of America
+47.66806,-116.76698,467,Idaho,iNaturalist,665,United States of America
+47.67658,-117.39406,463,Washington,iNaturalist,589,United States of America
+47.69948,-122.31766,76,Washington,iNaturalist,130,United States of America
+47.90828,-118.88072,474,Washington,iNaturalist,704,United States of America
+48.05545,-122.18653,130,Washington,iNaturalist,5,United States of America
+48.23687,-122.33254,471,Washington,iNaturalist,34,United States of America
+48.32184,-120.68288,63,Washington,iNaturalist,345,United States of America
+48.382,-123.53785,506,British Columbia,iNaturalist,46,Canada
+48.43302,-123.32149,135,British Columbia,iNaturalist,18,Canada
+48.43305,-123.32158,136,British Columbia,iNaturalist,18,Canada
+48.52453,-123.5082,12,British Columbia,iNaturalist,257,Canada
+48.52474,-123.50771,13,British Columbia,iNaturalist,246,Canada
+48.56787,-123.07728,477,Washington,iNaturalist,60,United States of America
+48.56797,-123.07785,494,Washington,iNaturalist,62,United States of America
+48.56805,-123.07773,461,Washington,iNaturalist,62,United States of America
+48.5716,-123.10017,483,Washington,iNaturalist,143,United States of America
+48.64517,-123.40372,495,British Columbia,iNaturalist,6,Canada
+48.65444,-120.51735,110,Washington,iNaturalist,737,United States of America
+48.65694,-120.50992,365,Washington,iNaturalist,753,United States of America
+48.65863,-120.54531,350,Washington,iNaturalist,775,United States of America
+48.65896,-120.54536,90,Washington,iNaturalist,778,United States of America
+48.659,-120.54426,55,Washington,iNaturalist,775,United States of America
+48.71501,-123.64315,89,British Columbia,iNaturalist,60,Canada
+48.87305,-123.3466,29,British Columbia,iNaturalist,0,Canada
+49.03024,-119.47047,403,British Columbia,iNaturalist,301,Canada
+49.07632,-122.66217,306,British Columbia,iNaturalist,49,Canada
+49.09206,-119.51987,464,British Columbia,iNaturalist,357,Canada
+49.09491,-119.52524,503,British Columbia,iNaturalist,358,Canada
+49.10121,-123.92933,499,British Columbia,iNaturalist,33,Canada
+49.15449,-119.44415,487,British Columbia,iNaturalist,808,Canada
+49.19624,-119.62492,205,British Columbia,iNaturalist,813,Canada
+49.22683,-124.0548,511,British Columbia,iNaturalist,112,Canada
+49.23921,-124.01958,514,British Columbia,iNaturalist,72,Canada
+49.24425,-122.7786,32,British Columbia,iNaturalist,76,Canada
+49.28409,-119.51918,497,British Columbia,iNaturalist,358,Canada
+49.28411,-119.5191,491,British Columbia,iNaturalist,358,Canada
+49.28413,-119.51902,439,British Columbia,iNaturalist,358,Canada
+49.2842,-119.51891,442,British Columbia,iNaturalist,358,Canada
+49.28423,-119.51923,500,British Columbia,iNaturalist,358,Canada
+49.28429,-119.51919,460,British Columbia,iNaturalist,358,Canada
+49.28855,-119.58724,507,British Columbia,iNaturalist,499,Canada
+49.31015,-119.54516,448,British Columbia,iNaturalist,329,Canada
+49.31016,-119.5452,478,British Columbia,iNaturalist,329,Canada
+49.31017,-119.5452,485,British Columbia,iNaturalist,329,Canada
+49.31018,-119.5452,446,British Columbia,iNaturalist,329,Canada
+49.3102,-119.54514,479,British Columbia,iNaturalist,329,Canada
+49.31022,-119.54522,447,British Columbia,iNaturalist,329,Canada
+49.31619,-119.70145,415,British Columbia,iNaturalist,732,Canada
+49.31862,-119.46882,509,British Columbia,iNaturalist,1003,Canada
+49.3193,-119.72381,429,British Columbia,iNaturalist,803,Canada
+49.32164,-124.26902,436,British Columbia,iNaturalist,22,Canada
+49.33452,-119.63525,501,British Columbia,iNaturalist,567,Canada
+49.33565,-119.65662,162,British Columbia,iNaturalist,966,Canada
+49.33568,-119.65661,161,British Columbia,iNaturalist,966,Canada
+49.34227,-123.11646,368,British Columbia,iNaturalist,111,Canada
+49.38754,-119.60944,75,British Columbia,iNaturalist,475,Canada
+49.38779,-119.59591,492,British Columbia,iNaturalist,452,Canada
+49.39679,-123.36082,7,British Columbia,iNaturalist,71,Canada
+49.39683,-123.36064,10,British Columbia,iNaturalist,71,Canada
+49.39683,-123.36076,1,British Columbia,iNaturalist,71,Canada
+49.39685,-123.36076,2,British Columbia,iNaturalist,71,Canada
+49.39685,-123.36077,5,British Columbia,iNaturalist,71,Canada
+49.39689,-123.36041,6,British Columbia,iNaturalist,71,Canada
+49.39691,-123.36072,8,British Columbia,iNaturalist,71,Canada
+49.39693,-123.36071,455,British Columbia,iNaturalist,71,Canada
+49.39697,-123.36054,3,British Columbia,iNaturalist,71,Canada
+49.39702,-123.36061,424,British Columbia,iNaturalist,71,Canada
+49.4902,-119.62712,363,British Columbia,iNaturalist,421,Canada
+49.4902,-119.62713,353,British Columbia,iNaturalist,421,Canada
+49.49021,-119.62708,417,British Columbia,iNaturalist,418,Canada
+49.49021,-119.62713,321,British Columbia,iNaturalist,421,Canada
+49.49022,-119.62711,450,British Columbia,iNaturalist,421,Canada
+49.49022,-119.62712,395,British Columbia,iNaturalist,421,Canada
+49.49022,-119.62713,437,British Columbia,iNaturalist,421,Canada
+49.49022,-119.62714,402,British Columbia,iNaturalist,421,Canada
+49.49023,-119.6271,343,British Columbia,iNaturalist,421,Canada
+49.49023,-119.62712,314,British Columbia,iNaturalist,421,Canada
+49.49023,-119.62713,383,British Columbia,iNaturalist,421,Canada
+49.49023,-119.62714,396,British Columbia,iNaturalist,421,Canada
+49.49024,-119.62711,452,British Columbia,iNaturalist,421,Canada
+49.49024,-119.62712,371,British Columbia,iNaturalist,421,Canada
+49.49025,-119.62714,412,British Columbia,iNaturalist,421,Canada
+49.49035,-119.62739,482,British Columbia,iNaturalist,421,Canada
+49.49039,-119.62736,462,British Columbia,iNaturalist,421,Canada
+49.49043,-119.62735,489,British Columbia,iNaturalist,417,Canada
+49.49043,-119.62736,490,British Columbia,iNaturalist,417,Canada
+49.49044,-119.62736,322,British Columbia,iNaturalist,417,Canada
+49.4905,-119.6272,502,British Columbia,iNaturalist,417,Canada
+49.56651,-119.64231,515,British Columbia,iNaturalist,417,Canada
+49.56909,-119.63675,416,British Columbia,iNaturalist,351,Canada
+49.57256,-119.62142,444,British Columbia,iNaturalist,345,Canada
+49.67787,-125.00898,278,British Columbia,iNaturalist,34,Canada
+49.78523,-119.71675,163,British Columbia,iNaturalist,353,Canada
+49.81625,-119.74825,520,British Columbia,iNaturalist,578,Canada
+49.83791,-119.69515,83,British Columbia,iNaturalist,803,Canada
+49.84077,-123.88793,4,Ocean,iNaturalist,NA,Ocean
+50.34617,-119.24023,287,British Columbia,iNaturalist,475,Canada
+50.50654,-119.26315,393,British Columbia,iNaturalist,518,Canada
+50.60639,-120.18402,178,British Columbia,iNaturalist,680,Canada
+50.64192,-120.36213,312,British Columbia,iNaturalist,797,Canada
+50.6543,-120.33598,427,British Columbia,iNaturalist,614,Canada
+50.65615,-120.26931,379,British Columbia,iNaturalist,690,Canada
+50.71115,-120.3986,384,British Columbia,iNaturalist,352,Canada
+50.75666,-120.86805,17,British Columbia,iNaturalist,350,Canada
+50.83212,-121.69093,16,British Columbia,iNaturalist,809,Canada
+50.83239,-121.69155,18,British Columbia,iNaturalist,805,Canada
+50.83242,-121.69131,9,British Columbia,iNaturalist,805,Canada
+50.83247,-121.69142,11,British Columbia,iNaturalist,805,Canada
+50.83262,-121.6916,15,British Columbia,iNaturalist,805,Canada
+50.83297,-121.69197,14,British Columbia,iNaturalist,818,Canada
+50.84541,-120.40167,473,British Columbia,iNaturalist,1015,Canada
+50.84542,-120.40166,472,British Columbia,iNaturalist,1014,Canada
+30.993,-115.495,50445,Baja California,iNaturalist,2444,Mexico
+31.044,-115.464,50381,Baja California,iNaturalist,2816,Mexico
 31.3765,-110.06539,65524,Arizona,Synthetic data,1318,United States of America
 31.37706,-110.85209,10001,Arizona,Synthetic data,1123,United States of America
-31.37771,-106.95004,66616,Ocean,Synthetic data,1211,Ocean
-31.37856,-113.13602,72139,Ocean,Synthetic data,214,Ocean
-31.38041,-111.28628,10002,Ocean,Synthetic data,1153,Ocean
+31.37771,-106.95004,66616,Chihuahua,Synthetic data,1211,Mexico
+31.37856,-113.13602,72139,Sonora,Synthetic data,214,Mexico
+31.38041,-111.28628,10002,Sonora,Synthetic data,1153,Mexico
 31.38444,-114.84804,10003,Ocean,Synthetic data,NA,Ocean
-31.38664,-111.76393,10004,Ocean,Synthetic data,890,Ocean
+31.38664,-111.76393,10004,Sonora,Synthetic data,890,Mexico
 31.3867,-110.607,10005,Arizona,Synthetic data,1477,United States of America
-31.38675,-113.58209,64250,Ocean,Synthetic data,6,Ocean
+31.38675,-113.58209,64250,Sonora,Synthetic data,6,Mexico
 31.38778,-104.0953,75506,Texas,Synthetic data,1019,United States of America
-31.39021,-112.14355,72503,Ocean,Synthetic data,696,Ocean
+31.39021,-112.14355,72503,Sonora,Synthetic data,696,Mexico
 31.39117,-105.58159,10006,Texas,Synthetic data,1431,United States of America
-31.39286,-115.63914,71229,Ocean,Synthetic data,993,Ocean
-31.39574,-107.43052,66434,Ocean,Synthetic data,1201,Ocean
-31.39858,-107.6394,74141,Ocean,Synthetic data,1268,Ocean
-31.39918,-113.38858,10007,Ocean,Synthetic data,32,Ocean
+31.39286,-115.63914,71229,Baja California,Synthetic data,993,Mexico
+31.39574,-107.43052,66434,Chihuahua,Synthetic data,1201,Mexico
+31.39858,-107.6394,74141,Chihuahua,Synthetic data,1268,Mexico
+31.39918,-113.38858,10007,Sonora,Synthetic data,32,Mexico
 31.40015,-104.11783,10008,Texas,Synthetic data,1040,United States of America
-31.40065,-112.35732,64705,Ocean,Synthetic data,749,Ocean
+31.40065,-112.35732,64705,Sonora,Synthetic data,749,Mexico
 31.40226,-104.854,67435,Texas,Synthetic data,1138,United States of America
 31.406,-110.324,50629,Arizona,iNaturalist,2323,United States of America
 31.406,-110.292,51394,Arizona,iNaturalist,2045,United States of America
 31.406,-110.291,51405,Arizona,iNaturalist,2033,United States of America
 31.40616,-106.07663,10009,Texas,Synthetic data,1089,United States of America
 31.40629,-109.56466,73504,Arizona,Synthetic data,1241,United States of America
-31.40666,-115.40193,10010,Ocean,Synthetic data,836,Ocean
+31.40666,-115.40193,10010,Baja California,Synthetic data,836,Mexico
 31.40761,-110.96664,10011,Arizona,Synthetic data,1110,United States of America
-31.40875,-106.1424,10013,Ocean,Synthetic data,1089,Ocean
+31.40875,-106.1424,10013,Chihuahua,Synthetic data,1089,Mexico
 31.40875,-104.57601,10012,Texas,Synthetic data,1550,United States of America
-31.41038,-115.21926,10014,Ocean,Synthetic data,475,Ocean
+31.41038,-115.21926,10014,Baja California,Synthetic data,475,Mexico
 31.41112,-104.83312,10015,Texas,Synthetic data,1090,United States of America
-31.41166,-112.9038,10016,Ocean,Synthetic data,252,Ocean
-31.41415,-107.16356,74323,Ocean,Synthetic data,1179,Ocean
+31.41166,-112.9038,10016,Sonora,Synthetic data,252,Mexico
+31.41415,-107.16356,74323,Chihuahua,Synthetic data,1179,Mexico
 31.41434,-110.33114,48105,Arizona,Defoliation surveys,2390,United States of America
 31.41456,-104.8044,10017,Texas,Synthetic data,1097,United States of America
 31.416,-110.277,50028,Arizona,iNaturalist,1757,United States of America
 31.41681,-113.96137,10018,Ocean,Synthetic data,NA,Ocean
-31.41701,-111.39759,10019,Ocean,Synthetic data,1186,Ocean
+31.41701,-111.39759,10019,Sonora,Synthetic data,1186,Mexico
 31.41734,-108.79615,65979,New Mexico,Synthetic data,1598,United States of America
 31.41898,-114.24258,10020,Ocean,Synthetic data,NA,Ocean
 31.41913,-105.16479,75051,Texas,Synthetic data,1389,United States of America
-31.42167,-106.18242,10021,Ocean,Synthetic data,1101,Ocean
+31.42167,-106.18242,10021,Chihuahua,Synthetic data,1101,Mexico
 31.42222,-105.8644,67071,Texas,Synthetic data,1197,United States of America
 31.42268,-110.33912,48106,Arizona,Defoliation surveys,2430,United States of America
 31.42481,-109.75026,10022,Arizona,Synthetic data,1266,United States of America
 31.42569,-109.06918,10023,Arizona,Synthetic data,1572,United States of America
-31.42682,-112.73726,10024,Ocean,Synthetic data,482,Ocean
-31.42752,-106.43217,10025,Ocean,Synthetic data,1290,Ocean
+31.42682,-112.73726,10024,Sonora,Synthetic data,482,Mexico
+31.42752,-106.43217,10025,Chihuahua,Synthetic data,1290,Mexico
 31.42792,-110.34389,48107,Arizona,Defoliation surveys,2495,United States of America
 31.428,-110.336,50526,Arizona,iNaturalist,2304,United States of America
-31.42995,-106.42692,74596,Ocean,Synthetic data,1280,Ocean
-31.42996,-106.95074,10026,Ocean,Synthetic data,1217,Ocean
+31.42995,-106.42692,74596,Chihuahua,Synthetic data,1280,Mexico
+31.42996,-106.95074,10026,Chihuahua,Synthetic data,1217,Mexico
 31.43032,-110.71341,10027,Arizona,Synthetic data,1679,United States of America
-31.431,-115.63214,10028,Ocean,Synthetic data,1456,Ocean
-31.43142,-107.96557,10029,Ocean,Synthetic data,1267,Ocean
-31.43174,-107.25977,10030,Ocean,Synthetic data,1187,Ocean
-31.43185,-112.10324,72594,Ocean,Synthetic data,764,Ocean
-31.43205,-113.08457,64432,Ocean,Synthetic data,149,Ocean
+31.431,-115.63214,10028,Baja California,Synthetic data,1456,Mexico
+31.43142,-107.96557,10029,Chihuahua,Synthetic data,1267,Mexico
+31.43174,-107.25977,10030,Chihuahua,Synthetic data,1187,Mexico
+31.43185,-112.10324,72594,Sonora,Synthetic data,764,Mexico
+31.43205,-113.08457,64432,Sonora,Synthetic data,149,Mexico
 31.43264,-109.66029,65615,Arizona,Synthetic data,1220,United States of America
 31.4328,-114.84654,71593,Ocean,Synthetic data,NA,Ocean
 31.43341,-109.4442,10031,Arizona,Synthetic data,1504,United States of America
-31.43412,-114.95957,63704,Ocean,Synthetic data,3,Ocean
+31.43412,-114.95957,63704,Baja California,Synthetic data,3,Mexico
 31.435,-110.321,50966,Arizona,iNaturalist,1951,United States of America
 31.43553,-114.10308,10032,Ocean,Synthetic data,NA,Ocean
 31.439,-110.318,50514,Arizona,iNaturalist,1893,United States of America
 31.439330000000002,-114.16222,10033,Ocean,Synthetic data,NA,Ocean
-31.43974,-111.6146,72776,Ocean,Synthetic data,960,Ocean
-31.43998,-111.41989,10034,Ocean,Synthetic data,1357,Ocean
+31.43974,-111.6146,72776,Sonora,Synthetic data,960,Mexico
+31.43998,-111.41989,10034,Sonora,Synthetic data,1357,Mexico
 31.440550000000002,-108.58565,10035,New Mexico,Synthetic data,1411,United States of America
 31.44173,-104.60568,75324,Texas,Synthetic data,1557,United States of America
 31.44209,-111.19032,65069,Arizona,Synthetic data,1255,United States of America
 31.44297,-110.18612,65433,Arizona,Synthetic data,1362,United States of America
 31.44447,-114.41545,71684,Ocean,Synthetic data,NA,Ocean
-31.44473,-106.37928,10036,Ocean,Synthetic data,1243,Ocean
+31.44473,-106.37928,10036,Chihuahua,Synthetic data,1243,Mexico
 31.446,-110.314,50962,Arizona,iNaturalist,1759,United States of America
 31.44843,-105.02878,75142,Texas,Synthetic data,1637,United States of America
 31.45182,-109.55625,10037,Arizona,Synthetic data,1264,United States of America
-31.45247,-106.83017,10038,Ocean,Synthetic data,1212,Ocean
+31.45247,-106.83017,10038,Chihuahua,Synthetic data,1212,Mexico
 31.45483,-114.4704,10039,Ocean,Synthetic data,NA,Ocean
-31.45529,-107.59041,10040,Ocean,Synthetic data,1214,Ocean
+31.45529,-107.59041,10040,Chihuahua,Synthetic data,1214,Mexico
 31.45821,-109.86242,10041,Arizona,Synthetic data,1808,United States of America
 31.46069,-108.91487,65888,New Mexico,Synthetic data,1597,United States of America
 31.46086,-113.75262,71957,Ocean,Synthetic data,NA,Ocean
-31.46108,-112.38181,10042,Ocean,Synthetic data,741,Ocean
+31.46108,-112.38181,10042,Sonora,Synthetic data,741,Mexico
 31.46578,-111.40919,64978,Arizona,Synthetic data,1164,United States of America
 31.46587,-105.62598,10043,Texas,Synthetic data,1592,United States of America
-31.46719,-107.05074,74414,Ocean,Synthetic data,1228,Ocean
-31.46762,-113.03581,72230,Ocean,Synthetic data,181,Ocean
+31.46719,-107.05074,74414,Chihuahua,Synthetic data,1228,Mexico
+31.46762,-113.03581,72230,Sonora,Synthetic data,181,Mexico
 31.46784,-110.56061,73140,Arizona,Synthetic data,1534,United States of America
-31.46853,-113.00231,10044,Ocean,Synthetic data,198,Ocean
-31.46878,-112.26519,10046,Ocean,Synthetic data,658,Ocean
-31.46878,-112.20808,10045,Ocean,Synthetic data,658,Ocean
+31.46853,-113.00231,10044,Sonora,Synthetic data,198,Mexico
+31.46878,-112.26519,10046,Sonora,Synthetic data,658,Mexico
+31.46878,-112.20808,10045,Sonora,Synthetic data,658,Mexico
 31.46986,-105.32725,67253,Texas,Synthetic data,1328,United States of America
-31.47004,-115.03066,10047,Ocean,Synthetic data,17,Ocean
-31.47512,-111.732,72685,Ocean,Synthetic data,832,Ocean
+31.47004,-115.03066,10047,Baja California,Synthetic data,17,Mexico
+31.47512,-111.732,72685,Sonora,Synthetic data,832,Mexico
 31.47518,-111.47595,10048,Arizona,Synthetic data,1094,United States of America
 31.47658,-114.49489,10049,Ocean,Synthetic data,NA,Ocean
 31.47848,-104.9963,10050,Texas,Synthetic data,1706,United States of America
-31.47917,-115.81772,63431,Ocean,Synthetic data,1169,Ocean
+31.47917,-115.81772,63431,Baja California,Synthetic data,1169,Mexico
 31.47962,-108.7811,73777,New Mexico,Synthetic data,1824,United States of America
 31.48094,-110.10447,73322,Arizona,Synthetic data,1275,United States of America
 31.48203,-104.89214,10051,Texas,Synthetic data,1355,United States of America
-31.4821,-112.06515,10052,Ocean,Synthetic data,1006,Ocean
+31.4821,-112.06515,10052,Sonora,Synthetic data,1006,Mexico
 31.48212,-108.35391,10053,New Mexico,Synthetic data,1497,United States of America
 31.48331,-109.18451,10054,Arizona,Synthetic data,1325,United States of America
 31.48528,-109.63829,73413,Arizona,Synthetic data,1247,United States of America
 31.48715,-110.92243,10055,Arizona,Synthetic data,1124,United States of America
 31.48729,-110.66937,65251,Arizona,Synthetic data,1545,United States of America
-31.48938,-108.08403,10056,Ocean,Synthetic data,1251,Ocean
+31.48938,-108.08403,10056,Chihuahua,Synthetic data,1251,Mexico
 31.49026,-104.39747,10057,Texas,Synthetic data,1204,United States of America
 31.49059,-114.201,71775,Ocean,Synthetic data,NA,Ocean
-31.49188,-106.34769,66889,Ocean,Synthetic data,1204,Ocean
-31.49447,-108.01347,66252,Ocean,Synthetic data,1262,Ocean
+31.49188,-106.34769,66889,Chihuahua,Synthetic data,1204,Mexico
+31.49447,-108.01347,66252,Chihuahua,Synthetic data,1262,Mexico
 31.49454,-110.55121,10058,Arizona,Synthetic data,1638,United States of America
 31.49468,-110.66447,10059,Arizona,Synthetic data,1507,United States of America
 31.49545,-109.8601,10060,Arizona,Synthetic data,1448,United States of America
-31.49576,-112.39558,72412,Ocean,Synthetic data,710,Ocean
+31.49576,-112.39558,72412,Sonora,Synthetic data,710,Mexico
 31.49724,-105.16034,10061,Texas,Synthetic data,1359,United States of America
-31.49929,-115.87065,10062,Ocean,Synthetic data,1004,Ocean
-31.49932,-115.3096,10063,Ocean,Synthetic data,644,Ocean
+31.49929,-115.87065,10062,Baja California,Synthetic data,1004,Mexico
+31.49932,-115.3096,10063,Baja California,Synthetic data,644,Mexico
 31.50055,-105.46759,10064,Texas,Synthetic data,1449,United States of America
 31.50096,-108.48967,73868,New Mexico,Synthetic data,1365,United States of America
 31.50166,-109.27144,65797,Arizona,Synthetic data,1383,United States of America
 31.50265,-104.23016,10065,Texas,Synthetic data,1131,United States of America
 31.50324,-108.7716,10066,New Mexico,Synthetic data,2081,United States of America
 31.50475,-114.82229,10067,Ocean,Synthetic data,NA,Ocean
-31.50493,-106.76214,10068,Ocean,Synthetic data,1209,Ocean
-31.50508,-107.62997,10069,Ocean,Synthetic data,1217,Ocean
+31.50493,-106.76214,10068,Chihuahua,Synthetic data,1209,Mexico
+31.50508,-107.62997,10069,Chihuahua,Synthetic data,1217,Mexico
 31.50655,-104.20496,10070,Texas,Synthetic data,1096,United States of America
-31.50686,-112.35835,10071,Ocean,Synthetic data,726,Ocean
-31.50746,-112.55342,10072,Ocean,Synthetic data,639,Ocean
-31.50782,-107.29523,66525,Ocean,Synthetic data,1187,Ocean
+31.50686,-112.35835,10071,Sonora,Synthetic data,726,Mexico
+31.50746,-112.55342,10072,Sonora,Synthetic data,639,Mexico
+31.50782,-107.29523,66525,Chihuahua,Synthetic data,1187,Mexico
 31.50899,-108.97379,73686,New Mexico,Synthetic data,1697,United States of America
-31.50963,-106.91774,10073,Ocean,Synthetic data,1226,Ocean
+31.50963,-106.91774,10073,Chihuahua,Synthetic data,1226,Mexico
 31.51007,-111.15029,10074,Arizona,Synthetic data,1281,United States of America
-31.51091,-114.038,64068,Ocean,Synthetic data,1,Ocean
+31.51091,-114.038,64068,Sonora,Synthetic data,1,Mexico
 31.51173,-110.08081,10075,Arizona,Synthetic data,1331,United States of America
-31.51186,-112.04728,10076,Ocean,Synthetic data,919,Ocean
+31.51186,-112.04728,10076,Sonora,Synthetic data,919,Mexico
 31.51195,-105.86434,10077,Texas,Synthetic data,1252,United States of America
 31.51368,-114.65618,10078,Ocean,Synthetic data,NA,Ocean
-31.51438,-112.49444,64614,Ocean,Synthetic data,628,Ocean
+31.51438,-112.49444,64614,Sonora,Synthetic data,628,Mexico
 31.5164,-109.12122,10079,Arizona,Synthetic data,1510,United States of America
 31.51658,-109.26147,10080,Arizona,Synthetic data,1351,United States of America
-31.51876,-111.7496,10081,Ocean,Synthetic data,810,Ocean
-31.51915,-114.17819,63977,Ocean,Synthetic data,25,Ocean
-31.52064,-114.21127,10082,Ocean,Synthetic data,29,Ocean
+31.51876,-111.7496,10081,Sonora,Synthetic data,810,Mexico
+31.51915,-114.17819,63977,Sonora,Synthetic data,25,Mexico
+31.52064,-114.21127,10082,Sonora,Synthetic data,29,Mexico
 31.52171,-105.33575,10083,Texas,Synthetic data,1317,United States of America
 31.52205,-108.60434,10084,New Mexico,Synthetic data,1477,United States of America
-31.52219,-115.49705,71320,Ocean,Synthetic data,1030,Ocean
+31.52219,-115.49705,71320,Baja California,Synthetic data,1030,Mexico
 31.52414,-104.77265,75233,Texas,Synthetic data,1148,United States of America
-31.52766,-111.7797,10085,Ocean,Synthetic data,783,Ocean
+31.52766,-111.7797,10085,Sonora,Synthetic data,783,Mexico
 31.52816,-109.30337,10086,Arizona,Synthetic data,1384,United States of America
 31.52951,-108.71523,10087,New Mexico,Synthetic data,1803,United States of America
-31.52991,-111.81313,64887,Ocean,Synthetic data,816,Ocean
+31.52991,-111.81313,64887,Sonora,Synthetic data,816,Mexico
 31.53056,-105.95171,74778,Texas,Synthetic data,1228,United States of America
-31.53107,-113.64826,10088,Ocean,Synthetic data,7,Ocean
-31.53283,-113.3408,64341,Ocean,Synthetic data,74,Ocean
+31.53107,-113.64826,10088,Sonora,Synthetic data,7,Mexico
+31.53283,-113.3408,64341,Sonora,Synthetic data,74,Mexico
 31.53511,-109.43662,10089,Arizona,Synthetic data,1498,United States of America
-31.5352,-115.56688,10090,Ocean,Synthetic data,1511,Ocean
+31.5352,-115.56688,10090,Baja California,Synthetic data,1511,Mexico
 31.5361,-110.46757,65342,Arizona,Synthetic data,1606,United States of America
-31.53709,-113.15809,10091,Ocean,Synthetic data,159,Ocean
+31.53709,-113.15809,10091,Sonora,Synthetic data,159,Mexico
 31.53753,-114.40986,63886,Ocean,Synthetic data,NA,Ocean
 31.53905,-106.11659,66980,Texas,Synthetic data,1173,United States of America
-31.53925,-115.42292,63522,Ocean,Synthetic data,738,Ocean
+31.53925,-115.42292,63522,Baja California,Synthetic data,738,Mexico
 31.5426,-111.31861,10092,Arizona,Synthetic data,1151,United States of America
-31.54351,-114.02507,71866,Ocean,Synthetic data,6,Ocean
+31.54351,-114.02507,71866,Sonora,Synthetic data,6,Mexico
 31.5437,-110.69935,73049,Arizona,Synthetic data,1412,United States of America
-31.54375,-107.29497,10093,Ocean,Synthetic data,1187,Ocean
+31.54375,-107.29497,10093,Chihuahua,Synthetic data,1187,Mexico
 31.54394,-110.98322,10094,Arizona,Synthetic data,1171,United States of America
-31.54467,-115.52089,10095,Ocean,Synthetic data,1137,Ocean
+31.54467,-115.52089,10095,Baja California,Synthetic data,1137,Mexico
 31.54488,-105.11216,10096,Texas,Synthetic data,1425,United States of America
 31.54497,-113.88674,10097,Ocean,Synthetic data,NA,Ocean
 31.5486,-110.21217,73231,Arizona,Synthetic data,1331,United States of America
 31.55027,-105.61793,74960,Texas,Synthetic data,1464,United States of America
-31.55062,-113.63343,10098,Ocean,Synthetic data,19,Ocean
+31.55062,-113.63343,10098,Sonora,Synthetic data,19,Mexico
 31.55082,-108.9705,10099,New Mexico,Synthetic data,1640,United States of America
 31.55087,-105.30288,10100,Texas,Synthetic data,1326,United States of America
 31.55134,-104.50625,10101,Texas,Synthetic data,1348,United States of America
 31.55189,-113.86893,64159,Ocean,Synthetic data,NA,Ocean
-31.55309,-107.81903,66343,Ocean,Synthetic data,1246,Ocean
+31.55309,-107.81903,66343,Chihuahua,Synthetic data,1246,Mexico
 31.55439,-108.4394,66070,New Mexico,Synthetic data,1351,United States of America
 31.5548,-110.37368,10102,Arizona,Synthetic data,1554,United States of America
 31.55575,-108.2241,73959,New Mexico,Synthetic data,1306,United States of America
 31.5566,-110.95658,72958,Arizona,Synthetic data,1289,United States of America
 31.55745,-105.99674,10103,Texas,Synthetic data,1221,United States of America
 31.56035,-108.23813,10104,New Mexico,Synthetic data,1320,United States of America
-31.56056,-112.96764,10105,Ocean,Synthetic data,253,Ocean
-31.56063,-107.61612,74232,Ocean,Synthetic data,1218,Ocean
-31.56077,-115.81673,10106,Ocean,Synthetic data,1033,Ocean
+31.56056,-112.96764,10105,Sonora,Synthetic data,253,Mexico
+31.56063,-107.61612,74232,Chihuahua,Synthetic data,1218,Mexico
+31.56077,-115.81673,10106,Baja California,Synthetic data,1033,Mexico
 31.561,-114.52831,10107,Ocean,Synthetic data,NA,Ocean
 31.56113,-108.64437,10108,New Mexico,Synthetic data,1721,United States of America
-31.56282,-112.69827,10109,Ocean,Synthetic data,499,Ocean
-31.56308,-106.71321,66707,Ocean,Synthetic data,1277,Ocean
+31.56282,-112.69827,10109,Sonora,Synthetic data,499,Mexico
+31.56308,-106.71321,66707,Chihuahua,Synthetic data,1277,Mexico
 31.56474,-104.25332,75415,Texas,Synthetic data,1156,United States of America
 31.56512,-105.51597,67162,Texas,Synthetic data,1401,United States of America
-31.56742,-107.19589,10110,Ocean,Synthetic data,1228,Ocean
-31.56783,-114.93218,10111,Ocean,Synthetic data,3,Ocean
-31.5685,-113.51235,10112,Ocean,Synthetic data,111,Ocean
-31.56881,-115.22477,10113,Ocean,Synthetic data,395,Ocean
-31.56918,-106.34171,10114,Ocean,Synthetic data,1188,Ocean
+31.56742,-107.19589,10110,Chihuahua,Synthetic data,1228,Mexico
+31.56783,-114.93218,10111,Baja California,Synthetic data,3,Mexico
+31.5685,-113.51235,10112,Sonora,Synthetic data,111,Mexico
+31.56881,-115.22477,10113,Baja California,Synthetic data,395,Mexico
+31.56918,-106.34171,10114,Chihuahua,Synthetic data,1188,Mexico
 31.56994,-110.9436,65160,Arizona,Synthetic data,1154,United States of America
 31.5702,-111.31204,72867,Arizona,Synthetic data,1115,United States of America
 31.57131,-104.94389,67344,Texas,Synthetic data,1104,United States of America
-31.57762,-106.7418,74505,Ocean,Synthetic data,1224,Ocean
+31.57762,-106.7418,74505,Chihuahua,Synthetic data,1224,Mexico
 31.57796,-109.5679,65706,Arizona,Synthetic data,1345,United States of America
-31.57819,-113.31167,10115,Ocean,Synthetic data,91,Ocean
-31.5806,-107.73404,10116,Ocean,Synthetic data,1245,Ocean
+31.57819,-113.31167,10115,Sonora,Synthetic data,91,Mexico
+31.5806,-107.73404,10116,Chihuahua,Synthetic data,1245,Mexico
 31.58117,-106.26506,74687,Texas,Synthetic data,1105,United States of America
-31.58142,-106.86169,10117,Ocean,Synthetic data,1218,Ocean
-31.58231,-106.53863,66798,Ocean,Synthetic data,1251,Ocean
-31.58288,-106.91474,10118,Ocean,Synthetic data,1231,Ocean
+31.58142,-106.86169,10117,Chihuahua,Synthetic data,1218,Mexico
+31.58231,-106.53863,66798,Chihuahua,Synthetic data,1251,Mexico
+31.58288,-106.91474,10118,Chihuahua,Synthetic data,1231,Mexico
 31.58478,-105.769,74869,Texas,Synthetic data,1441,United States of America
-31.58509,-112.59825,10119,Ocean,Synthetic data,574,Ocean
+31.58509,-112.59825,10119,Sonora,Synthetic data,574,Mexico
 31.58606,-105.58971,10120,Texas,Synthetic data,1481,United States of America
-31.58635,-108.07693,74050,Ocean,Synthetic data,1262,Ocean
+31.58635,-108.07693,74050,Chihuahua,Synthetic data,1262,Mexico
 31.58767,-110.32839,10121,Arizona,Synthetic data,1412,United States of America
 31.58901,-104.78403,10122,Texas,Synthetic data,1309,United States of America
-31.58966,-107.57199,10123,Ocean,Synthetic data,1217,Ocean
-31.58977,-115.36083000000001,63613,Ocean,Synthetic data,442,Ocean
+31.58966,-107.57199,10123,Chihuahua,Synthetic data,1217,Mexico
+31.58977,-115.36083000000001,63613,Baja California,Synthetic data,442,Mexico
 31.59025,-104.42368,67526,Texas,Synthetic data,1250,United States of America
-31.59302,-113.83745,10124,Ocean,Synthetic data,0,Ocean
-31.59332,-107.47202,10125,Ocean,Synthetic data,1199,Ocean
+31.59302,-113.83745,10124,Sonora,Synthetic data,0,Mexico
+31.59332,-107.47202,10125,Chihuahua,Synthetic data,1199,Mexico
 31.59333,-103.9164,67708,Texas,Synthetic data,990,United States of America
-31.59359,-113.25571,10126,Ocean,Synthetic data,110,Ocean
+31.59359,-113.25571,10126,Sonora,Synthetic data,110,Mexico
 31.59516,-106.0709,10127,Texas,Synthetic data,1227,United States of America
-31.59657,-114.96195,10128,Ocean,Synthetic data,5,Ocean
+31.59657,-114.96195,10128,Baja California,Synthetic data,5,Mexico
 31.59779,-109.30154,73595,Arizona,Synthetic data,1501,United States of America
 31.59874,-103.96075,10129,Texas,Synthetic data,977,United States of America
 31.5991,-108.29849,10130,New Mexico,Synthetic data,1486,United States of America
 31.60045,-104.36431,10131,Texas,Synthetic data,1188,United States of America
 31.60095,-110.51926,10132,Arizona,Synthetic data,1516,United States of America
-31.60668,-114.87882,71502,Ocean,Synthetic data,5,Ocean
+31.60668,-114.87882,71502,Baja California,Synthetic data,5,Mexico
 31.60773,-108.37053,66161,New Mexico,Synthetic data,1871,United States of America
-31.6079,-112.01579,64796,Ocean,Synthetic data,786,Ocean
-31.6097,-107.67075,10133,Ocean,Synthetic data,1307,Ocean
-31.61019,-112.6976,64523,Ocean,Synthetic data,525,Ocean
-31.61044,-114.86335,63795,Ocean,Synthetic data,12,Ocean
-31.61175,-107.91021,10134,Ocean,Synthetic data,1306,Ocean
+31.6079,-112.01579,64796,Sonora,Synthetic data,786,Mexico
+31.6097,-107.67075,10133,Chihuahua,Synthetic data,1307,Mexico
+31.61019,-112.6976,64523,Sonora,Synthetic data,525,Mexico
+31.61044,-114.86335,63795,Baja California,Synthetic data,12,Mexico
+31.61175,-107.91021,10134,Chihuahua,Synthetic data,1306,Mexico
 31.61181,-111.9449,10135,Arizona,Synthetic data,822,United States of America
-31.6119,-112.71718,72321,Ocean,Synthetic data,501,Ocean
+31.6119,-112.71718,72321,Sonora,Synthetic data,501,Mexico
 31.61272,-104.02276,10136,Texas,Synthetic data,995,United States of America
 31.61287,-104.3549,67617,Texas,Synthetic data,1181,United States of America
 31.6144,-110.00165,10137,Arizona,Synthetic data,1399,United States of America
-31.61469,-112.63814,10138,Ocean,Synthetic data,573,Ocean
-31.61585,-106.57184,10139,Ocean,Synthetic data,1288,Ocean
+31.61469,-112.63814,10138,Sonora,Synthetic data,573,Mexico
+31.61585,-106.57184,10139,Chihuahua,Synthetic data,1288,Mexico
 31.61644,-108.62099,10140,New Mexico,Synthetic data,1526,United States of America
 31.61663,-109.91464,10141,Arizona,Synthetic data,1384,United States of America
 31.61751,-110.36615,10142,Arizona,Synthetic data,1364,United States of America
-31.62254,-115.29977,71411,Ocean,Synthetic data,391,Ocean
+31.62254,-115.29977,71411,Baja California,Synthetic data,391,Mexico
 31.62274,-105.64351,10143,Texas,Synthetic data,1456,United States of America
-31.62286,-113.54856,10144,Ocean,Synthetic data,148,Ocean
-31.62411,-113.56146,72048,Ocean,Synthetic data,136,Ocean
-31.62695,-112.13147,10145,Ocean,Synthetic data,792,Ocean
+31.62286,-113.54856,10144,Sonora,Synthetic data,148,Mexico
+31.62411,-113.56146,72048,Sonora,Synthetic data,136,Mexico
+31.62695,-112.13147,10145,Sonora,Synthetic data,792,Mexico
 31.62703,-110.91973,10146,Arizona,Synthetic data,1391,United States of America
-31.62728,-114.10292,64069,Ocean,Synthetic data,34,Ocean
-31.6304,-106.39153,74597,Ocean,Synthetic data,1181,Ocean
+31.62728,-114.10292,64069,Sonora,Synthetic data,34,Mexico
+31.6304,-106.39153,74597,Chihuahua,Synthetic data,1181,Mexico
 31.6313,-105.06565,10147,Texas,Synthetic data,1194,United States of America
 31.6321,-114.6228,63887,Ocean,Synthetic data,NA,Ocean
-31.63217,-113.08808,72231,Ocean,Synthetic data,285,Ocean
-31.63323,-106.65782,10148,Ocean,Synthetic data,1238,Ocean
-31.63447,-107.54018,10149,Ocean,Synthetic data,1249,Ocean
+31.63217,-113.08808,72231,Sonora,Synthetic data,285,Mexico
+31.63323,-106.65782,10148,Chihuahua,Synthetic data,1238,Mexico
+31.63447,-107.54018,10149,Chihuahua,Synthetic data,1249,Mexico
 31.63469,-106.10047,10150,Texas,Synthetic data,1220,United States of America
 31.63614,-104.46111,10151,Texas,Synthetic data,1279,United States of America
-31.63746,-115.37902,10152,Ocean,Synthetic data,606,Ocean
+31.63746,-115.37902,10152,Baja California,Synthetic data,606,Mexico
 31.63763,-114.72399,10153,Ocean,Synthetic data,NA,Ocean
 31.63849,-109.48377,65707,Arizona,Synthetic data,1512,United States of America
-31.64213,-115.23567,10154,Ocean,Synthetic data,200,Ocean
-31.64223,-115.85504,10155,Ocean,Synthetic data,1103,Ocean
-31.64295,-112.42652,10156,Ocean,Synthetic data,526,Ocean
+31.64213,-115.23567,10154,Baja California,Synthetic data,200,Mexico
+31.64223,-115.85504,10155,Baja California,Synthetic data,1103,Mexico
+31.64295,-112.42652,10156,Sonora,Synthetic data,526,Mexico
 31.64573,-104.28126,75416,Texas,Synthetic data,1121,United States of America
-31.64594,-106.58576,10157,Ocean,Synthetic data,1289,Ocean
+31.64594,-106.58576,10157,Chihuahua,Synthetic data,1289,Mexico
 31.64888,-114.56711,10158,Ocean,Synthetic data,NA,Ocean
 31.65092,-104.97557,67345,Texas,Synthetic data,1103,United States of America
-31.65421,-115.28704,71412,Ocean,Synthetic data,206,Ocean
+31.65421,-115.28704,71412,Baja California,Synthetic data,206,Mexico
 31.65474,-105.37344,10159,Texas,Synthetic data,1299,United States of America
-31.65601,-113.19505,72140,Ocean,Synthetic data,166,Ocean
-31.65788,-113.10186,64433,Ocean,Synthetic data,259,Ocean
-31.65793,-107.9349,66253,Ocean,Synthetic data,1339,Ocean
-31.65839,-114.25876,10160,Ocean,Synthetic data,39,Ocean
-31.6589,-107.95114,10161,Ocean,Synthetic data,1382,Ocean
-31.66036,-115.65292,63432,Ocean,Synthetic data,731,Ocean
+31.65601,-113.19505,72140,Sonora,Synthetic data,166,Mexico
+31.65788,-113.10186,64433,Sonora,Synthetic data,259,Mexico
+31.65793,-107.9349,66253,Chihuahua,Synthetic data,1339,Mexico
+31.65839,-114.25876,10160,Sonora,Synthetic data,39,Mexico
+31.6589,-107.95114,10161,Chihuahua,Synthetic data,1382,Mexico
+31.66036,-115.65292,63432,Baja California,Synthetic data,731,Mexico
 31.66046,-111.00136,72959,Arizona,Synthetic data,1073,United States of America
 31.66088,-106.32261,10162,Texas,Synthetic data,1114,United States of America
 31.66125,-110.1115,10163,Arizona,Synthetic data,1328,United States of America
-31.66141,-107.35865,74324,Ocean,Synthetic data,1194,Ocean
+31.66141,-107.35865,74324,Chihuahua,Synthetic data,1194,Mexico
 31.66145,-111.23202,72868,Arizona,Synthetic data,1083,United States of America
 31.66177,-110.07055,10164,Arizona,Synthetic data,1481,United States of America
 31.66327,-105.66454,10165,Texas,Synthetic data,1470,United States of America
 31.66473,-106.00429,74779,Texas,Synthetic data,1247,United States of America
 31.66493,-104.37041,10166,Texas,Synthetic data,1173,United States of America
-31.66556,-113.74637,10167,Ocean,Synthetic data,27,Ocean
+31.66556,-113.74637,10167,Sonora,Synthetic data,27,Mexico
 31.66602,-109.03677,10168,New Mexico,Synthetic data,1454,United States of America
 31.66624,-108.31826,10169,New Mexico,Synthetic data,1332,United States of America
-31.66673,-112.39475,10170,Ocean,Synthetic data,524,Ocean
+31.66673,-112.39475,10170,Sonora,Synthetic data,524,Mexico
 31.66696,-105.9869,66981,Texas,Synthetic data,1261,United States of America
 31.66927,-110.63732,10171,Arizona,Synthetic data,1474,United States of America
 31.67,-109.85002,65616,Arizona,Synthetic data,1417,United States of America
-31.67174,-113.83653,10172,Ocean,Synthetic data,17,Ocean
-31.67211,-107.94425,10173,Ocean,Synthetic data,1352,Ocean
+31.67174,-113.83653,10172,Sonora,Synthetic data,17,Mexico
+31.67211,-107.94425,10173,Chihuahua,Synthetic data,1352,Mexico
 31.67838,-108.98722,10174,New Mexico,Synthetic data,1817,United States of America
 31.67854,-109.13908,73596,Arizona,Synthetic data,1340,United States of America
 31.67871,-110.13591,65434,Arizona,Synthetic data,1292,United States of America
 31.68046,-110.22086,10175,Arizona,Synthetic data,1256,United States of America
 31.6808,-110.44409,65343,Arizona,Synthetic data,1528,United States of America
-31.6818,-113.27862,64342,Ocean,Synthetic data,137,Ocean
+31.6818,-113.27862,64342,Sonora,Synthetic data,137,Mexico
 31.68414,-105.0119,75143,Texas,Synthetic data,1101,United States of America
-31.68485,-107.8391,66344,Ocean,Synthetic data,1306,Ocean
-31.68563,-113.97319,10176,Ocean,Synthetic data,1,Ocean
+31.68485,-107.8391,66344,Chihuahua,Synthetic data,1306,Mexico
+31.68563,-113.97319,10176,Sonora,Synthetic data,1,Mexico
 31.68826,-105.6758,74870,Texas,Synthetic data,1432,United States of America
 31.68921,-104.59968,10177,Texas,Synthetic data,1383,United States of America
-31.6897,-115.43226,63523,Ocean,Synthetic data,763,Ocean
+31.6897,-115.43226,63523,Baja California,Synthetic data,763,Mexico
 31.68977,-104.0297,75507,Texas,Synthetic data,953,United States of America
-31.69241,-106.88253,10178,Ocean,Synthetic data,1254,Ocean
+31.69241,-106.88253,10178,Chihuahua,Synthetic data,1254,Mexico
 31.69334,-112.0146,72595,Arizona,Synthetic data,696,United States of America
-31.69438,-114.71562,10179,Ocean,Synthetic data,1,Ocean
-31.69468,-115.7914,10180,Ocean,Synthetic data,1284,Ocean
-31.695430000000002,-115.35585,10181,Ocean,Synthetic data,223,Ocean
-31.69608,-114.70379,10182,Ocean,Synthetic data,4,Ocean
+31.69438,-114.71562,10179,Baja California,Synthetic data,1,Mexico
+31.69468,-115.7914,10180,Baja California,Synthetic data,1284,Mexico
+31.695430000000002,-115.35585,10181,Baja California,Synthetic data,223,Mexico
+31.69608,-114.70379,10182,Baja California,Synthetic data,4,Mexico
 31.6962,-108.89722,65889,New Mexico,Synthetic data,1599,United States of America
 31.69723,-105.69674,10183,Texas,Synthetic data,1445,United States of America
 31.69872,-109.59689,73505,Arizona,Synthetic data,1322,United States of America
 31.70033,-108.51601,10184,New Mexico,Synthetic data,1339,United States of America
-31.7007,-114.34756,71776,Ocean,Synthetic data,81,Ocean
+31.7007,-114.34756,71776,Sonora,Synthetic data,81,Mexico
 31.70198,-108.9006,73687,New Mexico,Synthetic data,1601,United States of America
 31.70238,-106.16261,10185,Texas,Synthetic data,1225,United States of America
 31.70315,-109.21241,10186,Arizona,Synthetic data,1620,United States of America
-31.70324,-112.70127,10187,Ocean,Synthetic data,525,Ocean
+31.70324,-112.70127,10187,Sonora,Synthetic data,525,Mexico
 31.70352,-111.48976,10188,Arizona,Synthetic data,1066,United States of America
 31.70402,-110.42423,73141,Arizona,Synthetic data,1459,United States of America
 31.70456,-109.49844,10189,Arizona,Synthetic data,1636,United States of America
 31.70514,-104.36313,67618,Texas,Synthetic data,1201,United States of America
-31.70626,-115.44064,71321,Ocean,Synthetic data,667,Ocean
-31.70698,-113.98288,10190,Ocean,Synthetic data,9,Ocean
-31.7126,-107.67116,74142,Ocean,Synthetic data,1290,Ocean
+31.70626,-115.44064,71321,Baja California,Synthetic data,667,Mexico
+31.70698,-113.98288,10190,Sonora,Synthetic data,9,Mexico
+31.7126,-107.67116,74142,Chihuahua,Synthetic data,1290,Mexico
 31.7133,-110.95253,10191,Arizona,Synthetic data,1216,United States of America
 31.7137,-104.74974,10192,Texas,Synthetic data,1587,United States of America
 31.71469,-104.74604,75234,Texas,Synthetic data,1579,United States of America
-31.71506,-106.87386,74506,Ocean,Synthetic data,1252,Ocean
+31.71506,-106.87386,74506,Chihuahua,Synthetic data,1252,Mexico
 31.71898,-110.22662,73232,Arizona,Synthetic data,1233,United States of America
-31.71929,-112.40828,72413,Ocean,Synthetic data,507,Ocean
+31.71929,-112.40828,72413,Sonora,Synthetic data,507,Mexico
 31.71949,-111.75619,10193,Arizona,Synthetic data,796,United States of America
 31.71995,-105.17356,67254,Texas,Synthetic data,1170,United States of America
-31.7239,-114.46749,10194,Ocean,Synthetic data,126,Ocean
-31.72425,-106.62251,10195,Ocean,Synthetic data,1246,Ocean
-31.72606,-112.85426,72322,Ocean,Synthetic data,562,Ocean
-31.72614,-112.82269,10196,Ocean,Synthetic data,1115,Ocean
+31.7239,-114.46749,10194,Sonora,Synthetic data,126,Mexico
+31.72425,-106.62251,10195,Chihuahua,Synthetic data,1246,Mexico
+31.72606,-112.85426,72322,Sonora,Synthetic data,562,Mexico
+31.72614,-112.82269,10196,Sonora,Synthetic data,1115,Mexico
 31.72642,-106.15339,66890,Texas,Synthetic data,1229,United States of America
 31.72777,-109.80673,73414,Arizona,Synthetic data,1439,United States of America
 31.72834,-105.26814,10197,Texas,Synthetic data,1207,United States of America
 31.7284,-105.19887,10198,Texas,Synthetic data,1224,United States of America
 31.72922,-109.51416,10199,Arizona,Synthetic data,1720,United States of America
-31.72995,-115.69459,10200,Ocean,Synthetic data,1105,Ocean
-31.7301,-113.98552,10201,Ocean,Synthetic data,11,Ocean
-31.73115,-108.0768,74051,Ocean,Synthetic data,1367,Ocean
+31.72995,-115.69459,10200,Baja California,Synthetic data,1105,Mexico
+31.7301,-113.98552,10201,Sonora,Synthetic data,11,Mexico
+31.73115,-108.0768,74051,Chihuahua,Synthetic data,1367,Mexico
 31.73207,-104.84753,10202,Texas,Synthetic data,1241,United States of America
-31.73265,-106.87069,10203,Ocean,Synthetic data,1249,Ocean
+31.73265,-106.87069,10203,Chihuahua,Synthetic data,1249,Mexico
 31.73315,-104.66036,67436,Texas,Synthetic data,1441,United States of America
 31.7336,-111.12591,65070,Arizona,Synthetic data,999,United States of America
-31.73511,-106.48092,10204,Ocean,Synthetic data,1128,Ocean
+31.73511,-106.48092,10204,Chihuahua,Synthetic data,1128,Mexico
 31.73745,-111.41368,10205,Arizona,Synthetic data,969,United States of America
 31.73832,-111.92676,64797,Arizona,Synthetic data,676,United States of America
 31.73992,-111.65615,64888,Arizona,Synthetic data,1013,United States of America
 31.74016,-111.9409,10206,Arizona,Synthetic data,685,United States of America
-31.74437,-114.76924,71594,Ocean,Synthetic data,1,Ocean
+31.74437,-114.76924,71594,Baja California,Synthetic data,1,Mexico
 31.74504,-105.68931,10207,Texas,Synthetic data,1447,United States of America
 31.74723,-110.43457,10208,Arizona,Synthetic data,1592,United States of America
-31.75331,-113.42506,10209,Ocean,Synthetic data,280,Ocean
+31.75331,-113.42506,10209,Sonora,Synthetic data,280,Mexico
 31.75446,-111.48527,64979,Arizona,Synthetic data,1064,United States of America
 31.755490000000002,-105.432,67163,Texas,Synthetic data,1286,United States of America
 31.75712,-111.76056,72686,Arizona,Synthetic data,807,United States of America
-31.75782,-107.42922,66435,Ocean,Synthetic data,1204,Ocean
-31.75863,-113.75594,64160,Ocean,Synthetic data,58,Ocean
+31.75782,-107.42922,66435,Chihuahua,Synthetic data,1204,Mexico
+31.75863,-113.75594,64160,Sonora,Synthetic data,58,Mexico
 31.75999,-108.32359,10210,New Mexico,Synthetic data,1376,United States of America
-31.76186,-112.63438,10211,Ocean,Synthetic data,464,Ocean
-31.76186,-107.58726,74233,Ocean,Synthetic data,1214,Ocean
+31.76186,-112.63438,10211,Sonora,Synthetic data,464,Mexico
+31.76186,-107.58726,74233,Chihuahua,Synthetic data,1214,Mexico
 31.76251,-104.28773,10212,Texas,Synthetic data,1124,United States of America
-31.76464,-108.14515,10213,Ocean,Synthetic data,1418,Ocean
+31.76464,-108.14515,10213,Chihuahua,Synthetic data,1418,Mexico
 31.76707,-108.83762,10214,New Mexico,Synthetic data,1465,United States of America
-31.7676,-107.24198,10215,Ocean,Synthetic data,1206,Ocean
-31.76765,-115.54119,10216,Ocean,Synthetic data,465,Ocean
-31.76766,-107.75942,10217,Ocean,Synthetic data,1287,Ocean
-31.76807,-113.23136,10218,Ocean,Synthetic data,175,Ocean
+31.7676,-107.24198,10215,Chihuahua,Synthetic data,1206,Mexico
+31.76765,-115.54119,10216,Baja California,Synthetic data,465,Mexico
+31.76766,-107.75942,10217,Chihuahua,Synthetic data,1287,Mexico
+31.76807,-113.23136,10218,Sonora,Synthetic data,175,Mexico
 31.769,-112.24316,72504,Arizona,Synthetic data,562,United States of America
 31.77116,-109.23,10219,Arizona,Synthetic data,1812,United States of America
-31.77214,-114.47567,10220,Ocean,Synthetic data,148,Ocean
+31.77214,-114.47567,10220,Sonora,Synthetic data,148,Mexico
 31.77274,-110.72111,10221,Arizona,Synthetic data,1535,United States of America
-31.77392,-107.27809,10222,Ocean,Synthetic data,1221,Ocean
+31.77392,-107.27809,10222,Chihuahua,Synthetic data,1221,Mexico
 31.77407,-109.30216,48061,Arizona,Defoliation surveys,1974,United States of America
 31.77482,-110.33858,10223,Arizona,Synthetic data,1350,United States of America
-31.77526,-107.09743,10224,Ocean,Synthetic data,1266,Ocean
+31.77526,-107.09743,10224,Chihuahua,Synthetic data,1266,Mexico
 31.77582,-108.68366,10225,New Mexico,Synthetic data,1505,United States of America
 31.77594,-104.50725,67527,Texas,Synthetic data,1203,United States of America
 31.77985,-106.48583000000001,66799,Texas,Synthetic data,1193,United States of America
-31.77986,-107.38535,10226,Ocean,Synthetic data,1278,Ocean
+31.77986,-107.38535,10226,Chihuahua,Synthetic data,1278,Mexico
 31.78011,-104.11666,10227,Texas,Synthetic data,984,United States of America
 31.78177,-112.13231,10228,Arizona,Synthetic data,599,United States of America
 31.78214,-105.57528,74961,Texas,Synthetic data,1373,United States of America
 31.78218,-111.30748,10229,Arizona,Synthetic data,1046,United States of America
-31.78237,-106.91667,66617,Ocean,Synthetic data,1254,Ocean
+31.78237,-106.91667,66617,Chihuahua,Synthetic data,1254,Mexico
 31.78413,-110.74684,73050,Arizona,Synthetic data,1568,United States of America
-31.78745,-113.51003,72049,Ocean,Synthetic data,905,Ocean
+31.78745,-113.51003,72049,Sonora,Synthetic data,905,Mexico
 31.78764,-110.06688,10230,Arizona,Synthetic data,1362,United States of America
-31.78793,-114.93534,63705,Ocean,Synthetic data,3,Ocean
+31.78793,-114.93534,63705,Baja California,Synthetic data,3,Mexico
 31.78882,-105.52026,10231,Texas,Synthetic data,1327,United States of America
 31.7903,-105.96441,10232,Texas,Synthetic data,1508,United States of America
 31.79081,-107.95677,10233,New Mexico,Synthetic data,1442,United States of America
 31.7917,-104.78389,10234,Texas,Synthetic data,1501,United States of America
 31.794,-103.91495,67709,Texas,Synthetic data,889,United States of America
-31.79416,-112.97632,10235,Ocean,Synthetic data,431,Ocean
+31.79416,-112.97632,10235,Sonora,Synthetic data,431,Mexico
 31.79459,-105.14314,75052,Texas,Synthetic data,1148,United States of America
 31.79478,-111.90989,10236,Arizona,Synthetic data,685,United States of America
 31.79494,-108.30287,73960,New Mexico,Synthetic data,1410,United States of America
-31.79612,-114.40435,71685,Ocean,Synthetic data,87,Ocean
+31.79612,-114.40435,71685,Sonora,Synthetic data,87,Mexico
 31.7977,-109.23434,65798,Arizona,Synthetic data,2235,United States of America
 31.79815,-111.56002,10237,Arizona,Synthetic data,1518,United States of America
 31.79994,-104.96714,10238,Texas,Synthetic data,1099,United States of America
 31.80004,-106.26388,74688,Texas,Synthetic data,1211,United States of America
 31.80009,-107.14539,10239,New Mexico,Synthetic data,1242,United States of America
-31.80149,-113.45543,10240,Ocean,Synthetic data,415,Ocean
+31.80149,-113.45543,10240,Sonora,Synthetic data,415,Mexico
 31.80204,-106.34232,10241,Texas,Synthetic data,1207,United States of America
 31.80366,-109.08715,10242,Arizona,Synthetic data,1291,United States of America
 31.80492,-106.80015,66708,New Mexico,Synthetic data,1252,United States of America
 31.80525,-105.00929,10243,Texas,Synthetic data,1103,United States of America
-31.80552,-114.9909,10244,Ocean,Synthetic data,2,Ocean
+31.80552,-114.9909,10244,Baja California,Synthetic data,2,Mexico
 31.80695,-110.14751,10245,Arizona,Synthetic data,1252,United States of America
 31.80741,-110.73741,10246,Arizona,Synthetic data,1628,United States of America
 31.80778,-105.61807,10247,Texas,Synthetic data,1400,United States of America
-31.80917,-115.25427,63614,Ocean,Synthetic data,17,Ocean
+31.80917,-115.25427,63614,Baja California,Synthetic data,17,Mexico
 31.8096,-111.2301,10248,Arizona,Synthetic data,1209,United States of America
 31.80981,-112.28865,64706,Arizona,Synthetic data,539,United States of America
 31.81089,-110.6543,65252,Arizona,Synthetic data,1465,United States of America
-31.81216,-113.22473,10249,Ocean,Synthetic data,196,Ocean
-31.81401,-112.85346,64524,Ocean,Synthetic data,518,Ocean
+31.81216,-113.22473,10249,Sonora,Synthetic data,196,Mexico
+31.81401,-112.85346,64524,Sonora,Synthetic data,518,Mexico
 31.81794,-107.04804,74415,New Mexico,Synthetic data,1273,United States of America
 31.8204,-107.64255,10250,New Mexico,Synthetic data,1233,United States of America
 31.82206,-110.56122,10251,Arizona,Synthetic data,1386,United States of America
 31.82415,-108.23007,66162,New Mexico,Synthetic data,1518,United States of America
 31.82488,-107.62401,10252,New Mexico,Synthetic data,1220,United States of America
-31.82589,-114.20122,63978,Ocean,Synthetic data,82,Ocean
+31.82589,-114.20122,63978,Sonora,Synthetic data,82,Mexico
 31.82677,-107.23553,66526,New Mexico,Synthetic data,1341,United States of America
-31.82765,-114.80682,63796,Ocean,Synthetic data,2,Ocean
+31.82765,-114.80682,63796,Sonora,Synthetic data,2,Mexico
 31.82774,-105.90874,10253,Texas,Synthetic data,1569,United States of America
 31.82807,-108.57325,73869,New Mexico,Synthetic data,1306,United States of America
 31.83232,-112.05006,10254,Arizona,Synthetic data,616,United States of America
 31.83252,-104.0897,10255,Texas,Synthetic data,1000,United States of America
-31.83289,-114.03777,71867,Ocean,Synthetic data,52,Ocean
+31.83289,-114.03777,71867,Sonora,Synthetic data,52,Mexico
 31.83611,-110.8972,10256,Arizona,Synthetic data,1018,United States of America
 31.83739,-109.80742,10257,Arizona,Synthetic data,1392,United States of America
-31.83762,-113.27414,10258,Ocean,Synthetic data,190,Ocean
+31.83762,-113.27414,10258,Sonora,Synthetic data,190,Mexico
 31.83821,-109.92537,65525,Arizona,Synthetic data,1818,United States of America
 31.83847,-108.50237,66071,New Mexico,Synthetic data,1439,United States of America
 31.83857,-108.65852,65980,New Mexico,Synthetic data,1406,United States of America
@@ -456,47 +977,47 @@ lat,lon,manual_id,state,source,elev2,country
 31.84071,-104.42053,75325,Texas,Synthetic data,1122,United States of America
 31.84155,-106.91277,10260,New Mexico,Synthetic data,1254,United States of America
 31.84391,-109.79773,10261,Arizona,Synthetic data,1379,United States of America
-31.84476,-113.8238,10262,Ocean,Synthetic data,115,Ocean
+31.84476,-113.8238,10262,Sonora,Synthetic data,115,Mexico
 31.84582,-111.77712,10263,Arizona,Synthetic data,801,United States of America
 31.84697,-111.18313,10264,Arizona,Synthetic data,1384,United States of America
-31.84705,-113.6422,71958,Ocean,Synthetic data,179,Ocean
-31.84719,-113.51645,64251,Ocean,Synthetic data,557,Ocean
+31.84705,-113.6422,71958,Sonora,Synthetic data,179,Mexico
+31.84719,-113.51645,64251,Sonora,Synthetic data,557,Mexico
 31.84935,-109.30641,48938,Arizona,Defoliation surveys,2556,United States of America
-31.84945,-115.12198,71503,Ocean,Synthetic data,23,Ocean
+31.84945,-115.12198,71503,Baja California,Synthetic data,23,Mexico
 31.84994,-112.61984,64615,Arizona,Synthetic data,633,United States of America
 31.85019,-108.68378,10265,New Mexico,Synthetic data,1463,United States of America
 31.85059,-106.6792,10266,New Mexico,Synthetic data,1241,United States of America
-31.85131,-115.29432,10267,Ocean,Synthetic data,2,Ocean
+31.85131,-115.29432,10267,Baja California,Synthetic data,2,Mexico
 31.85285,-108.7478,73778,New Mexico,Synthetic data,1434,United States of America
-31.85295,-113.44481,10268,Ocean,Synthetic data,323,Ocean
-31.85411,-115.5827,10269,Ocean,Synthetic data,359,Ocean
+31.85295,-113.44481,10268,Sonora,Synthetic data,323,Mexico
+31.85411,-115.5827,10269,Baja California,Synthetic data,359,Mexico
 31.85451,-105.802,67072,Texas,Synthetic data,1640,United States of America
 31.85464,-105.60009,10270,Texas,Synthetic data,1388,United States of America
-31.85471,-113.00991,10271,Ocean,Synthetic data,458,Ocean
+31.85471,-113.00991,10271,Sonora,Synthetic data,458,Mexico
 31.8548,-104.51422,10272,Texas,Synthetic data,1160,United States of America
 31.85807,-110.52855,10273,Arizona,Synthetic data,1354,United States of America
-31.85812,-114.211,10274,Ocean,Synthetic data,97,Ocean
+31.85812,-114.211,10274,Sonora,Synthetic data,97,Mexico
 31.86023,-110.91629,65161,Arizona,Synthetic data,949,United States of America
 31.86088,-110.11312,73323,Arizona,Synthetic data,1342,United States of America
 31.86161,-112.43649,10275,Arizona,Synthetic data,586,United States of America
 31.86185,-109.33827,10276,Arizona,Synthetic data,1907,United States of America
-31.86218,-114.92632,10277,Ocean,Synthetic data,3,Ocean
+31.86218,-114.92632,10277,Baja California,Synthetic data,3,Mexico
 31.86274,-109.50344,10278,Arizona,Synthetic data,1473,United States of America
 31.86341,-111.75638,10279,Arizona,Synthetic data,830,United States of America
 31.86424,-108.50294,10280,New Mexico,Synthetic data,1488,United States of America
 31.86507,-103.98256,10281,Texas,Synthetic data,879,United States of America
-31.86555,-115.74297,71230,Ocean,Synthetic data,750,Ocean
+31.86555,-115.74297,71230,Baja California,Synthetic data,750,Mexico
 31.86557,-104.13797,10282,Texas,Synthetic data,1049,United States of America
 31.86564,-107.86093,10283,New Mexico,Synthetic data,1307,United States of America
 31.86622,-109.72642,10284,Arizona,Synthetic data,1305,United States of America
-31.86662,-114.94119,10285,Ocean,Synthetic data,2,Ocean
-31.86702,-113.01785,10286,Ocean,Synthetic data,391,Ocean
-31.86752,-114.30506,10287,Ocean,Synthetic data,69,Ocean
+31.86662,-114.94119,10285,Baja California,Synthetic data,2,Mexico
+31.86702,-113.01785,10286,Sonora,Synthetic data,391,Mexico
+31.86752,-114.30506,10287,Sonora,Synthetic data,69,Mexico
 31.87289,-111.4678,72777,Arizona,Synthetic data,960,United States of America
 31.87319,-108.39802,10288,New Mexico,Synthetic data,1400,United States of America
 31.87721,-110.20092,10289,Arizona,Synthetic data,1152,United States of America
 31.87739,-112.48082,10290,Arizona,Synthetic data,593,United States of America
-31.88142,-115.78731,71231,Ocean,Synthetic data,1454,Ocean
+31.88142,-115.78731,71231,Baja California,Synthetic data,1454,Mexico
 31.88159,-104.35742,10291,Texas,Synthetic data,1062,United States of America
 31.88186,-108.4344,10292,New Mexico,Synthetic data,1636,United States of America
 31.88214,-112.42481,10293,Arizona,Synthetic data,735,United States of America
@@ -507,18 +1028,18 @@ lat,lon,manual_id,state,source,elev2,country
 31.88818,-107.13837,74325,New Mexico,Synthetic data,1345,United States of America
 31.88848,-107.39321,10295,New Mexico,Synthetic data,1210,United States of America
 31.88849,-106.26708000000001,10296,Texas,Synthetic data,1225,United States of America
-31.89108,-115.34154,10297,Ocean,Synthetic data,5,Ocean
+31.89108,-115.34154,10297,Baja California,Synthetic data,5,Mexico
 31.89118,-108.08706,10298,New Mexico,Synthetic data,1514,United States of America
 31.89278,-106.50072,10299,Texas,Synthetic data,1837,United States of America
 31.89279,-104.19306,10300,Texas,Synthetic data,1018,United States of America
-31.89327,-114.24029,71777,Ocean,Synthetic data,68,Ocean
-31.89533,-113.39424,72050,Ocean,Synthetic data,250,Ocean
+31.89327,-114.24029,71777,Sonora,Synthetic data,68,Mexico
+31.89533,-113.39424,72050,Sonora,Synthetic data,250,Mexico
 31.89546,-108.40835,73870,New Mexico,Synthetic data,1429,United States of America
-31.8971,-114.27684000000001,63979,Ocean,Synthetic data,90,Ocean
+31.8971,-114.27684000000001,63979,Sonora,Synthetic data,90,Mexico
 31.89793,-106.40815,10301,Texas,Synthetic data,1193,United States of America
 31.89901,-109.26616,10302,Arizona,Synthetic data,2426,United States of America
 31.89978,-105.64901,10303,Texas,Synthetic data,1418,United States of America
-31.90087,-115.09173,10304,Ocean,Synthetic data,3,Ocean
+31.90087,-115.09173,10304,Baja California,Synthetic data,3,Mexico
 31.90116,-112.3205,64707,Arizona,Synthetic data,547,United States of America
 31.90424,-109.2827,48108,Arizona,Defoliation surveys,2645,United States of America
 31.90439,-112.88361,10305,Arizona,Synthetic data,407,United States of America
@@ -528,12 +1049,12 @@ lat,lon,manual_id,state,source,elev2,country
 31.909,-109.252,50330,Arizona,iNaturalist,1969,United States of America
 31.909,-109.252,50329,Arizona,iNaturalist,1969,United States of America
 31.90901,-105.98191,74780,Texas,Synthetic data,1516,United States of America
-31.90993,-114.43957,10307,Ocean,Synthetic data,57,Ocean
+31.90993,-114.43957,10307,Sonora,Synthetic data,57,Mexico
 31.90995,-110.43937,65344,Arizona,Synthetic data,1409,United States of America
 31.91035,-106.6124,10308,Texas,Synthetic data,1147,United States of America
 31.91135,-110.5517,10309,Arizona,Synthetic data,1256,United States of America
 31.913,-109.268,51193,Arizona,iNaturalist,2512,United States of America
-31.91459,-114.07243,10310,Ocean,Synthetic data,83,Ocean
+31.91459,-114.07243,10310,Sonora,Synthetic data,83,Mexico
 31.91514,-110.23651,65435,Arizona,Synthetic data,1114,United States of America
 31.91538,-106.76989,10311,New Mexico,Synthetic data,1261,United States of America
 31.91723,-105.68737,74871,Texas,Synthetic data,1445,United States of America
@@ -542,58 +1063,58 @@ lat,lon,manual_id,state,source,elev2,country
 31.91918,-109.48576,65708,Arizona,Synthetic data,1490,United States of America
 31.92033,-112.05427,10313,Arizona,Synthetic data,617,United States of America
 31.92167,-109.33794,65799,Arizona,Synthetic data,2163,United States of America
-31.92289,-114.17837,10314,Ocean,Synthetic data,68,Ocean
+31.92289,-114.17837,10314,Sonora,Synthetic data,68,Mexico
 31.92406,-112.70465,64525,Arizona,Synthetic data,519,United States of America
 31.92433,-112.60357,10315,Arizona,Synthetic data,635,United States of America
-31.92608,-114.95761,63706,Ocean,Synthetic data,2,Ocean
+31.92608,-114.95761,63706,Sonora,Synthetic data,2,Mexico
 31.92856,-110.89676,10316,Arizona,Synthetic data,880,United States of America
-31.92906,-115.4684,71322,Ocean,Synthetic data,90,Ocean
+31.92906,-115.4684,71322,Baja California,Synthetic data,90,Mexico
 31.92911,-108.1449,66163,New Mexico,Synthetic data,1504,United States of America
 31.92992,-104.90782,10317,Texas,Synthetic data,1780,United States of America
 31.93014,-106.84927,66709,New Mexico,Synthetic data,1263,United States of America
 31.93024,-105.37678,10318,Texas,Synthetic data,1288,United States of America
 31.93118,-104.6184,10319,Texas,Synthetic data,1317,United States of America
-31.93166,-114.77283,71595,Ocean,Synthetic data,2,Ocean
+31.93166,-114.77283,71595,Sonora,Synthetic data,2,Mexico
 31.93261,-110.83505,65253,Arizona,Synthetic data,963,United States of America
 31.93291,-105.69714,10320,Texas,Synthetic data,1465,United States of America
 31.93376,-105.99661,10321,Texas,Synthetic data,1464,United States of America
 31.934,-109.273,50615,Arizona,iNaturalist,2125,United States of America
 31.93458,-112.66701,72323,Arizona,Synthetic data,561,United States of America
-31.93515,-114.2825,10322,Ocean,Synthetic data,59,Ocean
+31.93515,-114.2825,10322,Sonora,Synthetic data,59,Mexico
 31.9358,-112.31767,72505,Arizona,Synthetic data,552,United States of America
 31.93601,-110.29497,73233,Arizona,Synthetic data,1135,United States of America
 31.93685,-105.42203,10323,Texas,Synthetic data,1328,United States of America
-31.93732,-114.93597,10324,Ocean,Synthetic data,2,Ocean
+31.93732,-114.93597,10324,Sonora,Synthetic data,2,Mexico
 31.93895,-108.07008,10325,New Mexico,Synthetic data,1544,United States of America
 31.94154,-110.47457,10326,Arizona,Synthetic data,1288,United States of America
 31.94357,-104.61937,67528,Texas,Synthetic data,1326,United States of America
-31.94561,-113.04442,10327,Ocean,Synthetic data,305,Ocean
+31.94561,-113.04442,10327,Sonora,Synthetic data,305,Mexico
 31.94625,-106.9086,10328,New Mexico,Synthetic data,1267,United States of America
 31.94658,-108.5119,10329,New Mexico,Synthetic data,1401,United States of America
 31.94733,-109.5958,73506,Arizona,Synthetic data,1361,United States of America
 31.9474,-112.02629,10330,Arizona,Synthetic data,630,United States of America
-31.94749,-113.64824,64161,Ocean,Synthetic data,197,Ocean
-31.94919,-115.19242,10331,Ocean,Synthetic data,0,Ocean
-31.9495,-115.52499,10332,Ocean,Synthetic data,173,Ocean
+31.94749,-113.64824,64161,Sonora,Synthetic data,197,Mexico
+31.94919,-115.19242,10331,Baja California,Synthetic data,0,Mexico
+31.9495,-115.52499,10332,Baja California,Synthetic data,173,Mexico
 31.95021,-104.7897,10333,Texas,Synthetic data,2227,United States of America
 31.95163,-111.0506,10334,Arizona,Synthetic data,1007,United States of America
 31.95269,-105.97323,10335,Texas,Synthetic data,1832,United States of America
-31.95378,-114.11132,10336,Ocean,Synthetic data,90,Ocean
-31.95634,-113.50583,10337,Ocean,Synthetic data,309,Ocean
+31.95378,-114.11132,10336,Sonora,Synthetic data,90,Mexico
+31.95634,-113.50583,10337,Sonora,Synthetic data,309,Mexico
 31.95719,-109.29285,73597,Arizona,Synthetic data,2180,United States of America
 31.95881,-105.99679,10338,Texas,Synthetic data,1535,United States of America
-31.9622,-114.6804,10339,Ocean,Synthetic data,25,Ocean
+31.9622,-114.6804,10339,Sonora,Synthetic data,25,Mexico
 31.9622,-104.86612,75235,Texas,Synthetic data,2198,United States of America
 31.96249,-106.75513,10340,New Mexico,Synthetic data,1259,United States of America
-31.96313,-115.37166,71413,Ocean,Synthetic data,3,Ocean
+31.96313,-115.37166,71413,Baja California,Synthetic data,3,Mexico
 31.96775,-108.96385,73688,New Mexico,Synthetic data,1429,United States of America
 31.96886,-112.2589,10341,Arizona,Synthetic data,559,United States of America
-31.96911,-115.77575,10342,Ocean,Synthetic data,1117,Ocean
-31.9697,-113.70235,10343,Ocean,Synthetic data,208,Ocean
+31.96911,-115.77575,10342,Baja California,Synthetic data,1117,Mexico
+31.9697,-113.70235,10343,Sonora,Synthetic data,208,Mexico
 31.97134,-109.59981,10344,Arizona,Synthetic data,1355,United States of America
 31.97347,-109.65921,10345,Arizona,Synthetic data,1322,United States of America
-31.97435,-114.10809,10346,Ocean,Synthetic data,113,Ocean
-31.97504,-113.36287,10347,Ocean,Synthetic data,209,Ocean
+31.97435,-114.10809,10346,Sonora,Synthetic data,113,Mexico
+31.97504,-113.36287,10347,Sonora,Synthetic data,209,Mexico
 31.9752,-109.77089,10348,Arizona,Synthetic data,1287,United States of America
 31.97571,-109.70844,73415,Arizona,Synthetic data,1343,United States of America
 31.97666,-105.62626,67073,Texas,Synthetic data,1510,United States of America
@@ -604,18 +1125,18 @@ lat,lon,manual_id,state,source,elev2,country
 31.984,-107.89059,10352,New Mexico,Synthetic data,1315,United States of America
 31.98426,-110.77824,10353,Arizona,Synthetic data,970,United States of America
 31.98569,-106.31099,74689,Texas,Synthetic data,1211,United States of America
-31.98729,-113.2383,10354,Ocean,Synthetic data,255,Ocean
+31.98729,-113.2383,10354,Sonora,Synthetic data,255,Mexico
 31.98805,-107.23796,66527,New Mexico,Synthetic data,1391,United States of America
 31.98913,-111.23884,72869,Arizona,Synthetic data,1116,United States of America
 31.98992,-113.07716,64434,Arizona,Synthetic data,368,United States of America
-31.99339,-115.74739,10355,Ocean,Synthetic data,676,Ocean
-31.99482,-115.23621,63615,Ocean,Synthetic data,6,Ocean
+31.99339,-115.74739,10355,Baja California,Synthetic data,676,Mexico
+31.99482,-115.23621,63615,Baja California,Synthetic data,6,Mexico
 31.99519,-107.71234,10356,New Mexico,Synthetic data,1261,United States of America
 31.99841,-106.61819,66800,Texas,Synthetic data,1148,United States of America
 31.99849,-111.48305,10357,Arizona,Synthetic data,1186,United States of America
 31.99866,-104.34656,10358,Texas,Synthetic data,1091,United States of America
-32.00062,-113.75499,10359,Ocean,Synthetic data,171,Ocean
-32.00169,-114.64391,10360,Ocean,Synthetic data,30,Ocean
+32.00062,-113.75499,10359,Sonora,Synthetic data,171,Mexico
+32.00169,-114.64391,10360,Sonora,Synthetic data,30,Mexico
 32.00206,-108.69288,10361,New Mexico,Synthetic data,1383,United States of America
 32.004,-108.22409,10362,New Mexico,Synthetic data,1527,United States of America
 32.00447,-112.8056,10363,Arizona,Synthetic data,537,United States of America
@@ -623,7 +1144,7 @@ lat,lon,manual_id,state,source,elev2,country
 32.00475,-108.72567,10364,New Mexico,Synthetic data,1401,United States of America
 32.00499,-110.6049,10365,Arizona,Synthetic data,1057,United States of America
 32.0057,-111.64059,10366,Arizona,Synthetic data,954,United States of America
-32.00578,-114.05526,64070,Ocean,Synthetic data,113,Ocean
+32.00578,-114.05526,64070,Sonora,Synthetic data,113,Mexico
 32.00892,-110.04784,10367,Arizona,Synthetic data,1419,United States of America
 32.01108,-111.77369,10368,Arizona,Synthetic data,881,United States of America
 32.01131,-108.6985,73779,New Mexico,Synthetic data,1397,United States of America
@@ -645,39 +1166,39 @@ lat,lon,manual_id,state,source,elev2,country
 32.02365,-109.05884,10374,Arizona,Synthetic data,1222,United States of America
 32.02458,-112.8621,10375,Arizona,Synthetic data,560,United States of America
 32.02996,-109.5337,10376,Arizona,Synthetic data,1413,United States of America
-32.03066,-114.56477,10377,Ocean,Synthetic data,72,Ocean
+32.03066,-114.56477,10377,Sonora,Synthetic data,72,Mexico
 32.03577,-105.05177,10378,New Mexico,Synthetic data,1099,United States of America
 32.03888,-108.56566,10379,New Mexico,Synthetic data,1330,United States of America
 32.03915,-107.65565,74143,New Mexico,Synthetic data,1479,United States of America
-32.03992,-115.09776,10380,Ocean,Synthetic data,2,Ocean
-32.04009,-114.26629,10381,Ocean,Synthetic data,78,Ocean
+32.03992,-115.09776,10380,Baja California,Synthetic data,2,Mexico
+32.04009,-114.26629,10381,Sonora,Synthetic data,78,Mexico
 32.04053,-108.66055,10382,New Mexico,Synthetic data,1406,United States of America
 32.04069,-105.31932,10383,New Mexico,Synthetic data,1258,United States of America
 32.04216,-104.85734,10384,New Mexico,Synthetic data,1916,United States of America
 32.04468,-108.31979,10385,New Mexico,Synthetic data,1386,United States of America
 32.04571,-107.64554,10386,New Mexico,Synthetic data,1598,United States of America
 32.04685,-105.50016,10387,New Mexico,Synthetic data,1527,United States of America
-32.04698,-113.51947,10388,Ocean,Synthetic data,241,Ocean
+32.04698,-113.51947,10388,Sonora,Synthetic data,241,Mexico
 32.04781,-107.32281,10389,New Mexico,Synthetic data,1274,United States of America
 32.04786,-109.82695,10390,Arizona,Synthetic data,1273,United States of America
 32.04871,-106.23909,10391,New Mexico,Synthetic data,1243,United States of America
 32.04878,-108.13999,73961,New Mexico,Synthetic data,1434,United States of America
-32.05035,-115.15049,10392,Ocean,Synthetic data,3,Ocean
+32.05035,-115.15049,10392,Baja California,Synthetic data,3,Mexico
 32.05053,-106.9208,74416,New Mexico,Synthetic data,1288,United States of America
 32.05272,-108.03342,74052,New Mexico,Synthetic data,1361,United States of America
 32.05655,-107.71369,10393,New Mexico,Synthetic data,1280,United States of America
-32.05794,-115.86116,10394,Ocean,Synthetic data,1686,Ocean
+32.05794,-115.86116,10394,Baja California,Synthetic data,1686,Mexico
 32.05961,-111.63961,64889,Arizona,Synthetic data,869,United States of America
 32.06307,-112.05732,64798,Arizona,Synthetic data,630,United States of America
 32.06339,-110.82492,73051,Arizona,Synthetic data,885,United States of America
 32.06593,-109.90646,73324,Arizona,Synthetic data,1289,United States of America
 32.0667,-104.09516,75508,New Mexico,Synthetic data,911,United States of America
-32.06798,-113.43201,64252,Ocean,Synthetic data,217,Ocean
+32.06798,-113.43201,64252,Sonora,Synthetic data,217,Mexico
 32.06894,-111.40319,10395,Arizona,Synthetic data,835,United States of America
 32.07214,-107.43545,66436,New Mexico,Synthetic data,1233,United States of America
 32.07225,-104.65853,67437,New Mexico,Synthetic data,1535,United States of America
 32.07275,-106.90574,10396,New Mexico,Synthetic data,1275,United States of America
-32.07319,-113.8805,71868,Ocean,Synthetic data,208,Ocean
+32.07319,-113.8805,71868,Sonora,Synthetic data,208,Mexico
 32.07378,-104.43079,75326,New Mexico,Synthetic data,1149,United States of America
 32.07441,-109.767,65617,Arizona,Synthetic data,1282,United States of America
 32.0745,-105.30064,10397,New Mexico,Synthetic data,1262,United States of America
@@ -686,7 +1207,7 @@ lat,lon,manual_id,state,source,elev2,country
 32.07793,-107.29608,10399,New Mexico,Synthetic data,1273,United States of America
 32.07801,-110.49315,73142,Arizona,Synthetic data,1762,United States of America
 32.07873,-105.16311,10400,New Mexico,Synthetic data,1239,United States of America
-32.07942,-114.52731,10401,Ocean,Synthetic data,41,Ocean
+32.07942,-114.52731,10401,Sonora,Synthetic data,41,Mexico
 32.08274,-111.34072,65071,Arizona,Synthetic data,771,United States of America
 32.08286,-104.85337,10402,New Mexico,Synthetic data,1714,United States of America
 32.08302,-108.52702,66072,New Mexico,Synthetic data,1364,United States of America
@@ -694,25 +1215,25 @@ lat,lon,manual_id,state,source,elev2,country
 32.08355,-104.23088,67619,New Mexico,Synthetic data,1027,United States of America
 32.0858,-109.06441,10403,Arizona,Synthetic data,1187,United States of America
 32.08659,-104.96674,75144,New Mexico,Synthetic data,1520,United States of America
-32.08723,-115.67484,63433,Ocean,Synthetic data,89,Ocean
+32.08723,-115.67484,63433,Baja California,Synthetic data,89,Mexico
 32.08959,-107.43077,10404,New Mexico,Synthetic data,1237,United States of America
 32.08981,-107.60443,10405,New Mexico,Synthetic data,1645,United States of America
 32.08991,-103.92097,10406,New Mexico,Synthetic data,950,United States of America
-32.09158,-114.43232,71686,Ocean,Synthetic data,73,Ocean
-32.09161,-115.41021,63524,Ocean,Synthetic data,3,Ocean
-32.09215,-115.57321,10407,Ocean,Synthetic data,48,Ocean
+32.09158,-114.43232,71686,Sonora,Synthetic data,73,Mexico
+32.09161,-115.41021,63524,Baja California,Synthetic data,3,Mexico
+32.09215,-115.57321,10407,Baja California,Synthetic data,48,Mexico
 32.09284,-110.21379,10408,Arizona,Synthetic data,1291,United States of America
 32.09474,-110.35411,10409,Arizona,Synthetic data,1087,United States of America
-32.09617,-114.64224,10410,Ocean,Synthetic data,25,Ocean
+32.09617,-114.64224,10410,Sonora,Synthetic data,25,Mexico
 32.09634,-112.20215,10411,Arizona,Synthetic data,738,United States of America
 32.09642,-111.10338,72960,Arizona,Synthetic data,809,United States of America
 32.09795,-112.20549,10412,Arizona,Synthetic data,738,United States of America
 32.09864,-108.26717,10413,New Mexico,Synthetic data,1376,United States of America
-32.09883,-114.60552,63888,Ocean,Synthetic data,26,Ocean
+32.09883,-114.60552,63888,Sonora,Synthetic data,26,Mexico
 32.10063,-104.11917,10414,New Mexico,Synthetic data,907,United States of America
-32.10451,-115.53591,10415,Ocean,Synthetic data,26,Ocean
-32.10596,-113.80405,10416,Ocean,Synthetic data,259,Ocean
-32.1067,-114.72616,63797,Ocean,Synthetic data,25,Ocean
+32.10451,-115.53591,10415,Baja California,Synthetic data,26,Mexico
+32.10596,-113.80405,10416,Sonora,Synthetic data,259,Mexico
+32.1067,-114.72616,63797,Sonora,Synthetic data,25,Mexico
 32.107170000000004,-110.65405,10417,Arizona,Synthetic data,979,United States of America
 32.10756,-110.07446,10418,Arizona,Synthetic data,1563,United States of America
 32.10783,-109.19296,10419,Arizona,Synthetic data,1246,United States of America
@@ -726,7 +1247,7 @@ lat,lon,manual_id,state,source,elev2,country
 32.11412,-113.20302,10424,Arizona,Synthetic data,320,United States of America
 32.11422,-110.73903,10425,Arizona,Synthetic data,891,United States of America
 32.11438,-104.07501,10426,New Mexico,Synthetic data,905,United States of America
-32.11537,-113.67319,71959,Ocean,Synthetic data,337,Ocean
+32.11537,-113.67319,71959,Sonora,Synthetic data,337,Mexico
 32.11538,-112.77951,10427,Arizona,Synthetic data,557,United States of America
 32.11749,-113.4549,10428,Arizona,Synthetic data,218,United States of America
 32.11842,-106.02409,66982,New Mexico,Synthetic data,1371,United States of America
@@ -738,12 +1259,12 @@ lat,lon,manual_id,state,source,elev2,country
 32.12109,-107.83542,66345,New Mexico,Synthetic data,1298,United States of America
 32.12188,-108.7979,65981,New Mexico,Synthetic data,1373,United States of America
 32.12193,-111.11307,65162,Arizona,Synthetic data,771,United States of America
-32.12212,-115.05415,71504,Ocean,Synthetic data,8,Ocean
+32.12212,-115.05415,71504,Baja California,Synthetic data,8,Mexico
 32.12285,-111.58118,72778,Arizona,Synthetic data,770,United States of America
 32.12309,-107.08368,10431,New Mexico,Synthetic data,1313,United States of America
 32.1248,-109.16285,10432,Arizona,Synthetic data,1209,United States of America
 32.12807,-112.42344,72415,Arizona,Synthetic data,584,United States of America
-32.12938,-114.90084,63707,Ocean,Synthetic data,10,Ocean
+32.12938,-114.90084,63707,Sonora,Synthetic data,10,Mexico
 32.12963,-121.60929,61407,Ocean,Synthetic data,NA,Ocean
 32.13028,-124.11026,60527,Ocean,Synthetic data,NA,Ocean
 32.13076,-109.24248,73598,Arizona,Synthetic data,1250,United States of America
@@ -766,18 +1287,18 @@ lat,lon,manual_id,state,source,elev2,country
 32.13731,-111.61126,10439,Arizona,Synthetic data,745,United States of America
 32.13775,-104.9965,10440,New Mexico,Synthetic data,1465,United States of America
 32.1394,-113.15795,10441,Arizona,Synthetic data,303,United States of America
-32.13966,-114.80695,71596,Ocean,Synthetic data,21,Ocean
+32.13966,-114.80695,71596,Sonora,Synthetic data,21,Mexico
 32.14011,-109.02444,10442,New Mexico,Synthetic data,1254,United States of America
 32.14025,-112.65105,10443,Arizona,Synthetic data,669,United States of America
 32.14052,-108.69472,10444,New Mexico,Synthetic data,1497,United States of America
 32.14057,-112.24123,72506,Arizona,Synthetic data,705,United States of America
-32.1406,-115.10258,10445,Ocean,Synthetic data,6,Ocean
+32.1406,-115.10258,10445,Baja California,Synthetic data,6,Mexico
 32.14131,-123.05998,60879,Ocean,Synthetic data,NA,Ocean
 32.14214,-108.17722,73962,New Mexico,Synthetic data,1359,United States of America
 32.14336,-120.78131,61671,Ocean,Synthetic data,NA,Ocean
 32.14382,-106.36947,74690,New Mexico,Synthetic data,1223,United States of America
 32.14465,-121.1967,69293,Ocean,Synthetic data,NA,Ocean
-32.14508,-114.60319,10446,Ocean,Synthetic data,35,Ocean
+32.14508,-114.60319,10446,Sonora,Synthetic data,35,Mexico
 32.14534,-122.37585,68853,Ocean,Synthetic data,NA,Ocean
 32.14603,-109.36289,10447,Arizona,Synthetic data,1391,United States of America
 32.14735,-120.95511,61583,Ocean,Synthetic data,NA,Ocean
@@ -796,14 +1317,14 @@ lat,lon,manual_id,state,source,elev2,country
 32.15669,-109.00152,10454,New Mexico,Synthetic data,1338,United States of America
 32.15804,-118.90493,70085,Ocean,Synthetic data,NA,Ocean
 32.15897,-123.51948,60703,Ocean,Synthetic data,NA,Ocean
-32.15916,-114.0017,10455,Ocean,Synthetic data,223,Ocean
+32.15916,-114.0017,10455,Sonora,Synthetic data,223,Mexico
 32.16008,-106.00008,74781,New Mexico,Synthetic data,1427,United States of America
 32.16043,-106.83222,10456,New Mexico,Synthetic data,1270,United States of America
-32.16082,-116.72833,63079,Ocean,Synthetic data,323,Ocean
-32.16149,-114.44388,71687,Ocean,Synthetic data,82,Ocean
+32.16082,-116.72833,63079,Baja California,Synthetic data,323,Mexico
+32.16149,-114.44388,71687,Sonora,Synthetic data,82,Mexico
 32.16213,-108.1123,10457,New Mexico,Synthetic data,1342,United States of America
 32.16279,-108.84851,10458,New Mexico,Synthetic data,1266,United States of America
-32.16344,-114.87048,63798,Ocean,Synthetic data,16,Ocean
+32.16344,-114.87048,63798,Sonora,Synthetic data,16,Mexico
 32.16366,-112.4473,10459,Arizona,Synthetic data,601,United States of America
 32.16423,-104.08229,10460,New Mexico,Synthetic data,922,United States of America
 32.16541,-108.65833,73780,New Mexico,Synthetic data,1403,United States of America
@@ -815,25 +1336,25 @@ lat,lon,manual_id,state,source,elev2,country
 32.17039,-120.29905,69645,Ocean,Synthetic data,NA,Ocean
 32.17042,-104.65468,67438,New Mexico,Synthetic data,1659,United States of America
 32.17064,-108.28934,10463,New Mexico,Synthetic data,1370,United States of America
-32.17089,-115.51629,10464,Ocean,Synthetic data,0,Ocean
+32.17089,-115.51629,10464,Baja California,Synthetic data,0,Mexico
 32.17121,-112.5075,64617,Arizona,Synthetic data,653,United States of America
 32.1719,-108.22167,10465,New Mexico,Synthetic data,1368,United States of America
 32.17453,-111.10683,10466,Arizona,Synthetic data,776,United States of America
-32.17468,-114.27643,63980,Ocean,Synthetic data,156,Ocean
+32.17468,-114.27643,63980,Sonora,Synthetic data,156,Mexico
 32.17484,-105.17297,75054,New Mexico,Synthetic data,1167,United States of America
 32.17556,-121.76557,61319,Ocean,Synthetic data,NA,Ocean
 32.17749,-119.99815,61935,Ocean,Synthetic data,NA,Ocean
 32.17895,-111.18411,65072,Arizona,Synthetic data,713,United States of America
 32.17995,-108.65149,10467,New Mexico,Synthetic data,1380,United States of America
-32.18071,-114.17135,71778,Ocean,Synthetic data,155,Ocean
-32.18168,-115.02812,71505,Ocean,Synthetic data,11,Ocean
+32.18071,-114.17135,71778,Sonora,Synthetic data,155,Mexico
+32.18168,-115.02812,71505,Baja California,Synthetic data,11,Mexico
 32.18215,-106.59678,74599,New Mexico,Synthetic data,1329,United States of America
 32.18224,-107.66226,10468,New Mexico,Synthetic data,1311,United States of America
 32.184,-111.48166,72779,Arizona,Synthetic data,736,United States of America
 32.18432,-118.43119,70261,Ocean,Synthetic data,NA,Ocean
 32.18517,-111.90989,10469,Arizona,Synthetic data,682,United States of America
 32.18631,-111.64424,72688,Arizona,Synthetic data,695,United States of America
-32.18734,-116.50096,63167,Ocean,Synthetic data,543,Ocean
+32.18734,-116.50096,63167,Baja California,Synthetic data,543,Mexico
 32.18802,-108.1205,74053,New Mexico,Synthetic data,1411,United States of America
 32.18936,-106.55467,10470,New Mexico,Synthetic data,1362,United States of America
 32.19361,-117.59638,70613,Ocean,Synthetic data,NA,Ocean
@@ -842,11 +1363,11 @@ lat,lon,manual_id,state,source,elev2,country
 32.19475,-106.79833000000001,10472,New Mexico,Synthetic data,1235,United States of America
 32.19698,-112.73514,10473,Arizona,Synthetic data,643,United States of America
 32.19825,-119.80909,62023,Ocean,Synthetic data,NA,Ocean
-32.19855,-115.17837,10474,Ocean,Synthetic data,14,Ocean
+32.19855,-115.17837,10474,Baja California,Synthetic data,14,Mexico
 32.19867,-107.75354,66346,New Mexico,Synthetic data,1308,United States of America
 32.1992,-109.92295,10475,Arizona,Synthetic data,1276,United States of America
 32.20044,-106.57122,66801,New Mexico,Synthetic data,1407,United States of America
-32.20057,-114.76286,10476,Ocean,Synthetic data,27,Ocean
+32.20057,-114.76286,10476,Sonora,Synthetic data,27,Mexico
 32.20071,-108.88082,10477,New Mexico,Synthetic data,1273,United States of America
 32.20243,-110.81215,10478,Arizona,Synthetic data,816,United States of America
 32.2027,-118.81819,70173,Ocean,Synthetic data,NA,Ocean
@@ -857,7 +1378,7 @@ lat,lon,manual_id,state,source,elev2,country
 32.20669,-104.3021,10481,New Mexico,Synthetic data,1032,United States of America
 32.20801,-122.32659,61143,Ocean,Synthetic data,NA,Ocean
 32.21013,-104.88781,67347,New Mexico,Synthetic data,1482,United States of America
-32.21016,-115.39842,10482,Ocean,Synthetic data,450,Ocean
+32.21016,-115.39842,10482,Baja California,Synthetic data,450,Mexico
 32.21297,-110.01334,10483,Arizona,Synthetic data,1354,United States of America
 32.21314,-107.40016,10484,New Mexico,Synthetic data,1260,United States of America
 32.21678,-124.42606,68149,Ocean,Synthetic data,NA,Ocean
@@ -868,12 +1389,12 @@ lat,lon,manual_id,state,source,elev2,country
 32.22265,-105.09093,10487,New Mexico,Synthetic data,1137,United States of America
 32.22316,-110.931,10488,Arizona,Synthetic data,753,United States of America
 32.22395,-117.0423,62991,Ocean,Synthetic data,NA,Ocean
-32.22508,-116.23772,71053,Ocean,Synthetic data,1313,Ocean
+32.22508,-116.23772,71053,Baja California,Synthetic data,1313,Mexico
 32.22596,-117.47701,62815,Ocean,Synthetic data,NA,Ocean
-32.22597,-115.23801,71414,Ocean,Synthetic data,8,Ocean
-32.22598,-115.00978,10489,Ocean,Synthetic data,14,Ocean
-32.22639,-114.04165,64071,Ocean,Synthetic data,276,Ocean
-32.22718,-114.68892,10490,Ocean,Synthetic data,30,Ocean
+32.22597,-115.23801,71414,Baja California,Synthetic data,8,Mexico
+32.22598,-115.00978,10489,Sonora,Synthetic data,14,Mexico
+32.22639,-114.04165,64071,Sonora,Synthetic data,276,Mexico
+32.22718,-114.68892,10490,Sonora,Synthetic data,30,Mexico
 32.2277,-106.58391,10491,New Mexico,Synthetic data,1470,United States of America
 32.22867,-118.28347,62551,Ocean,Synthetic data,NA,Ocean
 32.23006,-106.36704,10492,New Mexico,Synthetic data,1194,United States of America
@@ -890,15 +1411,15 @@ lat,lon,manual_id,state,source,elev2,country
 32.23729,-117.88666,70437,Ocean,Synthetic data,NA,Ocean
 32.23743,-104.16585,75418,New Mexico,Synthetic data,950,United States of America
 32.23908,-106.06503,10496,New Mexico,Synthetic data,1293,United States of America
-32.24036,-116.6674,70877,Ocean,Synthetic data,533,Ocean
-32.24091,-114.5689,10497,Ocean,Synthetic data,44,Ocean
+32.24036,-116.6674,70877,Baja California,Synthetic data,533,Mexico
+32.24091,-114.5689,10497,Sonora,Synthetic data,44,Mexico
 32.24128,-113.59532,10498,Arizona,Synthetic data,271,United States of America
 32.24214,-105.21092,10499,New Mexico,Synthetic data,1395,United States of America
 32.24283,-108.77899,65982,New Mexico,Synthetic data,1355,United States of America
 32.24291,-105.53486,10500,New Mexico,Synthetic data,1410,United States of America
 32.24313,-111.56185,10501,Arizona,Synthetic data,653,United States of America
-32.24317,-115.30714,10502,Ocean,Synthetic data,8,Ocean
-32.24339,-115.18166,10503,Ocean,Synthetic data,9,Ocean
+32.24317,-115.30714,10502,Baja California,Synthetic data,8,Mexico
+32.24339,-115.18166,10503,Baja California,Synthetic data,9,Mexico
 32.24459,-110.66364,10504,Arizona,Synthetic data,1033,United States of America
 32.24521,-109.18729,10505,Arizona,Synthetic data,1111,United States of America
 32.24555,-110.52259,10506,Arizona,Synthetic data,1999,United States of America
@@ -908,12 +1429,12 @@ lat,lon,manual_id,state,source,elev2,country
 32.24781,-120.40106,61759,Ocean,Synthetic data,NA,Ocean
 32.24788,-105.99063,66983,New Mexico,Synthetic data,1373,United States of America
 32.25165,-110.85575,65254,Arizona,Synthetic data,754,United States of America
-32.25298,-115.37329,63616,Ocean,Synthetic data,274,Ocean
+32.25298,-115.37329,63616,Baja California,Synthetic data,274,Mexico
 32.25381,-104.40744,75327,New Mexico,Synthetic data,1152,United States of America
 32.25394,-107.59283,66437,New Mexico,Synthetic data,1278,United States of America
 32.25506,-122.65436,68765,Ocean,Synthetic data,NA,Ocean
 32.25523,-113.76608,71960,Arizona,Synthetic data,451,United States of America
-32.25629,-115.46555,71323,Ocean,Synthetic data,176,Ocean
+32.25629,-115.46555,71323,Baja California,Synthetic data,176,Mexico
 32.25636,-109.74847,73416,Arizona,Synthetic data,1288,United States of America
 32.257,-123.18652,60791,Ocean,Synthetic data,NA,Ocean
 32.25725,-107.20862,10508,New Mexico,Synthetic data,1318,United States of America
@@ -924,14 +1445,14 @@ lat,lon,manual_id,state,source,elev2,country
 32.26485,-123.86505,60615,Ocean,Synthetic data,NA,Ocean
 32.26529,-110.28286,65436,Arizona,Synthetic data,1130,United States of America
 32.26575,-110.52929,65345,Arizona,Synthetic data,1661,United States of America
-32.26634,-115.59056,63525,Ocean,Synthetic data,-4,Ocean
+32.26634,-115.59056,63525,Baja California,Synthetic data,-4,Mexico
 32.26716,-113.62296,72051,Arizona,Synthetic data,281,United States of America
-32.26722,-114.58831,63889,Ocean,Synthetic data,34,Ocean
+32.26722,-114.58831,63889,Sonora,Synthetic data,34,Mexico
 32.26781,-110.16469,10510,Arizona,Synthetic data,1421,United States of America
 32.26812,-112.13692,10511,Arizona,Synthetic data,650,United States of America
 32.26875,-106.98203,74417,New Mexico,Synthetic data,1345,United States of America
 32.26876,-112.64578,72324,Arizona,Synthetic data,609,United States of America
-32.26938,-115.83488,10512,Ocean,Synthetic data,347,Ocean
+32.26938,-115.83488,10512,Baja California,Synthetic data,347,Mexico
 32.26941,-111.34821,10513,Arizona,Synthetic data,661,United States of America
 32.27016,-113.78517,10514,Arizona,Synthetic data,386,United States of America
 32.27031,-106.89173,10515,New Mexico,Synthetic data,1276,United States of America
@@ -941,20 +1462,20 @@ lat,lon,manual_id,state,source,elev2,country
 32.27235,-106.74067,74508,New Mexico,Synthetic data,1207,United States of America
 32.27262,-112.22399,10518,Arizona,Synthetic data,692,United States of America
 32.27337,-109.7582,10519,Arizona,Synthetic data,1299,United States of America
-32.27396,-114.48645,10520,Ocean,Synthetic data,58,Ocean
+32.27396,-114.48645,10520,Sonora,Synthetic data,58,Mexico
 32.2744,-119.21149,69997,Ocean,Synthetic data,NA,Ocean
 32.27515,-104.47803,10521,New Mexico,Synthetic data,1175,United States of America
 32.27807,-113.18095,10522,Arizona,Synthetic data,263,United States of America
 32.27942,-123.31761,68589,Ocean,Synthetic data,NA,Ocean
 32.28023,-117.70332,70525,Ocean,Synthetic data,NA,Ocean
 32.28059,-113.62148,64253,Arizona,Synthetic data,290,United States of America
-32.28101,-115.80112,10523,Ocean,Synthetic data,78,Ocean
+32.28101,-115.80112,10523,Baja California,Synthetic data,78,Mexico
 32.28289,-104.46846,10524,New Mexico,Synthetic data,1154,United States of America
 32.28377,-104.07393,10525,New Mexico,Synthetic data,924,United States of America
 32.28467,-105.2074,10526,New Mexico,Synthetic data,1258,United States of America
 32.28499,-113.9406,10527,Arizona,Synthetic data,337,United States of America
 32.28652,-107.11732,10528,New Mexico,Synthetic data,1357,United States of America
-32.28671,-114.22529,10529,Ocean,Synthetic data,185,Ocean
+32.28671,-114.22529,10529,Sonora,Synthetic data,185,Mexico
 32.28812,-107.18545,66528,New Mexico,Synthetic data,1339,United States of America
 32.28867,-106.69652,10530,New Mexico,Synthetic data,1437,United States of America
 32.29019,-107.96896,10531,New Mexico,Synthetic data,1370,United States of America
@@ -963,7 +1484,7 @@ lat,lon,manual_id,state,source,elev2,country
 32.29361,-104.77508,10534,New Mexico,Synthetic data,1644,United States of America
 32.29587,-104.14201,10535,New Mexico,Synthetic data,945,United States of America
 32.29594,-114.00302,10536,Arizona,Synthetic data,327,United States of America
-32.29664,-114.22345,10537,Ocean,Synthetic data,188,Ocean
+32.29664,-114.22345,10537,Sonora,Synthetic data,188,Mexico
 32.29797,-111.77694,64890,Arizona,Synthetic data,594,United States of America
 32.29934,-108.60962,10538,New Mexico,Synthetic data,1283,United States of America
 32.30024,-122.9474,68677,Ocean,Synthetic data,NA,Ocean
@@ -996,15 +1517,15 @@ lat,lon,manual_id,state,source,elev2,country
 32.32133,-104.03325,75509,New Mexico,Synthetic data,921,United States of America
 32.32159,-112.06766,10550,Arizona,Synthetic data,564,United States of America
 32.3216,-122.74741,60967,Ocean,Synthetic data,NA,Ocean
-32.3221,-115.68087,71232,Ocean,Synthetic data,-2,Ocean
+32.3221,-115.68087,71232,Baja California,Synthetic data,-2,Mexico
 32.32233,-109.55124,10551,Arizona,Synthetic data,1204,United States of America
 32.32408,-121.99348,61231,Ocean,Synthetic data,NA,Ocean
-32.32821,-115.74795,63434,Ocean,Synthetic data,3,Ocean
+32.32821,-115.74795,63434,Baja California,Synthetic data,3,Mexico
 32.32903,-111.05932,10552,Arizona,Synthetic data,667,United States of America
 32.32932,-123.4918,68501,Ocean,Synthetic data,NA,Ocean
 32.33018,-112.87672,10553,Arizona,Synthetic data,587,United States of America
 32.33041,-111.97112,10554,Arizona,Synthetic data,534,United States of America
-32.33108,-116.08433,63343,Ocean,Synthetic data,1415,Ocean
+32.33108,-116.08433,63343,Baja California,Synthetic data,1415,Mexico
 32.33222,-110.38081,10555,Arizona,Synthetic data,1028,United States of America
 32.33319,-119.68758,69821,Ocean,Synthetic data,NA,Ocean
 32.33439,-108.55217,73871,New Mexico,Synthetic data,1388,United States of America
@@ -1015,31 +1536,31 @@ lat,lon,manual_id,state,source,elev2,country
 32.33884,-105.80365,10558,New Mexico,Synthetic data,1618,United States of America
 32.340089999999996,-113.71565,10559,Arizona,Synthetic data,288,United States of America
 32.34076,-107.13402,10560,New Mexico,Synthetic data,1385,United States of America
-32.34123,-114.9142,10561,Ocean,Synthetic data,20,Ocean
+32.34123,-114.9142,10561,Sonora,Synthetic data,20,Mexico
 32.34287,-108.5865,66073,New Mexico,Synthetic data,1355,United States of America
 32.34356,-106.22378,66892,New Mexico,Synthetic data,1240,United States of America
 32.34455,-117.13992,70701,Ocean,Synthetic data,NA,Ocean
 32.34514,-109.70111,10562,Arizona,Synthetic data,1292,United States of America
 32.3453,-103.93434,10563,New Mexico,Synthetic data,921,United States of America
-32.34555,-116.16865,63255,Ocean,Synthetic data,1338,Ocean
+32.34555,-116.16865,63255,Baja California,Synthetic data,1338,Mexico
 32.34658,-117.06764,70789,Ocean,Synthetic data,NA,Ocean
 32.34939,-117.19787,62903,Ocean,Synthetic data,NA,Ocean
 32.349850000000004,-113.29625,72142,Arizona,Synthetic data,491,United States of America
 32.3502,-108.59861,10564,New Mexico,Synthetic data,1353,United States of America
 32.35026,-122.28873,68941,Ocean,Synthetic data,NA,Ocean
-32.35127,-116.11499,71141,Ocean,Synthetic data,1368,Ocean
+32.35127,-116.11499,71141,Baja California,Synthetic data,1368,Mexico
 32.35184,-106.12547000000001,10565,New Mexico,Synthetic data,1250,United States of America
 32.35195,-111.78515,10566,Arizona,Synthetic data,573,United States of America
 32.35233,-113.34405,10567,Arizona,Synthetic data,235,United States of America
-32.35403,-114.36434,10568,Ocean,Synthetic data,136,Ocean
+32.35403,-114.36434,10568,Sonora,Synthetic data,136,Mexico
 32.35489,-107.57745,10569,New Mexico,Synthetic data,1322,United States of America
-32.35618,-116.43944,70965,Ocean,Synthetic data,702,Ocean
+32.35618,-116.43944,70965,Baja California,Synthetic data,702,Mexico
 32.3569,-114.08184,71869,Arizona,Synthetic data,415,United States of America
-32.35801,-114.81239,10570,Ocean,Synthetic data,33,Ocean
-32.35993,-115.73154,10571,Ocean,Synthetic data,0,Ocean
+32.35801,-114.81239,10570,Sonora,Synthetic data,33,Mexico
+32.35993,-115.73154,10571,Baja California,Synthetic data,0,Mexico
 32.36021,-113.71354,64162,Arizona,Synthetic data,273,United States of America
 32.36182,-110.99039,65163,Arizona,Synthetic data,763,United States of America
-32.36295,-115.43389,10572,Ocean,Synthetic data,924,Ocean
+32.36295,-115.43389,10572,Baja California,Synthetic data,924,Mexico
 32.36482,-110.03012,73325,Arizona,Synthetic data,1442,United States of America
 32.36496,-109.23295,10573,Arizona,Synthetic data,1115,United States of America
 32.36507,-119.51835,62111,Ocean,Synthetic data,NA,Ocean
@@ -1064,26 +1585,26 @@ lat,lon,manual_id,state,source,elev2,country
 32.38322,-119.97423,69734,Ocean,Synthetic data,NA,Ocean
 32.38339,-113.29724,10580,Arizona,Synthetic data,470,United States of America
 32.38356,-108.48162,10581,New Mexico,Synthetic data,1793,United States of America
-32.3843,-116.02681,32426,Ocean,Synthetic data,1466,Ocean
+32.3843,-116.02681,32426,Baja California,Synthetic data,1466,Mexico
 32.3851,-120.00161,61936,Ocean,Synthetic data,NA,Ocean
 32.38535,-112.25803,10582,Arizona,Synthetic data,753,United States of America
 32.38543,-119.13697,69998,Ocean,Synthetic data,NA,Ocean
 32.38591,-122.64376,68766,Ocean,Synthetic data,NA,Ocean
 32.38685,-120.23004,61848,Ocean,Synthetic data,NA,Ocean
-32.38691,-116.98833,32402,Ocean,Synthetic data,242,Ocean
+32.38691,-116.98833,32402,Baja California,Synthetic data,242,Mexico
 32.38706,-109.24447,10583,Arizona,Synthetic data,1118,United States of America
 32.38768,-110.94662,10584,Arizona,Synthetic data,882,United States of America
 32.39203,-105.62166,10585,New Mexico,Synthetic data,1436,United States of America
 32.39565,-110.77663,10586,Arizona,Synthetic data,2097,United States of America
-32.39603,-116.37183,32480,Ocean,Synthetic data,982,Ocean
+32.39603,-116.37183,32480,Baja California,Synthetic data,982,Mexico
 32.39651,-123.7997,60616,Ocean,Synthetic data,NA,Ocean
 32.3979,-111.9371,72598,Arizona,Synthetic data,517,United States of America
 32.39828,-110.48271,10587,Arizona,Synthetic data,941,United States of America
-32.39838,-114.83383,10588,Ocean,Synthetic data,32,Ocean
+32.39838,-114.83383,10588,Sonora,Synthetic data,32,Mexico
 32.39847,-120.92813,61584,Ocean,Synthetic data,NA,Ocean
 32.39875,-105.07559,10589,New Mexico,Synthetic data,1568,United States of America
 32.39938,-110.8863,65164,Arizona,Synthetic data,1536,United States of America
-32.40062,-116.91505,62992,Ocean,Synthetic data,296,Ocean
+32.40062,-116.91505,62992,Baja California,Synthetic data,296,Mexico
 32.40441,-104.30211,67621,New Mexico,Synthetic data,1027,United States of America
 32.40497,-110.62924,10590,Arizona,Synthetic data,1251,United States of America
 32.40532,-106.89458,10591,New Mexico,Synthetic data,1413,United States of America
@@ -1095,7 +1616,7 @@ lat,lon,manual_id,state,source,elev2,country
 32.408,-110.72,51292,Arizona,iNaturalist,2390,United States of America
 32.40839,-105.11712,75146,New Mexico,Synthetic data,1436,United States of America
 32.4086,-109.32784,65801,Arizona,Synthetic data,1061,United States of America
-32.40924,-117.02853,70790,Ocean,Synthetic data,185,Ocean
+32.40924,-117.02853,70790,Baja California,Synthetic data,185,Mexico
 32.411,-110.707,51281,Arizona,iNaturalist,2426,United States of America
 32.41125,-109.58425,10595,Arizona,Synthetic data,1188,United States of America
 32.41174,-112.77877,64527,Arizona,Synthetic data,475,United States of America
@@ -1110,7 +1631,7 @@ lat,lon,manual_id,state,source,elev2,country
 32.41439,-110.09902,10599,Arizona,Synthetic data,1708,United States of America
 32.41458,-109.96525,10600,Arizona,Synthetic data,1305,United States of America
 32.41668,-109.8864,73326,Arizona,Synthetic data,1327,United States of America
-32.41713,-114.90192,10601,Ocean,Synthetic data,20,Ocean
+32.41713,-114.90192,10601,Sonora,Synthetic data,20,Mexico
 32.41798,-117.37297,32516,Ocean,Synthetic data,NA,Ocean
 32.419,-110.728,50045,Arizona,iNaturalist,2474,United States of America
 32.41941,-107.44751,10602,New Mexico,Synthetic data,1355,United States of America
@@ -1128,16 +1649,16 @@ lat,lon,manual_id,state,source,elev2,country
 32.42726,-114.3039,63981,Arizona,Synthetic data,204,United States of America
 32.42786,-110.75571,121,Arizona,Pheromone trapping,2307,United States of America
 32.429,-110.74,50005,Arizona,iNaturalist,2350,United States of America
-32.42906,-116.45937,32474,Ocean,Synthetic data,820,Ocean
+32.42906,-116.45937,32474,Baja California,Synthetic data,820,Mexico
 32.43079,-113.56279,10609,Arizona,Synthetic data,209,United States of America
-32.43168,-115.32453,10610,Ocean,Synthetic data,15,Ocean
-32.43283,-116.66574,32408,Ocean,Synthetic data,299,Ocean
+32.43168,-115.32453,10610,Baja California,Synthetic data,15,Mexico
+32.43283,-116.66574,32408,Baja California,Synthetic data,299,Mexico
 32.43366,-108.97106,10611,New Mexico,Synthetic data,1276,United States of America
-32.43381,-115.30053,10612,Ocean,Synthetic data,7,Ocean
-32.43424,-115.84133,71233,Ocean,Synthetic data,325,Ocean
+32.43381,-115.30053,10612,Baja California,Synthetic data,7,Mexico
+32.43424,-115.84133,71233,Baja California,Synthetic data,325,Mexico
 32.43482,-104.03513,75510,New Mexico,Synthetic data,981,United States of America
 32.43666,-118.31205,62552,Ocean,Synthetic data,NA,Ocean
-32.43774,-115.76627,10613,Ocean,Synthetic data,5,Ocean
+32.43774,-115.76627,10613,Baja California,Synthetic data,5,Mexico
 32.43783,-110.54161,10614,Arizona,Synthetic data,992,United States of America
 32.43786,-114.51449,10615,Arizona,Synthetic data,81,United States of America
 32.43825,-109.40772,73508,Arizona,Synthetic data,1074,United States of America
@@ -1154,17 +1675,17 @@ lat,lon,manual_id,state,source,elev2,country
 32.44248,-111.25155,65073,Arizona,Synthetic data,594,United States of America
 32.44266,-111.69899,72689,Arizona,Synthetic data,544,United States of America
 32.443,-104.26235,10620,New Mexico,Synthetic data,965,United States of America
-32.44308,-115.06885,71506,Ocean,Synthetic data,17,Ocean
+32.44308,-115.06885,71506,Baja California,Synthetic data,17,Mexico
 32.444,-112.29224,64709,Arizona,Synthetic data,678,United States of America
-32.44614,-116.78908,63080,Ocean,Synthetic data,355,Ocean
+32.44614,-116.78908,63080,Baja California,Synthetic data,355,Mexico
 32.44699,-104.02689,10621,New Mexico,Synthetic data,989,United States of America
 32.447,-110.773,50433,Arizona,iNaturalist,2491,United States of America
 32.447,-110.771,50368,Arizona,iNaturalist,2488,United States of America
 32.44757,-107.29621,10622,New Mexico,Synthetic data,1453,United States of America
-32.44811,-116.00266,71142,Ocean,Synthetic data,1442,Ocean
-32.44825,-116.55222,32534,Ocean,Synthetic data,647,Ocean
+32.44811,-116.00266,71142,Baja California,Synthetic data,1442,Mexico
+32.44825,-116.55222,32534,Baja California,Synthetic data,647,Mexico
 32.45013,-112.02182,10623,Arizona,Synthetic data,507,United States of America
-32.45067,-115.65425,10624,Ocean,Synthetic data,-2,Ocean
+32.45067,-115.65425,10624,Baja California,Synthetic data,-2,Mexico
 32.4513,-111.82754,64891,Arizona,Synthetic data,526,United States of America
 32.45313,-114.49848,10626,Arizona,Synthetic data,94,United States of America
 32.45313,-105.98579,10625,New Mexico,Synthetic data,1233,United States of America
@@ -1176,7 +1697,7 @@ lat,lon,manual_id,state,source,elev2,country
 32.45518,-104.75185,10629,New Mexico,Synthetic data,1412,United States of America
 32.45548,-108.36836,66165,New Mexico,Synthetic data,1742,United States of America
 32.45553,-118.99727,70086,Ocean,Synthetic data,NA,Ocean
-32.45676,-115.32707,10630,Ocean,Synthetic data,9,Ocean
+32.45676,-115.32707,10630,Baja California,Synthetic data,9,Mexico
 32.45739,-117.1446,32456,Ocean,Synthetic data,NA,Ocean
 32.45763,-111.3227,10631,Arizona,Synthetic data,582,United States of America
 32.461,-114.521,63890,Arizona,Synthetic data,80,United States of America
@@ -1199,16 +1720,16 @@ lat,lon,manual_id,state,source,elev2,country
 32.46809,-113.30041,64345,Arizona,Synthetic data,252,United States of America
 32.46816,-105.28176,75055,New Mexico,Synthetic data,1591,United States of America
 32.46909,-114.03141,71870,Arizona,Synthetic data,256,United States of America
-32.46932,-115.78611,63435,Ocean,Synthetic data,43,Ocean
+32.46932,-115.78611,63435,Baja California,Synthetic data,43,Mexico
 32.46962,-114.14998,71779,Arizona,Synthetic data,268,United States of America
 32.47076,-113.40181,72052,Arizona,Synthetic data,184,United States of America
 32.47085,-113.23241,72143,Arizona,Synthetic data,209,United States of America
 32.47141,-110.74226,48110,Arizona,Defoliation surveys,2275,United States of America
 32.47168,-110.74087,48062,Arizona,Defoliation surveys,2166,United States of America
 32.47181,-110.74798,47820,Arizona,Defoliation surveys,2225,United States of America
-32.47274,-116.81908,70878,Ocean,Synthetic data,220,Ocean
+32.47274,-116.81908,70878,Baja California,Synthetic data,220,Mexico
 32.47327,-117.48114,70614,Ocean,Synthetic data,NA,Ocean
-32.47403,-114.91703,63708,Ocean,Synthetic data,23,Ocean
+32.47403,-114.91703,63708,Sonora,Synthetic data,23,Mexico
 32.47423,-105.8971,74782,New Mexico,Synthetic data,1330,United States of America
 32.47451,-110.27055,65437,Arizona,Synthetic data,1696,United States of America
 32.47463,-110.74567,48063,Arizona,Defoliation surveys,2116,United States of America
@@ -1222,7 +1743,7 @@ lat,lon,manual_id,state,source,elev2,country
 32.47942,-110.74255,47994,Arizona,Defoliation surveys,2023,United States of America
 32.47986,-113.58665,64254,Arizona,Synthetic data,187,United States of America
 32.48044,-104.36793,75419,New Mexico,Synthetic data,1026,United States of America
-32.48092,-114.79061,10644,Ocean,Synthetic data,25,Ocean
+32.48092,-114.79061,10644,Sonora,Synthetic data,25,Mexico
 32.48136,-122.81242,60968,Ocean,Synthetic data,NA,Ocean
 32.48228,-114.62576,71597,Arizona,Synthetic data,50,United States of America
 32.48367,-124.47682,68150,Ocean,Synthetic data,NA,Ocean
@@ -1235,7 +1756,7 @@ lat,lon,manual_id,state,source,elev2,country
 32.48723,-104.27193,10647,New Mexico,Synthetic data,964,United States of America
 32.4876,-112.71102,10648,Arizona,Synthetic data,549,United States of America
 32.48771,-117.56994,32450,Ocean,Synthetic data,NA,Ocean
-32.4878,-114.813,63799,Ocean,Synthetic data,25,Ocean
+32.4878,-114.813,63799,Sonora,Synthetic data,25,Mexico
 32.48935,-107.56904,74236,New Mexico,Synthetic data,1438,United States of America
 32.4906,-112.42809,10649,Arizona,Synthetic data,812,United States of America
 32.49128,-108.18722,10650,New Mexico,Synthetic data,1599,United States of America
@@ -1252,15 +1773,15 @@ lat,lon,manual_id,state,source,elev2,country
 32.50073,-111.4639,10656,Arizona,Synthetic data,651,United States of America
 32.50109,-107.08067,74418,New Mexico,Synthetic data,1429,United States of America
 32.50112,-105.77967,10657,New Mexico,Synthetic data,1556,United States of America
-32.50265,-116.16673,71054,Ocean,Synthetic data,1234,Ocean
+32.50265,-116.16673,71054,Baja California,Synthetic data,1234,Mexico
 32.50271,-111.37161,72871,Arizona,Synthetic data,564,United States of America
 32.50474,-109.8587,65619,Arizona,Synthetic data,1465,United States of America
 32.50531,-104.46757,10658,New Mexico,Synthetic data,1159,United States of America
 32.5056,-106.5558,10659,New Mexico,Synthetic data,1784,United States of America
-32.50626,-115.40678,10660,Ocean,Synthetic data,7,Ocean
+32.50626,-115.40678,10660,Baja California,Synthetic data,7,Mexico
 32.50677,-118.93585,62288,Ocean,Synthetic data,NA,Ocean
 32.50901,-106.52306,74600,New Mexico,Synthetic data,1897,United States of America
-32.51015,-115.57144,10661,Ocean,Synthetic data,29,Ocean
+32.51015,-115.57144,10661,Baja California,Synthetic data,29,Mexico
 32.51253,-119.48251,69910,Ocean,Synthetic data,NA,Ocean
 32.51276,-113.62613,10662,Arizona,Synthetic data,174,United States of America
 32.51337,-114.23351,10663,Arizona,Synthetic data,609,United States of America
@@ -1270,14 +1791,14 @@ lat,lon,manual_id,state,source,elev2,country
 32.51432,-113.59903,10665,Arizona,Synthetic data,183,United States of America
 32.51452,-113.99025,10666,Arizona,Synthetic data,351,United States of America
 32.51484,-113.03996,10667,Arizona,Synthetic data,330,United States of America
-32.51522,-115.25562,63617,Ocean,Synthetic data,10,Ocean
+32.51522,-115.25562,63617,Baja California,Synthetic data,10,Mexico
 32.51628,-123.36236,60792,Ocean,Synthetic data,NA,Ocean
 32.51649,-107.74695,66347,New Mexico,Synthetic data,1964,United States of America
 32.51743,-106.82787,10668,New Mexico,Synthetic data,1406,United States of America
 32.51834,-110.35597,73235,Arizona,Synthetic data,1587,United States of America
 32.51872,-111.67069,10669,Arizona,Synthetic data,558,United States of America
-32.51985,-115.38091,71324,Ocean,Synthetic data,7,Ocean
-32.52022,-116.82831,32468,Ocean,Synthetic data,400,Ocean
+32.51985,-115.38091,71324,Baja California,Synthetic data,7,Mexico
+32.52022,-116.82831,32468,Baja California,Synthetic data,400,Mexico
 32.52097,-117.85486,70526,Ocean,Synthetic data,NA,Ocean
 32.52289,-114.63996,10670,Arizona,Synthetic data,56,United States of America
 32.52331,-110.96334,10671,Arizona,Synthetic data,1013,United States of America
@@ -1292,19 +1813,19 @@ lat,lon,manual_id,state,source,elev2,country
 32.53132,-105.2449,10676,New Mexico,Synthetic data,1775,United States of America
 32.53254,-108.27786,73963,New Mexico,Synthetic data,1707,United States of America
 32.5328,-117.5188,32510,Ocean,Synthetic data,NA,Ocean
-32.53307,-115.04392,10677,Ocean,Synthetic data,19,Ocean
+32.53307,-115.04392,10677,Baja California,Synthetic data,19,Mexico
 32.53431,-105.20222,67257,New Mexico,Synthetic data,1540,United States of America
-32.53533,-115.78334,10678,Ocean,Synthetic data,41,Ocean
+32.53533,-115.78334,10678,Baja California,Synthetic data,41,Mexico
 32.53545,-108.2566,10679,New Mexico,Synthetic data,1691,United States of America
 32.53565,-114.23047,10680,Arizona,Synthetic data,689,United States of America
 32.53677,-109.44877,10681,Arizona,Synthetic data,1027,United States of America
 32.53695,-108.77065,10682,New Mexico,Synthetic data,1345,United States of America
 32.53822,-123.58522,68502,Ocean,Synthetic data,NA,Ocean
 32.53952,-117.9624,32438,Ocean,Synthetic data,NA,Ocean
-32.54231,-116.10023,63344,Ocean,Synthetic data,1315,Ocean
+32.54231,-116.10023,63344,Baja California,Synthetic data,1315,Mexico
 32.54333,-106.24354,66893,New Mexico,Synthetic data,1215,United States of America
 32.54353,-117.25151,32396,Ocean,Synthetic data,NA,Ocean
-32.54387,-116.72036,32528,Ocean,Synthetic data,332,Ocean
+32.54387,-116.72036,32528,Baja California,Synthetic data,332,Mexico
 32.54427,-112.59875,72416,Arizona,Synthetic data,677,United States of America
 32.54469,-119.66159,69822,Ocean,Synthetic data,NA,Ocean
 32.54474,-121.6554,69118,Ocean,Synthetic data,NA,Ocean
@@ -1312,7 +1833,7 @@ lat,lon,manual_id,state,source,elev2,country
 32.54717,-111.57113,10683,Arizona,Synthetic data,524,United States of America
 32.5479,-120.7416,61672,Ocean,Synthetic data,NA,Ocean
 32.54858,-107.6029,10684,New Mexico,Synthetic data,1519,United States of America
-32.54904,-116.32504,32420,Ocean,Synthetic data,1012,Ocean
+32.54904,-116.32504,32420,Baja California,Synthetic data,1012,Mexico
 32.54915,-120.58603,69558,Ocean,Synthetic data,NA,Ocean
 32.54996,-109.62087,65710,Arizona,Synthetic data,1167,United States of America
 32.55023,-124.0543,60528,Ocean,Synthetic data,NA,Ocean
@@ -1322,11 +1843,11 @@ lat,lon,manual_id,state,source,elev2,country
 32.55362,-117.33591,70702,Ocean,Synthetic data,NA,Ocean
 32.5552,-117.61272,62816,Ocean,Synthetic data,NA,Ocean
 32.55586,-108.12064,10686,New Mexico,Synthetic data,1534,United States of America
-32.55591,-116.46901,70966,Ocean,Synthetic data,828,Ocean
-32.55629,-116.54908,32414,Ocean,Synthetic data,609,Ocean
+32.55591,-116.46901,70966,Baja California,Synthetic data,828,Mexico
+32.55629,-116.54908,32414,Baja California,Synthetic data,609,Mexico
 32.55828,-118.19341,70350,Ocean,Synthetic data,NA,Ocean
-32.55845,-116.23605,63256,Ocean,Synthetic data,1071,Ocean
-32.55942,-115.53412,63526,Ocean,Synthetic data,6,Ocean
+32.55845,-116.23605,63256,Baja California,Synthetic data,1071,Mexico
+32.55942,-115.53412,63526,Baja California,Synthetic data,6,Mexico
 32.56084,-112.13153,10687,Arizona,Synthetic data,614,United States of America
 32.56203,-112.19008,72507,Arizona,Synthetic data,648,United States of America
 32.56222,-104.04194,10688,New Mexico,Synthetic data,1006,United States of America
@@ -1339,7 +1860,7 @@ lat,lon,manual_id,state,source,elev2,country
 32.57008,-105.5331,10691,New Mexico,Synthetic data,2092,United States of America
 32.57121,-111.69175,10692,Arizona,Synthetic data,480,United States of America
 32.57153,-105.17419,10693,New Mexico,Synthetic data,1576,United States of America
-32.57174,-115.07306,10694,Ocean,Synthetic data,15,Ocean
+32.57174,-115.07306,10694,Baja California,Synthetic data,15,Mexico
 32.57245,-121.54913,69206,Ocean,Synthetic data,NA,Ocean
 32.57262,-116.88122,32462,California,Synthetic data,482,United States of America
 32.57323,-112.64476,10695,Arizona,Synthetic data,709,United States of America
@@ -1347,17 +1868,17 @@ lat,lon,manual_id,state,source,elev2,country
 32.57598,-113.24202,10696,Arizona,Synthetic data,228,United States of America
 32.57688,-106.89649,10697,New Mexico,Synthetic data,1322,United States of America
 32.57864,-104.84904,67439,New Mexico,Synthetic data,1410,United States of America
-32.57938,-116.35415,32540,Ocean,Synthetic data,1003,Ocean
+32.57938,-116.35415,32540,Baja California,Synthetic data,1003,Mexico
 32.57965,-108.18563,10698,New Mexico,Synthetic data,1616,United States of America
 32.58096,-112.08726,10699,Arizona,Synthetic data,650,United States of America
-32.58097,-116.03242,32486,Ocean,Synthetic data,955,Ocean
-32.58113,-116.09346,32546,Ocean,Synthetic data,1269,Ocean
+32.58097,-116.03242,32486,Baja California,Synthetic data,955,Mexico
+32.58113,-116.09346,32546,Baja California,Synthetic data,1269,Mexico
 32.58139,-108.04092,66256,New Mexico,Synthetic data,1555,United States of America
 32.58204,-107.84588,10700,New Mexico,Synthetic data,1714,United States of America
 32.58209,-122.95707,60880,Ocean,Synthetic data,NA,Ocean
 32.58321,-112.80961,10701,Arizona,Synthetic data,403,United States of America
 32.58332,-107.83882,10702,New Mexico,Synthetic data,1768,United States of America
-32.5834,-115.44483,10703,Ocean,Synthetic data,4,Ocean
+32.5834,-115.44483,10703,Baja California,Synthetic data,4,Mexico
 32.58486,-110.33529,10704,Arizona,Synthetic data,1791,United States of America
 32.58512,-104.56064,67530,New Mexico,Synthetic data,1105,United States of America
 32.58642,-105.68158,74873,New Mexico,Synthetic data,1979,United States of America
@@ -1381,7 +1902,7 @@ lat,lon,manual_id,state,source,elev2,country
 32.60248,-114.62261,71688,Arizona,Synthetic data,60,United States of America
 32.60333,-121.54849,61408,Ocean,Synthetic data,NA,Ocean
 32.60334,-113.83756,10709,Arizona,Synthetic data,148,United States of America
-32.60374,-115.34807,71415,Ocean,Synthetic data,9,Ocean
+32.60374,-115.34807,71415,Baja California,Synthetic data,9,Mexico
 32.60509,-124.41294,60352,Ocean,Synthetic data,NA,Ocean
 32.60536,-113.98482,64072,Arizona,Synthetic data,184,United States of America
 32.60578,-108.55285,10710,New Mexico,Synthetic data,1726,United States of America
@@ -1420,10 +1941,10 @@ lat,lon,manual_id,state,source,elev2,country
 32.63093,-104.69381,75238,New Mexico,Synthetic data,1212,United States of America
 32.631,-109.823,50459,Arizona,iNaturalist,2339,United States of America
 32.631,-109.823,50460,Arizona,iNaturalist,2339,United States of America
-32.63133,-115.13276,63618,Ocean,Synthetic data,20,Ocean
+32.63133,-115.13276,63618,Baja California,Synthetic data,20,Mexico
 32.63134,-124.20287,60441,Ocean,Synthetic data,NA,Ocean
 32.63337,-109.81732,49901,Arizona,Defoliation surveys,2261,United States of America
-32.63355,-115.44949,10723,Ocean,Synthetic data,4,Ocean
+32.63355,-115.44949,10723,Baja California,Synthetic data,4,Mexico
 32.63394,-109.2196,65802,Arizona,Synthetic data,1314,United States of America
 32.63398,-107.53299,10724,New Mexico,Synthetic data,1515,United States of America
 32.63404,-105.20262,75056,New Mexico,Synthetic data,1886,United States of America
@@ -1444,7 +1965,7 @@ lat,lon,manual_id,state,source,elev2,country
 32.64982,-105.74325,74874,New Mexico,Synthetic data,2081,United States of America
 32.6528,-104.16622,75420,New Mexico,Synthetic data,1048,United States of America
 32.65371,-113.72778,10728,Arizona,Synthetic data,149,United States of America
-32.6543,-114.86863,10729,Ocean,Synthetic data,27,Ocean
+32.6543,-114.86863,10729,Baja California,Synthetic data,27,Mexico
 32.65449,-110.79958,10730,Arizona,Synthetic data,1225,United States of America
 32.65461,-106.5107,66803,New Mexico,Synthetic data,1503,United States of America
 32.65495,-117.88551,32439,Ocean,Synthetic data,NA,Ocean
@@ -1493,7 +2014,7 @@ lat,lon,manual_id,state,source,elev2,country
 32.68638,-115.45781,10751,California,Synthetic data,2,United States of America
 32.6869,-105.64739,47837,New Mexico,Defoliation surveys,2636,United States of America
 32.68746,-104.2371,10752,New Mexico,Synthetic data,1072,United States of America
-32.68762,-115.09782,10753,Ocean,Synthetic data,33,Ocean
+32.68762,-115.09782,10753,Baja California,Synthetic data,33,Mexico
 32.68821,-106.51344,10754,New Mexico,Synthetic data,1479,United States of America
 32.69004,-118.42085,62465,Ocean,Synthetic data,NA,Ocean
 32.69062,-113.47341,10755,Arizona,Synthetic data,142,United States of America
