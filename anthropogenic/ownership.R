@@ -38,26 +38,11 @@ plot(forest_ownership)
 points(sites_transformed, pch = 16, col = 'black', cex = 0.1)
 
 a.time <- Sys.time()
-sp_pop = raster::extract(forest_ownership,sites_transformed, buffer = 500, factors = TRUE)
+sp_pop = raster::extract(forest_ownership,sites_transformed, buffer = 1000, factors = TRUE)
 b.time <- Sys.time()
 b.time - a.time
 
 sp_pop_long <- sp_pop %>% set_names(seq_along(.)) %>% enframe %>% unnest(cols = c('value'))
-
-write_csv(sp_pop,'testing_sp_pop.csv')
-sp_pop <- read_csv('testing_sp_pop.csv')
-sp_pop1 <- sp_pop %>% head(10000)
-write_csv(sp_pop1,'testing_sp_pop1_1k.csv')
-sp_pop1 <- sp_pop1 %>% unnest(cols = c('value'))
-sp_pop2 <- sp_pop[10001:20000,]
-sp_pop2 <- sp_pop2 %>% unnest(cols = c('value'))
-write_csv(sp_pop2,'testing_sp_pop2_1k.csv')
-sp_pop3 <- sp_pop[20001:30000,]
-sp_pop3 <- sp_pop3 %>% unnest(cols = c('value'))
-write_csv(sp_pop3,'testing_sp_pop3_1k.csv')
-sp_pop4 <- sp_pop[30001:37812,]
-sp_pop4 <- sp_pop4 %>% unnest(cols = c('value'))
-write_csv(sp_pop4,'testing_sp_pop4_1k.csv')
 
 sp_pop_long <- sp_pop_long %>% rename(df_id = name,number = value)
 
