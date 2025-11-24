@@ -128,15 +128,10 @@ can_ownership <- raster("/Volumes/My Book/Forest/Canada_MFv2020/Canada_MFv2020.t
 ownership_ca <- data.frame(number = c(0, 100,20,40,32,31,33,50,13,12,11),
                            ownership = c('Non-Forest','Water','State (Public)','Tribal','Tribal',
                                          'Federal (Public)','State (Public)','Corporate/Other (Private)','Unknown Forest',
-                                         'Federal (Public)','Federal (Public)'),
+                                         'State (Public)','State (Public)'),
                            ownership2 = c('Non-Forest',"Water",'Protected','Treaty/Settlement','Tribal',
                                           'Federal Reserve', 'Restricted','Private',
                                           'Other','Short-term tenure','Long-term tenure'))
-
-ownership_df <- data.frame(number = 0:8, ownership = c('Unknown Forest', 'Non-Forest',
-                                                       'Water', 'Family (Private)', 'Corporate/Other (Private)',
-                                                       'Tribal','Federal (Public)',
-                                                       'State (Public)', 'Local (Public)'))
 
 ll_info_ca <- latlong %>% filter(country == "Canada") 
 ll_info_ca$df_id <- 1:length(ll_info_ca$lat)
@@ -158,26 +153,98 @@ b.time - a.time
 sp_pop_ca <- sp_pop %>% set_names(seq_along(.)) %>% enframe %>% unnest(cols = c('name','value'))
 sp_pop_ca <- sp_pop_ca %>% rename(df_id = name,number = value)
 
+sp_pop_ca <- sp_pop_ca %>% group_by(df_id) %>% count(number)
+
+sp_pop_ca$df_id <- as.numeric(sp_pop_ca$df_id)
+
 sp_pop_ca <- merge(sp_pop_ca,ll_info_ca,all = TRUE)
 
 unique(sp_pop_ca$number)
 
 sp_pop_ca <- merge(sp_pop_ca,ownership_ca)
 
-sp_pop_ca %>% 
+head(sp_pop_ca)
+
+sp_ca_sum <- sp_pop_ca %>% group_by(df_id) %>% mutate(tot = sum(n))
+
+sp_ca_sum %>% 
   ggplot() + aes(x = lon, y = lat, color = ownership) +
   geom_point(shape = 19, size = 1) + theme_classic() +
   #coord_cartesian(xlim = c(-121,-120.5),ylim = c(50.5,51)) +
   scale_color_brewer(palette = "Paired", direction = -1) +
   facet_wrap(~ownership)
 
-write_csv(sp_pop_ca,'data/can_forest_ownership')
+sp_ca_sum <- sp_pop_ca %>% group_by(df_id) %>% mutate(tot = sum(n))
 
+sp_ca_sum %>%
+  ggplot() + aes(x = lon, y = lat, color = n/tot) +
+  geom_point(shape = 19, size = 1) + theme_classic() +
+  #coord_cartesian(xlim = c(-121,-120.5),ylim = c(50.5,51)) +
+  scale_color_viridis_c(option = "mako", direction = -1) +
+  facet_wrap(~ownership)
 
-canada <- read_csv('data/can_forest_ownership')
-usa <- read_csv('data/usa_forest_ownership')
+sp_ca_sum %>% filter(ownership %in% c("Non-Forest",'Water'), n/tot == 1) %>%
+  ggplot() + aes(x = lon, y = lat, color = as.factor(source)) +
+  geom_point(shape = 19, size = 1) + theme_classic() +
+  #coord_cartesian(xlim = c(-121,-120.5),ylim = c(50.5,51)) +
+  #scale_color_viridis_c(option = "mako", direction = -1) +
+  facet_wrap(~ownership)
 
-canada <- canada %>% dplyr::select(-ownership2)
+write_csv(sp_ca_sum,'data/ca_forest_ownership_temp.csv')
+
+sp_ca_sum2 <- sp_ca_sum %>% group_by(df_id,lat,lon,manual_id,state,source,elev2,country,ownership,tot) %>% 
+  summarize(n2 = sum(n))
+
+max_pops_ca <- sp_ca_sum2 %>% filter(ownership %ni% c('Non-Forest','Water')) %>%
+  mutate(p = n2/tot) %>% 
+  group_by(df_id) %>% filter(p == max(p))
+
+max_pops_ca %>% 
+  ggplot() + aes(x = lon, y = lat, color = as.factor(source)) +
+  geom_point(shape = 19, size = 1) + theme_classic() +
+  #coord_cartesian(xlim = c(-121,-120.5),ylim = c(50.5,51)) +
+  #scale_color_viridis_c(option = "mako", direction = -1) +
+  facet_wrap(~ownership)
+
+missing_ids_ca <- sp_ca_sum2$df_id[sp_ca_sum2$df_id %ni% max_pops_ca$df_id]
+
+max_pops_non_ca <- sp_ca_sum2 %>% filter(df_id %in% missing_ids_ca) %>% 
+  mutate(p = n2/tot) %>% 
+  group_by(df_id) %>% filter(p == max(p))
+
+max_pops_ca <- rbind(max_pops_ca,max_pops_non_ca)
+
+duplicates <- max_pops_ca %>% count(df_id) %>% filter(n>1)
+
+dupl_df <- max_pops_ca %>% filter(df_id %in% duplicates$df_id) %>%
+  arrange(df_id) %>% dplyr::select(source,df_id,n2,tot,ownership,p)
+
+write_csv(dupl_df, "data/canadian_duplicates.csv")
+
+dupl_df2 <- read_csv("data/canadian_duplicates2.csv")
+
+dupl_df2 <- dupl_df2 %>% filter(keep == 1) %>% dplyr::select(-keep)
+
+max_pops_ca2 <- max_pops_ca %>% filter(df_id %ni% duplicates)
+
+dupl_df2 <- merge(dupl_df2, max_pops_ca, all.x = TRUE)
+
+dupl_df2[dupl_df2$df_id == 2046,]$lat <- max_pops_ca[max_pops_ca$df_id == 2046,]$lat[1]
+dupl_df2[dupl_df2$df_id == 2046,]$lon <- max_pops_ca[max_pops_ca$df_id == 2046,]$lon[1]
+dupl_df2[dupl_df2$df_id == 2046,]$state <- max_pops_ca[max_pops_ca$df_id == 2046,]$state[1]
+dupl_df2[dupl_df2$df_id == 2046,]$elev2 <- max_pops_ca[max_pops_ca$df_id == 2046,]$elev2[1]
+dupl_df2[dupl_df2$df_id == 2046,]$manual_id <- max_pops_ca[max_pops_ca$df_id == 2046,]$manual_id[1]
+dupl_df2[dupl_df2$df_id == 2046,]$country <- "Canada"
+
+max_pops_ca2 <- rbind(max_pops_ca2,dupl_df2)
+
+write_csv(max_pops_ca2,'data/can_forest_ownership.csv')
+
+canada <- read_csv('data/can_forest_ownership.csv')
+usa <- read_csv('data/usa_forest_ownership.csv')
+
+canada <- canada %>% rename(n = n2)
+usa <- usa %>% dplyr::select(-number)
 
 ownership <- rbind(canada,usa)
 
@@ -188,5 +255,4 @@ ownership %>%
   scale_color_brewer(palette = "Paired", direction = -1) +
   facet_wrap(~ownership)
 
-
-write_csv(ownership,'data/forest_ownership')
+write_csv(ownership,'data/forest_ownership.csv')
