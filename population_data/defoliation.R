@@ -5,6 +5,8 @@ library(geodata)
 library(dismo)
 library(deldir)
 
+setwd("/Users/katherinedixon/Documents/StuffINeed/_Research/Climate_Range/population_data/")
+
 sf_use_s2(FALSE)
 
 `%ni%` <- Negate(`%in%`)
@@ -31,7 +33,7 @@ us_data = gadm("GADM", country="USA", level = 1)
 state_data = us_data[us_data$NAME_1 %in% c("Washington", "Oregon", "Idaho", "California", "Nevada", "Arizona", "New Mexico", "Utah", "Colorado","Montana","Wyoming"), ]
 #state_data = fortify(state_data)
 
-dftm_all2 <- st_read('data/defoliation_all_1947-2023.shp')
+dftm_all2 <- st_read('data/defoliation_all_1947-2024.shp')
 
 split_poly <- function(sf_poly, n_areas) {
   # Create random points
@@ -51,6 +53,16 @@ split_poly <- function(sf_poly, n_areas) {
 }
 
 yrs <- sort(unique(dftm_all2$year))
+
+dftm_summary <- dftm_all2 %>% mutate(area_meters = as.vector(st_area(geometry))) %>% 
+  mutate(area_km = area_meters/(1000^2))
+
+dftm_summary %>% filter(year >= 1985) %>% mutate(n = 1) %>%
+  filter(area_km >0) %>%  summarize(min_km = min(area_km),
+                                    max_km = max(area_km),
+                                    min_m = min(area_meters),
+                                    max_m = max(area_meters),
+                                    sum_n = sum(n))
 
 dftm_merged <- dftm_all2 %>% 
   summarize(geometry = st_union(geometry)) %>% ungroup() %>% 
@@ -103,14 +115,18 @@ dftm_merged_split <- dftm_merged_split %>%
          lat_cent = map_dbl(geometry, ~st_centroid_within_poly(.x)[[2]])) %>% 
   mutate(area_km = as.vector(area_km))
 
-st_write(dftm_merged_split,'data/defoliation_merged_split_1947-2023.shp', append = FALSE)
+st_write(dftm_merged_split,'data/defoliation_merged_split_1947-2024.shp', append = FALSE)
 
 dftm_merged_split %>% ggplot() + aes(x = lon_cent, y = lat_cent, color = area_km) + 
   geom_point() + theme_classic(base_size = 15)
 
 dftm_no_geo <- dftm_merged_split %>% st_drop_geometry()
 
-dftm_no_geo$manual_id <- 1:9989
+dftm_no_geo$manual_id <- 1:10234
 
-write_csv(dftm_no_geo,'data/defoliation_split.csv')
+write_csv(dftm_no_geo,'data/defoliation_split_1947-2024.csv')
 
+dftm_no_geo %>% filter(year >= 1985) %>% mutate(n = 1) %>% 
+  summarize(min_km = min(area_km),
+            max_km = max(area_km),
+            sum_n = sum(n))
