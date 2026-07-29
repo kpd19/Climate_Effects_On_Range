@@ -3,16 +3,8 @@ library(raster)
 library(sf)
 library(geosphere)
 
-setwd("/Users/katherinedixon/Documents/StuffINeed/_Research/Climate_Range/anthropogenic/")
+all_geo2 <- st_read("../landscape/gadm/all_geo2.shp")
 
-canada_data <- st_read("/Volumes/My Book/gadm/gadm41_CAN_shp/gadm41_CAN_1.shp")
-canada_data <- canada_data %>% filter(NAME_1 %in% c("British Columbia",'Alberta', 'Saskatchewan'))
-
-us_data <- st_read("/Volumes/My Book/gadm/gadm41_USA_shp/gadm41_USA_1.shp")
-us_data <- us_data %>% filter(NAME_1%in% c("Washington", "Oregon", "Idaho", "California", "Nevada", "Arizona",
-                                           "New Mexico", "Utah", "Colorado","Montana","Wyoming"))
-
-all_geo <- rbind(canada_data,us_data)
 
 latlong <- read_csv("data/state_info.csv")
 

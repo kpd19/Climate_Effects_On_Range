@@ -1,16 +1,7 @@
 library(tidyverse)
 library(geosphere)
 
-setwd("/Users/katherinedixon/Documents/StuffINeed/_Research/Climate_Range/anthropogenic/")
-
-canada_data <- st_read("/Volumes/My Book/Synchrony/spatial/gadm41_CAN_shp/gadm41_CAN_1.shp")
-canada_data <- canada_data %>% filter(NAME_1 %in% c("British Columbia",'Alberta', 'Saskatchewan'))
-
-us_data <- st_read("/Volumes/My Book/Synchrony/spatial/gadm41_USA_shp/gadm41_USA_1.shp")
-us_data <- us_data %>% filter(NAME_1%in% c("Washington", "Oregon", "Idaho", "California", "Nevada", "Arizona",
-                                           "New Mexico", "Utah", "Colorado","Montana","Wyoming"))
-
-all_geo <- rbind(canada_data,us_data)
+all_geo2 <- st_read("../landscape/gadm/all_geo2.shp")
 
 `%ni%` <- Negate(`%in%`)
 
@@ -96,7 +87,7 @@ ll_can_dist_fed %>%
   theme_classic() +
   scale_color_viridis_c("Distance (km)", option = 'turbo') +
   xlab("Longitude") + ylab("Latitude") +
-  geom_sf(data = canada_data, aes(geometry =geometry), fill = NA, color = 'grey85', size = 1.2) +
+  geom_sf(data = all_geo2, aes(geometry =geometry), fill = NA, color = 'grey85', size = 1.2) +
   coord_sf(ylim = c(49,54), xlim = c(-128,-104))
 dev.off()  
 
@@ -117,7 +108,7 @@ ll_can_dist_state %>%
   theme_classic() +
   scale_color_viridis_c("Distance (km)", option = 'turbo') +
   xlab("Longitude") + ylab("Latitude") +
-  geom_sf(data = canada_data, aes(geometry =geometry), fill = NA, color = 'grey85', size = 1.2) +
+  geom_sf(data = all_geo2, aes(geometry =geometry), fill = NA, color = 'grey85', size = 1.2) +
   coord_sf(ylim = c(49,54), xlim = c(-128,-104))
 dev.off()  
 
@@ -163,7 +154,7 @@ ll_usa_dist_fed %>%
   theme_classic() +
   scale_color_viridis_c("Distance (km)", option = 'turbo') +
   xlab("Longitude") + ylab("Latitude") +
-  geom_sf(data = us_data, aes(geometry =geometry), fill = NA, color = 'grey85', size = 1.2) +
+  geom_sf(data = all_geo2, aes(geometry =geometry), fill = NA, color = 'grey85', size = 1.2) +
   coord_sf()
 dev.off()  
 
@@ -210,6 +201,6 @@ ll_usa_dist_state %>%
   theme_classic() +
   scale_color_viridis_c("Distance (km)", option = 'turbo') +
   xlab("Longitude") + ylab("Latitude") +
-  geom_sf(data = us_data, aes(geometry =geometry), fill = NA, color = 'grey85', size = 1.2) +
+  geom_sf(data = all_geo2, aes(geometry =geometry), fill = NA, color = 'grey85', size = 1.2) +
   coord_sf()
 dev.off()  

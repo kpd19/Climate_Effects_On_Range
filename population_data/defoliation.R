@@ -5,8 +5,6 @@ library(geodata)
 library(dismo)
 library(deldir)
 
-setwd("/Users/katherinedixon/Documents/StuffINeed/_Research/Climate_Range/population_data/")
-
 sf_use_s2(FALSE)
 
 `%ni%` <- Negate(`%in%`)

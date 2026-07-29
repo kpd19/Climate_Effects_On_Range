@@ -6,8 +6,6 @@ library(zoo)
 
 `%ni%` <- Negate(`%in%`)
 
-setwd("/Users/katherinedixon/Documents/StuffINeed/_Research/Climate_Range/range_modeling/")
-
 source("fitting_functions.R")
 
 set.seed <- 11

@@ -5,15 +5,7 @@ library(gridExtra)
 
 `%ni%` <- Negate(`%in%`)
 
-setwd("/Users/katherinedixon/Documents/StuffINeed/_Research/Climate_Range/forest_change/")
-
-canada_data = gadm(country="CAN", level = 1, path = tempdir())
-bc_data = canada_data[canada_data$NAME_1 == "British Columbia", ]
-bc_data =st_as_sf(bc_data)
-
-us_data = gadm(country="USA", level = 1, path = tempdir())
-state_data = us_data[us_data$NAME_1 %in% c("Washington", "Oregon", "Idaho", "California", "Nevada", "Arizona", "New Mexico", "Utah", "Colorado","Montana","Wyoming"), ]
-state_data = st_as_sf(state_data)
+all_geo2 <- st_read("../landscape/gadm/all_geo2.shp")
 
 sf_use_s2(TRUE)
 

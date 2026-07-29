@@ -2,8 +2,6 @@ library(tidyverse)
 
 `%ni%` <- Negate(`%in%`)
 
-setwd("/Users/katherinedixon/Documents/StuffINeed/_Research/Climate_Range/outbreak_size")
-
 habitat <- read_csv("data/all_habitat_features_sites.csv")
 weather <- read_csv("../climate/data/all_annual_1940-2024_sites.csv")
 

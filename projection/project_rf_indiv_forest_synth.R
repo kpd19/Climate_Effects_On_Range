@@ -3,17 +3,9 @@ library(gridExtra)
 library(sf)
 library(scico)
 
-setwd("/Users/katherinedixon/Documents/StuffINeed/_Research/Climate_Range/projection/")
-
 set.seed <- 11
 
-canada_data <- st_read("/Volumes/My Book/gadm/gadm41_CAN_shp/gadm41_CAN_1.shp")
-canada_data <- canada_data %>% filter(NAME_1 %in% c("British Columbia",'Alberta', 'Saskatchewan'))
-
-us_data <- st_read("/Volumes/My Book/gadm/gadm41_USA_shp/gadm41_USA_1.shp")
-us_data <- us_data %>% filter(NAME_1%in% c("Washington", "Oregon", "Idaho", "California", "Nevada", "Arizona",
-                                           "New Mexico", "Utah", "Colorado","Montana","Wyoming",
-                                           "North Dakota",'South Dakota'))
+all_geo2 <- st_read("../landscape/gadm/all_geo2.shp")
 
 forest_2050_wide <- read_csv("../forest_change/data/forest_composition_2050_biomass.csv")
 forest_2100_wide <- read_csv("../forest_change/data/forest_composition_2100_biomass.csv")
@@ -491,8 +483,7 @@ diff_pres <- ggplot() +
   xlab("Longitude") + ylab("Latitude") 
 
 
-plt_diff <- diff_pres + geom_sf(data = us_data, aes(geometry = geometry), color = "grey55", fill = NA, size = 1) +
-  geom_sf(data = canada_data, aes(geometry = geometry), color = "grey55", fill = NA, size = 1) +
+plt_diff <- diff_pres + geom_sf(data = all_geo2, aes(geometry = geometry), color = "grey55", fill = NA, size = 1) +
   theme_classic(base_size = 15) +
   coord_sf(ylim = c(32,52), xlim = c(-127,-103)) +
   theme(legend.position = 'left') +
@@ -519,8 +510,7 @@ plt_change <- pres_summary %>% select(-absent) %>% pivot_wider(values_from = 'pr
   theme_classic() +
   xlab("Longitude") + ylab("Latitude") 
 
-plt_change2 <- plt_change + geom_sf(data = us_data, aes(geometry = geometry), color = "grey55", fill = NA, size = 1) +
-  geom_sf(data = canada_data, aes(geometry = geometry), color = "grey55", fill = NA, size = 1) +
+plt_change2 <- plt_change + geom_sf(data = all_geo2, aes(geometry = geometry), color = "grey55", fill = NA, size = 1) +
   theme_classic(base_size = 15) +
   coord_sf(ylim = c(32,52), xlim = c(-127,-103)) +
   guides(shape = guide_legend(override.aes = list(size = 0.5))) +

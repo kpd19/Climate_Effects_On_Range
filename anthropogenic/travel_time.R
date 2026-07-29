@@ -3,15 +3,7 @@ library(raster)
 library(gridExtra)
 library(sf)
 
-setwd("/Users/katherinedixon/Documents/StuffINeed/_Research/Climate_Range/anthropogenic/")
-
-canada_data <- st_read("/Volumes/My Book/Synchrony/spatial/gadm41_CAN_shp/gadm41_CAN_1.shp")
-canada_data <- canada_data %>% filter(NAME_1 %in% c("British Columbia",'Alberta', 'Saskatchewan'))
-
-us_data <- st_read("/Volumes/My Book/Synchrony/spatial/gadm41_USA_shp/gadm41_USA_1.shp")
-us_data <- us_data %>% filter(NAME_1%in% c("Washington", "Oregon", "Idaho", "California", "Nevada", "Arizona",
-                                           "New Mexico", "Utah", "Colorado","Montana","Wyoming"))
-all_geo <- rbind(canada_data,us_data)
+all_geo2 <- st_read("../landscape/gadm/all_geo2.shp")
 
 latlong <- read_csv("../landscape/data/all_habitat_features.csv")
 
@@ -94,7 +86,7 @@ plt_min1 <- tt %>% drop_na(number) %>% #filter(size != '50,000 to 100,000 inhabi
   theme_classic() +
   #coord_cartesian(xlim = c(-121,-120.5),ylim = c(50.5,51)) +
   scale_color_viridis_c(expression(log[10]~'travel time'), option = 'turbo') +
-  geom_sf(data = all_geo, aes(geometry =geometry), fill = NA, color = 'grey55', size = 1.2) +
+  geom_sf(data = all_geo2, aes(geometry =geometry), fill = NA, color = 'grey55', size = 1.2) +
   coord_sf(ylim = c(31,54), xlim = c(-128,-104))
 plt_min2 <- tt %>% drop_na(number) %>% filter(size != '50,000 to 100,000 inhabitants') %>% 
   group_by(lat,lon,manual_id,source,elev2) %>% summarize(min_time = min(number)) %>% 
@@ -103,7 +95,7 @@ plt_min2 <- tt %>% drop_na(number) %>% filter(size != '50,000 to 100,000 inhabit
   theme_classic() +
   #coord_cartesian(xlim = c(-121,-120.5),ylim = c(50.5,51)) +
   scale_color_viridis_c(expression(log[10]~'travel time'), option = 'turbo') +
-  geom_sf(data = all_geo, aes(geometry =geometry), fill = NA, color = 'grey55', size = 1.2) +
+  geom_sf(data = all_geo2, aes(geometry =geometry), fill = NA, color = 'grey55', size = 1.2) +
   coord_sf(ylim = c(31,54), xlim = c(-128,-104))
 
 pdf("figures/travel_time.pdf",height = 6, width = 6)

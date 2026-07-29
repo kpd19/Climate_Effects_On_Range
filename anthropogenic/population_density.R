@@ -1,8 +1,6 @@
 library(tidyverse)
 library(raster)
 
-setwd("/Users/katherinedixon/Documents/StuffINeed/_Research/Climate_Range/anthropogenic/")
-
 latlong <- read_csv("../landscape/data/all_habitat_features.csv")
 
 `%ni%` <- Negate(`%in%`)

@@ -1,8 +1,6 @@
 library(tidyverse)
 library(randomForest)
 
-setwd("/Users/katherinedixon/Documents/StuffINeed/_Research/Climate_Range/range_modeling/")
-
 `%ni%` <- Negate(`%in%`)
 
 all_stats <- read_csv('data/stats_0-40.csv')

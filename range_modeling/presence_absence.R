@@ -2,14 +2,7 @@ library(tidyverse)
 library(geodata)
 library(sf)
 
-canada_data = gadm(country="CAN", level = 1, path = tempdir())
-bc_data = canada_data[canada_data$NAME_1 == "British Columbia", ]
-bc_data =st_as_sf(bc_data)
-
-us_data = gadm(country="USA", level = 1, path = tempdir())
-state_data = us_data[us_data$NAME_1 %in% c("Washington", "Oregon", "Idaho", "California", "Nevada", "Arizona", "New Mexico", "Utah", "Colorado","Montana","Wyoming"), ]
-state_data = st_as_sf(state_data)
-state_data = fortify(state_data)
+all_geo2 <- st_read("../landscape/gadm/all_geo2.shp")
 
 `%ni%` <- Negate(`%in%`)
 
@@ -146,8 +139,7 @@ plt1 <- ggplot() + geom_tile(data = coords_late, aes(x = lon_coord, y = lat_coor
   scale_fill_brewer(palette = 'Set1') 
   
   
-plt1 + geom_sf(data = state_data, aes(geometry = geometry), color = "grey55", fill = NA, size = 1) +
-  geom_sf(data = bc_data, aes(geometry = geometry), color = "grey55", fill = NA, size = 1) +
+plt1 + geom_sf(data = all_geo2, aes(geometry = geometry), color = "grey55", fill = NA, size = 1) +
   theme_classic(base_size = 15) +
   coord_sf(ylim = c(30,54), xlim = c(-128,-103)) +
   guides(shape = guide_legend(override.aes = list(size = 0.25))) +
