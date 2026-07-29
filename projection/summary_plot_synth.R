@@ -2,15 +2,7 @@ library(tidyverse)
 library(gridExtra)
 library(ggnewscale)
 
-setwd("/Users/katherinedixon/Documents/StuffINeed/_Research/Climate_Range/projection/")
-
-canada_data <- st_read("/Volumes/My Book/gadm/gadm41_CAN_shp/gadm41_CAN_1.shp")
-canada_data <- canada_data %>% filter(NAME_1 %in% c("British Columbia",'Alberta', 'Saskatchewan'))
-
-us_data <- st_read("/Volumes/My Book/gadm/gadm41_USA_shp/gadm41_USA_1.shp")
-us_data <- us_data %>% filter(NAME_1%in% c("Washington", "Oregon", "Idaho", "California", "Nevada", "Arizona",
-                                           "New Mexico", "Utah", "Colorado","Montana","Wyoming",
-                                           "North Dakota",'South Dakota'))
+all_geo2 <- st_read("../landscape/gadm/all_geo2.shp")
 
 states <- read_csv("../anthropogenic/data/gridded_states.csv")
 
@@ -31,7 +23,7 @@ present_summary <- present_df %>% mutate(lat_coord = round(lat/0.25)*0.25,
   mutate(pres = ifelse(sum_present>1,1,0)) 
 
 present_summary %>% 
-  mutate(p = ifelse(sum_present>1,1,0)) %>%
+  mutate(p = ifelse(sum_present>=1,1,0)) %>%
   ggplot() + aes(x = lon_coord, y = lat_coord, color = pres, fill = pres) + geom_tile() + 
   theme_classic()
 

@@ -7,122 +7,11 @@ setwd("/Users/katherinedixon/Documents/StuffINeed/_Research/Climate_Range/projec
 
 `%ni` <- Negate(`%in%`)
 
-canada_data <- st_read("/Volumes/My Book/gadm/gadm41_CAN_shp/gadm41_CAN_1.shp")
-canada_data <- canada_data %>% filter(NAME_1 %in% c("British Columbia",'Saskatchewan'))
+all_geo2 <- st_read("../landscape/gadm/all_geo2.shp")
 
-us_data <- st_read("/Volumes/My Book/gadm/gadm41_USA_shp/gadm41_USA_1.shp")
-us_data <- us_data %>% filter(NAME_1%in% c("Washington", "Oregon", "Idaho", "California", "Nevada", "Arizona",
-                                           "New Mexico", "Utah", "Colorado","Montana","Wyoming"))
-
-# all_dataset2 <- read_csv('data/populations_for_cc_proj.csv')
-# synthetic_data <- read_csv(file = '../population_data/data/synthetic_data_habitat.csv')
-# 
-# forest_current <- read_csv("../landscape/data/forest_species_pa.csv")
-# habitat_features <- read_csv("../landscape/data/all_habitat_features.csv")
-# 
-# forest_current <- forest_current %>% select(-c(manual_id,source)) %>%
-#   rename(Abies_pres = sum_Abies,
-#          Pseudotsuga_pres = sum_Pseudotsuga) %>%
-#   mutate(Abies_pres = ifelse(Abies_pres >0,1,0)) %>%
-#   mutate(host_trees = ifelse(Abies_pres + Pseudotsuga_pres > 0,1,0),
-#          host_trees2 = Abies_pres + Pseudotsuga_pres)
-# forest_current <- forest_current[!duplicated(forest_current),]
-# 
-# habitat_features <- habitat_features %>% mutate(lon = round(lon,5),
-#                                                 lat = round(lat,5))
-# forest_current <- forest_current %>% mutate(lon = round(lon,5),
-#                                             lat = round(lat,5))
-# 
-# habitat_features2 <- merge(habitat_features,forest_current, all = TRUE)
-# 
-# habitat_features2 <- habitat_features2 %>% select(-manual_id)
-# 
-# habitat_features2 <- habitat_features2 %>% mutate(aspect2 = case_when(aspect >=0 & aspect <= 22.5 ~ "North",
-#                                                                       aspect >22.5 & aspect <= 67.5 ~ "Northeast",
-#                                                                       aspect >67.5 & aspect <= 112.5 ~ "East",
-#                                                                       aspect >112.5 & aspect <= 157.5 ~ "Southeast",
-#                                                                       aspect >157.5 & aspect <= 202.5 ~ "South",
-#                                                                       aspect >202.5 & aspect <= 247.5 ~ "Southwest",
-#                                                                       aspect >247.5 & aspect <= 292.5 ~ "West",
-#                                                                       aspect >292.5 & aspect <= 337.5 ~ "Northwest",
-#                                                                       aspect >337.5 & aspect <= 360 ~ "North",
-#                                                                       aspect == -1 ~ "Flat"))
-# 
-# all_dataset <- synthetic_data
-# 
-# all_dataset <- all_dataset %>%
-#   mutate(lon = round(lon,5),
-#          lat = round(lat,5))
-# 
-# all_dataset2 <- merge(all_dataset, habitat_features2, all.x = TRUE)
-# 
-# all_dataset2 <- all_dataset2[!duplicated(all_dataset2),]
-# 
-# all_dataset2 <- all_dataset2 %>% drop_na(elev2) %>%
-#   mutate_at(c('mean_biomass','max_biomass','mean_cover','slope'), ~replace_na(.,0))
-# 
-# 
-# all_dataset2 %>% ggplot() + aes(x = lon,y = lat, color = elev2) + geom_point() + 
-#   theme_classic()
-# 
-# all_dataset2 %>% mutate(lat_coord = round(lat/0.25)*0.25,
-#                           lon_coord = round(lon/0.25)*0.25,
-#                           n = 1) %>% 
-#   group_by(lat_coord,lon_coord) %>% count(n) %>%
-#   ggplot() + aes(x = lon_coord,y = lat_coord, fill = nn) + geom_tile(color = NA) + 
-#   theme_classic()
-# 
-# write_csv(all_dataset2, 'data/populations_for_cc_proj_synthetic.csv')
-
-##################################
-##################################
-##################################
-##################################
-##################################
-
-#cc_weather <- read_csv('../climate/data/annual_simple_stats_all_models.csv')
 avg5_historical <- read_csv('../range_modeling/data/avg5_weather_1940-2025.csv')
-
-# avg5_cc <- cc_weather %>%
-#   group_by(lat,lon,model) %>% arrange(year) %>%
-#   mutate(min_t2m_r = rollmean(min_t2m, k = 5, na.pad = TRUE, align = 'right'),
-#          max_t2m_r = rollmean(max_t2m, k = 5, na.pad = TRUE, align = 'right'),
-#          min_rh_r = rollmean(min_rh, k = 5, na.pad = TRUE, align = 'right'),
-#          max_rh_r = rollmean(max_rh, k = 5, na.pad = TRUE, align = 'right'),
-#          min_tp_r = rollmean(min_tp, k = 5, na.pad = TRUE, align = 'right'),
-#          max_tp_r = rollmean(max_tp, k = 5, na.pad = TRUE, align = 'right'),
-#          julian_r = rollapply(julian, width = 5, FUN = mean, na.rm=TRUE, fill = NA, align = 'right'),
-#          sum_tp_r = rollmean(sum_tp, k = 5, na.pad = TRUE,align = 'right'),
-#          gdd_season_r = rollapply(gdd_season, width = 5, FUN = mean, na.rm=TRUE, fill = NA, align = 'right'),
-#          coldest_r = rollmean(coldest, k = 5, na.pad = TRUE, align = 'right')) %>%
-#   select(lat,lon,year,model,min_t2m_r,max_t2m_r,min_rh_r, max_rh_r, min_tp_r, max_tp_r, sum_tp_r,
-#          julian_r,gdd_season_r,coldest_r) %>%
-#   rename(min_t2m = min_t2m_r, max_t2m = max_t2m_r,min_rh = min_rh_r, max_rh = max_rh_r,
-#          min_tp = min_tp_r, max_tp = max_tp_r, sum_tp = sum_tp_r,
-#          julian = julian_r, gdd_season = gdd_season_r,coldest = coldest_r)
-
-#write_csv(avg5_cc, 'data/avg5_weather_cc.csv')
 avg5_cc <- read_csv('data/avg5_weather_cc.csv')
 avg5_cc <- avg5_cc %>% drop_na(sum_tp) %>% drop_na(min_rh)
-
-# avg5_cc %>% filter(model == 'INM-CM5-0', lat == 52.25, lon == -117)
-# 
-# prev_test <- avg5_historical %>% filter(lat == 45, lon == -117.5) %>% 
-#   mutate(model = 'Historical data')
-# cc_test <- avg5_cc %>% filter(lat == 45, lon == -117.5)
-# 
-# test_all <- rbind(prev_test,cc_test)
-# 
-# pdf("figures/proj_indiv/cc_comparison.pdf",height = 6, width = 15)
-# test_all %>% pivot_longer(cols = c('min_t2m','max_t2m','min_tp', 'max_tp', 'min_rh', 'max_rh',
-#                                    'julian','gdd_season','sum_tp','coldest')) %>% 
-#   ggplot() + aes(x = year, y = value, color = model) + geom_point() +
-#   theme_classic() + facet_wrap(~name, scales = 'free_y')
-# dev.off()
-# 
-# avg5_cc %>% drop_na(sum_tp) %>% filter(year == 2035) %>%
-#   ggplot() + aes(x = lon,y = lat, color = julian, fill = julian) + geom_tile() +
-#   theme_classic() + facet_wrap(~model)
 
 load(file = '/Volumes/My Book/Synchrony/rf_lags3/rf_models/rf_models1_0_lag000.RData')
 #load(file = '/Volumes/My Book/Synchrony/rf_update2/rf_update_0_lag353535.RData')
@@ -356,8 +245,6 @@ pres_summary_per1 <- fit_differences %>% mutate(qual = ifelse(per1 >0, 'present'
   mutate(present = ifelse(absent == 10, 0,present)) %>% mutate(fitting = '1985-2005')
 
 pres_summary_both %>% ggplot() +
-  #geom_sf(data = canada_data, aes(geometry = geometry), color = 'grey55',size = 0.5) +
-  #geom_sf(data = us_data, aes(geometry = geometry), color = 'grey55',size = 0.5) +
   geom_tile(aes(x = lon_coord, y = lat_coord, color = as.factor(present), fill = as.factor(present))) + 
   #coord_sf(xlim = c(-128,-103), ylim = c(33,53)) + 
   theme(legend.position = 'top') + 
@@ -374,8 +261,7 @@ diff_pres <- ggplot() +
   scale_fill_manual("# CMIP6\nmodels", values = c('grey90',rev(scico(10, palette = 'bamako')))) +
   xlab("Longitude") + ylab("Latitude") 
 
-plt_diff <- diff_pres + geom_sf(data = us_data, aes(geometry = geometry), color = "grey55", fill = NA, size = 1) +
-  geom_sf(data = canada_data, aes(geometry = geometry), color = "grey55", fill = NA, size = 1) +
+plt_diff <- diff_pres + geom_sf(data = all_geo2, aes(geometry = geometry), color = "grey55", fill = NA, size = 1) +
   theme_classic(base_size = 15) +
   coord_sf(ylim = c(32,52), xlim = c(-127,-103)) +
   theme(legend.position = 'top') +
@@ -414,8 +300,7 @@ plt_change <- pres_summary_per1 %>% mutate(lag_name = paste0("lag_",lag)) %>% un
   xlab("Longitude") + ylab("Latitude") 
 
 
-plt_change2 <- plt_change + geom_sf(data = us_data, aes(geometry = geometry), color = "grey55", fill = NA, size = 1) +
-  geom_sf(data = canada_data, aes(geometry = geometry), color = "grey55", fill = NA, size = 1) +
+plt_change2 <- plt_change + geom_sf(data = all_geo2, aes(geometry = geometry), color = "grey55", fill = NA, size = 1) +
   theme_classic(base_size = 15) +
   coord_sf(ylim = c(32,52), xlim = c(-127,-103)) +
   guides(shape = guide_legend(override.aes = list(size = 0.5))) +
@@ -438,8 +323,7 @@ per1_0 <- ggplot() +
   scale_fill_manual("# CMIP6\nmodels", values = c('grey90',rev(scico(10, palette = 'bamako')))) +
   xlab("Longitude") + ylab("Latitude") 
 
-plt_per1_0 <- per1_0 + geom_sf(data = us_data, aes(geometry = geometry), color = "grey55", fill = NA, size = 1) +
-  geom_sf(data = canada_data, aes(geometry = geometry), color = "grey55", fill = NA, size = 1) +
+plt_per1_0 <- per1_0 + geom_sf(data = all_geo2, aes(geometry = geometry), color = "grey55", fill = NA, size = 1) +
   theme_classic(base_size = 15) +
   coord_sf(ylim = c(32,52), xlim = c(-127,-103)) +
   theme(legend.position = 'none') +
@@ -453,8 +337,7 @@ per1_35 <- ggplot() +
   scale_fill_manual("# CMIP6\nmodels", values = c('grey90',rev(scico(10, palette = 'bamako')))) +
   xlab("Longitude") + ylab("Latitude") 
 
-plt_per1_35 <- per1_35 + geom_sf(data = us_data, aes(geometry = geometry), color = "grey55", fill = NA, size = 1) +
-  geom_sf(data = canada_data, aes(geometry = geometry), color = "grey55", fill = NA, size = 1) +
+plt_per1_35 <- per1_35 + geom_sf(data = all_geo2, aes(geometry = geometry), color = "grey55", fill = NA, size = 1) +
   theme_classic(base_size = 15) +
   coord_sf(ylim = c(32,52), xlim = c(-127,-103)) +
   theme(legend.position = 'none') +
@@ -468,8 +351,7 @@ per2_0 <- ggplot() +
   scale_fill_manual("# CMIP6\nmodels", values = c('grey90',rev(scico(10, palette = 'bamako')))) +
   xlab("Longitude") + ylab("Latitude") 
 
-plt_per2_0 <- per1_0 + geom_sf(data = us_data, aes(geometry = geometry), color = "grey55", fill = NA, size = 1) +
-  geom_sf(data = canada_data, aes(geometry = geometry), color = "grey55", fill = NA, size = 1) +
+plt_per2_0 <- per1_0 + geom_sf(data = all_geo2, aes(geometry = geometry), color = "grey55", fill = NA, size = 1) +
   theme_classic(base_size = 15) +
   coord_sf(ylim = c(32,52), xlim = c(-127,-103)) +
   theme(legend.position = 'none') +
@@ -483,8 +365,7 @@ per2_35 <- ggplot() +
   scale_fill_manual("# CMIP6\nmodels", values = c('grey90',rev(scico(10, palette = 'bamako')))) +
   xlab("Longitude") + ylab("Latitude") 
 
-plt_per2_35 <- per1_35 + geom_sf(data = us_data, aes(geometry = geometry), color = "grey55", fill = NA, size = 1) +
-  geom_sf(data = canada_data, aes(geometry = geometry), color = "grey55", fill = NA, size = 1) +
+plt_per2_35 <- per1_35 + geom_sf(data = all_geo2, aes(geometry = geometry), color = "grey55", fill = NA, size = 1) +
   theme_classic(base_size = 15) +
   coord_sf(ylim = c(32,52), xlim = c(-127,-103)) +
   theme(legend.position = 'none') +
@@ -526,8 +407,7 @@ diff_per1_lag <- pres_summary_per1 %>% filter(year == 2100) %>% mutate(lag_name 
   theme(legend.position = 'none') +
   xlab("Longitude") + ylab("Latitude") 
 
-plt_per1_lag <- diff_per1_lag + geom_sf(data = us_data, aes(geometry = geometry), color = "grey55", fill = NA, size = 1) +
-  geom_sf(data = canada_data, aes(geometry = geometry), color = "grey55", fill = NA, size = 1) +
+plt_per1_lag <- diff_per1_lag + geom_sf(data = all_geo2, aes(geometry = geometry), color = "grey55", fill = NA, size = 1) +
   theme_classic(base_size = 15) +
   coord_sf(ylim = c(32,52), xlim = c(-127,-103)) +
   theme(legend.position = 'none') +
@@ -555,8 +435,7 @@ diff_per2_lag <- pres_summary_both %>% filter(year == 2100) %>% mutate(lag_name 
   theme(legend.position = 'none') +
   xlab("Longitude") + ylab("Latitude") 
 
-plt_per2_lag <- diff_per2_lag + geom_sf(data = us_data, aes(geometry = geometry), color = "grey55", fill = NA, size = 1) +
-  geom_sf(data = canada_data, aes(geometry = geometry), color = "grey55", fill = NA, size = 1) +
+plt_per2_lag <- diff_per2_lag + geom_sf(data = all_geo2, aes(geometry = geometry), color = "grey55", fill = NA, size = 1) +
   theme_classic(base_size = 15) +
   coord_sf(ylim = c(32,52), xlim = c(-127,-103)) +
   theme(legend.position = 'none') +
@@ -592,8 +471,7 @@ diff_lag0_per <- fit_all %>% filter(lag == 0) %>%
   theme(legend.position = 'none') +
   xlab("Longitude") + ylab("Latitude") 
 
-plt_lag0_per <- diff_lag0_per + geom_sf(data = us_data, aes(geometry = geometry), color = "grey55", fill = NA, size = 1) +
-  geom_sf(data = canada_data, aes(geometry = geometry), color = "grey55", fill = NA, size = 1) +
+plt_lag0_per <- diff_lag0_per + geom_sf(data = all_geo2, aes(geometry = geometry), color = "grey55", fill = NA, size = 1) +
   theme_classic(base_size = 15) +
   coord_sf(ylim = c(32,52), xlim = c(-127,-103)) +
   theme(legend.position = 'none') +
@@ -623,8 +501,7 @@ diff_lag35_per <- fit_all %>% filter(lag == 35) %>%
   theme(legend.position = 'none') +
   xlab("Longitude") + ylab("Latitude") 
 
-plt_lag35_per <- diff_lag35_per + geom_sf(data = us_data, aes(geometry = geometry), color = "grey55", fill = NA, size = 1) +
-  geom_sf(data = canada_data, aes(geometry = geometry), color = "grey55", fill = NA, size = 1) +
+plt_lag35_per <- diff_lag35_per + geom_sf(data = all_geo2, aes(geometry = geometry), color = "grey55", fill = NA, size = 1) +
   theme_classic(base_size = 15) +
   coord_sf(ylim = c(32,52), xlim = c(-127,-103)) +
   theme(legend.position = 'none') +
@@ -660,8 +537,7 @@ diff_x2 <- fit_34 %>%
   theme(legend.position = 'none') 
   
 
-plt_diff_x2 <- diff_x2 + geom_sf(data = us_data, aes(geometry = geometry), color = "grey55", fill = NA, size = 1) +
-  geom_sf(data = canada_data, aes(geometry = geometry), color = "grey55", fill = NA, size = 1) +
+plt_diff_x2 <- diff_x2 + geom_sf(data = all_geo2, aes(geometry = geometry), color = "grey55", fill = NA, size = 1) +
   theme_classic(base_size = 15) +
   coord_sf(ylim = c(32,52), xlim = c(-127,-103)) +
   theme(legend.position = 'none') +
