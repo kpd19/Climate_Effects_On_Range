@@ -12,6 +12,8 @@ us_data <- us_data %>% filter(NAME_1%in% c("Washington", "Oregon", "Idaho", "Cal
                                            "New Mexico", "Utah", "Colorado","Montana","Wyoming",
                                            "North Dakota",'South Dakota'))
 
+states <- read_csv("../anthropogenic/data/gridded_states.csv")
+
 all_dataset2 <- read_csv('data/populations_for_cc_proj.csv')
 present_df <- all_dataset2 %>% select(lat,lon,source,present,lat_coord,lon_coord)
 
@@ -20,7 +22,7 @@ cc_proj_all <- read_csv('output/proj_indiv_synth/cc_proj_update_0_lag353535_all.
 proj_summary <- cc_proj_all %>% select(lat_coord,lon_coord,year,PA_pred,model) %>% 
   mutate(prediction = ifelse(PA_pred>=0.325,1,0)) 
 proj_summary <- proj_summary %>% group_by(lat_coord,lon_coord,year,model) %>% 
-  summarize(sum_present = sum(prediction)) %>% mutate(pres = ifelse(sum_present>1,1,0)) %>% 
+  summarize(sum_present = sum(prediction)) %>% mutate(pres = ifelse(sum_present>=1,1,0)) %>% 
   select(-sum_present)
 
 present_summary <- present_df %>% mutate(lat_coord = round(lat/0.25)*0.25,
@@ -47,8 +49,6 @@ proj_summary2 %>% filter(year == 2100,model == 'KACE-1-0-G') %>%
   theme_classic() + 
   facet_wrap(~model)
 
-#write_csv(proj_summary2, 'output/proj_trees_update2/change_update_0_000_trees.csv')
-
 change_df <- proj_summary2 %>% group_by(lat_coord,lon_coord,year) %>% count(change) 
 
 change_df %>% 
@@ -58,7 +58,6 @@ change_df %>%
   facet_grid(~year)
 
 change_df$trees_change <- "No forest change"
-
 
 tc <- 'No forest change'
 
@@ -85,23 +84,25 @@ diffs <- diffs %>% mutate(diff = case_when(change == 'No insects' & n ==10 ~ 'Ab
                                         'Contraction 1-3 models', 'Expansion 1-3 models', 'Expansion 4-6 models',
                                         'Expansion 7-10 models', 'Current range + present 10 models')))
 
-pdf("figures/summaryplt/proj_update_0_353535_nfc_synth.pdf",height = 9, width = 9)
+diffs <- merge(diffs,states, by.x = c('lat_coord', "lon_coord"), by.y = c('lat','lon'), all.x = TRUE)
+diffs <- diffs %>% filter(country != "Mexico")
+
+pdf("figures/summaryplt/proj_update_0_353535_nfc_synth.pdf",height = 10, width = 7.5)
 plt <- ggplot() + geom_tile(data = diffs,aes(x = lon_coord, y = lat_coord, color = diff, fill = diff)) + 
-  theme_classic() + 
-  scale_color_manual('', values = c('Absent + no insects 10 models' = 'grey90', 'Contraction 7-10 models' = '#b2abd2',
+  theme_classic(base_size = 15) + 
+  scale_color_manual('', values = c('Currently absent + absent 10 models' = 'grey95', 'Contraction 7-10 models' = '#b2abd2',
                                     'Contraction 4-6 models' = '#8073ac', 
                                     'Contraction 1-3 models' = '#542788', 'Expansion 1-3 models' = '#fee8c8',
                                     'Expansion 4-6 models' = '#fdbb84',
-                                    'Expansion 7-10 models' = '#ef6548', 'Current range + present 10 models' = '#b30000'))+
-  scale_fill_manual('', values = c('Absent + no insects 10 models' = 'grey90', 'Contraction 7-10 models' = '#b2abd2',
+                                    'Expansion 7-10 models' = '#ef6548', 'Currently present + present 10 models' = '#b30000'))+
+  scale_fill_manual('', values = c('Currently absent + absent 10 models' = 'grey95', 'Contraction 7-10 models' = '#b2abd2',
                                    'Contraction 4-6 models' = '#8073ac', 
                                    'Contraction 1-3 models' = '#542788', 'Expansion 1-3 models' = '#fee8c8',
                                    'Expansion 4-6 models' = '#fdbb84',
-                                   'Expansion 7-10 models' = '#ef6548', 'Current range + present 10 models' = '#b30000')) + 
+                                   'Expansion 7-10 models' = '#ef6548', 'Currently present + present 10 models' = '#b30000')) + 
   xlab("Longitude") + ylab("Latitude") + 
-  theme(legend.position = 'top') 
-plt + geom_sf(data = us_data, aes(geometry = geometry), color = "grey55", fill = NA, size = 0.1) +
-  geom_sf(data = canada_data, aes(geometry = geometry), color = "grey55", fill = NA, size = 0.1) +
-  coord_sf(ylim = c(32,52), xlim = c(-127,-104)) 
-
+  theme(legend.position = 'top')  + 
+  guides(color = guide_legend(nrow = 4))
+plt + geom_sf(data = all_geo2, aes(geometry = geometry), color = "grey35", fill = NA, size = 0.1) +
+  coord_sf(ylim = c(32.5,52), xlim = c(-127,-104.5)) 
 dev.off()
