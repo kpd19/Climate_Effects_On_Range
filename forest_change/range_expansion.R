@@ -147,6 +147,28 @@ pdf(paste0("figures/host_tree_change.pdf"),height = 6, width = 8)
 print(plt_diff)
 dev.off()
 
+nl_long <- nl_long %>% mutate(value = factor(value, levels = c("current range", "expansion", 'contraction', 'absent')))
+
+nl_plt <- ggplot() +
+  geom_tile(data = nl_long[nl_long$period == 2100,],
+            aes(x = lon_coord, y= lat_coord, color = value, fill = value)) + theme_classic(base_size = 15) + 
+  scale_color_manual("", values = c('expansion' = 'blue','contraction' = 'orange','current range' = 'green4','absent' = 'grey75')) +
+  scale_fill_manual("", values = c('expansion' = 'blue','contraction' = 'orange','current range' = 'green4','absent' = 'grey75')) +
+  xlab("Longitude") + ylab("Latitude") 
+
+plt_diff <- nl_plt + geom_sf(data = all_geo2, aes(geometry = geometry), color = "grey25", fill = NA, size = 1) +
+  theme_classic(base_size = 12) +
+  #coord_sf(ylim = c(32,52), xlim = c(-127,-103)) +
+  coord_sf(ylim = c(32,53.325), xlim = c(-128.125,-103.875))+ 
+  #guides(shape = guide_legend(override.aes = list(size = 0.25))) +
+  theme(legend.key.height = unit(0.5, "cm"),
+        legend.location = "plot",
+        legend.position = 'top')
+
+pdf(paste0("../conceptual/figures/ahost_tree_change_2100.pdf"),height = 5, width = 4.3)
+print(plt_diff)
+dev.off()
+
 forest_current_wide <- forest_current_long2 %>% pivot_wider(values_from = present, names_from = tree_sp) %>% 
   mutate(Abies = `Abies amabilis` + `Abies balsamea` + `Abies concolor` + `Abies grandis` + 
            `Abies lasiocarpa` + `Abies magnifica` + `Abies procera`,

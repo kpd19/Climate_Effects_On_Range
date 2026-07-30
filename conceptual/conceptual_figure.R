@@ -18,7 +18,6 @@ var_names <- read_csv("../range_modeling/data/var_names_pa2.csv")
 ann_weather_stats <- read_csv("../range_modeling/data/avg5_weather_1940-2025.csv")
 forest_comp <- read_csv('data/concept_lls2_forestcomp.csv')
 near_needle <- read_csv('data/concept_lls2_modis_5k_nearneedle.csv',guess_max = Inf)
-modis <- read_csv('data/concept_lls2_modis_class.csv')
 biomass <- read_csv('data/concept_lls2_biomass.csv')
 
 dftm_all2 <- st_read('../population_data/data/defoliation_all_1947-2024.shp')
@@ -28,8 +27,6 @@ synthetic <- read_csv("../population_data/data/synthetic_data_habitat.csv")
 synthetic <- synthetic %>% dplyr::select(lat,lon,manual_id,source)
 
 aspect <- read_csv('/Volumes/My Book/QGIS/elevation/concept_aspect2.csv')
-
-#rf_all <- read_csv("/Volumes/My Book/Synchrony/presence/_rfmod2/predicted_presence_all_lags_pref4.csv")
 
 forest_comp <- forest_comp %>% mutate_at(colnames(forest_comp)[c(4:39)], ~replace_na(.,0))
 near_needle <- near_needle %>% mutate_at(colnames(near_needle)[c(3:18)], ~replace_na(.,0))
