@@ -35,6 +35,12 @@ The historical weather data from used in our analyses comes from [ECMWF Reanalys
 * Date of predicted hatch, based on the literature using the sum of degree days above 5.6&deg;C.
 * Summed degree days for the 70 days after the predicted hatch date
 
+## Model fitting and comparison
+
+The script `presence_absence.R` combines the population dataset and synthetic dataset with the habitat features. The population data is split into two categories based on the year the observation occurred, the early time period is from 1990-2005 and the late time period is from 2006-2023. The script uses the population data to categorize each of the synthetic data (pseudo-absence) points based on the distance to the nearest grid cell that has a Douglas-fir tussock moth population for the two time periods, `in` if the synthetic data is in the same grid cell as a population, `near-1` if it is the nearest neighbor to a grid cell with a popualation, `near-2` if it is 2 grid cells away, `near-3` if it is 3 grid cells away, and `out` if it is more than 3 grid cells away. Using the example data points, the graphs in the   `figures` directory, `early_coordinates_example.pdf` and `late_coordinates_example.pdf`, demonstrate this. The data is then split into two datasets for each time period, with the population records as *presences* and the synthetic data as *absences*. 
+
+The script `rf_fit_indiv_hpc.R` and `rf_fit_indiv_hpc_all.R` scripts use the message passing interface (MPI) to parallelize fitting the random forest models, which is designed to operate on a slurm computing cluster.  
+
 ## CMIP6 Climate Projections
 
 The climate change projections come from the [NASA Earth Exchange Global Daily Downscaled Projections](https://www.nccs.nasa.gov/services/data-collections/land-based-products/nex-gddp-cmip6) (NEX-GDDP-CMIP6). The data are provided on a 0.25&deg; latitude x 0.25&deg; longitude array, but the center points are shifted by 0.125 degrees compared to the historical weather data, so we use bilinear interpolation to resample the grids to the same coordinates as the historical weather data. The data is then downsampled from hourly to daily timescales using the `CMIP6_data_cleaning.ipynb` for projections 2030-2100 and the same summary statistics as the historical data are calculated. The weather variables are calculated for each model and time period in the `CC_data_simple.R` script and then aggregated in the `CC_data_agg.R` script. The annual trends in total precipitation, mean temperature, and mean relative humidity are also aggregated and plotted in the `CC_data_agg.R` script. The .pdf of this summary is in the `figures` directory. 
@@ -45,22 +51,21 @@ To make projections under climate change, we used a ensemble of 10 models from t
 * Medium sensitivity (3-4.5&deg;C) GFDL-ESM4, EC-Earth3-Veg-LR, KACE-1-0-G, ACCESS-ESM1-5
 * High sensitivity (4.5-6&deg;C) CNRM-ESM2-1 f2, HadGEM3-GC31-MM-f3, CANESM5 p1
 
-## Model fitting and comparison
-
-The script `presence_absence.R` combines the population dataset and synthetic dataset with the habitat features. The population data is split into two categories based on the year the observation occurred, the early time period is from 1990-2005 and the late time period is from 2006-2023. The script uses the population data to categorize each of the synthetic data (pseudo-absence) points based on the distance to the nearest grid cell that has a Douglas-fir tussock moth population for the two time periods, `in` if the synthetic data is in the same grid cell as a population, `near-1` if it is the nearest neighbor to a grid cell with a popualation, `near-2` if it is 2 grid cells away, `near-3` if it is 3 grid cells away, and `out` if it is more than 3 grid cells away. Using the example data points, the graphs in the   `figures` directory, `early_coordinates_example.pdf` and `late_coordinates_example.pdf`, demonstrate this. The data is then split into two datasets for each time period, with the population records as *presences* and the synthetic data as *absences*. 
-
-The script `rf_fit_indiv_hpc.R` and `rf_fit_indiv_hpc_all.R` scripts use the message passing interface (MPI) to parallelize fitting the random forest models, which is designed to operate on a slurm computing cluster.  
-
 ## Making projections under climate change
+
+
 
 ## Making projections under forest composition change
 
-To incorporate the potential changes in forest composition, we downloaded 2050 and 2100 range projections under the Hadley A1F1 Climate Scenario for species in the genera *Abies* and *Pseudotsuga* from the ForeCASTS project, available [here](https://www.geobabble.org/ForeCASTS/atlas.html). The script `forest_change.R` iteratively loops through each species and time period to extract the presence and absence within 3km of each location in our dataset. Each file takes approximately 10 minutes to run. The `range_expansion` script creates a dataset with the presences and absences for historical range, projections for 2050 and projections for 2100 and plots the current range, expansion, and contrations. An example of this map is in the `figures` directory for *Pseudotusga menziesii* (Douglas-fir). The script also creates a range change map for all host tree species combined. Because the projections include changes in forest composition with no modeled biomass, there are populations that have host trees in the future with no current non-zero biomass estimates. For these populations, we used the average biomass from the 10 closests populations with host trees present in the historical datasets, which is computed in `biomass_estimation.R`. 
+To incorporate the potential changes in forest composition, we downloaded 2050 and 2100 range projections under the Hadley A1F1 Climate Scenario for species in the genera *Abies* and *Pseudotsuga* from the ForeCASTS project, available [here](https://www.geobabble.org/ForeCASTS/atlas.html). The script `forest_change.R` iteratively loops through each species and time period to extract the presence and absence within 3km of each location in our dataset. Each file takes approximately 10 minutes to run. The `range_expansion.R` script creates a dataset with the presences and absences for historical range, projections for 2050 and projections for 2100 and plots the current range, expansion, and contrations. An example of this map is in the `figures` directory for *Pseudotusga menziesii* (Douglas-fir). The graphs for changes in host tree distributions (${\color{DarkOrchid}{\textbf{Figure 2E in the Main Text and Supplementary Figure 29}}}$) are created in the `range_expansion.R` script. 
+
+Because the projections include changes in forest composition with no modeled biomass, there are populations that have host trees in the future with no current non-zero biomass estimates. For these populations, we used the average biomass from the 10 closests populations with host trees present in the historical datasets, which is computed in `biomass_estimation.R`. 
+
+The projections using the changes in host tree distributions are performed in the `project_rf_indiv_forest_synth.R` script in the `projections` directory. 
 
 ## Conceptual Figures 
 
-The scripts to create the conceptual figures in the manuscript are found in the `conceptual` directory. The script `conceptual_figure.R` creates the maps ${\color{DarkOrchid}{\textbf{Figure 1 in the Main Text}}}$. in  `The script `concept_lag.R` creates the figure describing how the 5-year weather averages are used for ${\color{DarkOrchid}{\textbf{Figure 2B in the Main Text}}}$.  
-
+The scripts to create the conceptual figures in the manuscript are found in the `conceptual` directory. The script `conceptual_figure.R` creates the maps ${\color{DarkOrchid}{\textbf{Figure 1 in the Main Text}}}$. The script `conceptual_maps.R` script creates the maps ${\color{DarkOrchid}{\textbf{Figure 2A in the Main Text}}}$.  The script `concept_lag.R` creates the figure describing how the 5-year weather averages are used for ${\color{DarkOrchid}{\textbf{Figure 2B in the Main Text}}}$.  
 
 
 ## Outbreak size
