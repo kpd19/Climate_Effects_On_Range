@@ -1,6 +1,6 @@
 # Summary
 
-This library contains code used in the manuscript titled Climate Effects of Range of the Douglas-fir Tussock Moth. This paper uses field and citizen science collected data to explore the effects of habitat and weather features on the range of populations of the Douglas-fir tussock moth. The model and analysis are implemented in R and Python. 
+This library contains code used in the manuscript titled Climate Change is Projected to Expand the Range and Outbreak Severity of an Important Forest Pest. This paper uses field and citizen science collected data to explore the effects of habitat and weather features on the range of populations of the Douglas-fir tussock moth. The model and analysis are implemented in R and Python. 
 
 ## Requirements and Setup
 
@@ -56,6 +56,12 @@ The script `rf_fit_indiv_hpc.R` and `rf_fit_indiv_hpc_all.R` scripts use the mes
 ## Making projections under forest composition change
 
 To incorporate the potential changes in forest composition, we downloaded 2050 and 2100 range projections under the Hadley A1F1 Climate Scenario for species in the genera *Abies* and *Pseudotsuga* from the ForeCASTS project, available [here](https://www.geobabble.org/ForeCASTS/atlas.html). The script `forest_change.R` iteratively loops through each species and time period to extract the presence and absence within 3km of each location in our dataset. Each file takes approximately 10 minutes to run. The `range_expansion` script creates a dataset with the presences and absences for historical range, projections for 2050 and projections for 2100 and plots the current range, expansion, and contrations. An example of this map is in the `figures` directory for *Pseudotusga menziesii* (Douglas-fir). The script also creates a range change map for all host tree species combined. Because the projections include changes in forest composition with no modeled biomass, there are populations that have host trees in the future with no current non-zero biomass estimates. For these populations, we used the average biomass from the 10 closests populations with host trees present in the historical datasets, which is computed in `biomass_estimation.R`. 
+
+## Conceptual Figures 
+
+The scripts to create the conceptual figures in the manuscript are found in the `conceptual` directory. The script `conceptual_figure.R` creates the maps ${\color{DarkOrchid}{\textbf{Figure 1 in the Main Text}}}$. in  `The script `concept_lag.R` creates the figure describing how the 5-year weather averages are used for ${\color{DarkOrchid}{\textbf{Figure 2B in the Main Text}}}$.  
+
+
 
 ## Outbreak size
 
