@@ -3,8 +3,6 @@ library(gridExtra)
 library(sf)
 library(scico)
 
-setwd("/Users/katherinedixon/Documents/StuffINeed/_Research/Climate_Range/projection/")
-
 `%ni` <- Negate(`%in%`)
 
 all_geo2 <- st_read("../landscape/gadm/all_geo2.shp")
