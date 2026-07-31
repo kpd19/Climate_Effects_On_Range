@@ -90,7 +90,7 @@ dev.off()
 # Comparing histograms of outcomes
 ###################
 
-train_35_update <- read_csv("data/training_update_0_lag353535_periods.csv")
+train_35_update <- read_csv("data/data_for_histograms.csv")
 both_avg <- read_csv("data/compare_four_avg_rank.csv")
 
 both_avg <- both_avg %>% arrange(mean_rank)
