@@ -1,0 +1,169 @@
+variables,name,category,type,Use,mean_rank,score,score2
+Tropical or sub-tropical broadleaf evergreen forest,% Broadleaf evergreen forest,land cover type,numeric,1,51,Averaged,56
+Sub-polar taiga needleleaf forest,% Taiga needleleaf forest,land cover type,numeric,1,50,Averaged,55
+Sub-polar or polar shrubland-lichen-moss,% Shrubland-lichen-moss,land cover type,numeric,1,49,Averaged,54
+Sub-polar or polar barren-lichen-moss,% Barren-lichen-moss,land cover type,numeric,1,47.875,Averaged,53
+Tropical or sub-tropical grassland,% Tropical grassland,land cover type,numeric,1,46.25,Averaged,52
+Abies procera,Noble fir present,tree species,binary,1,44.75,Averaged,51
+Sub-polar or polar grassland-lichen-moss,% Grassland-lichen-moss,land cover type,numeric,1,44.25,Averaged,50
+No data,% No data,land cover type,numeric,1,43.25,Averaged,49
+Abies balsamea,Balsam fir present,tree species,binary,1,43,Averaged,48
+Tropical or sub-tropical shrubland,% Tropical shrubland,land cover type,numeric,1,43,Averaged,47
+Abies magnifica,Ref fir present,tree species,binary,1,41.375,Averaged,46
+Abies amabilis,Pacific silver fir present,tree species,binary,1,39.5,Averaged,45
+Snow and Ice,% Snow and Ice,land cover type,numeric,1,37.375,Averaged,44
+Wetland,% Wetland,land cover type,numeric,1,35.875,Averaged,43
+Abies_pres,Abies genus present,tree species,binary,1,33.625,Averaged,42
+Barren Lands,% Barren Lands,land cover type,numeric,1,33.125,Averaged,41
+Urban and Built-up,% Urban and Built-up,land cover type,numeric,1,33,Averaged,40
+Abies concolor,White fir present,tree species,binary,1,32.125,Averaged,39
+Abies grandis,Grand fir present,tree species,binary,1,31.875,Averaged,38
+Abies lasiocarpa,Subalpine fir present,tree species,binary,1,31.875,Averaged,37
+Cropland,% Cropland,land cover type,numeric,1,29.875,Averaged,36
+Water,% Water,land cover type,numeric,1,29.125,Averaged,35
+aspect2,Solar aspect (binned),geographic,categorical,1,28.625,Averaged,34
+near_needle,Near needleleaf forest,land cover type,binary,1,28.5,Averaged,33
+Mixed Forest,% Mixed Forest,land cover type,numeric,1,27.75,Averaged,32
+max_t2m_lag,Max Avg Temp- lag,climatic variable- lag,numeric,1,25.75,Averaged,31
+Pseudotsuga_pres,Pseudotsuga genus present,tree species,binary,1,24.125,Averaged,30
+julian_lag,Predicted hatch- lag,climatic variable- lag,numeric,1,24,Averaged,29
+max_tp_lag,Max Precipitation- lag,climatic variable- lag,numeric,1,22.5,Averaged,28
+Temperate or sub-polar grassland,% Temperate grassland,land cover type,numeric,1,21.625,Averaged,27
+max_tp,Max Precipitation,climatic variable,numeric,1,21.625,Averaged,26
+gdd_season_lag,Season degree days- lag,climatic variable- lag,numeric,1,21.5,Averaged,25
+min_t2m_lag,Min Avg Temp- lag,climatic variable- lag,numeric,1,21,Averaged,24
+Temperate or sub-polar broadleaf deciduous forest,% Broadleaf deciduous forest,land cover type,numeric,1,19.875,Averaged,23
+gdd_season,Season degree days,climatic variable,numeric,1,18.875,Averaged,22
+max_t2m,Max Avg Temp,climatic variable,numeric,1,17.375,Averaged,21
+julian,Predicted hatch,climatic variable,numeric,1,17.125,Averaged,20
+sum_tp,Annual Precipitation,climatic variable,numeric,1,16.625,Averaged,19
+slope,Slope,geographic,numeric,1,15.5,Averaged,18
+coldest_lag,Coldest Temperature- lag,climatic variable- lag,numeric,1,14.75,Averaged,17
+min_rh_lag,Min Avg %RH- lag,climatic variable- lag,numeric,1,14.75,Averaged,16
+min_tp_lag,Min Precipitation- lag,climatic variable- lag,numeric,1,14.75,Averaged,15
+max_rh_lag,Max Avg %RH- lag,climatic variable- lag,numeric,1,14.5,Averaged,14
+min_t2m,Min Avg Temp,climatic variable,numeric,1,14.375,Averaged,13
+host_trees,Host trees present,tree species,binary,1,14.25,Averaged,12
+max_rh,Max Avg %RH,climatic variable,numeric,1,13.75,Averaged,11
+mean_biomass,Mean biomass,biomass,numeric,1,12.375,Averaged,10
+Temperate or sub-polar shrubland,% Temperate shrubland,land cover type,numeric,1,11.375,Averaged,9
+min_rh,Min Avg %RH,climatic variable,numeric,1,11.125,Averaged,8
+sum_tp_lag,Annual Precipitation- lag,climatic variable- lag,numeric,1,11,Averaged,7
+coldest,Coldest Temperature,climatic variable,numeric,1,10.125,Averaged,6
+Temperate or sub-polar needleleaf forest,% Temperate needleleaf forest,land cover type,numeric,1,9.875,Averaged,5
+min_tp,Min Precipitation,climatic variable,numeric,1,7.125,Averaged,4
+max_biomass,Max biomass,biomass,numeric,1,5.375,Averaged,3
+elev2,Elevation,geographic,numeric,1,5,Averaged,2
+mean_cover,Average forest cover,biomass,numeric,1,2.75,Averaged,1
+Abies amabilis,Pacific silver fir present,tree species,binary,1,39.25,Accuracy,43
+Abies balsamea,Balsam fir present,tree species,binary,1,42,Accuracy,47
+Abies concolor,White fir present,tree species,binary,1,32.75,Accuracy,38
+Abies grandis,Grand fir present,tree species,binary,1,36.5,Accuracy,41
+Abies lasiocarpa,Subalpine fir present,tree species,binary,1,32.5,Accuracy,37
+Abies magnifica,Ref fir present,tree species,binary,1,40.75,Accuracy,45
+Abies procera,Noble fir present,tree species,binary,1,44.5,Accuracy,51
+Abies_pres,Abies genus present,tree species,binary,1,39.5,Accuracy,44
+aspect2,Solar aspect (binned),geographic,categorical,1,21,Accuracy,25
+Barren Lands,% Barren Lands,land cover type,numeric,1,30,Accuracy,34
+coldest,Coldest Temperature,climatic variable,numeric,1,5,Accuracy,5
+coldest_lag,Coldest Temperature- lag,climatic variable- lag,numeric,1,7,Accuracy,7
+Cropland,% Cropland,land cover type,numeric,1,26.5,Accuracy,29
+elev2,Elevation,geographic,numeric,1,1,Accuracy,1
+gdd_season,Season degree days,climatic variable,numeric,1,27,Accuracy,31
+gdd_season_lag,Season degree days- lag,climatic variable- lag,numeric,1,30.5,Accuracy,35
+host_trees,Host trees present,tree species,binary,1,27,Accuracy,30
+julian,Predicted hatch,climatic variable,numeric,1,16.25,Accuracy,19
+julian_lag,Predicted hatch- lag,climatic variable- lag,numeric,1,22,Accuracy,26
+max_biomass,Max biomass,biomass,numeric,1,8.25,Accuracy,8
+max_rh,Max Avg %RH,climatic variable,numeric,1,12,Accuracy,13
+max_rh_lag,Max Avg %RH- lag,climatic variable- lag,numeric,1,11,Accuracy,11
+max_t2m,Max Avg Temp,climatic variable,numeric,1,23.25,Accuracy,27
+max_t2m_lag,Max Avg Temp- lag,climatic variable- lag,numeric,1,31.5,Accuracy,36
+max_tp,Max Precipitation,climatic variable,numeric,1,19.25,Accuracy,22
+max_tp_lag,Max Precipitation- lag,climatic variable- lag,numeric,1,20,Accuracy,23
+mean_biomass,Mean biomass,biomass,numeric,1,20.75,Accuracy,24
+mean_cover,Average forest cover,biomass,numeric,1,3.5,Accuracy,2
+min_rh,Min Avg %RH,climatic variable,numeric,1,14.75,Accuracy,15
+min_rh_lag,Min Avg %RH- lag,climatic variable- lag,numeric,1,16,Accuracy,18
+min_t2m,Min Avg Temp,climatic variable,numeric,1,10.25,Accuracy,10
+min_t2m_lag,Min Avg Temp- lag,climatic variable- lag,numeric,1,17.5,Accuracy,20
+min_tp,Min Precipitation,climatic variable,numeric,1,5.25,Accuracy,6
+min_tp_lag,Min Precipitation- lag,climatic variable- lag,numeric,1,8.5,Accuracy,9
+Mixed Forest,% Mixed Forest,land cover type,numeric,1,30,Accuracy,33
+near_needle,Near needleleaf forest,land cover type,binary,1,41.5,Accuracy,46
+No data,% No data,land cover type,numeric,1,43,Accuracy,49
+Pseudotsuga_pres,Pseudotsuga genus present,tree species,binary,1,33.5,Accuracy,40
+slope,Slope,geographic,numeric,1,4.75,Accuracy,4
+Snow and Ice,% Snow and Ice,land cover type,numeric,1,37.75,Accuracy,42
+Sub-polar or polar barren-lichen-moss,% Barren-lichen-moss,land cover type,numeric,1,47.75,Accuracy,53
+Sub-polar or polar grassland-lichen-moss,% Grassland-lichen-moss,land cover type,numeric,1,44.5,Accuracy,50
+Sub-polar or polar shrubland-lichen-moss,% Shrubland-lichen-moss,land cover type,numeric,1,49,Accuracy,54
+Sub-polar taiga needleleaf forest,% Taiga needleleaf forest,land cover type,numeric,1,50,Accuracy,55
+sum_tp,Annual Precipitation,climatic variable,numeric,1,18.75,Accuracy,21
+sum_tp_lag,Annual Precipitation- lag,climatic variable- lag,numeric,1,16,Accuracy,17
+Temperate or sub-polar broadleaf deciduous forest,% Broadleaf deciduous forest,land cover type,numeric,1,11.5,Accuracy,12
+Temperate or sub-polar grassland,% Temperate grassland,land cover type,numeric,1,13,Accuracy,14
+Temperate or sub-polar needleleaf forest,% Temperate needleleaf forest,land cover type,numeric,1,14.75,Accuracy,16
+Temperate or sub-polar shrubland,% Temperate shrubland,land cover type,numeric,1,3.5,Accuracy,3
+Tropical or sub-tropical broadleaf evergreen forest,% Broadleaf evergreen forest,land cover type,numeric,1,51,Accuracy,56
+Tropical or sub-tropical grassland,% Tropical grassland,land cover type,numeric,1,46,Accuracy,52
+Tropical or sub-tropical shrubland,% Tropical shrubland,land cover type,numeric,1,43,Accuracy,48
+Urban and Built-up,% Urban and Built-up,land cover type,numeric,1,29.5,Accuracy,32
+Water,% Water,land cover type,numeric,1,23.5,Accuracy,28
+Wetland,% Wetland,land cover type,numeric,1,33.5,Accuracy,39
+Abies amabilis,Pacific silver fir present,tree species,binary,1,39.75,Gini,45
+Abies balsamea,Balsam fir present,tree species,binary,1,44,Gini,50
+Abies concolor,White fir present,tree species,binary,1,31.5,Gini,37
+Abies grandis,Grand fir present,tree species,binary,1,27.25,Gini,32
+Abies lasiocarpa,Subalpine fir present,tree species,binary,1,31.25,Gini,36
+Abies magnifica,Ref fir present,tree species,binary,1,42,Gini,46
+Abies procera,Noble fir present,tree species,binary,1,45,Gini,51
+Abies_pres,Abies genus present,tree species,binary,1,27.75,Gini,33
+aspect2,Solar aspect (binned),geographic,categorical,1,36.25,Gini,40
+Barren Lands,% Barren Lands,land cover type,numeric,1,36.25,Gini,41
+coldest,Coldest Temperature,climatic variable,numeric,1,15.25,Gini,16
+coldest_lag,Coldest Temperature- lag,climatic variable- lag,numeric,1,22.5,Gini,25
+Cropland,% Cropland,land cover type,numeric,1,33.25,Gini,38
+elev2,Elevation,geographic,numeric,1,9,Gini,9
+gdd_season,Season degree days,climatic variable,numeric,1,10.75,Gini,10
+gdd_season_lag,Season degree days- lag,climatic variable- lag,numeric,1,12.5,Gini,12
+host_trees,Host trees present,tree species,binary,1,1.5,Gini,1
+julian,Predicted hatch,climatic variable,numeric,1,18,Gini,20
+julian_lag,Predicted hatch- lag,climatic variable- lag,numeric,1,26,Gini,30
+max_biomass,Max biomass,biomass,numeric,1,2.5,Gini,3
+max_rh,Max Avg %RH,climatic variable,numeric,1,15.5,Gini,18
+max_rh_lag,Max Avg %RH- lag,climatic variable- lag,numeric,1,18,Gini,19
+max_t2m,Max Avg Temp,climatic variable,numeric,1,11.5,Gini,11
+max_t2m_lag,Max Avg Temp- lag,climatic variable- lag,numeric,1,20,Gini,23
+max_tp,Max Precipitation,climatic variable,numeric,1,24,Gini,26
+max_tp_lag,Max Precipitation- lag,climatic variable- lag,numeric,1,25,Gini,28
+mean_biomass,Mean biomass,biomass,numeric,1,4,Gini,4
+mean_cover,Average forest cover,biomass,numeric,1,2,Gini,2
+min_rh,Min Avg %RH,climatic variable,numeric,1,7.5,Gini,7
+min_rh_lag,Min Avg %RH- lag,climatic variable- lag,numeric,1,13.5,Gini,13
+min_t2m,Min Avg Temp,climatic variable,numeric,1,18.5,Gini,21
+min_t2m_lag,Min Avg Temp- lag,climatic variable- lag,numeric,1,24.5,Gini,27
+min_tp,Min Precipitation,climatic variable,numeric,1,9,Gini,8
+min_tp_lag,Min Precipitation- lag,climatic variable- lag,numeric,1,21,Gini,24
+Mixed Forest,% Mixed Forest,land cover type,numeric,1,25.5,Gini,29
+near_needle,Near needleleaf forest,land cover type,binary,1,15.5,Gini,17
+No data,% No data,land cover type,numeric,1,43.5,Gini,48
+Pseudotsuga_pres,Pseudotsuga genus present,tree species,binary,1,14.75,Gini,15
+slope,Slope,geographic,numeric,1,26.25,Gini,31
+Snow and Ice,% Snow and Ice,land cover type,numeric,1,37,Gini,43
+Sub-polar or polar barren-lichen-moss,% Barren-lichen-moss,land cover type,numeric,1,48,Gini,53
+Sub-polar or polar grassland-lichen-moss,% Grassland-lichen-moss,land cover type,numeric,1,44,Gini,49
+Sub-polar or polar shrubland-lichen-moss,% Shrubland-lichen-moss,land cover type,numeric,1,49,Gini,54
+Sub-polar taiga needleleaf forest,% Taiga needleleaf forest,land cover type,numeric,1,50,Gini,55
+sum_tp,Annual Precipitation,climatic variable,numeric,1,14.5,Gini,14
+sum_tp_lag,Annual Precipitation- lag,climatic variable- lag,numeric,1,6,Gini,6
+Temperate or sub-polar broadleaf deciduous forest,% Broadleaf deciduous forest,land cover type,numeric,1,28.25,Gini,34
+Temperate or sub-polar grassland,% Temperate grassland,land cover type,numeric,1,30.25,Gini,35
+Temperate or sub-polar needleleaf forest,% Temperate needleleaf forest,land cover type,numeric,1,5,Gini,5
+Temperate or sub-polar shrubland,% Temperate shrubland,land cover type,numeric,1,19.25,Gini,22
+Tropical or sub-tropical broadleaf evergreen forest,% Broadleaf evergreen forest,land cover type,numeric,1,51,Gini,56
+Tropical or sub-tropical grassland,% Tropical grassland,land cover type,numeric,1,46.5,Gini,52
+Tropical or sub-tropical shrubland,% Tropical shrubland,land cover type,numeric,1,43,Gini,47
+Urban and Built-up,% Urban and Built-up,land cover type,numeric,1,36.5,Gini,42
+Water,% Water,land cover type,numeric,1,34.75,Gini,39
+Wetland,% Wetland,land cover type,numeric,1,38.25,Gini,44

@@ -1,0 +1,57 @@
+variables,name,category,type,Use,mean_rank,score,score2
+Tropical or sub-tropical broadleaf evergreen forest,% Broadleaf evergreen forest,land cover type,numeric,1,51,Averaged,56
+Sub-polar taiga needleleaf forest,% Taiga needleleaf forest,land cover type,numeric,1,50,Averaged,55
+Sub-polar or polar shrubland-lichen-moss,% Shrubland-lichen-moss,land cover type,numeric,1,49,Averaged,54
+Sub-polar or polar barren-lichen-moss,% Barren-lichen-moss,land cover type,numeric,1,47.875,Averaged,53
+Tropical or sub-tropical grassland,% Tropical grassland,land cover type,numeric,1,46.25,Averaged,52
+Abies procera,Noble fir present,tree species,binary,1,44.75,Averaged,51
+Sub-polar or polar grassland-lichen-moss,% Grassland-lichen-moss,land cover type,numeric,1,44.25,Averaged,50
+No data,% No data,land cover type,numeric,1,43.25,Averaged,49
+Abies balsamea,Balsam fir present,tree species,binary,1,43,Averaged,48
+Tropical or sub-tropical shrubland,% Tropical shrubland,land cover type,numeric,1,43,Averaged,47
+Abies magnifica,Ref fir present,tree species,binary,1,41.375,Averaged,46
+Abies amabilis,Pacific silver fir present,tree species,binary,1,39.5,Averaged,45
+Snow and Ice,% Snow and Ice,land cover type,numeric,1,37.375,Averaged,44
+Wetland,% Wetland,land cover type,numeric,1,35.875,Averaged,43
+Abies_pres,Abies genus present,tree species,binary,1,33.625,Averaged,42
+Barren Lands,% Barren Lands,land cover type,numeric,1,33.125,Averaged,41
+Urban and Built-up,% Urban and Built-up,land cover type,numeric,1,33,Averaged,40
+Abies concolor,White fir present,tree species,binary,1,32.125,Averaged,39
+Abies grandis,Grand fir present,tree species,binary,1,31.875,Averaged,38
+Abies lasiocarpa,Subalpine fir present,tree species,binary,1,31.875,Averaged,37
+Cropland,% Cropland,land cover type,numeric,1,29.875,Averaged,36
+Water,% Water,land cover type,numeric,1,29.125,Averaged,35
+aspect2,Solar aspect (binned),geographic,categorical,1,28.625,Averaged,34
+near_needle,Near needleleaf forest,land cover type,binary,1,28.5,Averaged,33
+Mixed Forest,% Mixed Forest,land cover type,numeric,1,27.75,Averaged,32
+max_t2m_lag,Max Avg Temp- lag,climatic variable- lag,numeric,1,25.75,Averaged,31
+Pseudotsuga_pres,Pseudotsuga genus present,tree species,binary,1,24.125,Averaged,30
+julian_lag,Predicted hatch- lag,climatic variable- lag,numeric,1,24,Averaged,29
+max_tp_lag,Max Precipitation- lag,climatic variable- lag,numeric,1,22.5,Averaged,28
+Temperate or sub-polar grassland,% Temperate grassland,land cover type,numeric,1,21.625,Averaged,27
+max_tp,Max Precipitation,climatic variable,numeric,1,21.625,Averaged,26
+gdd_season_lag,Season degree days- lag,climatic variable- lag,numeric,1,21.5,Averaged,25
+min_t2m_lag,Min Avg Temp- lag,climatic variable- lag,numeric,1,21,Averaged,24
+Temperate or sub-polar broadleaf deciduous forest,% Broadleaf deciduous forest,land cover type,numeric,1,19.875,Averaged,23
+gdd_season,Season degree days,climatic variable,numeric,1,18.875,Averaged,22
+max_t2m,Max Avg Temp,climatic variable,numeric,1,17.375,Averaged,21
+julian,Predicted hatch,climatic variable,numeric,1,17.125,Averaged,20
+sum_tp,Annual Precipitation,climatic variable,numeric,1,16.625,Averaged,19
+slope,Slope,geographic,numeric,1,15.5,Averaged,18
+coldest_lag,Coldest Temperature- lag,climatic variable- lag,numeric,1,14.75,Averaged,17
+min_rh_lag,Min Avg %RH- lag,climatic variable- lag,numeric,1,14.75,Averaged,16
+min_tp_lag,Min Precipitation- lag,climatic variable- lag,numeric,1,14.75,Averaged,15
+max_rh_lag,Max Avg %RH- lag,climatic variable- lag,numeric,1,14.5,Averaged,14
+min_t2m,Min Avg Temp,climatic variable,numeric,1,14.375,Averaged,13
+host_trees,Host trees present,tree species,binary,1,14.25,Averaged,12
+max_rh,Max Avg %RH,climatic variable,numeric,1,13.75,Averaged,11
+mean_biomass,Mean biomass,biomass,numeric,1,12.375,Averaged,10
+Temperate or sub-polar shrubland,% Temperate shrubland,land cover type,numeric,1,11.375,Averaged,9
+min_rh,Min Avg %RH,climatic variable,numeric,1,11.125,Averaged,8
+sum_tp_lag,Annual Precipitation- lag,climatic variable- lag,numeric,1,11,Averaged,7
+coldest,Coldest Temperature,climatic variable,numeric,1,10.125,Averaged,6
+Temperate or sub-polar needleleaf forest,% Temperate needleleaf forest,land cover type,numeric,1,9.875,Averaged,5
+min_tp,Min Precipitation,climatic variable,numeric,1,7.125,Averaged,4
+max_biomass,Max biomass,biomass,numeric,1,5.375,Averaged,3
+elev2,Elevation,geographic,numeric,1,5,Averaged,2
+mean_cover,Average forest cover,biomass,numeric,1,2.75,Averaged,1
