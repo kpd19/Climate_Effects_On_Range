@@ -51,9 +51,7 @@ To make projections under climate change, we used a ensemble of 10 models from t
 * Medium sensitivity (3-4.5&deg;C) GFDL-ESM4, EC-Earth3-Veg-LR, KACE-1-0-G, ACCESS-ESM1-5
 * High sensitivity (4.5-6&deg;C) CNRM-ESM2-1 f2, HadGEM3-GC31-MM-f3, CANESM5 p1
 
-## Making projections under climate change
-
-
+The script `project_rf_indiv_synthetic.R` in the `projections` directory makes projections of the range of the Douglas-fir tussock moth under climate change for the 10 model ensemble. In the script, the plots for  ${\color{DarkOrchid}{\textbf{Supplementary Figures 24-28}}}$ are generated. 
 
 ## Making projections under forest composition change
 
@@ -61,11 +59,15 @@ To incorporate the potential changes in forest composition, we downloaded 2050 a
 
 Because the projections include changes in forest composition with no modeled biomass, there are populations that have host trees in the future with no current non-zero biomass estimates. For these populations, we used the average biomass from the 10 closests populations with host trees present in the historical datasets, which is computed in `biomass_estimation.R`. 
 
-The projections using the changes in host tree distributions are performed in the `project_rf_indiv_forest_synth.R` script in the `projections` directory. 
+The projections using the changes in host tree distributions are performed in the `project_rf_indiv_forest_synth.R` script in the `projections` directory. The script also generates the maps showing the effect of including forest distribution changes on the projections under climate chance seen in ${\color{DarkOrchid}{\textbf{Supplementary Figure 30}}}$.
+
+## Douglas-fir tussock moth range impacts
+
+The `aboveground_biomass_trees.R` script in the `projection` directory summarizes the aboveground biomass and acres of forest for Douglas-fir and species in the *Abies* genus that was calculated in QGIS.The `summary_agb_synth.R` script uses the historical dataset and predictions of the insect's range under climate change to calculate the total aboveground biomass and acres of host tree forests at risk of Douglas-fir tussock moth defoliation. This script generates the output for ${\color{DarkOrchid}{\textbf{Figures 5B and 5C in the Main Text and Supplementary Figures 31 and 32}}}$.
 
 ## Conceptual Figures 
 
-The scripts to create the conceptual figures in the manuscript are found in the `conceptual` directory. The script `conceptual_figure.R` creates the maps ${\color{DarkOrchid}{\textbf{Figure 1 in the Main Text}}}$. The script `conceptual_maps.R` script creates the maps ${\color{DarkOrchid}{\textbf{Figure 2A in the Main Text}}}$.  The script `concept_lag.R` creates the figure describing how the 5-year weather averages are used for ${\color{DarkOrchid}{\textbf{Figure 2B in the Main Text}}}$.  
+The scripts to create the conceptual figures in the manuscript are found in the `conceptual` directory. The script `conceptual_figure.R` creates the maps ${\color{DarkOrchid}{\textbf{Figure 1 in the Main Text}}}$. The script `conceptual_maps.R` script creates the maps ${\color{DarkOrchid}{\textbf{Figure 2A in the Main Text}}}$.  The script `concept_lag.R` creates the figure describing how the 5-year weather averages are used for ${\color{DarkOrchid}{\textbf{Figure 2B in the Main Text}}}$. The script `conceptual_climate.R` creates the graphs for ${\color{DarkOrchid}{\textbf{Supplementary Figures 2 and 23}}}$.
 
 
 ## Outbreak size
