@@ -35,11 +35,17 @@ The historical weather data from used in our analyses comes from [ECMWF Reanalys
 * Date of predicted hatch, based on the literature using the sum of degree days above 5.6&deg;C.
 * Summed degree days for the 70 days after the predicted hatch date
 
-## Model fitting and comparison
+## Model fitting
 
 The script `presence_absence.R` combines the population dataset and synthetic dataset with the habitat features. The population data is split into two categories based on the year the observation occurred, the early time period is from 1990-2005 and the late time period is from 2006-2023. The script uses the population data to categorize each of the synthetic data (pseudo-absence) points based on the distance to the nearest grid cell that has a Douglas-fir tussock moth population for the two time periods, `in` if the synthetic data is in the same grid cell as a population, `near-1` if it is the nearest neighbor to a grid cell with a popualation, `near-2` if it is 2 grid cells away, `near-3` if it is 3 grid cells away, and `out` if it is more than 3 grid cells away. Using the example data points, the graphs in the   `figures` directory, `early_coordinates_example.pdf` and `late_coordinates_example.pdf`, demonstrate this. The data is then split into two datasets for each time period, with the population records as *presences* and the synthetic data as *absences*. 
 
 The script `rf_fit_indiv_hpc.R` and `rf_fit_indiv_hpc_all.R` scripts use the message passing interface (MPI) to parallelize fitting the random forest models, which is designed to operate on a slurm computing cluster.  The `fitting_functions.R` script contains the functions used to analyze the fit of the random forest models. the `get_split_pds.R` script loads the random forest model and calculates the partial dependence invidually for present and absent observations, which is also written to parallel process the data using MPI. 
+
+The `plot_rf_output.R` script plots the outcomes for the training and testing datasets across space, which is seen in  ${\color{DarkOrchid}{\textbf{Supplementary Figures 6-7 and 12-13}}}$.
+
+## Model comparison
+
+
 
 ## CMIP6 Climate Projections
 
