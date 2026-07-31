@@ -10,7 +10,9 @@ The code was built using R version 4.3.2 and Python version 3.10.12. R can be do
 
 The population data comes from several sources collected by forest managers, lab collections, and citizen science projects. The `inaturalist.R` script in the `population_data` directory aggregates the citizen science data from iNaturalist as well as lab collections collected by past and present members of the Dwyer Lab at the University of Chicago. The `defoliation.R` script in the directory aggreates the defoliation data, which was downloaded from the [Annual Insect & Disease Detection Survey Database](https://www.fs.usda.gov/science-technology/data-tools-products/fhp-mapping-reporting/detection-surveys). To deal with defoliation polygons varying in size, we spatially aggregating defoliation polygons within the same year. Next, for polygons greater than or equal to 9 square kilometers, we split each polygon into sub-polygons with an average size of 3 square kilometers. Finally, we took the centroid of each polygon to use in our analyses. 
 
-We used synthetic data as *pseudo-absences* in our model, which are generated in `pseudo_absences.R`. We used the 0.25&deg; latitude x 0.25&deg; longitude grids from the weather data (described below) to randomly sample 5 population points in each grid square. The randomly sampled psuedo-absence data and population records are aggreaged in `combine_sources.R`. 
+We used synthetic data as *pseudo-absences* in our model, which are generated in `pseudo_absences.R`. We used the 0.25&deg; latitude x 0.25&deg; longitude grids from the weather data (described below) to randomly sample 5 population points in each grid square. The randomly sampled psuedo-absence data and population records are aggreaged in `combine_sources.R` and the code to generate ${\color{DarkOrchid}{\textbf{Supplementary Figure 1}}}$. 
+
+The script `elevation_diff.R` calculates the differences in elevation and latitude that observations occured at between period one and period two of the population dataset, which can be seen in ${\color{DarkOrchid}{\textbf{Figure 3 and Supplementary Figures 4}}}$. The script `distances_diff.R` calculates the minimum distance between populations observed in period two only to populations observed in period one and produces the graph for ${\color{DarkOrchid}{\textbf{Supplementary Figures 3}}}$. 
 
 ## Habitat features
 
@@ -41,11 +43,11 @@ The script `presence_absence.R` combines the population dataset and synthetic da
 
 The script `rf_fit_indiv_hpc.R` and `rf_fit_indiv_hpc_all.R` scripts use the message passing interface (MPI) to parallelize fitting the random forest models, which is designed to operate on a slurm computing cluster.  The `fitting_functions.R` script contains the functions used to analyze the fit of the random forest models. the `get_split_pds.R` script loads the random forest model and calculates the partial dependence invidually for present and absent observations, which is also written to parallel process the data using MPI. 
 
-The `plot_rf_output.R` script plots the outcomes for the training and testing datasets across space, which is seen in  ${\color{DarkOrchid}{\textbf{Supplementary Figures 6-7 and 12-13}}}$.
+The `plot_rf_output.R` script plots the outcomes (true positive, true negative, false positive, false_negative) for the training and testing datasets across space, which is seen in  ${\color{DarkOrchid}{\textbf{Supplementary Figures 6-7 and 12-13}}}$. The `plot_outcomes_indiv.R` script plots the boxplots for each predictor variables across outcomes for ${\color{DarkOrchid}{\textbf{Supplementary Figures 8-11}}}$. The script also calculates the Hodges-Lehmann estimator, which measures the median of all possible paired differences in the weather variables between two groups shifts, using the Mann-Whitney test for each pair of outcomes.
 
 ## Model comparison
 
-
+The script `plot_states_lags.R` in the `model_comparison` directory compares the random forest models trained using current weather variables only to models with current and lagged weather variables using common metrics. The script produces the graphs underlying ${\color{DarkOrchid}{\textbf{Figure 4 and Supplementary Figure 5}}}$. The `variable_importance.R` script calculates the variable importance using the Mean Decrease in Gini Index and Mean Decrease in Acccuracy, which is shown in ${\color{DarkOrchid}{\textbf{Supplementary Figures 14-16}}}$. The `partial_dependence.R` script graphs the partial dependence for the models, shown in ${\color{DarkOrchid}{\textbf{Supplementary Figures 17-22}}}$. The variable importance rankings and ranges for high predicted presence are calculated in this script, and can be found in ${\color{DarkOrchid}{\textbf{Table 1}}}$.
 
 ## CMIP6 Climate Projections
 

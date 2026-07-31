@@ -5,5 +5,5 @@
 ## Install multiple packages
 install.packages(c("tidyverse","gridExtra","raster","sp",
                    "geodata","dismo","deldir",'geonames',
-                   'randomForest','MESS','scico','sf'),
+                   'randomForest','MESS','scico','sf', 'cowplot'),
                  dependencies = T)

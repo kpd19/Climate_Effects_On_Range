@@ -55,3 +55,16 @@ population_records <- population_records %>% mutate(lat_coord = round(lat/0.25)*
 
 write_csv(population_records, "data/population_records.csv")
 
+###################
+###################
+###################
+
+population_records <- read_csv("data/population_records_1947-2025.csv")
+
+pdf("figures/num_records.pdf",height = 4, width = 8)
+population_records %>% #filter(source != "iNaturalist") %>% 
+  ggplot() + aes(x = year) + geom_bar() + 
+  facet_wrap(~source, scales = 'free_y') + 
+  theme_bw() +
+  xlab("Year") + ylab("Number of Records")
+dev.off()
