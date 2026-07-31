@@ -106,15 +106,25 @@ lag_temp <- 15
 lag_rh <- 15
 lag_pr <- 15
 
-temp_vars <- ann_weather_stats %>% select(lat,lon,year,min_t2m,max_t2m,coldest,julian,gdd_season) %>% 
-  mutate(year = year + lag_temp)
-pr_vars <- ann_weather_stats %>% select(lat,lon,year,min_tp,max_tp,sum_tp) %>% 
-  mutate(year = year + lag_pr)
-rh_vars <- ann_weather_stats %>% select(lat,lon,year,min_rh,max_rh) %>% 
-  mutate(year = year + lag_rh)
-
-lagged_weather <- merge(temp_vars,pr_vars)
-lagged_weather <- merge(lagged_weather, rh_vars)
+if(lag_temp >0){
+  temp_vars <- ann_weather_stats %>% select(lat,lon,year,min_t2m,max_t2m,coldest,julian,gdd_season) %>%
+    mutate(year = year + lag_temp) %>%
+    rename(min_t2m_lag = min_t2m, max_t2m_lag = max_t2m, coldest_lag = coldest,
+           julian_lag =julian,gdd_season_lag = gdd_season)
+  pr_vars <- ann_weather_stats %>% select(lat,lon,year,min_tp,max_tp,sum_tp) %>%
+    mutate(year = year + lag_pr) %>% rename(min_tp_lag = min_tp,max_tp_lag = max_tp,sum_tp_lag = sum_tp)
+  rh_vars <- ann_weather_stats %>% select(lat,lon,year,min_rh,max_rh) %>%
+    mutate(year = year + lag_rh) %>% rename(min_rh_lag = min_rh, max_rh_lag = max_rh)
+  
+  lagged_weather <- merge(temp_vars,pr_vars)
+  lagged_weather <- merge(lagged_weather, rh_vars)
+  
+  lagged_weather <- merge(ann_weather_stats, lagged_weather)
+  
+} else{
+  lagged_weather <- ann_weather_stats 
+  
+}
 
 test_all_lag0 <- merge(test_all,lagged_weather, by.x = c('lat_coord','lon_coord','year'), by.y = c('lat','lon','year'))
 
@@ -130,11 +140,28 @@ updated_df <- rbind(period1,period2)
 
 var_names_long <- read_csv("data/var_names_pa2.csv")
 
-keep_col <- var_names_long %>% filter(Use ==1) %>% pull(variables)
+keep_col <- var_names_long %>% filter(Use_newtree ==1) %>% pull(variables)
 
-remove_cols <- c() #c('min_tp','min_t2m','sum_tp','max_tp')
+if(lag_temp >0){
+  remove_cols <- c() 
+} else {
+  remove_cols <- c('max_rh_lag','max_t2m_lag','max_tp_lag','min_rh_lag',
+                   'min_t2m_lag', 'min_tp_lag','coldest_lag','julian_lag',
+                   'sum_tp_lag','gdd_season_lag') 
+  
+}  
 
 keep_col <- keep_col[keep_col %ni% remove_cols]
+
+if(lag_temp >0){
+  rf_train_lag0 <- updated_df %>% select('present',c(keep_col))  %>%
+    mutate(present = ifelse(present == 1, 'present','absent')) %>%
+    mutate(present = factor(present, levels = c('present','absent'))) %>% drop_na(julian) %>% drop_na(julian_lag)
+} else {
+  rf_train_lag0 <- updated_df %>% select('present',c(keep_col))  %>%
+    mutate(present = ifelse(present == 1, 'present','absent')) %>%
+    mutate(present = factor(present, levels = c('present','absent'))) %>% drop_na(julian)
+}
 
 rf_train_lag0 <- updated_df %>% select('present',c(keep_col))  %>%
   mutate(present = ifelse(present == 1, 'present','absent')) %>%
@@ -167,7 +194,7 @@ rocl0 <- rocl0 %>% mutate(lag_pr = lag_pr,
                           lag_temp = lag_temp)
 
 
-thresh <- rocl0[rocl0$maximized == 1,]$thresh
+thresh <- 0.325
 
 stats <- get_stats(rfl0[rfl0$dataset == 'testing',], thresh = thresh)
 
@@ -181,22 +208,24 @@ stats2 <- stats2 %>%  mutate(lag_pr = lag_pr,
                              lag_rh = lag_rh, 
                              lag_temp = lag_temp)
 
-write_csv(stats1, paste0("output/stats_update_lag",lag_temp,lag_pr,lag_rh,".csv"))
-write_csv(stats2, paste0("output/nums_update_lag",lag_temp,lag_pr,lag_rh,".csv"))
-write_csv(rocl0, paste0("output/roc_update_lag",lag_temp,lag_pr,lag_rh,".csv"))
-write_csv(rfl0, paste0("output/predictions_update_lag",lag_temp,lag_pr,lag_rh,".csv"))
+thresh_vals <- seq(0.0,1.0,0.025)
 
-var_imp_all <- data.frame(importance(rf_model))
-var_imp_all$variables <- rownames(var_imp_all)
+stats_thresh <- c()
+for(j in 1:length(thresh_vals)){
+  temp_stats <- get_stats_thresh(rfl0[rfl0$dataset == 'testing',], thresh = thresh_vals[j])
+  temp_stats$thresh <- thresh_vals[j]
 
-var_imp_all <- merge(var_names_long,var_imp_all)
 
-imp_vars <- var_imp_all %>% filter(MeanDecreaseGini >0) %>% arrange(desc(MeanDecreaseGini)) %>% head(15)
+  stats_thresh <- rbind(stats_thresh,temp_stats)
 
-all_pds <- foreach(i = 1:15, .combine = 'rbind') %dopar% 
-  get_conf_int(rf_model, rf_train_lag0,imp_vars$variables[i],imp_vars$type[i], mod = 'rf')
+}
 
-write_csv(all_pds, paste0("output/partial_dependence_update_lag",lag_temp,lag_pr,lag_rh,".csv"))
+write_csv(stats1, paste0("rf_output6/stats_update_0_lag",lag_temp,lag_pr,lag_rh,".csv"))
+write_csv(stats2, paste0("rf_output6/nums_update_0_lag",lag_temp,lag_pr,lag_rh,".csv"))
+write_csv(rocl0, paste0("rf_output6/roc_update_0_lag",lag_temp,lag_pr,lag_rh,".csv"))
+write_csv(rfl0, paste0("rf_output6/predictions_update_0_lag",lag_temp,lag_pr,lag_rh,".csv"))
+write_csv(stats_thresh, paste0("rf_output6/thresh_update_0_lag",lag_temp,lag_pr,lag_rh,".csv"))
+write_csv(rf_train_lag0, paste0("rf_output6/training_update_0_lag",lag_temp,lag_pr,lag_rh,".csv"))
 
 closeCluster(cl)
 mpi.quit()
