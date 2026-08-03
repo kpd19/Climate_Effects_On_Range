@@ -1,10 +1,10 @@
 # Summary
 
-This library contains code used in the manuscript titled Climate Change is Projected to Expand the Range and Outbreak Severity of an Important Forest Pest. This paper uses field and citizen science collected data to explore the effects of habitat and weather features on the range of populations of the Douglas-fir tussock moth. The model and analysis are implemented in R and Python. 
+This library contains code used in the manuscript titled Climate Change Driven Range Expansion in a Forest Pest Depends on Both Current and Historical Weather. This paper uses field and citizen science collected data to explore the effects of habitat and weather features on the range of populations of the Douglas-fir tussock moth. The model and analysis are implemented in R and Python. 
 
 ## Requirements and Setup
 
-The code was built using R version 4.3.2 and Python version 3.10.12. R can be downloaded [here](https://www.r-project.org). Python can be installed via Anaconda [here](https://docs.anaconda.com/anaconda/install/), and can be operated using the Jupyter Notebook Extension in Visual Studio Code Editor, which can be downloaded [here](https://code.visualstudio.com/download). The code requires several packages that are not part of the base R installations. After installing R, navigate to the main repository directory and run the installation.R script to install necessary packages. The Python packages used in this research are `numpy`, `xarray`, `pandas`, `datetime`, `flox`, `glob`, and `os`. 
+The code was built using R version 4.3.2 and Python version 3.10.12. R can be downloaded [here](https://www.r-project.org). Python can be installed via Anaconda [here](https://docs.anaconda.com/anaconda/install/), and can be operated using the Jupyter Notebook Extension in Visual Studio Code Editor, which can be downloaded [here](https://code.visualstudio.com/download). The code requires several packages that are not part of the base R installations. After installing R, navigate to the main repository directory and run the `installation.R` script to install necessary packages. The Python packages used in this research are `numpy`, `xarray`, `pandas`, `datetime`, `flox`, `glob`, and `os`. 
 
 ## Aggregating spatio-temporal Douglas-fir tussock moth population data 
 
