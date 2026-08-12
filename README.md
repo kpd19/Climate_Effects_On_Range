@@ -59,7 +59,7 @@ To make projections under climate change, we used a ensemble of 10 models from t
 * Medium sensitivity (3-4.5&deg;C) GFDL-ESM4, EC-Earth3-Veg-LR, KACE-1-0-G, ACCESS-ESM1-5
 * High sensitivity (4.5-6&deg;C) CNRM-ESM2-1 f2, HadGEM3-GC31-MM-f3, CANESM5 p1
 
-The script `project_rf_indiv_synthetic.R` in the `projections` directory makes projections of the range of the Douglas-fir tussock moth under climate change for the 10 model ensemble. In the script, the plots for  ${\color{DarkOrchid}{\textbf{Supplementary Figures 24-28}}}$ are generated. 
+The script `project_rf_indiv_synthetic.R` in the `projections` directory makes projections of the range of the Douglas-fir tussock moth under climate change for the 10 model ensemble. In the script, the plots for  ${\color{DarkOrchid}{\textbf{Supplementary Figures 24-28}}}$ are generated. The script `relative_humidity_bias.R` analyses the distribution of relative humidity for historical weather data and climate projections and creates the plots for ${\color{DarkOrchid}{\textbf{Supplementary Figures 25}}}$.
 
 ## Making projections under forest composition change
 
