@@ -3,6 +3,8 @@ library(geosphere)
 library(cowplot)
 library(gridExtra)
 
+`%ni%` <- Negate(`%in%`)
+
 all_geo2 <- st_read("../landscape/gadm/all_geo2.shp")
 
 habitat_features <- read_csv("../landscape/data/all_habitat_features.csv")
@@ -37,6 +39,8 @@ population_records2 %>%
   theme(legend.position = 'none')
 
 population_records2 <- population_records2 %>% filter(period != "Pre-1985")
+
+population_records2[!duplicated(population_records2),]
 
 population_records2 %>% count(period)
 
@@ -141,23 +145,31 @@ diff_df2 <- means_df2 %>% mutate(diff = round(med_elev_p2 - med_elev_p1,0)) %>% 
   mutate(isneg = ifelse(diff  <= 0, TRUE, FALSE)) %>% mutate(label = ifelse(isneg == TRUE, paste0(diff,"m"), paste0("+",diff,"m")))
 
 plt1 <- population_records2 %>% filter(source %in% in2, manual_id %ni% c(50445, 50381)) %>% mutate(bin_lat = round(lat/bin)*bin,
-                                                                   bin_elev = round(elev2/100)*100) %>%  
-  ggplot() + aes(x = bin_lat, y = elev2, group = interaction(period,bin_lat), color = period, fill = period) +
-  geom_boxplot(alpha = 0.4, width = 1.2, position = position_dodge(width = 2.0)) + theme_classic(base_size = 15)  +
+                                                                                           bin_elev = round(elev2/100)*100) %>% 
+  mutate(bin_lat2 = ifelse(period == "2011-2025", bin_lat + 0.3, bin_lat - 0.3)) %>% 
+  ggplot() + aes(x = jitter(bin_lat2), y = elev2, group = interaction(period,bin_lat2), color = period, fill = period) +
+  geom_point(alpha = 0.5, size = 0.5) +
+  geom_segment(data = means_df2, aes(x = bin_lat -0.5, xend = bin_lat - 0.1, y = med_elev_p1),
+               color = "black", inherit.aes = FALSE, size = 1.2) +
+  geom_segment(data = means_df2, aes(x = bin_lat +0.5, xend = bin_lat + 0.1, y = med_elev_p2),
+               color = "black", inherit.aes = FALSE, size = 1.2) +
+  #geom_boxplot(alpha = 0.4, width = 1, position = position_dodge(width = 1.8), outlier.size = 1, outlier.alpha = 0.5, outlier.shape = 20) +
+  theme_classic(base_size = 15)  +
   scale_color_brewer("", palette = "Dark2") + 
   scale_fill_brewer("", palette = "Dark2") + 
   ylab("Elevation (m)") + xlab(expression("Latitude")) +
   geom_segment(data = means_df2, aes(x = bin_lat, y = med_elev_p1, xend = bin_lat, yend = med_elev_p2),
-               arrow = arrow(length = unit(0.2,'cm')), color = 'black', size = 1, alpha = 1, inherit.aes =FALSE) +
-  geom_text(data = diff_df2, aes(x = bin_lat, y = 3900, label = label),
+               arrow = arrow(length = unit(0.2,'cm')), color = 'black', size = 0.75, alpha = 1, inherit.aes =FALSE) +
+  geom_text(data = diff_df2, aes(x = bin_lat, y = 3850, label = label),
             color = 'black', size = 5, alpha = 1, inherit.aes = FALSE, hjust = 0) +
   theme(legend.position = 'top') +
-  # geom_text(data = means_df2, aes(x = bin_lat - 0.45, y = 4300, label = n_p1),
-  #           color = '#1b9e77', size = 3.5, alpha = 1, inherit.aes = FALSE, hjust = 0.5) +
-  # geom_text(data = means_df2, aes(x = bin_lat + 0.45, y = 4300, label = n_p2),
-  #           color = '#d95f02', size = 3.5, alpha = 1, inherit.aes = FALSE, hjust = 0.5) + 
-  scale_x_continuous(breaks = c(seq(32,52,2)), labels = function(x) paste0(x, "\u00b0N"), limits = c(31,53)) + coord_flip() + 
-  scale_y_continuous(limits = c(0,4150))
+  geom_text(data = means_df2, aes(x = bin_lat - 0.45, y = 4475, label = n_p1),
+            color = '#1b9e77', size = 3, alpha = 1, inherit.aes = FALSE, hjust = 0.5) +
+  geom_text(data = means_df2, aes(x = bin_lat + 0.45, y = 4475, label = n_p2),
+            color = '#d95f02', size = 3, alpha = 1, inherit.aes = FALSE, hjust = 0.5) +
+  scale_x_continuous(breaks = c(seq(32,52,2)), labels = function(x) paste0(x, "\u00b0N"), limits = c(31.3,52.7)) +
+  coord_flip() + 
+  scale_y_continuous(limits = c(0,4500))
 
 plt2 <- ggplot() + geom_sf(data = all_geo2, aes(geometry = geometry), fill = 'grey90', color = 'grey35')  + 
   geom_tile(data = obs_per2, aes(x = lon_coord, y = lat_coord, fill = bin)) + 
@@ -262,34 +274,45 @@ obs_per2 %>% ungroup() %>% count(bin) %>% mutate(p = n/length(obs_per2$lat_coord
 diff_df2_noiNat <- means_df2_noiNat %>% mutate(diff = round(med_elev_p2 - med_elev_p1,0)) %>% select(bin_lat, diff) %>% 
   mutate(isneg = ifelse(diff  <= 0, TRUE, FALSE)) %>% mutate(label = ifelse(isneg == TRUE, paste0(diff,"m"), paste0("+",diff,"m")))
 
-plt1 <- population_records2 %>% filter(source %in% in1) %>% mutate(bin_lat = round(lat/bin)*bin,
-                                                                                bin_elev = round(elev2/100)*100) %>%  
-  ggplot() + aes(x = bin_lat, y = elev2, group = interaction(period,bin_lat), color = period, fill = period) +
-  geom_boxplot(alpha = 0.4, width = 1.2, position = position_dodge(width = 2.0)) + theme_classic(base_size = 15)  +
+plt1 <- population_records2 %>% filter(source %in% in1, manual_id %ni% c(50445, 50381)) %>% mutate(bin_lat = round(lat/bin)*bin,
+                                                                                                   bin_elev = round(elev2/100)*100) %>% 
+  mutate(bin_lat2 = ifelse(period == "2011-2025", bin_lat + 0.3, bin_lat - 0.3)) %>% 
+  ggplot() + aes(x = jitter(bin_lat2), y = elev2, group = interaction(period,bin_lat2), color = period, fill = period) +
+  geom_point(alpha = 0.5, size = 0.5) +
+  geom_segment(data = means_df2_noiNat, aes(x = bin_lat -0.5, xend = bin_lat - 0.1, y = med_elev_p1),
+               color = "black", inherit.aes = FALSE, size = 1.2) +
+  geom_segment(data = means_df2_noiNat, aes(x = bin_lat +0.5, xend = bin_lat + 0.1, y = med_elev_p2),
+               color = "black", inherit.aes = FALSE, size = 1.2) +
+  #geom_boxplot(alpha = 0.4, width = 1, position = position_dodge(width = 1.8), outlier.size = 1, outlier.alpha = 0.5, outlier.shape = 20) +
+  theme_classic(base_size = 15)  +
   scale_color_brewer("", palette = "Dark2") + 
   scale_fill_brewer("", palette = "Dark2") + 
   ylab("Elevation (m)") + xlab(expression("Latitude")) +
   geom_segment(data = means_df2_noiNat, aes(x = bin_lat, y = med_elev_p1, xend = bin_lat, yend = med_elev_p2),
-               arrow = arrow(length = unit(0.2,'cm')), color = 'black', size = 1, alpha = 1, inherit.aes =FALSE) +
-  geom_text(data = diff_df2_noiNat, aes(x = bin_lat, y = 3900, label = label),
+               arrow = arrow(length = unit(0.2,'cm')), color = 'black', size = 0.75, alpha = 1, inherit.aes =FALSE) +
+  geom_text(data = diff_df2_noiNat, aes(x = bin_lat, y = 3850, label = label),
             color = 'black', size = 5, alpha = 1, inherit.aes = FALSE, hjust = 0) +
   theme(legend.position = 'top') +
-  scale_x_continuous(breaks = c(seq(32,52,2)), labels = function(x) paste0(x, "\u00b0N"), limits = c(31,53)) + coord_flip() + 
-  scale_y_continuous(limits = c(0,4150))
-
-plt2 <- ggplot() + geom_sf(data = all_geo2, aes(geometry = geometry), fill = 'grey90', color = 'grey35')  + 
-  geom_tile(data = obs_per2, aes(x = lon_coord, y = lat_coord, fill = bin)) + 
-  theme_classic(base_size = 15) +
-  scale_fill_manual("", values = c("1985-2010 only" = "#1b9e77", "2011-2025 only" = '#d95f02', 'Both time periods' = '#FFCC33'))+
-  coord_sf(ylim = c(31,53), xlim = c(-128.125,-103.875))  + 
-  theme(legend.position = 'top') + 
-  xlab("Longitude") + ylab("Latitude") + 
-  scale_y_continuous(breaks = c(seq(32,52,2)))
+  geom_text(data = means_df2, aes(x = bin_lat - 0.45, y = 4475, label = n_p1),
+            color = '#1b9e77', size = 3, alpha = 1, inherit.aes = FALSE, hjust = 0.5) +
+  geom_text(data = means_df2, aes(x = bin_lat + 0.45, y = 4475, label = n_p2),
+            color = '#d95f02', size = 3, alpha = 1, inherit.aes = FALSE, hjust = 0.5) +
+  scale_x_continuous(breaks = c(seq(32,52,2)), labels = function(x) paste0(x, "\u00b0N"), limits = c(31.3,52.7)) +
+  coord_flip() + 
+  scale_y_continuous(limits = c(0,4500))
 
 pdf("figures/option4_noiNat2.pdf", height = 8.5, width = 14)
 grid.arrange(plt2, plt1,nrow = 1, widths = c(1,1))
 dev.off()
 
+#################
+#################
+
+population_records2 %>% filter(source %in% in2) %>% count(period)
+population_records2 %>% filter(source %in% in1) %>% count(period)
+
+obs_per2 %>% ungroup() %>% count(bin)
+obs_per_noiNat2 %>% ungroup() %>% count(bin)
 
 #################
 #################
